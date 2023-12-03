@@ -1,0 +1,17 @@
+.referencePage{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+body{
+    background: var(--color-blanche-2);
+}
+nav{
+    background: var(--color-blanche-1);
+    height: 70px;
+}
+main{
+    width: 100%;
+    height: 100%;
+    background: var(--color-blanche-2);
+}

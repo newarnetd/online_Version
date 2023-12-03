@@ -1,0 +1,155 @@
+body{
+    background:var(--color-blanche-2);
+    color: var(--color-text);
+}
+.ReferencePage{
+    background:var(--color-blanche-2);
+    height:100vh;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap:50px;
+}
+.leftside
+{
+    background: transparent;
+    width:40%;
+    align-items: start;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.containeurInputStyle.password i{
+    cursor: pointer;
+    color: var(--color-text);
+}
+.containeurInputStyle.password i.fa-solid.fa-eye{
+    display:none;
+}
+.FormConnexion{
+    width: 100%;
+    padding: 7px;
+    background: var(--color-blanche-1);
+    box-shadow: var(--boxshadow_section_blanche);
+    border-radius: var(--border-boutons);
+    display: flex;
+    overflow: hidden;
+    height: 500px;
+    align-items: start;
+    justify-content:flex-start;
+    flex-direction: column;
+    position: relative;
+    
+}.Right_side{
+    width:35%;
+    transition:all .2s ease;
+    display: flex;
+}
+
+.text_the_newaRnet{
+opacity:.6;
+font-size:15px;
+display: flex;
+align-items:start;
+}
+.block_boutons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: var(--mesure-center);
+}
+.block_boutons div{
+    background: var(--color-blanche-1);
+    color: var(--color-text);
+    padding: 15px;
+    cursor: pointer;
+    border-radius: var(--border-boutons);
+    box-shadow: var(--boxshadow_section_blanche);
+}
+.leftside .text_demos{
+    opacity:.8;
+}
+.block_boutons{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    gap:10px;
+    width: 100%;
+    margin: 40px auto;
+}
+.containeurInputStyle input{
+    width: 100%;
+    height: 100%;
+}
+i{
+    color: var(--color-icons_Theme_blanche);
+}
+.containeurInputStyle{
+    width:100%;
+    display:flex;
+    align-items: center;
+    color: var(--color-text);
+    background: var(--color-blanche-2);
+    height: 55px;
+    padding:var(--padding_boutons);
+    margin-bottom: 5px;
+    border-radius: var(--border-boutons);
+}
+.class_boutons_asisstence i{
+    padding-left: 13px;
+}
+.connectionBtn.login{
+    width:60%;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    background: var(--color-titre_newarnet);
+    color: #FFF;
+    height: 55px;
+    border-radius: var(--border-boutons);
+    justify-content: center;
+    cursor: pointer;
+
+}
+.text_coventions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width:95%;
+    opacity: .7;
+    font-size: 14px;
+    margin:15px auto;
+    color: var(--color-text); 
+}
+.bottom_text .text_coventions{
+    border-top:1px solid var(--color-icons_Theme_blanche);
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width:95%;
+    opacity: .7;
+    font-size: 14px;
+    margin:15px auto;
+    color: var(--color-text);
+}
+.connectionBtn.sign_up{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:80%;
+    background:var(--color-blue);
+    height: 55px;
+    color: #e8e8e8;
+    margin: 40px auto;
+    border-radius: var(--border-boutons);
+    padding: var(--padding_boutons);
+}
+
+.bottom_text{
+    position:absolute;
+    bottom: 10px;
+}

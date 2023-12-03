@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;1,200&family=Poppins:ital,wght@0,300;0,400;0,500;1,600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400&display=swap');
+:root{
+    --color-blanche-1:#ffffff;
+    --color-blanche-2:#d5d5d5;
+    --color-Noire-1:#08141a;
+    --color-Noire-2:#243639;
+    --color-text:#100f0f;
+    --color-icons_Theme_blanche:#BDBDBD;
+    --color-icons_Theme_noire:#7c7c7c;
+    --color-primary:#075E54;
+    --swiper-theme-color:var(--color-primary);
+    --boxshadow_section_blanche: 0px 4px 10px rgba(0, 0, 0,.2);
+    --color-titre_newarnet:#2f534f;
+    --color-blue:rgba(115, 130, 148, 0.935);
+    --color-jaune:rgba(255, 166, 0, 0.863);
+    --color-green:rgba(10, 123, 10, 0.942);
+    --color-bordure-noire:rgba(0,0,0,.2);
+    --color-red-1:rgb(255, 40, 40);
+    --color-red-2:rgb(167, 31, 31);
+    /* LES MESURES DE L'INTERFACE */
+    --padding_boutons:10px 12px;
+    --border-radius_cercle:50%;
+    --border-boutons:5px;
+    --color-border-radius-arond:30px;
+    --mesure-center:0 auto;
+    --z-index-1:1000;
+    --z-index-2:100;
+    --z-index-3:10;
+}
+*{
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    color: var(--color-text);
+    user-select:text;
+}
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video,hr {
+    font: inherit;
+    font-family: 'Poppins', sans-serif;
+    font-size: 100%;
+    vertical-align: initial;
+    outline: none;
+    border: none;
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+    color: var(--color-text);
+    margin: 0;
+    border: 0;
+}
+/* Pour les navigateurs WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 7px;/* Largeur de la barre de défilement */
+    cursor:pointer;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color:var(--color-primary);
+    display:none; /* Couleur du "thumb" (la partie déplaçable de la barre de défilement) */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color:var(--color-text); /* Couleur du "thumb" au survol */
+    display:flex;
+    cursor:pointer;
+  }
+  
+  /* Pour les autres navigateurs */
+  scrollbar {
+    width: 7px; /* Largeur de la barre de défilement */
+    cursor:pointer;
+  }
+  scrollbar-thumb {
+    background-color:var(--color-primary); /* Couleur du "thumb" (la partie déplaçable de la barre de défilement) */
+    display:none;
+  }
+  
+  scrollbar-thumb:hover {
+    background-color:var(--color-text); /* Couleur du "thumb" au survol */
+    display:flex;
+    cursor:pointer;
+  }
+  textarea {
+    scrollbar-width: thin; /* Pour Firefox */
+    scrollbar-color: transparent transparent; /* Pour Firefox */
+    -ms-overflow-style: none; /* Pour Internet Explorer et Microsoft Edge */
+    overflow-y: scroll; /* Pour les autres navigateurs */
+    width: 100%;
+    resize: none;
+  }
+  i{
+    cursor: pointer;
+    color: var(--color-icons_Theme_noire);
+  }
+input,textarea,button{
+    background: transparent;
+    color: var(--color-text);
+    border: none;
+    outline: none;
+}
+.interd{
+    pointer-events: none !important;
+    cursor: not-allowed !important;
+    user-select: none !important;
+    cursor:none !important;
+    pointer-events: none !important;
+    cursor: not-allowed !important;
+    user-select: none !important;
+    -webkit-touch-callout: none !important; /* Désactive le menu contextuel sur iOS */
+    -webkit-user-drag: none !important; /* Empêche le glisser-déposer sur iOS */
+}
+.titre_animation{
+  color: transparent;
+  font-size: 50PX;
+  -webkit-text-stroke:  6px var(--color-titre_newarnet) !important;
+  -webkit-background-clip: text;
+  background-size: contain;
+  background-position: 0 0;
+  }
+  .userphoto{
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius_cercle);
+    cursor: pointer;
+    object-fit: cover;
+  }

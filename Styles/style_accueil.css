@@ -1,0 +1,446 @@
+body{
+    background: var(--color-blanche-2);
+}
+.containerPage{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    
+}
+nav{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    position:fixed;
+    top:0px;
+    z-index: var(--z-index-1);
+    background: var(--color-blanche-1);
+}
+.leftnav input{
+    width: 100%;
+    height: 100%;
+    padding: 0 13px;
+}
+.leftnav{
+    width:30%;
+    background: var(--color-blanche-2);
+    border-radius: var(--color-border-radius-arond);
+    height: 100%;
+    padding: var( --padding_boutons);
+}
+nav div{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.iconsNav{
+    gap:15px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.iconDiv i{
+    color: var(--color-icons_Theme_noire);
+    font-weight: bold;
+}
+.iconDiv{
+    height: 50px;
+    cursor: pointer;
+    width:50px;
+    background: var(--color-blanche-2);
+    box-shadow: var(--boxshadow_section_blanche);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius_cercle);
+}
+.titre_animation.accueil{
+    font-size: 30PX;
+  -webkit-text-stroke:  4px var(--color-titre_newarnet) !important;
+}
+main{
+    width:100%;
+    height:100%;
+    display: flex;
+    gap:10px;
+    margin:10px;
+    margin-top:80px;
+    position: relative;
+}
+.centre_session{
+    width: 40%;
+    margin-left:20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.iconcontainerOption{
+    padding: 10px 20px;
+    cursor: pointer;
+    gap:15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+}
+.sesionOption{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    justify-content: flex-start;
+}
+.droite_session{
+    flex-direction: column;
+    width:38%;
+    position:fixed;
+    top:70px;
+    right:0;
+    flex-direction: column;
+    align-items: start;
+}
+
+.leftmain,.droite_session{
+    height:100vh;
+    display: flex;
+    /* background: var(--color-blanche-2); */
+    flex-direction: column;
+    display: flex;
+    align-items: flex-start;
+}
+.leftmain{
+    width:20%;
+    position:fixed;
+    top:100px;
+}
+.iconcontainerOption i{
+    color: var(--color-icons_Theme_noire);
+}
+.containerFrinds p{
+    font-size: 13px;
+    color:var(--color-text);
+    opacity:.7;
+}
+.containerFrinds{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap:10px;
+    flex-direction: column;
+    
+}
+.imageStoryContainer{
+    
+    width:70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.storys_users{
+    width: 100%;
+    display: flex;
+    gap:10px;
+
+    align-items: center;
+}
+.coverImage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:95%;
+    height: 95%;
+    border-radius: var(--border-radius_cercle);
+    box-shadow: var(--boxshadow_section_blanche);
+    
+    
+    
+}
+.imageStoryContainer  .coverImage img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: var(--border-radius_cercle);
+    
+}
+.FormPost{
+    width:100%;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-blanche-1);
+    border-radius:var(--border-boutons);
+    padding:3px;
+    box-shadow: var(--boxshadow_section_blanche);
+    margin: 15px auto;
+}
+.formulaire{
+    display: flex;
+    width:100%;
+    margin:10px auto;
+    justify-content: center;
+    gap:10px;
+}
+.textChamp{
+    background: var(--color-blanche-2);
+    width: 80%;
+    display: flex;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 0px  12px;
+    height: 60px;
+}
+
+.iconsPost .rightIcons{
+    border: 1px solid var(--color-blanche-2);
+    color: var(--color-text);
+    padding: var(--padding_boutons);
+    cursor: pointer;
+    border-radius:var(--border-boutons);
+}
+.formulaire .iconDiv{
+    background:var(--color-blanche-2);
+    color: var(--color-text);
+    
+}
+.iconsPost .leftIcon .iconDiv{
+    border: 1px solid var(--color-blanche-2);
+    background: none;
+    box-shadow: none;
+}
+.iconsPost .rightIcons.newarnetphoto{
+    border: 1px solid var(--color-blanche-2);
+    font-size: 14px;
+    color: var(--color-text);
+}
+.rightIcons.newarnetphoto i{
+    padding-left: 10px;
+    color: #FFF;
+    
+}
+.leftIcon{
+    display: flex;
+    align-items: center;gap:10px;
+}
+.iconsPost{
+    width: 90%;
+    margin:10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.carterPoste img{
+    width:100%;
+    height: 100%;
+    cursor: pointer;
+}
+.carterPoste{
+    width:80%;
+    margin: 5px auto;
+    border: 1px solid var(--color-bordure-noire);
+    border-radius: var(--border-boutons);
+    box-shadow: var(--boxshadow_section_blanche);
+    background: var(--color-blanche-1);
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+}
+
+.blocHead{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px;
+}
+.cartePhoto{
+    width: 60px;
+    height: 60px;
+    border-radius: var(--border-radius_cercle);
+    background: var(--color-blanche-2);
+    
+}
+.nameUser small{
+    font-size: 12px;
+}
+.nameUser{
+    display: flex;   
+    align-items:start;
+    line-height: 20px;
+    flex-direction: column;
+}
+.left_userpost .fa-solid.fa-earth-africa{
+padding-left:10px;
+}
+.blocHead .rightmenu .iconDiv:hover{
+    background: var(--color-blanche-2);
+    box-shadow: var(--boxshadow_section_blanche);
+}
+.blocHead .rightmenu .iconDiv{
+    background: transparent;
+    box-shadow: none;
+    font-size: 20px;
+    
+}
+.left_userpost{
+    display: flex;
+    align-items: start;
+    gap:10px;
+}
+.corpPost img{
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+}
+.corpPost{
+    background:var(--color-blanche-2);
+    max-height: 400px;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+.bottomIocnsEmotion{
+    display: flex;
+    align-items: center;
+    width:100%;
+    justify-content: space-around;
+    padding:14px;
+}
+.emotionIcons span{
+    font-size: 13px;
+}
+.emotionIcons{
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background: var(--color-blanche-2);
+    border-radius:20px;
+    gap:10px;
+    box-shadow: var(--boxshadow_section_blanche);
+}
+.headerSesionRight{
+    width: 100%;
+}
+.headerSesionRight{
+    background: var(--color-blanche-1);
+    width: 90%;
+    margin: 10px auto;
+    display:flex;
+    flex-direction: column;
+    padding: 20px;
+    gap:15px;
+    border-radius: 5px 5px 0 0 ;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.menuRight{
+    display: flex;
+    gap:10px;
+    width: 100%;
+    justify-content: space-around;
+}
+.menuRight .menuOptionRight{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap:10px;
+    padding: 6px 13px;
+    border-radius:var(--border-boutons);
+    position: relative;
+    
+}
+.searchRight input{
+    width:100%;
+    padding-left: 15px;
+}
+.searchRight{
+    background:var(--color-blanche-2);
+    width:100%;
+    height:50px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: var(--color-border-radius-arond);
+
+}
+.menuOptionRight.active{
+    border: 1px solid var(--color-blanche-2);
+}
+.containerFriends{
+    width: 90%;
+    flex-direction: column;
+    display: flex;
+    align-items:start;
+    justify-content: flex-start;
+    margin: 10px auto;
+}
+.userPhotoCarte{
+    width:90px;height:90px;border-radius: var(--border-radius_cercle);
+    background: var(--color-blanche-2);
+}
+.boutonsUserConfirme{
+    display: flex;
+    align-items: center;
+}
+.identiteUse{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:10px;
+    width: 100%;
+}
+.boutonsUserConfirme{
+    gap:10px;
+    display: flex;
+}
+.boutonAdmettre{
+    display: flex;
+    width:100%;
+    align-items: center;
+    justify-content: flex-start;
+    padding: var(--padding_boutons);
+    color: var(--color-text);
+    border-radius: var(--border-boutons);
+    background: rgb(68, 143, 68);
+    color: #FFF;
+}
+.containeurRight{
+    width:90%;
+    margin:0 auto;
+    max-height: 63vh;
+    background: var(--color-blanche-1);
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+.supprimerBtn.boutonAdmettre{
+    background: var(--color-blanche-2);
+    color: var(--color-text);
+}
+.carteFriends{
+    background: var(--color-blanche-1);
+    width:300px;
+    height: 350px;
+    border-radius: var(--border-boutons);
+    box-shadow: var(--boxshadow_section_blanche);
+    flex-direction: column;
+}
+.headerImage{
+    width:100%;
+    height: 70%;
+    background: var(--color-blanche-2);
+}
+.bottomFriendscarte{
+    width:100%;
+    height: 30%;
+}
