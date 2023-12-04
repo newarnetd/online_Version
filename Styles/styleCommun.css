@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;1,200&family=Poppins:ital,wght@0,300;0,400;0,500;1,600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400&display=swap');
 :root{
     --color-blanche-1:#ffffff;
-    --color-blanche-2:#d5d5d5;
+    --color-blanche-2:#ebebeb;
     --color-Noire-1:#08141a;
     --color-Noire-2:#243639;
     --color-text:#100f0f;
@@ -13,8 +13,10 @@
     --color-titre_newarnet:#2f534f;
     --color-blue:rgba(115, 130, 148, 0.935);
     --color-jaune:rgba(255, 166, 0, 0.863);
-    --color-green:rgba(10, 123, 10, 0.942);
-    --color-bordure-noire:rgba(0,0,0,.2);
+    --swiper-theme-color: var(--color-primary);
+    --color-greenNoire: rgb(41, 41, 41);
+    --color-green:#075e54;
+    --color-bordure-noire:rgba(0, 0, 0, 0.042);
     --color-red-1:rgb(255, 40, 40);
     --color-red-2:rgb(167, 31, 31);
     /* LES MESURES DE L'INTERFACE */

@@ -7,10 +7,280 @@
     width:35%;
     height: 100vh;
     background: var(--color-blanche-1);
-    border-left: 1px solid var(--color-blanche-2);
+    border-right: 1px solid var(--color-bordure-noire);
 }
 .droite{
     width:65%;
     height: 100vh;
+    background: var(--color-blanche-1);
+}
+.headerMessage{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 10px;
+    background: var(--color-blanche-1);
+    width: 100%;
+}
+.friendsOnline{
+    background: var(--color-blanche-1);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    padding: 12px 10px;
+}
+
+.carterUsermessage{
+    width:60px;
+    height: 60px;
+    border-radius: 50%;
     background: var(--color-blanche-2);
+    cursor: pointer;
+    overflow: hidden;
+}
+.conversationAlllMessages{
+    max-height: 70vh;
+    height: 100%;
+    overflow: auto;
+}
+.nameUserconversation p{
+    font-size: 14px;
+    opacity: .7;
+}
+.conversationuser:hover{
+    background: var(--color-blanche-2);
+    transition: all .3s ease;
+}
+.conversationuser{
+    width:100%;
+    position: relative;
+    padding: 7px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    display: flex;
+    gap:10px;
+    justify-content: flex-start;
+    border-bottom: 1px solid var(--color-bordure-noire);
+}
+.carterUsersOnline{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:12px;
+    
+    cursor: pointer;
+
+}
+.rightIcons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+}
+.iconsHeader{
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid   var(--color-blanche-2);
+    
+    
+}
+.onlineTime{
+    position: absolute;
+    right: 10px;
+}
+
+.droite{
+    align-items: start;
+    position: relative;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.imageUser{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    background: var(--color-blanche-2);
+
+}
+.imageUser::before{
+    content: '';
+    width:13px;
+    height: 13px;
+    position: absolute;
+    bottom: 5px;
+    right: 0px;
+    background:rgb(8, 234, 34);
+    border-radius:50%
+}
+.imageUser img{
+    width:100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+.nameUseronine{
+    font-size: 13px;
+    opacity: .8;
+}
+.middleSesion{
+    margin-top: 80px;
+    max-height: 75vh;
+    overflow-y: auto;
+    width:100%;
+    padding: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.topSesion{
+    width:100%;
+    position: fixed;
+    top:0;
+    height: 80px;
+    border-bottom:1px solid var(--color-bordure-noire);
+    opacity: .9;
+    padding: 12px;
+    display: flex;
+    gap:12px;
+}
+.onlineTime.messageColor{
+    background: var(--color-red-1);
+    color: #FFF;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    justify-content: center;
+
+}
+.nameUserMessage p{
+    font-size: 14px;
+    opacity: .7;
+}
+.nameUserMessage{
+    display: flex;
+    align-items: start;
+    line-height: 20px;
+    flex-direction: column;
+}
+.messagecontent{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px auto;
+    width:100%;
+
+}
+.chempsDesaisi textarea{
+    display: flex;
+    align-items: center;
+}
+.iconsDroite{
+    display: flex;
+    align-items: center;
+    gap:12px;
+}
+.iconsHeader.sendsMessage i{
+    color: #FFF;
+}
+.iconsHeader.sendsMessage{
+    background: #075E54;
+    color:#FFF;
+}
+.chempsDesaisi{
+    background: var(--color-blanche-2);
+    border-radius: 20px;
+    width:60%;
+    height: 60px;
+    padding: 17px 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+}
+.bottomSession{
+    position: fixed;
+    bottom: 0;
+    width: 65%;
+    
+
+}
+.messageConversation_users{
+    width: 100%;
+}
+.messageContextText small{
+    position: absolute;
+    bottom: 0;
+    font-size: 12px;
+    right: 10px;
+}
+.FriendMessage .messageContextText p,.FriendMessage .messageContextText small{
+    color: #c6c6c6;
+}
+.FriendMessage .messageContextText{
+    background: rgb(70, 70, 70);
+    padding:10px;
+    position: relative;
+    border-radius: 10px;
+}
+.FriendMessage .messageContextText::before{
+    content: '';
+    width: 20px;
+    right: -10px;
+    top: 0;
+    height: 20px;
+    position: absolute;
+    background:linear-gradient( 135deg,rgb(70, 70, 70) 0%,rgb(70, 70, 70) 50%,transparent 50%,transparent);
+}
+.Message .messageContextText::before{
+    content: '';
+    width: 20px;
+    left: -10px;
+    top: 0;
+    height: 20px;
+    position: absolute;
+    background:linear-gradient( 225deg,var(--color-blanche-2) 0%,var(--color-blanche-2) 50%,transparent 50%,transparent);
+}
+.messageContextText{
+    position: relative;
+    background:var(--color-blanche-2);
+    padding:10px;
+    color:#FFF;
+    position: relative;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    max-width: 55%;
+}
+.Message{
+    width:100%;
+    display: flex;
+    justify-content:flex-start;
+}
+
+.FriendMessage{
+    width:100%;
+    display: flex;
+    justify-content:flex-end;
+    
+}
+.messageconten{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
 }
