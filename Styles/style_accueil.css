@@ -108,20 +108,60 @@ main {
   flex-direction: column;
   width: 35%;
   position: fixed;
-  top: 90px;
+  top: 80px;
   right: 0;
   flex-direction: column;
   align-items: start;
   display:flex;  
 }
-.conversationAlllMessages{
+.NotificationsSesssion{
+  display: flex;
+}
+.conversationAlllMessages,.NotificationsSesssion{
   max-height: 70vh;
   height: 100%;
   overflow: auto;
+  width:100%;
 }
 .conversationuser:hover{
   background: var(--color-blanche-2);
   transition: all .3s ease;
+}
+.textCenteNotification h3{
+  font-size: 20px;
+}
+.textCenteNotification{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width:100%;
+  justify-content: flex-start;
+  gap:10px;
+  margin:15px auto;
+}
+.userowner{
+  display: flex;
+  gap:10px;
+}
+.conversationuser.Notification.active{
+  background: #DCF8C6;
+  color:#141411;
+}
+.conversationuser.Notification{
+  background: transparent;
+}
+.conversationuser.Notification{
+  width:100%;
+  position: relative;
+  padding: 7px;
+  align-items: start;
+  cursor: pointer;
+  display: flex;
+  gap:10px;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-bottom: 1px solid var(--color-bordure-noire);
+  border-bottom: 1px solid var(--color-bordure-noire);
 }
 .conversationuser{
   width:100%;
@@ -135,12 +175,24 @@ main {
   justify-content: flex-start;
   border-bottom: 1px solid var(--color-bordure-noire);
 }
-.sessionNotification_Message{
+.sessionMessage{
   background: var(--color-blanche-1);
   flex-direction: column;
   width: 35%;
   position: fixed;
-  top: 90px;
+  top: 80px;
+  height:100vh;
+  right: 0;
+  flex-direction: column;
+  align-items: start;
+  display: none;
+}
+.sessionNotifications{
+  background: var(--color-blanche-1);
+  flex-direction: column;
+  width: 35%;
+  position: fixed;
+  top: 80px;
   height:100vh;
   right: 0;
   flex-direction: column;

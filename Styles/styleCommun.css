@@ -18,6 +18,8 @@
     --color-bordure-noire:rgba(0, 0, 0, 0.042);
     --color-red-1:rgb(255, 40, 40);
     --color-red-2:rgb(167, 31, 31);
+    --color-green_boutons:rgb(56, 140, 56);
+    --color-linear-white:linear-gradient(90deg, var(--color-blanche-1) 25%, var(--color-blanche-2) 50%, var(--color-blanche-1) 75%);
     /* LES MESURES DE L'INTERFACE */
     --padding_boutons:10px 12px;
     --border-radius_cercle:50%;

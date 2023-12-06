@@ -33,20 +33,20 @@
         <!-- cote_gauche_des_icons -->
         <div class="leftmain">
           <div class="sesionOption">
+            <div class="iconcontainerOption" onclick="HomeSide()">
+              <i class="fa-solid fa-home"></i>Accueil
+            </div>
+            <div class="iconcontainerOption" onclick="NotificationSide()">
+              <i class="fa-solid fa-bell"></i>Notifications
+            </div>
+            <div class="iconcontainerOption" onclick="MessageSide()">
+              <i class="fa-solid fa-message"></i>Message
+            </div>
             <div class="iconcontainerOption">
               <i class="fa-solid fa-paste"></i>Stories
             </div>
             <div class="iconcontainerOption">
               <i class="fa-solid fa-user-gear"></i>Profil
-            </div>
-            <div class="iconcontainerOption">
-              <i class="fa-solid fa-bell"></i>Notifications
-            </div>
-            <div class="iconcontainerOption">
-              <i class="fa-solid fa-message"></i>Message
-            </div>
-            <div class="iconcontainerOption">
-              <i class="fa-solid fa-palette"></i>thème de la page
             </div>
             <div class="iconcontainerOption">
               <i class="fa-solid fa-bullhorn"></i>ePlaza Market
@@ -255,12 +255,10 @@
                 ><span class="number">1234</span>
               </div>
               <div class="emotionIcons">
-                <i class="fa-solid fa-share"></i
-                ><span class="number">1234</span>
+                <i class="fa-solid fa-share"></i><span class="number">1234</span>
               </div>
             </div>
           </div>
-          <hr>
           <div class="swiper mySwiper cartePage propositions">
             <div class="swiper-wrapper">
                 <div class="Affiche swiper-slide">
@@ -751,23 +749,7 @@
 
             </div>
           </div>
-          <div class="sessionNotification_Message">
-            <div class="headerMessage">
-              <div class="iconsHeader">
-                  <i class="fa-solid fa-magnifying-glass"></i>
-              </div>
-              <div class="rightIcons">
-                  <div class="iconsHeader">
-                      <i class="fa-solid fa-user-group"></i>
-                  </div>
-                  <div class="iconsHeader">
-                      <i class="fa-solid fa-user"></i>
-                  </div>
-                  <div class="iconsHeader">
-                      <i class="fa-solid fa-bars"></i>
-                  </div>
-              </div>
-          </div>
+          <div class="sessionMessage">
           <div class="friendsOnline">
               <div class="carterUsersOnline">
                   <div class="imageUser"><img src="../images/students_centrer.png" alt=""></div>
@@ -795,6 +777,7 @@
               </div>
               
           </div>
+          <!-- conercsationMessage -->
           <div class="conversationAlllMessages">
 
           <div class="conversationuser">
@@ -803,11 +786,121 @@
                   <h3>Jean-luc kashind</h3>
                   <p>Bonjour kk</p>
               </div>
-              
+              <div class="onlineTime messageColor">10</div>
+          </div>
+          <div class="conversationuser">
+              <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
+              <div class="nameUserconversation">
+                  <h3>Jean-luc kashind</h3>
+                  <p>Bonjour kk</p>
+              </div>
+              <div class="onlineTime messageColor">10</div>
+          </div>
+          <div class="conversationuser">
+              <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
+              <div class="nameUserconversation">
+                  <h3>Jean-luc kashind</h3>
+                  <p>Bonjour kk</p>
+              </div>
+              <div class="onlineTime messageColor">10</div>
+          </div>
+          <div class="conversationuser">
+              <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
+              <div class="nameUserconversation">
+                  <h3>Jean-luc kashind</h3>
+                  <p>Bonjour kk</p>
+              </div>
+              <div class="onlineTime messageColor">10</div>
+          </div>
+          <div class="conversationuser">
+              <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
+              <div class="nameUserconversation">
+                  <h3>Jean-luc kashind</h3>
+                  <p>Bonjour kk</p>
+              </div>
+              <div class="onlineTime messageColor">10</div>
+          </div>
+          <div class="conversationuser">
+              <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
+              <div class="nameUserconversation">
+                  <h3>Jean-luc kashind</h3>
+                  <p>Bonjour kk</p>
+              </div>
+              <div class="onlineTime messageColor">10</div>
+          </div>
+          <div class="conversationuser">
+              <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
+              <div class="nameUserconversation">
+                  <h3>Jean-luc kashind</h3>
+                  <p>Bonjour kk</p>
+              </div>
+              <div class="onlineTime messageColor">10</div>
+          </div>
+          <div class="conversationuser">
+              <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
+              <div class="nameUserconversation">
+                  <h3>Jean-luc kashind</h3>
+                  <p>Bonjour kk</p>
+              </div>
+              <div class="onlineTime messageColor">10</div>
+          </div>
+          <div class="conversationuser">
+              <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
+              <div class="nameUserconversation">
+                  <h3>Jean-luc kashind</h3>
+                  <p>Bonjour kk</p>
+              </div>
+              <div class="onlineTime messageColor">10</div>
+          </div>
+          <div class="conversationuser">
+              <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
+              <div class="nameUserconversation">
+                  <h3>Jean-luc kashind</h3>
+                  <p>Bonjour kk</p>
+              </div>
+              <div class="onlineTime messageColor">10</div>
+          </div>
+          <div class="conversationuser">
+              <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
+              <div class="nameUserconversation">
+                  <h3>Jean-luc kashind</h3>
+                  <p>Bonjour kk</p>
+              </div>
+              <div class="onlineTime messageColor">10</div>
           </div>
 
           </div>
         </div>
+        <!-- sessionNotifications -->
+        <div class="sessionNotifications">
+          <div class="textCenteNotification">
+            <h3>Notifications</h3>
+          </div>
+          <div class="conversationuser Notification">
+           <div class="userowner">
+            <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
+            <div class="nameUserconversation">
+                <h3>Jean-luc kashind</h3>
+                <p>Relation amicale </p>
+            </div>
+           </div>
+            <div class="div_TextNotification">
+              Il vient d'accepetre votre invitation comme amis sur nearneaute
+            </div>
+        </div>
+          <div class="conversationuser Notification active">
+           <div class="userowner">
+            <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
+            <div class="nameUserconversation">
+                <h3>Jean-luc kashind</h3>
+                <p>Relation amicale </p>
+            </div>
+           </div>
+            <div class="div_TextNotification">
+              Il vient d'accepetre votre invitation comme amis sur nearneaute
+            </div>
+        </div>
+          </div>
       </main>
       <!-- fint_main -->
     </div>

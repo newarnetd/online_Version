@@ -38,3 +38,23 @@ function afficherFirndsCartes() {
     document.querySelector(".containeruAmisDroite").style.display = "none";
     document.querySelector(".creergroupe").style.display = "none";
 }
+
+function setDisplayStyle(className, displayValue) {
+    document.querySelector(".sessionNotifications").style.display = "none";
+    document.querySelector(".sessionMessage").style.display = "none";
+    document.querySelector(".droite_session").style.display = "none";
+
+    document.querySelector(className).style.display = displayValue;
+}
+
+function NotificationSide() {
+    setDisplayStyle(".sessionNotifications", "flex");
+}
+
+function MessageSide() {
+    setDisplayStyle(".sessionMessage", "flex");
+}
+
+function HomeSide() {
+    setDisplayStyle(".droite_session", "flex");
+}
