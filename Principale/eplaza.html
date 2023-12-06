@@ -4,18 +4,205 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/styleCommun.css">
+    <link rel="stylesheet" href="../Styles/style_accueil.css" />
+    <link rel="stylesheet" href="../Styles/eplaza.css">
     <link rel="shortcut icon" href="../images/Logo.png" type="image/jpeg" style="width:300px;height:300px">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <title>NewaRnet</title>
 </head>
 <body>
     <div class="referencePage">
-        <nav>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis nobis necessitatibus quaerat voluptatem quae alias asperiores, iste debitis laboriosam, voluptatibus ex iure illum facilis inventore accusantium animi quos laudantium ratione.
-        </nav>
-        <main>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti voluptatum perspiciatis eos atque, necessitatibus pariatur unde quos iste! Maiores dicta expedita quo earum vero voluptatibus officia adipisci autem delectus explicabo?
-        </main>
+        <div class="lefteplaza">
+            <div class="textChamps">
+                <i class="fa-solid fa-magnifying-glass"></i><input type="text" name="" id=""placeholder="Trouver un Article sur eplaza"> 
+            </div>
+            <div class="MenuContaineurOptionseplaza">
+                <div class="principaleOptions">
+                    <div class="containerOptionMenu">
+                        <i class="fa-solid fa-pen-to-square"></i> <span>Modifier ton article</span>
+                    </div>
+                    <div class="containerOptionMenu">
+                        <i class="fa-solid fa-address-card"></i> <span>Nouvelle Boutique</span>
+                    </div>
+                    <div class="containerOptionMenu">
+                        <i class="fa-solid fa-plus"></i> <span>Publier un article en ligne</span>
+                    </div>
+                    <div class="containerOptionMenu">
+                        <i class="fa-solid fa-cart-shopping"></i> <span>Nouveautés</span>
+                    </div>
+                    <div class="containerOptionMenu">
+                        <i class="fa-solid fa-gear"></i> <span>Paramétrer ma boutique</span>
+                    </div>
+                    <div class="containerOptionMenu">
+                        <i class="fa-solid fa-shop"></i> <span>Ma Boutique</span>
+                    </div>
+                    <div class="containerOptionMenu">
+                        <i class="fa-solid fa-share"></i> <span>Partager dans un Groupe</span>
+                    </div>
+                    <div class="containerOptionMenu">
+                        <i class="fa-solid fa-flag"></i> <span>poster sur ma Page</span>
+                    </div>
+                    <div class="containerOptionMenu"onclick="GrouepShares()">
+                        <i class="fa-solid fa-share"></i> <span>Partager dans un Groupe</span>
+                    </div>
+                    <div class="containerOptionMenu">
+                        <i class="fa-solid fa-image"></i> <span>Album de la Boutique</span>
+                    </div>
+                </div>
+                <div class="groupsShare">
+                    <div class="btn anuler" onclick="anulerPrograme()"><i class="fa-solid fa-arrow-left"></i>Retour</div>
+                    <div class="conteneuramis">
+                        <div class="photoamis">
+                          <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
+                        </div>
+                        <div class="nomamis">
+                          <h3>BAM</h3>
+                          <p><small>86 ami(e)s en commun </small></p>
+                        </div>
+                        <div class="iconeamis"><i class="fa-solid fa-share"></i></div>
+                      </div>
+                    <div class="conteneuramis">
+                        <div class="photoamis">
+                          <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
+                        </div>
+                        <div class="nomamis">
+                          <h3>BAM</h3>
+                          <p><small>86 ami(e)s en commun </small></p>
+                        </div>
+                        <div class="iconeamis"><i class="fa-solid fa-share"></i></div>
+                      </div>
+                    <div class="conteneuramis">
+                        <div class="photoamis">
+                          <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
+                        </div>
+                        <div class="nomamis">
+                          <h3>BAM</h3>
+                          <p><small>86 ami(e)s en commun </small></p>
+                        </div>
+                        <div class="iconeamis"><i class="fa-solid fa-share"></i></div>
+                      </div>
+                </div>
+                <div class="NouvellBoutique">
+                    NouvelleBoutique ici
+                </div>
+                <div class="FormualirePublicationArticle">
+                    NouvelleBoutique ici
+                </div>
+                <div class="ParametreBoutique">
+                    NouvelleBoutique ici
+                </div>
+                <div class="AlbumBoutique">
+                    NouvelleBoutique ici
+                </div>
+            </div>
+            <div class="textEplazaBottom">
+                ePlaza certifie des articles véridiques pour assurer une fidélité à ses  NewaRnautes.
+            </div>
+        </div>
+
+
+        <!-- ------------------RIGHT----------- -->
+        <div class="rightPlaza">
+            <div class="eplaza_title"><div class="titre_animation">ePlaza Market</div></div>
+            <div class="container_affiches">
+
+            <div class="Affiche">
+                   <div class="topArtcle">
+                    <img src="../images/trois-Couloirs.jpg">
+                    </div>
+                   <div class="bottonArticle">
+                        <div class="topArticlesBottom">
+                            <div class="photoamis"></div>
+                            <div class="names">
+                                <H3>Maison à Louer</H3>
+                                <p>20k vues <i class="fa-solid fa-eye"></i></p>
+                            </div>
+                        </div>
+                        <div class="BottomArticlesBottom">
+                            <p>Trois chambres</p>
+                            <p class="prixArticles">100 000FB</p>
+                        </div>
+                   </div>
+            </div>
+            <div class="Affiche">
+                   <div class="topArtcle">
+                    <img src="../images/trois-Couloirs.jpg">
+                    </div>
+                   <div class="bottonArticle">
+                        <div class="topArticlesBottom">
+                            <div class="photoamis"></div>
+                            <div class="names">
+                                <H3>Maison à Louer</H3>
+                                <p>20k vues <i class="fa-solid fa-eye"></i></p>
+                            </div>
+                        </div>
+                        <div class="BottomArticlesBottom">
+                            <p>Trois chambres</p>
+                            <p class="prixArticles">100 000FB</p>
+                        </div>
+                   </div>
+            </div>
+            <div class="Affiche">
+                   <div class="topArtcle">
+                    <img src="../images/trois-Couloirs.jpg">
+                    </div>
+                   <div class="bottonArticle">
+                        <div class="topArticlesBottom">
+                            <div class="photoamis"></div>
+                            <div class="names">
+                                <H3>Maison à Louer</H3>
+                                <p>20k vues <i class="fa-solid fa-eye"></i></p>
+                            </div>
+                        </div>
+                        <div class="BottomArticlesBottom">
+                            <p>Trois chambres</p>
+                            <p class="prixArticles">100 000FB</p>
+                        </div>
+                   </div>
+            </div>
+            <div class="Affiche">
+                   <div class="topArtcle">
+                    <img src="../images/trois-Couloirs.jpg">
+                    </div>
+                   <div class="bottonArticle">
+                        <div class="topArticlesBottom">
+                            <div class="photoamis"></div>
+                            <div class="names">
+                                <H3>Maison à Louer</H3>
+                                <p>20k vues <i class="fa-solid fa-eye"></i></p>
+                            </div>
+                        </div>
+                        <div class="BottomArticlesBottom">
+                            <p>Trois chambres</p>
+                            <p class="prixArticles">100 000FB</p>
+                        </div>
+                   </div>
+            </div>
+            <div class="Affiche">
+                   <div class="topArtcle">
+                    <img src="../images/trois-Couloirs.jpg">
+                    </div>
+                   <div class="bottonArticle">
+                        <div class="topArticlesBottom">
+                            <div class="photoamis"></div>
+                            <div class="names">
+                                <H3>Maison à Louer</H3>
+                                <p>20k vues <i class="fa-solid fa-eye"></i></p>
+                            </div>
+                        </div>
+                        <div class="BottomArticlesBottom">
+                            <p>Trois chambres</p>
+                            <p class="prixArticles">100 000FB</p>
+                        </div>
+                   </div>
+            </div>
+           
+
+        </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../Javascripts/stylepage.js"></script>
+    <script src="../Javascripts/eplazaStructures.js"></script>
 </body>
 </html>

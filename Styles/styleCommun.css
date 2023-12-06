@@ -10,10 +10,9 @@
     --color-primary:#075E54;
     --swiper-theme-color:var(--color-primary);
     --boxshadow_section_blanche: 0px 4px 10px rgba(0, 0, 0,.2);
-    --color-titre_newarnet:#2f534f;
+    --color-titre_newarnet:#075e54;
     --color-blue:rgba(115, 130, 148, 0.935);
     --color-jaune:rgba(255, 166, 0, 0.863);
-    --swiper-theme-color: var(--color-primary);
     --color-greenNoire: rgb(41, 41, 41);
     --color-green:#075e54;
     --color-bordure-noire:rgba(0, 0, 0, 0.042);
@@ -113,6 +112,12 @@ input,textarea,button{
     -webkit-touch-callout: none !important; /* Désactive le menu contextuel sur iOS */
     -webkit-user-drag: none !important; /* Empêche le glisser-déposer sur iOS */
 }
+.photoamis {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--border-radius_cercle);
+  background: var(--color-blanche-2);
+}
 .titre_animation{
   color: transparent;
   font-size: 50PX;
@@ -120,6 +125,15 @@ input,textarea,button{
   -webkit-background-clip: text;
   background-size: contain;
   background-position: 0 0;
+  }
+  .btn{
+    width:100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: var(--border-boutons);
+    padding: var(--padding_boutons);
+    color: var(--color-text);
   }
   .userphoto{
     width: 100%;

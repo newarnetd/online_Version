@@ -2,6 +2,9 @@ body{
     background:var(--color-blanche-2);
     color: var(--color-text);
 }
+.onlyMobile{
+    display: none;
+}
 .ReferencePage{
     background:var(--color-blanche-2);
     height:100vh;
@@ -112,6 +115,7 @@ i{
     cursor: pointer;
 
 }
+
 .text_coventions{
     display: flex;
     align-items: center;
@@ -152,4 +156,61 @@ i{
 .bottom_text{
     position:absolute;
     bottom: 10px;
+}
+
+/* Petits écrans d'ordinateur portable */
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+    /* Styles spécifiques pour les écrans de 1024 à 1279 pixels de large */
+}
+/* Styles de base (pour tous les écrans) */
+
+/* Tablettes */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    /* Styles spécifiques pour les écrans de 768 à 1023 pixels de large */
+}
+/* Mobile portrait */
+@media screen and (max-width: 480px) {
+    .onlyMobile{
+        display:flex;
+        width:100%;
+        height: 100%;
+        background: #075E54;
+        color:#FFF;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .boutonOnlymobile{
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        color:#313131;
+        background: #FFF;
+        padding: 13px 20px;
+        border-radius: var(--border-boutons);
+    }
+    .containeBoutonsOnlyBoutons{
+        display: flex;
+        gap:10px;
+    }
+    .text_the_newaRnet{
+        position: absolute;
+        bottom: 20px;
+        color:#FFF
+        }
+        .image_newarnet img{
+            width:100%;
+        }
+        .titre_animation{
+            color: transparent;
+            font-size: 50PX;
+            -webkit-text-stroke:  6px #FFF !important;
+            -webkit-background-clip: text;
+            background-size: contain;
+            background-position: 0 0;
+            }
+            
+    .Right_side,.leftside{
+        display:none;
+    }
 }
