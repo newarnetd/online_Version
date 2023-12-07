@@ -322,6 +322,7 @@ main {
 }
 .carterPoste {
   width: 80%;
+  position: relative;
   margin: 5px auto;
   border: 1px solid var(--color-bordure-noire);
   border-radius: var(--border-boutons);
@@ -460,7 +461,7 @@ main {
   border-radius: var(--color-border-radius-arond);
 }
 .menuOptionRight.active {
-  background: #075E54;
+  background: var(--color-primary);
   color:#FFF;
 }
 input[type="checkBox"]{
@@ -472,7 +473,43 @@ flex-direction: column;
 max-width:100%;
 width:100%;
 max-height: 63vh;
+}
+.sharePost i{
+  padding-right: 10px;
+}
+.partagePost:hover{
+  background: var(--color-blanche-2);
+  color: var(--color-text);
+  cursor: pointer;
+  width:100%;
+}
 
+.partagePost{
+  padding: 8px 13px;
+  transition: all .1s ease;
+}
+.sharePost.partager{
+  width:fit-content;
+  transition: all .1s ease;
+  max-width: 150px;
+  width: 100%;
+}
+.sharePost{
+  max-width:0;
+  width:100%;
+  overflow: hidden;
+  position: absolute;
+  bottom: 70px;
+  border:  1px solid var(--color-blanche-1);
+  right:0px;
+  transition: all .1s ease;
+  background: var(--color-blanche-1);
+  display: flex;
+  align-items: start;
+  justify-content:flex-start;
+  padding: 0px;
+  flex-direction: column;
+  gap:10px;
 }
 .firndscartes{
   display: flex;
@@ -557,7 +594,7 @@ width:80%;
   color: var(--color-text);
 }
 .confirmeBtn.boutonAdmettre.ajouter {
-  background: #075E54;
+  background: var(--color-primary);
   color: #FFF;
 }
 .supprimerBtn.boutonAdmettre.suivre{
@@ -630,7 +667,7 @@ width:80%;
   margin: 10px auto;
 }
 .iconsPost .rightIcons:hover{
-  background:#075E54;
+  background:var(--color-primary);
   color:#FFF !important;
 }
 .confirmationBoutonsCnter {

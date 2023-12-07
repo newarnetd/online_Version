@@ -30,21 +30,23 @@ body{
 .containeurInputStyle.password i.fa-solid.fa-eye{
     display:none;
 }
+.connexionForm{
+    padding: 7px;
+    
+}
+
 .FormConnexion{
     width: 100%;
-    padding: 7px;
     background: var(--color-blanche-1);
     box-shadow: var(--boxshadow_section_blanche);
     border-radius: var(--border-boutons);
     display: flex;
-    overflow: hidden;
     height: 500px;
-    align-items: start;
-    justify-content:flex-start;
-    flex-direction: column;
     position: relative;
+    overflow: hidden;
     
 }.Right_side{
+    max-width: calc(100% * 9);
     width:35%;
     transition:all .2s ease;
     display: flex;
@@ -81,12 +83,53 @@ align-items:start;
     width: 100%;
     margin: 40px auto;
 }
-.containeurInputStyle input{
+
+.optionPhrase.active{
+    max-width: 100%;
+    transition: all .2s ease;
+}
+.optionPhrase{
+    max-width: 0;
+    width:100%;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    max-height: 85%;
+    height: 100%;
+    overflow-y: auto;
+    background:var(--color-blanche-1);
+    z-index: 100;
+    color: var(--color-text);
+    flex-direction: column;
+    transition: all .2s ease;
+}
+.menuTitre:hover{
+    background: var(--color-blanche-2);
+    color: var(--color-text);
+}
+.menuTitre{
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid    var(--color-blanche-2);
+    font-size: 15px;
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    color: var(--color-text);
+}
+.containeurInputStyle input[type="text"],input[type="password"],input[type="number"],select,option{
     width: 100%;
     height: 100%;
+    background: transparent;
+}
+select.containeurInputStyle{
+    border: 1px solid var(--color-blanche-2);
 }
 i{
     color: var(--color-icons_Theme_blanche);
+}
+input[type="radio"]{
+    cursor: pointer;
 }
 .containeurInputStyle{
     width:100%;
@@ -97,18 +140,23 @@ i{
     height: 55px;
     padding:var(--padding_boutons);
     margin-bottom: 5px;
-    border-radius: var(--border-boutons);
+    background: transparent;
+    border:  1px solid var(--color-blanche-2) !important;
+    border-radius: 5px;
 }
 .class_boutons_asisstence i{
-    padding-left: 13px;
+    padding-left: 10px;
+}
+.connectionBtn.sign_up{
+    cursor: pointer;
 }
 .connectionBtn.login{
     width:60%;
     margin: 10px auto;
     display: flex;
     align-items: center;
-    background: var(--color-titre_newarnet);
-    color: #FFF;
+    background:var(--color-blanche-2);
+    color: var(--color-text);
     height: 55px;
     border-radius: var(--border-boutons);
     justify-content: center;
@@ -145,9 +193,9 @@ i{
     align-items: center;
     justify-content: center;
     width:80%;
-    background:var(--color-blue);
+    background:var(--color-primary);
     height: 55px;
-    color: #e8e8e8;
+    color: #FFF;
     margin: 40px auto;
     border-radius: var(--border-boutons);
     padding: var(--padding_boutons);
@@ -157,6 +205,217 @@ i{
     position:absolute;
     bottom: 10px;
 }
+.boutonOnlymobile.signup i{
+    padding-left: 10px;
+}
+.swiper-slide .nianda{
+    position: relative;
+}
+.userPhoto i{
+    color: #FFF;
+}
+.Nianda p{
+    width:80%;
+    color:var(--color-text);
+}
+.Nianda{
+    background: var(--color-blanche-1);
+    padding: 10px;
+    position: relative;
+    display: flex;   
+    gap:10px;
+    align-items: start;
+}
+.userPhoto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--color-primary);
+}
+@keyframes animatePoint {
+    0% {
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    25% {
+    opacity: 0.2;
+    transform: translateY(0px) rotateX(90deg) rotateY(-45deg) rotateZ(0deg);
+    }
+    50% {
+    opacity: 0.2;
+    transform: translateY(0px) rotateX(90deg) rotateY(-90deg) rotateZ(0deg);
+    }
+    75% {
+    opacity: 0.4;
+    transform: translateY(0px) rotateX(90deg) rotateY(90deg) rotateZ(90deg);
+    }
+    100% {
+    opacity: 0.2;
+    transform: translateY(0px) rotateX(0deg) rotateY(-180deg) rotateZ(90deg);
+    }
+    }
+.typing_container_animation{
+    bottom:20px;cursor:pointer;
+    display:inline-flex;
+    position:absolute;
+    right:10px;
+}
+.typing_container_animation .typing-animation{
+    height:8px;
+    width:8px;border-radius: 50%;margin:0 3px;
+    animation:animatePoint 1.5s var(--delay) ease-in-out infinite;
+    background:var(--color-primary);
+}
+.senderUser p{
+    color:var(--color-text);
+}
+.conversations p{
+    font-size: 14px;
+    font-weight: 100;
+}
+.senderUser{
+    width:100%;
+    padding: 10px;
+    border-bottom:1px solid var(--color-blanche-2);
+    display: flex;
+    opacity: .7;
+    align-items: start;
+    gap:15px;
+}
+
+.swiper-wrapper{
+    transition: all.3s ease;
+}
+.conversations{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width:100%;
+    flex-direction: column;
+    max-height: 85%;
+    padding-bottom: 50px;
+    height: 100%;
+    overflow-y: auto;
+
+}
+/* Enlever les bordures du select */
+select,option {
+    border: none !important;
+    outline: none !important; /* Pour enlever la bordure d'accentuation (focus) */
+}
+
+
+.boutonOnlymobile.seconncter{
+    width:60%;
+    background: var(--color-blanche-2);
+    color: var(--color-text);
+    margin: 15px auto;
+    cursor: pointer;
+}
+.botoomSessionNianda .SessionQuestion input{
+    width:100%;
+}
+.botoomSessionNianda .SessionQuestion{
+    width:90%;
+    margin:20px auto;
+    background: var(--color-blanche-2);
+    padding: 15px;
+    height: 60px;
+    border-radius: 30px;
+    display: flex;
+    color: var(--color-text);
+
+}
+.botoomSessionNianda{
+    position: absolute;
+    bottom:0;
+    width:100%;
+   
+}
+.inscriptiontittre h3{
+    font-size: 25px;
+}
+.inscriptiontittre{
+    display: flex;
+    width:100%;
+    justify-content: center;
+}
+.swiper .class_boutons_asisstence{
+    padding:var(--padding_boutons);
+    width:90%;
+    margin:10px auto;
+    display: flex;
+    justify-content: center;
+    background: var(--color-blanche-2);
+    
+}
+.swiper-wrapper.Mobile{
+    transform: translateX(-200%);
+}
+.swiper-wrapper.Desk{
+    transform: translateX(-100%);
+}
+.textDemonstrationInscription{
+    width:95%;
+    margin:10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: .8;
+    margin-bottom: 20px;
+}
+.boutonOnlymobile.suivant{
+    background: var(--color-primary);
+    width:80%;
+    margin:15px auto;
+    color: #FFf;
+    cursor: pointer;
+}
+.inscriptiontittre h3{
+    color: transparent;
+    font-size: 27PX;
+    -webkit-text-stroke:  4px var(--color-titre_newarnet) !important;
+}
+.containeurInputStyle.genre i{
+    color: var(--color-text);
+}
+.containeurInputStyle.genre{
+    border: none;
+    gap:10px;
+    justify-content: center;
+    width:100%;
+}
+.inscriptiontittre{
+    margin-bottom: 30px;
+}
+.InputDouble{
+    width:100%;
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+.titre_animation{
+    color: transparent;
+    font-size: 50PX;
+    -webkit-text-stroke:  6px var(--color-titre_newarnet) !important;
+    -webkit-background-clip: text;
+    background-size: contain;
+    background-position: 0 0;
+}
+.boutonOnlymobile{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    color:var(--color-text);
+    border: 1px solid var(--color-blanche-2);
+    padding: 13px 20px;
+    color: var(--color-text);
+    border-radius: var(--border-boutons);
+}
+
 
 /* Petits écrans d'ordinateur portable */
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
@@ -174,41 +433,112 @@ i{
         display:flex;
         width:100%;
         height: 100%;
-        background: #075E54;
-        color:#FFF;
-        flex-direction: column;
-        justify-content: center;
+        background: var(--color-blanche-1);
+        color:#fff;
+        justify-content: start;
         align-items: center;
+        padding-top: 20px;
     }
-    .boutonOnlymobile{
+    .contentItemsConnectio{
+        width:100%;
         display: flex;
-        align-items:center;
         justify-content: center;
-        color:#313131;
-        background: #FFF;
-        padding: 13px 20px;
-        border-radius: var(--border-boutons);
+        margin: 0 auto;
+        flex-direction: column;
     }
+    .swiper-slide.connectionPage{
+       margin-top:30px;
+    }
+    .boutonOnlymobile.signup i{
+        color: #FFF;
+    }
+    .boutonOnlymobile.signup{
+        background:var(--color-primary);
+        color: #FFF;
+    }
+    .swiper-slide{
+        flex-direction: column;
+        width:100%;
+        display: flex;
+        position: relative;
+        align-items: start;
+        justify-content: flex-start;
+        overflow: hidden;
+        height: 100%;
+
+    }
+   
+   
+   
+    .text_coventions {
+        width:100%;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        color:var(--color-text);
+        
+    }
+    
     .containeBoutonsOnlyBoutons{
         display: flex;
         gap:10px;
+        justify-content: center;
+        width:100%;
+        margin-bottom:30px;
     }
     .text_the_newaRnet{
         position: absolute;
         bottom: 20px;
         color:#FFF
         }
+        .image_newarnet{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
         .image_newarnet img{
+            width:70%;
+        }
+       
+        .text_demos{
             width:100%;
+            display: flex;
+            justify-content: center;
         }
         .titre_animation{
             color: transparent;
             font-size: 50PX;
-            -webkit-text-stroke:  6px #FFF !important;
+            -webkit-text-stroke:  7px var(--color-titre_newarnet) !important;
             -webkit-background-clip: text;
             background-size: contain;
             background-position: 0 0;
-            }
+        }
+        .textDemonstrationInscription{
+            width:100%;
+            margin:10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            opacity: .8;
+            margin-bottom: 20px;
+        }
+        .bottom_text{
+            position:absolute;
+            bottom: 30px;
+        }
+        .boutonOnlymobile.seconncter{
+            width:80%;
+            background: var(--color-blanche-2);
+            color: var(--color-text);
+            margin: 15px auto;
+            cursor: pointer;
+        }
+        .connectionBtn.login{
+            background: var(--color-primary);
+            color: #FFF;
+        }
             
     .Right_side,.leftside{
         display:none;

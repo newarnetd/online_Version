@@ -9,7 +9,7 @@ function sunFunction() {
     applyColors('#243639', '#08141a', '#FFF', '#BDBDBD');
 }
 function darkFunction() {
-    applyColors('#ffffff', '#ebebeb', '#100f0f', '#075e54');
+    applyColors('#ffffff', '#ebebeb', '#100f0f', 'rgba(28, 162, 140, 0.829)');
 }
 function applyColors(colorBlanche1, colorBlanche2, colorText, colorTextNewarnet){
     document.documentElement.style.setProperty('--color-blanche-1', colorBlanche1);

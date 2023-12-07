@@ -7,14 +7,14 @@
     --color-text:#100f0f;
     --color-icons_Theme_blanche:#BDBDBD;
     --color-icons_Theme_noire:#7c7c7c;
-    --color-primary:#075E54;
+    --color-primary:rgba(28, 162, 140, 0.829);
     --swiper-theme-color:var(--color-primary);
     --boxshadow_section_blanche: 0px 4px 10px rgba(0, 0, 0,.2);
-    --color-titre_newarnet:#075e54;
+    --color-titre_newarnet:rgba(28, 162, 140, 0.829);
     --color-blue:rgba(115, 130, 148, 0.935);
     --color-jaune:rgba(255, 166, 0, 0.863);
     --color-greenNoire: rgb(41, 41, 41);
-    --color-green:#075e54;
+    --color-green:var(--color-primary);
     --color-bordure-noire:rgba(0, 0, 0, 0.042);
     --color-red-1:rgb(255, 40, 40);
     --color-red-2:rgb(167, 31, 31);
@@ -39,7 +39,7 @@
     color: var(--color-text);
     user-select:text;
 }
-a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video,hr {
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video,hr,select,option {
     font: inherit;
     font-family: 'Poppins', sans-serif;
     font-size: 100%;
@@ -52,6 +52,7 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
     color: var(--color-text);
     margin: 0;
     border: 0;
+    font-weight: 100;
 }
 /* Pour les navigateurs WebKit (Chrome, Safari) */
 ::-webkit-scrollbar {

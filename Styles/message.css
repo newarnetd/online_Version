@@ -145,6 +145,15 @@
     display: flex;
     flex-direction: column;
 }
+.iconsHeader.inputSearch input{
+    width: 100%;
+}
+.iconsHeader.inputSearch{
+    width: 70%;
+    height: 45px;
+    padding: 0 10px;
+    border-radius: var(--border-boutons);
+}
 .topSesion{
     width:100%;
     position: fixed;
@@ -201,6 +210,10 @@
 .iconsHeader.sendsMessage{
     background: #075E54;
     color:#FFF;
+}
+.iconsHeader.menuGroupe{
+    position: absolute;
+    right: 10px;
 }
 .chempsDesaisi{
     background: var(--color-blanche-2);

@@ -1,3 +1,7 @@
+function sharePOst()
+{
+    document.querySelector(".sharePost").classList.add('partager');
+}
 function OptionDroiteHeader(event) {
     document.querySelectorAll(".menuOptionRight").forEach(item => {
         item.classList.remove('active');
