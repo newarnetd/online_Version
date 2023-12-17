@@ -21,7 +21,7 @@
                     <h2 class="titre_animation interd">NewaRnet</h2>
                 </div>
                     <!-- text_newarnet -->
-                <div class="text_the_newaRnet">Explorez la magie subtile de NewaRnet avec la douceur de ses interfaces intuitives Commencez dès maintenant en créant votre compte, et laissez-vous emporter dans l'aventure pour devenir un NewaRnaute à part entière </div>
+                <div class="text_the_newaRnet">Créez votre compte dès maintenant et plongez dans une aventure captivante sur NewaRnet. Rejoignez la communauté des NewaRnautes engagés </div>
                 <div class="block_boutons">
                     <div class="class_boutons_asisstence"onclick="Suivant_3()">Besoin de Assistente Nianda ? <i class="fa-solid fa-clipboard-question"></i></div>
                     <div class="class_boutons_asisstence">Portrait mobile <i class="fa-solid fa-download"></i></div>
@@ -34,63 +34,68 @@
                         <div class="swiper-wrapper Desk">
                             <!-- Ninada -->
                             <div class="swiper-slide nianda">
-                                <div class="optionPhrase">
+                                <div class="optionPhrase" id="DeskOption">
                                         <!-- Questions sur NewaRnet -->
-                                        <div class="menuTitre">Que represente Nianda sur NewaRnete</div>
-                                        <div class="menuTitre">Qu'est-ce que NewaRnet?</div>
-                                        <div class="menuTitre">Objectifs de NewaRnet?</div>
-                                        <div class="menuTitre">Comment rejoindre NewaRnet?</div>
-                                        <div class="menuTitre">Fonctionnalités principales de NewaRnet?</div>
-                                        <div class="menuTitre">Personnaliser mon profil sur NewaRnet?</div>
-                                        <div class="menuTitre">Options de confidentialité sur NewaRnet?</div>
-                                        <div class="menuTitre">Groupes communautaires sur NewaRnet?</div>
-                                        <div class="menuTitre">Ajouter des amis sur NewaRnet?</div>
-                                        <div class="menuTitre">Options de messagerie sur NewaRnet?</div>
-                                        <div class="menuTitre">Fonctionnement des commentaires et likes sur NewaRnet?</div>
-                                        <div class="menuTitre">Histoire de la création de NewaRnet?</div>
-                                        <div class="menuTitre">Fondateur de NewaRnet?</div>
-                                        <div class="menuTitre">Valeurs fondamentales de NewaRnet?</div>
-                                        <div class="menuTitre">Évolution de NewaRnet au fil du temps?</div>
-                                        <div class="menuTitre">Dernières mises à jour sur NewaRnet?</div>
-                                        <div class="menuTitre">Événements communautaires sur NewaRnet?</div>
-                                        <div class="menuTitre">Contribuer à la communauté NewaRnet?</div>
-                                        <div class="menuTitre">Contacter le support de NewaRnet?</div>
-    
-                                        <!-- Questions sur les couleurs panafricaines -->
-                                        <div class="menuTitre">Pourquoi NewaRnet utilise-t-il les couleurs panafricaines?</div>
-                                        <div class="menuTitre">Signification des couleurs rouge, verte et noire sur NewaRnet?</div>
-                                        <div class="menuTitre">Comment les couleurs panafricaines symbolisent-elles l'unité sur NewaRnet?</div>
-                                        <div class="menuTitre">Autres significations derrière le choix de ces couleurs?</div>
-                                        <div class="menuTitre">Comment NewaRnet célèbre-t-il la diversité culturelle à travers ces couleurs?</div>
-                                        <!-- Questions sur NewaRnet -->
-                                        <div class="menuTitre">Fonctionne sur quels types d'appareils NewaRnet?</div>
-                                        <div class="menuTitre">Quels types de contenus puis-je partager sur NewaRnet?</div>
-                                        <div class="menuTitre">Est-ce que NewaRnet propose des fonctionnalités de streaming vidéo?</div>
-                                        <div class="menuTitre">Comment fonctionne le système de notifications sur NewaRnet?</div>
-                                        <div class="menuTitre">Existe-t-il une fonction de recherche avancée sur NewaRnet?</div>
-                                        <div class="menuTitre">Y a-t-il des options de personnalisation pour le fil d'actualité?</div>
-                                        <div class="menuTitre">Comment signaler du contenu inapproprié sur NewaRnet?</div>
-                                        <div class="menuTitre">NewaRnet propose-t-il des outils de modération de communauté?</div>
-                                        <div class="menuTitre">Peut-on planifier des événements sur NewaRnet?</div>
-                                        <div class="menuTitre">Comment fonctionne le système de recommandation d'amis sur NewaRnet?</div>
-                                        <div class="menuTitre">Est-ce que NewaRnet a une politique de protection des données?</div>
-                                        <div class="menuTitre">Quelles sont les options de personnalisation pour les profils utilisateurs?</div>
-                                        <div class="menuTitre">Y a-t-il une limite de caractères pour les publications sur NewaRnet?</div>
-                                        <div class="menuTitre">Comment fonctionne le système de trending topics sur NewaRnet?</div>
-                                        <div class="menuTitre">Est-ce que NewaRnet propose des fonctionnalités de traduction?</div>
-                                        <div class="menuTitre">Comment supprimer mon compte sur NewaRnet?</div>
-                                        <div class="menuTitre">Existe-t-il des programmes d'ambassadeurs ou d'influenceurs sur NewaRnet?</div>
-                                        <div class="menuTitre">Comment NewaRnet prévient-il le harcèlement en ligne?</div>
-                                        <div class="menuTitre">Y a-t-il des fonctionnalités de géolocalisation sur NewaRnet?</div>
-                                        <div class="menuTitre">Quelles sont les options de personnalisation pour les notifications?</div>
-                                        <div class="menuTitre">Est-ce que NewaRnet propose des filtres pour les photos?</div>
+                                    <div class="menuTitre" onclick="TakenQuestionDesk(event)">Que represente Nianda sur NewaRnete</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Qu'est-ce que NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Objectifs de NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Comment rejoindre NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Fonctionnalités principales de NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Personnaliser mon profil sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Options de confidentialité sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Groupes communautaires sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Ajouter des amis sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Options de messagerie sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Fonctionnement des commentaires et likes sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Histoire de la création de NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Fondateur de NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Valeurs fondamentales de NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Évolution de NewaRnet au fil du temps?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Dernières mises à jour sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Événements communautaires sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Contribuer à la communauté NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Contacter le support de NewaRnet?</div>
+
+                                    <!-- Questions sur les couleurs panafricaines -->
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Pourquoi NewaRnet utilise-t-il les couleurs panafricaines?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Signification des couleurs rouge, verte et jaune sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Comment les couleurs panafricaines symbolisent-elles l'unité sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Autres significations derrière le choix de ces couleurs?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Comment NewaRnet célèbre-t-il la diversité culturelle à travers ces couleurs?</div>
+                                    <!-- Questions sur NewaRnet -->
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Fonctionne sur quels types d'appareils NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Quels types de contenus puis-je partager sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Est-ce que NewaRnet propose des fonctionnalités de streaming vidéo?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Comment fonctionne le système de notifications sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Existe-t-il une fonction de recherche avancée sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Y a-t-il des options de personnalisation pour le fil d'actualité?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Comment signaler du contenu inapproprié sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">NewaRnet propose-t-il des outils de modération de communauté?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Peut-on planifier des événements sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Comment fonctionne le système de recommandation d'amis sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Est-ce que NewaRnet a une politique de protection des données?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Quelles sont les options de personnalisation pour les profils utilisateurs?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Y a-t-il une limite de caractères pour les publications sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Comment fonctionne le système de trending topics sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Est-ce que NewaRnet propose des fonctionnalités de traduction?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Comment supprimer mon compte sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Existe-t-il des programmes d'ambassadeurs ou d'influenceurs sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Comment NewaRnet prévient-il le harcèlement en ligne?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Y a-t-il des fonctionnalités de géolocalisation sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Quelles sont les options de personnalisation pour les notifications?</div>
+                                    <div class="menuTitre"onclick="TakenQuestionDesk(event)">Est-ce que NewaRnet propose des filtres pour les photos?</div>
     
                                 </div>
-                                <div class="conversations">
-                                    
+                                <div class="conversations" id="DeskInputNianda">
+                                    <div class="divPardefaut">
+                                        <div class="text_demos">
+                                            <h2 class="titre_animation interd">Nianda</h2>
+                                        </div>
+                                        Il s'agit d'un chatbot, dirigé par l'equipe NewaRnet, qui répond à toute interrogation, quelle qu'elle soit, mais uniquement sur les sujets relatifs à NewaRnet
+                                    </div>
                                 </div>
                                 <div class="botoomSessionNianda">
-                                    <div class="SessionQuestion"><input type="text" name=""  placeholder="Que veux-tu Savoir sur NewaRnet...."></div>
+                                    <div class="SessionQuestion Desk"><input type="text" name=""  placeholder="Que veux-tu Savoir sur NewaRnet...." oninput="ClickDesk(event)"></div>
                                 </div>
                               </div>
                               <!-- Ninada -->
@@ -100,16 +105,16 @@
                                     <input type="text" name=""  placeholder="Email ou Numéro de téléphone">
                                 </div>
                                 <div class="containeurInputStyle password">
-                                    <input type="password" name=""  placeholder="Mot de passe">
-                                    <i class="fa-solid fa-eye-slash"></i>
-                                    <i class="fa-solid fa-eye"></i>
+                                    <input type="password" name="password"  placeholder="Mot de passe">
+                                    <i class="fa-solid fa-eye-slash" id="eye-slash" onclick="PasswordToggle(event)"></i>
+                                    <i class="fa-solid fa-eye"onclick="PasswordToggle(event)"></i>
                                 </div>
                                 <div class="text_coventions">En vous connectant, vous adhérez à accepter notre politique et nos conditions.</div>
                                 <div class="connectionBtn login">Se connecter</div>
                                 <div class="connectionBtn sign_up" onclick="InscriptionFunctionDesk()">Créez un nouveau compte </div>
                                 <div class="bottom_text">
-                                    <div class="text_coventions">Avec sa célèbre phrase emblématique It's time for Africa, NewaRnet révolutionne la fluidité de l'écosystème de connectivité interactive.</div>
-                                </div>
+                                    <div class="text_coventions">Avec sa phrase célèbre Un monde à l'unisson,  Tout le concept de NewaRnet est d'être accessible au plus grand nombre</div>
+</div>
                            </form>
                           </div>
                           <div class="swiper-slide">
@@ -121,31 +126,36 @@
                                     </div>
                                     <div class="containeurInputStyle">
                                         <input type="text" name=""  placeholder="Entrer ton Prenom">
-                                        <!-- 
-                                        <i class="fa-solid fa-eye-slash"></i>
-                                        <i class="fa-solid fa-eye"></i> -->
                                     </div>
+                                </div>
+                                <div class="containeurInputStyle">
+                                    <input type="text" name=""  placeholder="Entrer Ton Adress Email">
                                 </div>
                                 <div class="boutonOnlymobile suivant" onclick="Suivant_1()">Suivant</div>
                                 <div class="text_coventions">Bienvenue chez NewaRnet ! partagez, vivez pleinement cette expérience unique. Ravis de vous avoir parmi nous !</div>
                            </form>
                           </div>
                           <div class="swiper-slide">
-                            <div class="textDemonstrationInscription">Vos identifiants NewaRnet seront votre adresse e-mail et votre mot de passe pour vous connecter.</div>
+                            <div class="textDemonstrationInscription">Lors de votre prochaine connexion, utilisez cet e-mail ou ce numéro , ainsi que votre mot de passe NewaRnet.</div>
                             <form action="" method="post" class="connexionForm">
                                 <div class="InputDouble">
                                     <div class="containeurInputStyle">
-                                        <input type="text" name=""  placeholder="Entrer ton Email">
-                                    </div>
-                                    <div class="containeurInputStyle password">
-                                        <input type="text" name=""  placeholder="Mot de pass">
-                                        <i class="fa-solid fa-eye-slash"></i>
-                                        <i class="fa-solid fa-eye"></i>
+                                        <input type="text" name=""  placeholder="Entrer ton numéro">
                                     </div>
                                 </div>
-                                <div class="containeurInputStyle">
-                                    <input type="text" name=""  placeholder="Entrer numéro de téléphone.">
+                                <div class="containeurInputStyle password">
+                                    <input type="text" name=""  placeholder="Optez pour un mot de passe solide pour ce compte" id="passwordInputDesk">
+                                    <i class="fa-solid fa-eye-slash" id="eye-slash" onclick="PasswordToggle(event)"></i>
+                                    <i class="fa-solid fa-eye"onclick="PasswordToggle(event)"></i>
                                 </div>
+                                <div class="InputDouble">
+                                <div class="boutonOnlymobile suivant"onclick="generateStrongPassword(event)">Régénérer</div>
+                                <div class="containeurInputStyle password">
+                                    <input type="text" name="" id="passMotdepasse"placeholder="The%&New!`arnet" value="The%&New!`arnet">
+                                    <i class="fa-solid fa-copy"  onclick="capierPassword(event)"></i>
+                                    <i class="fa-solid fa-check"onclick="capierPassword(event)"></i>
+                                </div>
+                            </div>
                                 <div class="boutonOnlymobile suivant"onclick="Suivant_2()">Suivant</div>
                                 <div class="text_coventions">Nous sommes ravis de vous accueillir dans notre communauté NewaRnet</div>
                            </form>
@@ -296,12 +306,12 @@
                                         ?>
                                     </select>
                                 <div class="InputDouble">
-                                    <div class="containeurInputStyle genre"><input type="radio" name="genre" > <span>Homme</span><i class="fa-solid fa-person"></i></div>
-                                    <div class="containeurInputStyle genre"><input type="radio" name="genre" > <span>Femme</span><i class="fa-solid fa-person-dress"></i></div>
+                                    <div class="containeurInputStyle genre" ><input onchange="selectGenre(event)"id="Homme" type="radio" name="genre"> <span>Homme</span><i class="fa-solid fa-person"></i></div>
+                                    <div class="containeurInputStyle genre"><input onchange="selectGenre(event)" type="radio" name="genre" id="Femme"> <span>Femme</span><i class="fa-solid fa-person-dress"></i></div>
                                 </div>
-                                <div class="boutonOnlymobile suivant">Enregistre L'inscription</div>
-                                <div class="text_coventions">Nous sommes ravis de vous accueillir dans notre communauté NewaRnet</div>
-                                <div class="boutonOnlymobile seconncter" onclick="Suivant_0()">Retournez la connexion</div>
+                                <div class="boutonOnlymobile suivant">Enregistrez l'inscription</div>
+                                <div class="text_coventions">C'est avec une immense joie que nous vous souhaitons la bienvenue au sein de notre communauté NewaRnet.</div>
+                                <div class="boutonOnlymobile seconncter" onclick="Suivant_0()">Retournez à l'interface principale</div>
                            </form>
                           </div>
                         </div>
@@ -337,7 +347,7 @@
 
                                     <!-- Questions sur les couleurs panafricaines -->
                                     <div class="menuTitre"onclick="TakenQuestion(event)">Pourquoi NewaRnet utilise-t-il les couleurs panafricaines?</div>
-                                    <div class="menuTitre"onclick="TakenQuestion(event)">Signification des couleurs rouge, verte et noire sur NewaRnet?</div>
+                                    <div class="menuTitre"onclick="TakenQuestion(event)">Signification des couleurs rouge, verte et jaune sur NewaRnet?</div>
                                     <div class="menuTitre"onclick="TakenQuestion(event)">Comment les couleurs panafricaines symbolisent-elles l'unité sur NewaRnet?</div>
                                     <div class="menuTitre"onclick="TakenQuestion(event)">Autres significations derrière le choix de ces couleurs?</div>
                                     <div class="menuTitre"onclick="TakenQuestion(event)">Comment NewaRnet célèbre-t-il la diversité culturelle à travers ces couleurs?</div>
@@ -365,10 +375,18 @@
                                     <div class="menuTitre"onclick="TakenQuestion(event)">Est-ce que NewaRnet propose des filtres pour les photos?</div>
 
                             </div>
-                                <div class="conversations Mobil"></div>
+                                <div class="conversations Mobil">
+                                    <div class="divPardefautMobile">
+                                        <div class="text_demos">
+                                            <h2 class="titre_animation interd">Nianda</h2>
+                                        </div>
+                                         Il s'agit d'un chatbot, dirigé par l'equipe NewaRnet, qui répond à toute interrogation, quelle qu'elle soit, mais uniquement sur les sujets relatifs à NewaRnet
+                                    </div>
+                                </div>
                             <div class="botoomSessionNianda">
-                                <div class="SessionQuestion"><input type="text" name="" id="MobInputNianda"  placeholder="Que veux-tu Savoir sur NewaRnet...." oninput="ClickMobil(event)"></div>
+                                <div class="SessionQuestion Mob"><input type="text" name="" id="MobInputNianda"  placeholder="Que veux-tu Savoir sur NewaRnet...." oninput="ClickMobil(event)"></div>
                             </div>
+                            
                           </div>
                           <!-- Ninada -->
                           <div class="swiper-slide connectionPage">
@@ -378,13 +396,13 @@
                                 </div>
                                 <div class="containeurInputStyle password">
                                     <input type="password" name=""  placeholder="Mot de passe">
-                                    <i class="fa-solid fa-eye-slash"></i>
-                                    <i class="fa-solid fa-eye"></i>
+                                    <i class="fa-solid fa-eye-slash"id="eye-slash" onclick="PasswordToggle(event)"></i>
+                                    <i class="fa-solid fa-eye"onclick="PasswordToggle(event)"></i>
                                 </div>
                                 <div class="text_coventions">En vous connectant, vous adhérez à accepter notre politique et nos conditions.</div>
                                 <div class="connectionBtn login">Se connecter</div>
                                 <div class="bottom_text">
-                                    <div class="text_coventions">Dans sa phase de prévisualisation,NewaRnet offrant un aperçu exclusif de ses fonctionnalités prometteuses</div>
+                                    <div class="text_coventions">Tout le concept de NewaRnet est d'être accessible au plus grand nombre</div>
                                 </div>
                            </form>
                           </div>
@@ -415,33 +433,36 @@
                                 </div>
                                 <div class="containeurInputStyle">
                                     <input type="text" name=""  placeholder="Entrer ton Prenom">
-                                    <!-- 
-                                    <i class="fa-solid fa-eye-slash"></i>
-                                    <i class="fa-solid fa-eye"></i> -->
-                                </div>
-                            </div>
-                            <div class="boutonOnlymobile suivant" onclick="SuivantMob_1()">Suivant</div>
-                            <div class="text_coventions">Bienvenue chez NewaRnet ! partagez, vivez pleinement cette expérience unique. Ravis de vous avoir parmi nous !</div>
-                       </form>
-                      </div>
-                      <div class="swiper-slide">
-                        <div class="textDemonstrationInscription">Vos identifiants NewaRnet seront votre adresse e-mail et votre mot de passe pour vous connecter.</div>
-                        <form action="" method="post" class="connexionForm">
-                            <div class="InputDouble">
-                                <div class="containeurInputStyle">
-                                    <input type="text" name=""  placeholder="Entrer ton Email">
-                                </div>
-                                <div class="containeurInputStyle password">
-                                    <input type="text" name=""  placeholder="Mot de pass">
-                                    <i class="fa-solid fa-eye-slash"></i>
-                                    <i class="fa-solid fa-eye"></i>
                                 </div>
                             </div>
                             <div class="containeurInputStyle">
-                                <input type="text" name=""  placeholder="Entrer numéro de téléphone.">
+                                <input type="text" name=""  placeholder="Entrer  ton Email ">
+                            </div>
+                            <div class="boutonOnlymobile suivant" onclick="SuivantMob_1()">Suivant</div>
+                       </form>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="textDemonstrationInscription">Lors de votre prochaine connexion, utilisez votre adresse e-mail ou numéro de téléphone, ainsi que votre mot de passe NewaRnet.</div>
+                        <form action="" method="post" class="connexionForm">
+                            <div class="InputDouble">
+                                <div class="containeurInputStyle">
+                                    <input type="text" name=""  placeholder="Entrer ton numéro de téléphone.l">
+                                </div>
+                                <div class="containeurInputStyle password">
+                                    <input type="password" name="" id="passwordInputMob" placeholder="Mot de passe">
+                                    <i class="fa-solid fa-eye-slash" id="eye-slash" onclick="PasswordToggle(event)"></i>
+                                    <i class="fa-solid fa-eye"onclick="PasswordToggle(event)"></i>
+                                </div>
+                            </div>
+                            <div class="InputDouble">
+                                <div class="boutonOnlymobile suivant"onclick="generateStrongPassword(event)">Régénérer</div>
+                                <div class="containeurInputStyle password">
+                                    <input type="text" name="" id="passMotdepasseMobile"placeholder="The%&New!`arnet" value="The%&New!`arnet">
+                                    <i class="fa-solid fa-copy"  onclick="capierPasswordMobile(event)"></i>
+                                    <i class="fa-solid fa-check"onclick="capierPasswordMobile(event)"></i>
+                                </div>
                             </div>
                             <div class="boutonOnlymobile suivant"onclick="SuivantMob_2()">Suivant</div>
-                            <div class="text_coventions">Nous sommes ravis de vous accueillir dans notre communauté NewaRnet</div>
                        </form>
                       </div>
                       <div class="swiper-slide">
@@ -590,8 +611,8 @@
                                     ?>
                                 </select>
                             <div class="InputDouble">
-                                <div class="containeurInputStyle genre"><input type="radio" name="genre" > <span>Homme</span><i class="fa-solid fa-person"></i></div>
-                                <div class="containeurInputStyle genre"><input type="radio" name="genre" > <span>Femme</span><i class="fa-solid fa-person-dress"></i></div>
+                                <div class="containeurInputStyle genre"><input type="radio" name="genre" onchange="selectGenre(event)"id="Homme"> <span>Homme</span><i class="fa-solid fa-person"></i></div>
+                                <div class="containeurInputStyle genre"><input type="radio" name="genre"onchange="selectGenre(event)" > <span>Femme</span><i class="fa-solid fa-person-dress"></i></div>
                             </div>
                             <div class="boutonOnlymobile suivant">Enregistre L'inscription</div>
                             <div class="text_coventions">Nous sommes ravis de vous accueillir dans notre communauté NewaRnet</div>
@@ -600,10 +621,12 @@
                       </div>
                     </div>
                   </div>
-                  <script src="Ajax_Functions/FunctionsJs.js"></script>
+                  
+<script src="Ajax_Functions/FunctionsJs.js"></script>
 <script src="Javascripts/refusActions.js"></script>
   <script src="Javascripts/stylepage.js"></script>
   <script src="Javascripts/indexStyle.js"></script>
   <script src="Javascripts/sesionNianda.js"></script>
+  <script src="Javascripts/conectionFunctions.js"></script>
 </body>
 </html>

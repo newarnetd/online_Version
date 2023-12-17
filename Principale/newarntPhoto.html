@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../Styles/styleCommun.css" />
+    <link rel="stylesheet" href="../Styles/message.css">
+    <link rel="stylesheet" href="../Styles/eplaza.css">
+    <link rel="stylesheet" href="../Styles/style_accueil.css" />
+    <link rel="stylesheet" href="../Styles/newarnetphoto.css">
+    <link rel="shortcut icon"href="../images/Logo.png"type="image/jpeg"style="width: 300px; height: 300px"/>
+    <title>NewaRnet</title>
+  </head>
+<body>
+    <div class="Referencepage">
+        <div class="leftside">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper leftSide">
+                  <!-- partie_image_ardefaut -->
+                  <div class="swiper-slide PhotoImageSetting">
+                    <div class="swiper mySwiper ImageSlider">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide imageDefault">
+                          <div class="imagediv"> 
+                            <div class="ElementsDivs" onclick="DessinMainLever()">Dessine ton art à main levée <i class="fa-solid fa-pen"></i></div>
+                            <span>Dessine ton art à main levée est une fonctionnalité qui permet aux utilisateurs de créer des œuvres artistiques de manière libre et créative. L'utilisateur peut utiliser un stylet ou son doigt pour dessiner directement sur l'écran, offrant une expérience de dessin plus organique et personnelle</span>
+                          </div>
+                        </div>
+                        <div class="swiper-slide imageDefault">
+                          <div class="imagediv"> 
+                            <div class="ElementsDivs" onclick="MontagerPhoto()">Montage Photo <i class="fa-solid fa-image"></i></div>
+                            <span>le bouton Montage Photo vous offre une interface conviviale, où l'intuitivité se marie à la puissance créative. Découvrez une panoplie d'outils sophistiqués qui vous permettront de fusionner, superposer, et transformer vos images avec une facilité déconcertante</span>
+                          </div>
+                        </div>
+                        <div class="swiper-slide imageDefault">
+                          <div class="imagediv"> 
+                            <i class="fa-solid fa-t"></i>
+                            <span>Cet icône permet de styliser le texte que vous venez de désirer mettre sur votre montage NewaRnetphoto</span>
+                          </div>
+                        </div>
+                        <div class="swiper-slide imageDefault">
+                          <div class="imagediv"> 
+                            <i class="fa-solid fa-download"></i>
+                            <span>Cet icône est là pour vous aider à télécharger votre réalisation, que ce soit une image ou une œuvre artistique, sur NewaRnetphoto</span>
+                          </div>
+                        </div>
+                        <div class="swiper-slide imageDefault">
+                          <div class="imagediv"> 
+                            <i class="fa-solid fa-cubes"></i>
+                            <span>Cet outil offre des fonctionnalités de montage et de traitement du texte pour explorer NewaRnetPhoto</span>
+                          </div>
+                        </div>
+                        <div class="swiper-slide imageDefault">
+                          <div class="imagediv"> 
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                            <span>Cet ensemble d'outils et de formulaires variés vous offre la possibilité de créer votre œuvre artistique de manière personnalisée</span>
+                          </div>
+                        </div>
+                        <div class="swiper-slide imageDefault">
+                          <div class="imagediv"> 
+                            <i class="fa-regular fa-file-image"></i>
+                            <span>En cliquant sur cet icône, vous accéderez à vos images, c'est-à-dire votre album contenant toutes les photos que vous avez postées sur NewaRnet.</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="autoplay-progress">
+                        <svg viewBox="0 0 48 48">
+                          <circle cx="24" cy="24" r="20"></circle>
+                        </svg>
+                        <span></span>
+                      </div>
+                    </div>
+                  </div>
+                      <!-- Traitement_text_gauche -->
+                      <div class="swiper-slide gaucheIcones">
+                        <div class="gauche_icones">
+                          <div class="iconePrincipale"onclick="TextOption()">
+                              <i class="fa-solid fa-t"></i>
+                              <small>Texte</small>
+                          </div>
+                          <div class="iconePrincipale">
+                            <i class="fa-solid fa-download"></i>
+                              <small>Télécharger</small>
+                          </div>
+                          <div class="iconePrincipale"onclick="LesOutilsDessin()">
+                            <i class="fa-solid fa-cubes"></i>
+                              <small>Outils</small>
+                          </div>
+                          <div class="iconePrincipale"onclick="OptionDessin()">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                              <small>Dessin</small>
+                          </div>
+                          <div class="iconePrincipale"onclick="GallerieOption()">
+                            <i class="fa-regular fa-file-image"></i>
+                              <small>Galerie</small>
+                          </div>
+                          <div class="iconePrincipale"onclick="MontagerPhoto()">
+                            <i class="fa-solid fa-pen-nib"></i>
+                              <small>Trait Photo</small>
+                          </div>
+                        </div>
+                        <div class="droite_icons">
+                          <div class="swiper mySwiper">
+                            <div class="swiper-wrapper leftSide_option">
+                              <div class="swiper-slide Text">Interface Text</div>
+                              <div class="swiper-slide Outils">Les Outils ou Element</div>
+                              <div class="swiper-slide dessin">Interface Dessin</div>
+                              <div class="swiper-slide Galeries">Interface Galleri en Grid deux sur une ligne</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Traitement_Photo_gauche -->
+                      <div class="swiper-slide gaucheIcones">
+                        <div class="gauche_icones">
+                          <div class="iconePrincipale">
+                            <i class="fa-solid fa-download"></i>
+                              <small>Télécharger</small>
+                          </div>
+                          <div class="iconePrincipale" onclick="OutilsPhotoMontage()">
+                            <i class="fa-solid fa-cubes"></i>
+                              <small>Outils</small>
+                          </div>
+                          <div class="iconePrincipale" onclick="Importation()">
+                            <i class="fa-solid fa-upload"></i>
+                              <small>Impoter</small>
+                          </div>
+                          <div class="iconePrincipale"onclick="GallerieOptionPhoto()">
+                            <i class="fa-solid fa-image"></i>
+                              <small>Galerie</small>
+                          </div>
+                          <div class="iconePrincipale"onclick="DessinMainLever()">
+                            <i class="fa-solid fa-pen-nib"></i>
+                              <small>Trait D'art</small>
+                          </div>
+                        </div>
+                        <div class="droite_icons">
+                          <div class="swiper mySwiper">
+                            <div class="swiper-wrapper DroiteSession">
+                              <div class="swiper-slide OutiulDessin">Outils Traitement photo</div>
+                              <div class="swiper-slide Importation">Importation</div>
+                              <div class="swiper-slide Importation">Interface de Galleries photo en gride 2 sur une ligne</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+        </div>
+        <div class="rightSide">
+            <div class="swiper mySwiper second">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide pardefaut">
+                    <div class="titres">NewaRnet Photo</div> 
+                    <div class="DivsBackground">
+                      <div class="ElementsDivs" onclick="DessinMainLever()">Dessine ton art à main levée <i class="fa-solid fa-pen"></i></div>
+                      <div class="ElementsDivs" onclick="MontagerPhoto()">Montage Photo <i class="fa-solid fa-image"></i></div>
+                    </div>
+                    <div class="textDemos">
+                      NewaRnet Photo est un outil de NewaRnet en pleine évolution. Bientôt, vous allez pouvoir réaliser toute une ville de montages photos avec une meilleure expérience utilisateur.
+                    </div>
+                  </div>
+                  <!-- interface Dessin main levee -->
+                  <div class="swiper-slide">Interface pour le dessin a main lever</div>
+                    <!-- photoEditer montage debut-->
+                  <div class="swiper-slide montagePhoto">
+                    <div class="topSideTools">les histoire D'en Haut</div>
+                    <div class="editeurPho"><img src="../images/placeholder.jpg" alt=""></div>
+                    <div class="rightsideTools">icns</div>
+                  </div>
+                    <!-- photoEditer  Fin-->
+                </div>
+              </div>
+              </div>
+            </div>
+          
+    <script src="../Javascripts/stylepage.js"></script>
+    <script src="../Javascripts/loadingPage.js"></script>
+    <script type="src" src="../Javascripts/bib.js"></script>
+    <script src="../Javascripts/fonctionsAccueil.js"></script>
+    <script src="../Javascripts/PhotoTools.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    const progressCircle = document.querySelector(".swiper.mySwiper.ImageSlider .autoplay-progress svg");
+    const progressContent = document.querySelector(".swiper.mySwiper.ImageSlider .autoplay-progress span");
+    var swiper = new Swiper(".swiper.mySwiper.ImageSlider", {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+      on: {
+        autoplayTimeLeft(s, time, progress) {
+          progressCircle.style.setProperty("--progress", 1 - progress);
+          progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

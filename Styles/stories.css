@@ -1,6 +1,6 @@
 .containerPage.story{
     display: flex;
-    align-items: center;
+    align-items: start;
     width:100%;
     height:100vh;
     gap:10px;
@@ -14,6 +14,32 @@
     max-height: 100vh;
     height: 100%;
     overflow-y: auto;
+    position: relative;
+    padding-bottom: 30px;
+}
+.userOwnerCompt .conversationuser{
+    border: none;
+    padding: 0;
+}
+.userOwnerCompt .carterUsermessage{
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--color-blanche-2);
+    cursor: pointer;
+    border:  2px solid var(--color-primary);
+    overflow: hidden;
+}
+.userOwnerCompt{
+    position: absolute;
+    left: 0;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    height: 10vh;
+    background: var(--color-blanche-1);
+    width:100%;
+    padding: 0;
 }
 .detailsOwnerStory{
     display: flex;
@@ -40,6 +66,7 @@
     background: var(--color-blanche-1);
     border-radius: 10px;
     position: relative;
+    overflow: hidden;
 }
 .iconDiv.vues i{
     padding-left: 10px;
@@ -53,4 +80,10 @@
 .detailsOwnerStory .carterUsermessage{
 width:70px;
 height:70px;
+border:  2px solid var(--color-primary);
+}
+.cartreStory .ImgPrincipale{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

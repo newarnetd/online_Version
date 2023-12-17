@@ -26,21 +26,25 @@ function OptionDroiteHeader(event) {
 }
 
 function afficherAmisDroite() {
-    document.querySelector(".firndscartes").style.display = "none";
-    document.querySelector(".containeruAmisDroite").style.display = "flex";
-    document.querySelector(".creergroupe").style.display = "none";
+    document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(-100%)";
 }
-
 function afficherCreerGroupe() {
-    document.querySelector(".firndscartes").style.display = "none";
-    document.querySelector(".containeruAmisDroite").style.display = "none";
-    document.querySelector(".creergroupe").style.display = "flex";
+    document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(-200%)";
+}
+function Suivies() {
+    document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(-300%)"; 
 }
 
 function afficherFirndsCartes() {
-    document.querySelector(".firndscartes").style.display = "flex";
-    document.querySelector(".containeruAmisDroite").style.display = "none";
-    document.querySelector(".creergroupe").style.display = "none";
+    document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(0%)";
+}
+function CreationGroupe()
+{
+    document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(-400%)";
+}
+function OptionUsers() {
+    const menuUsers = document.querySelector(".menuUsers");
+  menuUsers.classList.toggle("active");
 }
 
 function setDisplayStyle(className, displayValue) {
@@ -52,13 +56,35 @@ function setDisplayStyle(className, displayValue) {
 }
 
 function NotificationSide() {
-    setDisplayStyle(".sessionNotifications", "flex");
+    document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-200%)";
 }
-
+function MediaMenu()
+{
+    document.querySelector(".MunuInputs").classList.toggle("active");
+    document.querySelector(".leftIcon .iconDiv.menuMedia").classList.toggle("active");
+}
+function RecherCherNewaRnaute(event)
+{
+    if(event.target.value.trim() != '')
+    {
+        document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-300%)";
+    }else{
+        document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(0%)";
+    }
+}
 function MessageSide() {
-    setDisplayStyle(".sessionMessage", "flex");
+    document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-100%)";
+}
+function HommePrinciplae() {
+    document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(0%)";
 }
 
 function HomeSide() {
     setDisplayStyle(".droite_session", "flex");
+}
+function functionAnimerBTN(e)
+{
+    var Element  = e.target;
+    Element.textContent = "Ami(e) déjà";
+    Element.style.background = "var(--color-blanche-2)";
 }

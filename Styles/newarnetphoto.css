@@ -1,0 +1,269 @@
+.Referencepage{
+    display: flex;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.leftside{
+    width: 30%;
+    height: 100vh;
+    background: var(--color-blanche-1);
+}
+
+.rightSide{
+    width: 70%;
+    height: 100vh;
+    background: var(--color-blanche-2);
+    display: flex;
+    align-items: center;
+}
+.ElementsDivs i{
+    padding-left: 10px;
+}
+.ElementsDivs{
+    display: flex;
+    box-shadow: var(--boxshadow_section_blanche);
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-blanche-1);
+    padding: 15px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.DivsBackground{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+}
+.swiper-slide.pardefaut{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+}
+.swiper.mySwiper{
+    width: 100%;
+    height: 100%;
+}
+.pardefaut{
+    flex-direction: column;
+}
+.titres{
+    font-size: 100px;
+  -webkit-text-stroke: 14px var(--color-text) !important;
+  opacity: .3;
+}
+
+.imagediv{
+  width: 90%;
+  margin: 10px;
+  background: var(--color-blanche-2);
+  height: 70%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+.imagediv i{
+    font-size: 35px;
+}
+.imagediv .ElementsDivs i{
+    font-size:inherit;
+}
+.imagediv span{
+    margin-top: 10px;
+    opacity: .6;
+    width: 90%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.swiper-slide.imageDefault{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.carterModificationPhoto{
+    width:98%;
+    margin: 10px auto;
+    height: 200px;
+    background: var(--color-blanche-2);
+    border-radius: 5px;
+}
+.textDemos{
+    width: 90%;
+    opacity: .8;
+    display: flex;
+    justify-content:center;
+    text-align: center;
+    margin-top: 20px;
+}
+.bgs{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    display: flex;
+}
+.carterModificationPhoto{
+    overflow: hidden;
+}
+.swiper-slide.montagePhoto{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.editeurPho{
+    width: 80%;
+    height: 80%;
+    margin-top: 30px;
+    background: var(--color-blanche-1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+.editeurPho img{
+    width: 100%;
+    height:100%;
+    cursor: pointer;
+    object-fit: cover;
+}
+.containeurInputStyle i{
+    padding-left: 10px;
+}
+.rightsideTools{
+    position: absolute;
+    right:0;
+    top: 60px;
+    width: 60px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: var(--color-blanche-1);
+
+}
+.topSideTools{
+    width: 100%;
+    display: flex;
+    position: absolute;
+    background: var(--color-blanche-1);
+    top:0px;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+.containeurInputStyle.download{
+    background: transparent;
+    border: 1px solid var(--color-blanche-2);
+}
+.containeurInputStyle{
+    background: var(--color-blanche-2);
+    width: 100%;
+    padding: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.InputDouble{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 99%;
+    margin: 5px auto;
+    gap:5px;
+}
+.carterModificationPhoto img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    object-fit: cover;
+}
+.bgs .background input{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: transparent;
+    border-radius: 5px;
+    height: 100px;
+    background-color: transparent;
+}
+.bgs .background span{
+    opacity: .6;
+}
+.bgs .background{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+    overflow:hidden;
+    border-radius: 5px;
+}
+.titreModification{
+    display: flex;
+    align-items: center;
+    width:100%;
+    justify-content: center;
+    text-align: center;
+    opacity: .5;
+}
+.swiper-slide.gaucheIcones{
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    width: 100%;
+}
+.swiper-slide.gaucheIcones .gauche_icones{
+    width: 23%;
+    max-height: 100%;
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background: var(--color-blanche-1);
+    position: fixed;
+}
+.swiper-slide.gaucheIcones .droite_icons{
+    width: 80%;
+    max-height: 100%;
+    height: 100%;
+    padding: 5px 2px;
+    overflow-y: auto;
+    margin-left: 23%;
+    background: var(--color-blanche-2);
+    
+}
+.swiper-wrapper.leftSide_option,
+.swiper-wrapper.DroiteSession{
+    width: 100%;
+}
+.iconePrincipale{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+    cursor: pointer;
+    padding: 12px 0;
+    width: 100%;
+}
+.iconePrincipale small{
+    font-size: 12px;
+
+}

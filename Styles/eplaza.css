@@ -6,29 +6,234 @@
 body{
     background: var(--color-blanche-1);
 }
-
+.MenuUserLafet{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.swiper-wrapper{
+    transition: all .2s ease;
+}
+.swiper.mySwiper{
+    flex-direction: column;
+    /* transform: translateX(-200%); */
+}
+.menuOption:hover{
+    background: var(--color-blanche-1);
+}
+.menuOption i{
+    padding-right: 10px;
+}
+.menuOption{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width:100%;
+    padding: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--color-blanche-1);
+}
+.swiper-slide.searchCritere{
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    width: 100%;
+    flex-direction: column;
+}
 .lefteplaza{
     width:30%;
     height:100vh;
     border-right: 1px solid     var(--color-bordure-noire);
     display: flex;
     align-items: start;
-    position: sticky;
     background: var(--color-blanche-2);
+    flex-direction: column;
+    position: sticky;
     top: 0;
+    overflow-x: hidden;
+}
+
+.boutonsFromssatrt p{
+    margin:10px auto;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 40px;
+    opacity: .5;
+    font-size: 15px;
+}
+.boutonsFromssatrt div{
+    background: var(--color-blanche-1);
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding_boutons);
+    cursor: pointer;
+    border-radius: var(--border-boutons);
+}
+
+.boutonsFromssatrt{
+    max-width: 100%;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap:10px;
+    
+}
+.conteneur_creer_groupe:hover{
+    background: var(--color-blanche-1);
+    cursor: pointer;
+}
+.conteneur_creer_groupe{
+    margin: 0;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid var(--color-blanche-1);
+}
+.GroupesHare{
+    width:100%;
+    display: none;
+    height: 100%;
+    margin-top: 0px;
+    flex-direction: column;
+  }
+.iconeamis.Groupe{
+    background: transparent;
+  }
+.Form{
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    overflow-y: hidden;
+}
+.containeurInputStyle{
+    background: var(--color-blanche-1);
+}
+.containeurInputStyle.PhotoUser i{
+    padding-left: 10px;
+}
+.containeurInputStyle.PhotoUser{
+    background: var(--color-blanche-1);
+    color: var(--color-icons_Theme_blanche);
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    margin: 5px auto;
+}
+.PosterArticle{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+
+}
+.headermobile{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.containeurInputStyle.Image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+.containeurInputStyle.Image{
+    display: none;
+    width:100%;
+    padding: 0;
+    height: 300px;
+    overflow: hidden;
+}
+.imageOwner{
+    background: var(--color-blanche-2);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.otherLeft{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.otherLeft .Numb h3{
+font-size: 30px;
+}
+.otherLeft .Numb span{
+    opacity: .6;
+}
+.otherLeft .Numb{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
-.principaleOptions,.groupsShare,.FormualirePublicationArticle,.NouvellBoutique,.FormualirePublicationArticle,.ParametreBoutique,.AlbumBoutique{
-    overflow: hidden;
-    width:100%;
-    height:100%;
+.nameBoutique p{
+    font-size: 13px;
+    opacity: .7;
+}
+.imageProfile h3{
+    font-size: 20px;
+}
+.imageProfile .fa-solid.fa-arrow-left{
+    display: none;
+}
+.imageProfile{
     display: flex;
+    align-items: start;
+    justify-content:flex-start;
+    flex-direction: column;
+    gap:10px;
+}
+.TopImageBoutique{
+    display: flex;
+    width: 100%;
+    justify-content:space-between;
+    gap:10px;
+}
+.rightPlaza.Profile .Profiletop{
+    width:80%;
+    margin: 20px auto;
+}
+.rightPlaza.Profile{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.menupourandroidbuttonoptions{
+    display: none;
+}
+.principaleOptions,.groupsShare{
+    width:100%;
+    height:80%;
+    display:flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
     transition: all .1s ease;
     position: relative;
-    
+}
+.InputDouble{
+    width:100%;
+    margin: 3px auto;
+    gap:5px;
 }
 .btn.anuler i{
     padding-right: 20px;
@@ -47,13 +252,7 @@ body{
     border-radius: 10px;
     width:60px;
 }
-.groupsShare,.FormualirePublicationArticle,.NouvellBoutique,.FormualirePublicationArticle,.ParametreBoutique,.AlbumBoutique{
-    max-height: 0;
-    overflow-y: auto;
-}
 .MenuContaineurOptionseplaza{
-    overflow: hidden;
-    max-width: -800%;
     width:100%;
     height:100%;
     flex-direction: column;
@@ -68,7 +267,6 @@ body{
 .textChamps{
     width:90%;
     background: var(--color-blanche-1);
-    height: 50px;
     margin:10px auto;
     padding-left: 15px;
     gap:10px;
@@ -90,7 +288,7 @@ body{
 .textEplazaBottom{
     position: absolute;
     bottom:0;
-    display: flex;
+    display:flex;
     align-items: center;
     text-align: center;
     font-size: 14px;
@@ -107,15 +305,80 @@ body{
  align-items: center;
  justify-content: center;
  margin:12px auto;
+ gap:20px;
+ /* background: #000; */
+}
+.eplaza_title .textChamps{
+    width:50%;
+    background: var(--color-blanche-2);
+    height: 55px;
+    border-radius: 30px;
+}
+.textChamps{
+    width:90%;
+    background: var(--color-blanche-1);
+    padding: 15px;
+    border-radius: 30px;
 }
 .eplaza_title .titre_animation{
-    font-size: 35px;
-    -webkit-text-stroke:  4px var(--color-titre_newarnet) !important;
+    font-size: 30px;
+    display: flex;
+    -webkit-text-stroke:  3px var(--color-titre_newarnet) !important;
 }
 .rightPlaza{
     width:70%;
     height:100%;
     background: var(--color-blanche-1);
+}
+.menupourandroidbutton{
+    display: none;
+}
+.container_affiches.Album {
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(4,220px);
+    gap:10px 8px;
+}
+
+.boutique_options_pour_android{
+    display: none;
+}
+.videoMenu:hover{
+    background: var(--color-primary);
+    color:#FFF;
+}
+.videoMenu{
+    width: 40%;
+    padding: var(--padding_boutons);
+    border-radius:var(--border-boutons);
+    cursor: pointer;
+    border:  1px solid var(--color-blanche-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.boutique_options_pour_android_contenu{
+    display: none;
+}
+.menuVideos.Boutique{
+    margin: 0px auto;
+}
+.menuVideos{
+    width: 90%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-around;
+    gap:20px;
+}
+.menuVideos.Boutique .videoMenu{
+    justify-content: center;
+    background: var(--color-blanche-2);
+    width: 100%;
+}
+.Affiche.album{
+    background: var(--color-blanche-2);
+    height: 250px;
+    border-radius: 10px;
 }
 .container_affiches {
     width: 100%;
@@ -123,6 +386,7 @@ body{
     display: grid;
     grid-template-columns: repeat(3,290px);
     gap:10px 8px;
+    
 }
 .Affiche {
     height: fit-content;
@@ -167,6 +431,7 @@ body{
     right: -10px;
     bottom: 0px;
     font-size: 13px;
+    color: var(--color-text);
 }
 .topArticlesBottom .photoamis{
     width:60px;
@@ -193,7 +458,7 @@ body{
     font-size: 12px;
   }
 .bottonArticle{
-    display: flex;
+    display: block;
     align-items: start;
     width: 100%;
     justify-content: flex-start;
@@ -202,10 +467,12 @@ body{
 }
 .Affiche .bottonArticle{
     height: 40%;
-    width:100%;
     width:200px;
 }
 
+.bottonartpourandroidbutton{
+    display: none;
+}
 .product{
     width: 100%;
     height: 70%;
@@ -267,4 +534,269 @@ body{
     color: var(--color-red-1);
     text-align: center;
 }
+.menuMobileSesion{
+    display: none;
+}
+/* Petits écrans d'ordinateur portable */
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
 
+}
+/* Styles de base (pour tous les écrans) */
+
+/* Tablettes */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    /* Styles spécifiques pour les écrans de 768 à 1023 pixels de large */
+}
+/* Mobile portrait */
+
+@media screen and (max-width: 480px) {
+    body{
+        overflow-y: none;
+    }
+    .referencePage{
+        padding-left: 10px;
+    }
+   .lefteplaza {
+    display: none;
+  }
+  .rightPlaza{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.eplaza_title .titre_animation{
+    font-size: 25px;  
+}
+.menupourandroid{
+    width: 250px;
+    position: absolute;
+    top: 120px;
+    right: 0px;
+    background: var(--color-blanche-1);
+    padding-bottom: 20px;
+    border-radius: 0 10px 10px 0;
+    display: none; 
+    z-index: var(--z-index-1);
+
+}
+.menupourandroidbutton{
+    display: block;
+    background: var(--color-blanche-2);
+}
+.menupourandroidbutton:hover .menupourandroid{
+    display: block;
+}
+.names h3{
+    font-weight: 100;
+}
+.eplaza_title{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:0px auto;
+    gap:5px;
+    position: sticky;
+    top: 0;
+    background: var(--color-blanche-2);
+    z-index: var(--z-index-1);
+}
+.headermobile{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color-blanche-2);
+    padding: 5px 10px;
+}
+
+.headermobile .textChamps{
+    display: none;
+}
+.menupourandroidbuttonoptions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding:10px 5px;
+    width: 100%;
+    z-index: var(--z-index-1);
+    background: var(--color-blanche-1);
+}
+.menupourandroidbuttonoptions h2{
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menupourandroidbuttonoptions h2::before{
+    content: '';
+}
+.menupourandroidbuttonoptions h2 i{
+    padding-right: 10px;
+}
+.menupourandroidbutton{
+     width:50px;
+     height: 50px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+ .containerOptionMenu span{
+    font-size: .9rem;
+ }
+  .container_affiches {
+    width: 95%;
+    padding: 5px;
+    display: block;
+    z-index: var(--z-index-2);
+    max-height:82vh;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #000;
+    margin: 10px auto;
+}
+.topArticlesBottom{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.bottonartpourandroidbutton{
+    height: 100%;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: start;
+    line-height: 20px;
+    position: relative;
+    /* z-index: var(--z-index-2); */
+}
+.bottonartpourandroidbutton .btn{
+    background: var(--color-blanche-2);
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+}
+.BottomArticlesBottom{
+    display: block;
+   
+}
+.prixArticles{
+    position:relative;  
+    left: 0;  
+}
+.container_affiches .Affiche { 
+    width: fit-content;
+    height: 120px;
+    display: grid;
+    grid-template-columns: 200px 140px;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.Affiche .topArtcle{
+    height: 100%;
+    width:100%;
+    margin-left: 0px;
+    padding: 0px;
+}
+.Affiche .topArtcle img{
+    height: 100%;
+    width:100%;
+    object-fit: cover;    
+}
+.names h3{
+    font-weight: 500;
+    opacity: 1;
+}
+.BottomArticlesBottom p:first-child{
+    opacity: 1;
+    font-size: 14px;
+}
+.Affiche .bottonArticle{
+    display: none;
+}
+
+
+  
+
+
+/* ----------boutique--------- */
+.referencePage{
+    padding: 0;
+}
+.rightPlaza.Profile{
+    padding: 10px;
+}
+.rightPlaza.Profile .Profiletop{
+    width:95%;
+    margin: 10px auto;
+    /* padding: 10px; */
+}
+
+.TopImageBoutique{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.imageProfile{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:30px;
+}
+.nameBoutique p{
+    font-size: 15px;
+    opacity: .7;
+}
+.nameBoutique h3{
+    font-size: 20px;
+}
+.otherLeft{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20px;
+    
+}
+
+.boutique_options_pour_android{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-blanche-2);
+    padding: 10px 0;
+    display: no;
+}
+.boutique_options_pour_android_contenu{
+    width: 100%;
+    padding: 0 10px;
+}
+.imageProfile .fa-solid.fa-arrow-left{
+    display: block;
+}
+.boutique_options_pour_android:hover .boutique_options_pour_android_contenu{
+    display: block;
+
+}
+
+.videoMenu{
+    width: 100%;
+    padding: 5px 0;
+    background: var(--color-blanche-2);
+}
+
+.menuVideos{
+    display: none;
+}
+
+}

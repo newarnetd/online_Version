@@ -221,9 +221,10 @@ input[type="radio"]{
 .Nianda{
     background: var(--color-blanche-1);
     padding: 10px;
-    position: relative;
     display: flex;   
-    gap:10px;
+    gap:20px;
+    position: relative;
+    width:90%;
     align-items: start;
 }
 .userPhoto{
@@ -234,6 +235,7 @@ input[type="radio"]{
     height: 50px;
     border-radius: 50%;
     background: var(--color-primary);
+    
 }
 @keyframes animatePoint {
     0% {
@@ -256,17 +258,18 @@ input[type="radio"]{
     transform: translateY(0px) rotateX(0deg) rotateY(-180deg) rotateZ(90deg);
     }
     }
-.typing_container_animation{
-    bottom:20px;cursor:pointer;
-    display:inline-flex;
-    position:absolute;
-    right:10px;
-}
+
 .typing_container_animation .typing-animation{
     height:8px;
     width:8px;border-radius: 50%;margin:0 3px;
     animation:animatePoint 1.5s var(--delay) ease-in-out infinite;
     background:var(--color-primary);
+}
+.typing_container_animation{
+    bottom:20px;cursor:pointer;
+    display:inline-flex;
+    position:absolute;
+    right:10px;
 }
 .senderUser p{
     color:var(--color-text);
@@ -308,7 +311,7 @@ select,option {
 
 
 .boutonOnlymobile.seconncter{
-    width:60%;
+    width:80%;
     background: var(--color-blanche-2);
     color: var(--color-text);
     margin: 15px auto;
@@ -357,6 +360,17 @@ select,option {
 .swiper-wrapper.Desk{
     transform: translateX(-100%);
 }
+.divPardefaut,.divPardefautMobile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 98%;
+    opacity: .5;
+    text-align: center;
+    gap:20px;
+    flex-direction: column;
+}
 .textDemonstrationInscription{
     width:95%;
     margin:10px auto;
@@ -390,6 +404,29 @@ select,option {
 }
 .inscriptiontittre{
     margin-bottom: 30px;
+}
+
+.InputDouble i.fa-solid.fa-person,
+.InputDouble i.fa-solid.fa-person-dress{
+    display: none;
+}
+.fa-solid.fa-check{
+    display: none;
+}
+.boutons{
+    display: flex;
+    width: 60%;
+    margin:0px auto;
+    display: none;
+    padding: 15px;
+    color: #FFF;
+    align-items: center;
+    background: var();
+    border-radius: 5px;
+    cursor: pointer;
+    background: var(--color-primary);
+    justify-content: center;
+    align-items: center;
 }
 .InputDouble{
     width:100%;
@@ -467,12 +504,9 @@ select,option {
         height: 100%;
 
     }
-   
-   
-   
     .text_coventions {
         width:100%;
-        font-size: 14px;
+        font-size: 16px;
         display: flex;
         justify-content: center;
         color:var(--color-text);

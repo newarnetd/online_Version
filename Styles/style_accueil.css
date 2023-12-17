@@ -63,6 +63,36 @@ nav div {
   font-size: 30px;
   -webkit-text-stroke: 4px var(--color-titre_newarnet) !important;
 }
+.imagediv img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+.imagediv{
+  width: 90%;
+  margin: 10px;
+  background: var(--color-blanche-2);
+  height: 70%;
+  border-radius: 10px;
+}
+
+.swiper-slide.imageDefault{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.swiper-slide.PhotoImageSetting{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  font-size: 13px;
+  position: relative;
+  width: 100%;
+}
 main {
   width: 100%;
   height: 100%;
@@ -217,21 +247,30 @@ main {
   align-items: center;
   cursor: pointer;
   gap: 10px;
+  width:60px !important;
   flex-direction: column;
+}
+.friendsOnline.swiper-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
 }
 .imageStoryContainer {
   width: 70px;
   height: 70px;
+  background: var(--color-blanche-1);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.storys_users {
+.swiper-wrapper.storys_users{
   width: 100%;
   display: flex;
-  gap: 10px;
-
   align-items: center;
+  justify-content: center;
+  gap:15px !important;
 }
 .coverImage {
   display: flex;
@@ -259,6 +298,73 @@ main {
   padding: 3px;
   box-shadow: var(--boxshadow_section_blanche);
   margin: 15px auto;
+  position: relative;
+}
+.menuIcon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--color-blanche-1);
+  border:  1px solid var(--color-blanche-2);
+  border-radius: 5px;
+  height: 100%;
+  overflow: hidden;
+  transition: var(--transform-animation);
+  transition-duration: var(--transition-duration);
+  color: var(--color-text);
+  padding: 20px;
+}
+.iconDiv.menuMedia{
+  position: relative;
+}
+
+.iconDiv.menuMedia.active ~ .MunuInputs{
+  background: var(--color-blanche-1);
+  width: 250px;
+  transform: translateY(-110px);
+  box-shadow: var(--boxshadow_section_blanche);
+  border-radius: 5px;
+  overflow: hidden;
+  height: 80px;
+  
+}
+.menuInterface{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 15px;
+}
+.iconMenuFile{
+  background: var(--color-blanche-2);
+  box-shadow: var(--boxshadow_section_blanche);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.SharePostMere{
+  position: relative;
+}
+.MunuInputs{
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  background:var(--color-blanche-2);
+  right:42%;
+  z-index: 600;
+  transition: transform 0.2s,width 0.2s,height 0.2s;
+  transition-duration: 1s,0.5s ,0.5s;
+}
+.iconDiv.menuMedia{
+  overflow: hidden;
+  z-index: 700;
 }
 .formulaire {
   display: flex;
@@ -267,6 +373,7 @@ main {
   justify-content: center;
   gap: 10px;
 }
+
 .textChamp {
   background: var(--color-blanche-2);
   width: 80%;
@@ -349,6 +456,10 @@ main {
 .nameUser small {
   font-size: 12px;
 }
+.nameUser h3{
+  font-size: 16px;
+  font-weight: 500;
+}
 .nameUser {
   display: flex;
   align-items: start;
@@ -411,7 +522,7 @@ main {
   margin-top:10px;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding:0;
   gap: 15px;
   border-radius: 5px 5px 0 0;
   align-items: center;
@@ -423,6 +534,8 @@ main {
   gap: 10px;
   width: 100%;
   justify-content: space-around;
+  border-bottom: 1px solid var(--color-blanche-2);
+  padding-bottom: 10px;
 }
 .menuRight .menuOptionRight {
   cursor: pointer;
@@ -467,6 +580,8 @@ main {
 input[type="checkBox"]{
   cursor: pointer;
 }
+
+
 .firndscartes,.containeurAmisAjouter,.containeruAmisDroite,.creergroupe{
 display: none;
 flex-direction: column;
@@ -474,43 +589,7 @@ max-width:100%;
 width:100%;
 max-height: 63vh;
 }
-.sharePost i{
-  padding-right: 10px;
-}
-.partagePost:hover{
-  background: var(--color-blanche-2);
-  color: var(--color-text);
-  cursor: pointer;
-  width:100%;
-}
 
-.partagePost{
-  padding: 8px 13px;
-  transition: all .1s ease;
-}
-.sharePost.partager{
-  width:fit-content;
-  transition: all .1s ease;
-  max-width: 150px;
-  width: 100%;
-}
-.sharePost{
-  max-width:0;
-  width:100%;
-  overflow: hidden;
-  position: absolute;
-  bottom: 70px;
-  border:  1px solid var(--color-blanche-1);
-  right:0px;
-  transition: all .1s ease;
-  background: var(--color-blanche-1);
-  display: flex;
-  align-items: start;
-  justify-content:flex-start;
-  padding: 0px;
-  flex-direction: column;
-  gap:10px;
-}
 .firndscartes{
   display: flex;
   flex-direction: column;
@@ -533,6 +612,146 @@ max-height: 63vh;
   border-radius: var(--border-radius_cercle);
   background: var(--color-blanche-2);
 }
+.swiper-wrapper.menuDroiteAll .swiper-slide{
+  background:var(--color-blanche-1);
+  border-radius: 5px;
+}
+.menuUsers .menuOptionusers i{
+  padding-right: 10px;
+}
+.menuUsers .menuOptionusers:hover{
+  background: var(--color-primary);
+  color: #FFF;
+}
+.menuUsers .menuOptionusers{
+  display: flex;
+  align-items: center;
+  width:100%;
+  justify-content: flex-start;
+  padding: 12px;
+  cursor: pointer;
+  
+  border-top: 1px solid var(--color-blanche-1);
+}
+.menuUsers.active{
+  max-height: 150px;
+  transition: all .2s ease;
+}
+.conteneuramis:hover{
+  cursor: pointer;
+}
+.contenaireCreation{
+  display: flex;
+  gap:10px;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 2px auto;
+  
+}
+.topGroupeSettings .MygroupeS{
+  font-size: 14px;
+  opacity: .5;
+}
+.creerBtn:hover{
+  
+  color: var(--color-text);
+  border:  1px solid var(--color-primary);;
+}
+
+.creerBtn{
+  width: 40%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+
+}
+.textChamps.Groupena{
+  background: var(--color-blanche-2);
+  width:60%;
+  border-radius: 20px;
+}
+.textChamps.Groupena input{
+  width: 100%;
+}
+
+.inputSessionGroupecreate .textChamps{
+  background: var(--color-blanche-2);
+}
+.topGroupeSettings{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin: 10px auto;
+}
+.CreerGroupe i{
+  padding-left: 10px;
+  color: #FFF;
+}
+.CreerGroupe{
+  padding: 12px;
+  background: var(--color-green_boutons);
+  color: #FFF;
+  border-radius: 5px;
+  width: 50%;
+  margin: 0 10px;
+}
+.textCenter{
+  width: 90%;
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+  opacity: .7;
+  justify-content: center;
+}
+.menuUsers{
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: var(--color-blanche-2);
+  z-index: 1000;
+  display: flex;
+  align-items: start;
+  justify-content: flex-start;
+  flex-direction: column;
+  max-height: 0px;
+  height: 100%;
+  transition: all .2s ease;
+}
+.swiper-slide.usersAfficher{
+  position: relative;
+}
+.boutonsUserConfirme div:hover{
+  opacity: .8;
+}
+.swiper.mySwiper.other{
+  width: 100% !important;
+}
+.swiper-slide.droiteSession{
+  background: var(--color-blanche-2);
+  width: 100% !important;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+.boutonsUserConfirme div{
+  width: 130px;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  justify-content: center;
+}
 .boutonsUserConfirme {
   display: flex;
   align-items: center;
@@ -552,6 +771,11 @@ max-height: 63vh;
 .textCent.FriendsPropositions{
 font-size: 16px;
 width:80%;
+}
+.swiper-wrapper.friendsOnline .swiper-slide{
+  width:60px !important;
+  gap:10px;
+  
 }
 .textCent{
   display: flex;
@@ -578,17 +802,7 @@ width:80%;
   color: #FFF;
   cursor: pointer;
 }
-.containeurRight {
-  width: 100%;
-  margin: 0 auto;
-  max-height: 70vh;
-  height:100%;
-  background: var(--color-blanche-1);
-  overflow-y: scroll;
-  display: flex;
-  padding-bottom: 20px;
-  
-}
+
 .supprimerBtn.boutonAdmettre {
   background: var(--color-blanche-2);
   color: var(--color-text);
@@ -617,9 +831,28 @@ width:80%;
   gap: 10px;
   align-items: center;
 }
-.carteFriends {
+.swiper.mySwiper.MenuHome .swiper-slide{
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+.swiper.mySwiper.MenuHome{
+  width: 100%;
+}
+.swiper.mySwiper.MenuHome .swiper-slide{
+  width: 100%;
+  margin: 0 auto;
+  max-height: 55vh;
+  height: 100%;
+  height:100%;
+  background: var(--color-blanche-1);
+  overflow-y: scroll;
+  display: flex;
+  
+}
+.carteFriends.swiper-slide{
   background: var(--color-green);
-  width: 250px;
+  width: 250px !important;
   height: 300px;
   border-radius: var(--border-boutons);
   border: 1px solid var(--color-blanche-1);
@@ -651,13 +884,26 @@ width:80%;
   padding: 10px;
   align-items: center;
 }
-
+.containerFrinds.swiper-slide{
+  width: 60px;
+}
+.centre_session .swiper.mySwiper{
+width: 100%;
+display: flex;
+}
+.centre_session .swiper.mySwiper .swiper-wrapper{
+  gap:5px;
+}
 .Affiche.swiper-slide{
-  width:300px !important;
+  width:230px !important;
+  border: 1px solid var(--color-blanche-1);
+  border-radius: 10px;
+  overflow: hidden;
 }
 .topArticlesBottom .photoamis{
   background: var(--color-blanche-1);
 }
+
 .text-shwoSesion {
   width: 90%;
   display: flex;
@@ -717,14 +963,21 @@ width:80%;
   background: var(--color-blanche-1);
 }
 .conteneuramis {
-  width: 95%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
+  padding: 8px 10px;
   position: relative;
   margin: 10px auto;
+  border-bottom: 1px solid var(--color-blanche-2);
 }
+.conteneuramis:hover{
+  background: var(--color-blanche-2);
+  cursor: pointer;
+}
+
 .photoamis {
   width: 60px;
   height: 60px;
@@ -790,14 +1043,19 @@ width:80%;
   transition: 0.8s;
   border-radius: var(--border-boutons);
 }
+.voirgroupe:hover{
+  background: var(--color-blanche-2);
+}
 .voirgroupe {
-  width: 95%;
+  width: 100%;
   display:flex;
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--color-blanche-2);
+  padding: 8px 10px;
   position: relative;
-  margin: 10px auto;
 }
 .iconeamis.group {
   display: flex;
@@ -830,4 +1088,7 @@ width:80%;
   width:100%;
   max-height:70vh;
   height: 100%;
+}
+.containerFrinds{
+  width:100%;
 }
