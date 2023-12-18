@@ -44,8 +44,3 @@ function Importation()
 {
     DroitemereOption.style.transform="TranslateX(-100%)";
 }
-
-
-function changerImage() {
-   
-  }

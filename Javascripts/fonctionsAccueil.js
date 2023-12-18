@@ -1,6 +1,40 @@
-function sharePOst()
+const leftMererSlider = document.querySelector(".swiper-wrapper.leftOption");
+const suivantGroupe = document.querySelector(".swiper-wrapper.CreationGroupe");
+function SuivantGroupeCreation()
 {
-    document.querySelector(".sharePost").classList.add('partager');
+    suivantGroupe.style.transform = "TranslateX(-100%)" ;
+}
+function NewConversation()
+{
+    leftMererSlider.style.transform = "TranslateX(-100%)" ;
+}
+function PostStory()
+{
+    leftMererSlider.style.transform = "TranslateX(-200%)" ;
+}
+function TurnBack()
+{
+    leftMererSlider.style.transform = "TranslateX(0%)" ;
+}
+function ProfilEdite()
+{
+    leftMererSlider.style.transform = "TranslateX(-300%)" ;
+}
+function CouvertureEdite()
+{
+    leftMererSlider.style.transform = "TranslateX(-400%)" ;
+}
+function CreatePage()
+{
+    leftMererSlider.style.transform = "TranslateX(-500%)" ;
+}
+function CreatGroupe()
+{
+    leftMererSlider.style.transform = "TranslateX(-600%)" ;
+}
+function sharePOst(event)
+{
+    event.currentTarget.classList.toggle('partager');
 }
 function OptionDroiteHeader(event) {
     document.querySelectorAll(".menuOptionRight").forEach(item => {
@@ -88,3 +122,31 @@ function functionAnimerBTN(e)
     Element.textContent = "Ami(e) déjà";
     Element.style.background = "var(--color-blanche-2)";
 }
+function FunctionMoreOption()
+{
+    document.querySelector(".menuTopLeftBouton").classList.toggle('active');
+}
+function appliquerImageDeFond(event) {
+        var input = event.target;
+        var form = input.closest('.PostArticleForm');
+
+        if (!form) {
+            alert("Impossible de trouver l'élément parent avec la classe '.PostArticleForm'");
+            return;
+        }
+
+        var label = form.querySelector(".carterPostStory");
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                label.style.backgroundImage = 'url(' + e.target.result + ')';
+                label.innerHTML = '';
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+  

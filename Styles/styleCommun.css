@@ -12,10 +12,7 @@
     --boxshadow_section_blanche: 0px 4px 10px rgba(0, 0, 0,.2);
     --color-titre_newarnet: rgba(39, 171, 142, 0.861);
     --color-blue:rgba(115, 130, 148, 0.935);
-    --color-jaune:rgba(255, 166, 0, 0.863);
-    --color-jaune:rgb(255, 210, 121);
-    /* color:#0c1317;
-    color:#0a1014; */
+    --color-jaune-text:rgb(255, 210, 121);
     --color-greenNoire: rgb(41, 41, 41);
     --color-green:var(--color-primary);
     --color-bordure-noire:rgba(0, 0, 0, 0.042);
@@ -30,7 +27,7 @@
     --color-border-radius-arond:30px;
     --mesure-center:0 auto;
     --transform-animation:  transform 0.2s,width 0.2s,height 0.2s;
-    --transition-duration: 1s,0.5s ,0.5s;
+    --transition-delay: 1s,0.5s ,0.5s;
     --z-index-1:1000;
     --z-index-2:100;
     --z-index-3:10;
@@ -153,4 +150,14 @@ input,textarea,button{
     border-radius: var(--border-radius_cercle);
     cursor: pointer;
     object-fit: cover;
+  }
+  .Text_Norme{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-jaune-text);
+    text-align: center;
+    font-size: 12px;
+    margin-top: 10px;
   }
