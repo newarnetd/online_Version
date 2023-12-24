@@ -24,13 +24,10 @@ function CouvertureEdite()
 {
     leftMererSlider.style.transform = "TranslateX(-400%)" ;
 }
-function CreatePage()
-{
-    leftMererSlider.style.transform = "TranslateX(-500%)" ;
-}
+
 function CreatGroupe()
 {
-    leftMererSlider.style.transform = "TranslateX(-600%)" ;
+    leftMererSlider.style.transform = "TranslateX(-500%)" ;
 }
 function sharePOst(event)
 {
@@ -72,10 +69,6 @@ function Suivies() {
 function afficherFirndsCartes() {
     document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(0%)";
 }
-function CreationGroupe()
-{
-    document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(-400%)";
-}
 function OptionUsers() {
     const menuUsers = document.querySelector(".menuUsers");
   menuUsers.classList.toggle("active");
@@ -91,11 +84,6 @@ function setDisplayStyle(className, displayValue) {
 
 function NotificationSide() {
     document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-200%)";
-}
-function MediaMenu()
-{
-    document.querySelector(".MunuInputs").classList.toggle("active");
-    document.querySelector(".leftIcon .iconDiv.menuMedia").classList.toggle("active");
 }
 function RecherCherNewaRnaute(event)
 {

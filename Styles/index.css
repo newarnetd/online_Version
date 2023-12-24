@@ -15,6 +15,13 @@ body{
     width: 100%;
     gap:50px;
 }
+.erreurMessage{
+    display: flex;
+    color: var(--color-red-1);
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
 .leftside
 {
     background: transparent;
@@ -33,6 +40,13 @@ body{
 .connexionForm{
     padding: 7px;
     
+}
+.swiper-slid{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 7px 5px !important;
+    align-items: start;
 }
 
 .FormConnexion{
@@ -382,11 +396,12 @@ select,option {
     margin-bottom: 20px;
 }
 .boutonOnlymobile.suivant{
-    background: var(--color-primary);
+    background: var(--color-green_boutons);
     width:80%;
     margin:15px auto;
     color: #FFf;
     cursor: pointer;
+    border: none;
 }
 .inscriptiontittre h3{
     color: transparent;
@@ -539,6 +554,7 @@ select,option {
             width:100%;
             display: flex;
             justify-content: center;
+            text-align: center;
         }
         .titre_animation{
             color: transparent;

@@ -55,7 +55,7 @@
                         </div>
                         <div class="swiper-slide imageDefault">
                           <div class="imagediv"> 
-                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                            <i class="fa-solid fa-shapes"></i>
                             <span>Cet ensemble d'outils et de formulaires variés vous offre la possibilité de créer votre œuvre artistique de manière personnalisée</span>
                           </div>
                         </div>
@@ -90,7 +90,7 @@
                               <small>Outils</small>
                           </div>
                           <div class="iconePrincipale"onclick="OptionDessin()">
-                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                            <i class="fa-solid fa-shapes"></i>
                               <small>Dessin</small>
                           </div>
                           <div class="iconePrincipale"onclick="GallerieOption()">
@@ -105,10 +105,68 @@
                         <div class="droite_icons">
                           <div class="swiper mySwiper">
                             <div class="swiper-wrapper leftSide_option">
-                              <div class="swiper-slide Text">Interface Text</div>
-                              <div class="swiper-slide Outils">Les Outils ou Element</div>
-                              <div class="swiper-slide dessin">Interface Dessin</div>
-                              <div class="swiper-slide Galeries">Interface Galleri en Grid deux sur une ligne</div>
+                              <div class="swiper-slide Text">
+                                <div class="intextInput">
+                                  <input type="text" name="" id="" placeholder="Ecrivez votre Text ici" oninput="EnterText(event)">
+                                </div>
+                                <p class="textReponse"></p>
+                                <div class="textEplaza">Propositions de couleurs</div>
+                                <div class="couleurschoix">
+                                  <div class="color"></div>
+                                  <div class="color"></div>
+                                  <div class="color"></div>
+                                  <div class="color"></div>
+                                  <div class="color"></div>
+                                  <div class="color"></div>
+                                  <div class="color"></div>
+                                  <div class="color"></div>
+                                  <div class="color"></div>
+                                </div>
+                                <div class="textEplaza">Sélectionnez votre couleur au choix.</div>
+                                <div class="colorInput">
+                                  <input type="color" name="" id="">
+                                </div>
+                                <div class="couleurPrincipale">couleur: <span> #0745345</span> </div>
+                              </div>
+                              <div class="swiper-slide Outils">
+                                <div class="Toolsschoix">
+                                  <div class="tools"></div>
+                                  <div class="tools"></div>
+                                  <div class="tools"></div>
+                                  <div class="tools"></div>
+                                  <div class="tools"></div>
+                                  <div class="tools"></div>
+                                  <div class="tools"></div>
+                                  <div class="tools"></div>
+                                  <div class="tools"></div>
+                                  <div class="tools"></div>
+                                  <div class="tools"></div>
+                                  <div class="tools"></div>
+                                  <div class="tools"></div>
+                                  <div class="tools"></div>
+                                  <div class="tools"></div>
+                                  <div class="tools"></div>
+                                  <div class="tools"></div>
+                                  <div class="tools"></div>
+                                </div>
+                              </div>
+                              <div class="swiper-slide dessin">
+                                <div class="Toolsschoix">
+                                  <div class="tools"><i class="fa-solid fa-pen"></i></div>
+                                  <div class="tools"><i class="fa-solid fa-marker"></i></div>
+                                  <div class="tools"><i class="fa-solid fa-circle"></i></div>
+                                  
+                                </div>
+                              </div>
+                              <div class="swiper-slide Galeries">
+                                <div class="Toolsschoix">
+                                  <div class="tools Galerie"></div>
+                                  <div class="tools Galerie"></div>
+                                  <div class="tools Galerie"></div>
+                                  <div class="tools Galerie"></div>
+                                  <div class="tools Galerie"></div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -164,7 +222,9 @@
                     </div>
                   </div>
                   <!-- interface Dessin main levee -->
-                  <div class="swiper-slide">Interface pour le dessin a main lever</div>
+                  <div class="swiper-slide canvasclass">
+                    <canvas class="canvas"></canvas>
+                  </div>
                     <!-- photoEditer montage debut-->
                   <div class="swiper-slide montagePhoto">
                     <div class="topSideTools">les histoire D'en Haut</div>
@@ -182,7 +242,9 @@
     <script type="src" src="../Javascripts/bib.js"></script>
     <script src="../Javascripts/fonctionsAccueil.js"></script>
     <script src="../Javascripts/PhotoTools.js"></script>
+    <script src="../Javascripts/StructureNewarNetphoto.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
 
   <!-- Initialize Swiper -->
   <script>

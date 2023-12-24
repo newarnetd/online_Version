@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="../Styles/styleCommun.css" />
-    <link rel="stylesheet" href="../Styles/message.css">
+    <!-- <link rel="stylesheet" href="../Styles/message.css"> -->
+    <link rel="stylesheet" href="../Styles/index.css">
     <link rel="stylesheet" href="../Styles/eplaza.css">
     <link rel="stylesheet" href="../Styles/style_accueil.css"/>
     <link rel="shortcut icon"href="../images/Logo.png"type="image/jpeg"style="width: 300px; height: 300px"/>
@@ -25,7 +26,8 @@
             <div class="iconDiv"onclick="darkFunction()" id="sunFonction"><i class="fa-solid fa-sun"onclick="sunFunction(event)" id="sunFonction"></i></div>
           </div>
         </div>
-          <div class="leftnav"> <i class="fa-solid fa-magnifying-glass"></i><input type="search" name=""id=""placeholder="Rechercher un NewaRnaute..." oninput="RecherCherNewaRnaute(event)">
+          <div class="leftnav"> 
+            <i class="fa-solid fa-magnifying-glass"></i><input type="search" name=""id=""placeholder="Rechercher un NewaRnaute..." oninput="RecherCherNewaRnaute(event)">
         </div>
       </nav>
       <!-- Debut_main -->
@@ -33,121 +35,124 @@
         <!-- cote_gauche_des_icons -->
         <div class="leftmain swiper mySwiper">
           <div class="swiper-wrapper leftOption">
-              <div class="swiper-slide sesionOption">
-                <div class="iconcontainerOption" onclick="HommePrinciplae()">
-                  <i class="fa-solid fa-home"></i>Accueil
-                </div>
-                <div class="iconcontainerOption" onclick="NotificationSide()">
-                  <i class="fa-solid fa-bell"></i>Notifications
-                </div>
-                <div class="iconcontainerOption" onclick="MessageSide()">
-                  <i class="fa-solid fa-message"></i>Message
-                </div>
-                <a href="#" class="iconcontainerOption">
-                  <i class="fa-solid fa-paste"></i>Stories
-                </a>
-                <a href="#" class="iconcontainerOption">
-                  <i class="fa-solid fa-user"></i>Profil
-                </a>
-                <a href="#" class="iconcontainerOption">
-                  <i class="fa-solid fa-bullhorn"></i>ePlaza Market
-                </a>
-                <div class="iconcontainerOption" onclick="Suivies()">
-                  <i class="fa-solid fa-users"></i>Suivi(e)s
-                </div>
-                <div class="iconcontainerOption"onclick="FunctionMoreOption()">
-                  <i class="fa-solid fa-flag"></i> Page
-                </div>
-                <div class="iconcontainerOption"onclick="FunctionMoreOption()">
-                  <i class="fa-solid fa-gear"></i>Gestion des Groupes
-                </div>
-              </div>
-              <div class="swiper-slide sliderLeft">
-                <div class="conversationHomePage">
-                  <button class="BoutonsRetoure" onclick="TurnBack()"><i class="fa-solid fa-arrow-left"></i> Retournez au Principal</button>
-                  <div class="SearchMessage"><input type="search" name="" id="" placeholder="Trouver un(e) ami(e)"></div>
-                  
-                  <div class="carterPrinciplale">
+                      <div class="swiper-slide sesionOption">
+                        <div class="photoUserOwner"onclick="FunctionMoreOption()">
+                          <div class="imagageOwnerComp"><img src="../images/homme.jpg" alt=""></div>
+                          <span>Vous</span>
+                        </div>
+                        <div class="iconcontainerOption" onclick="HommePrinciplae()">
+                          <i class="fa-solid fa-home"></i>Accueil
+                        </div>
+                        <div class="iconcontainerOption" onclick="NotificationSide()">
+                          <i class="fa-solid fa-bell"><span class="notification_counteur">5</span></i>Notifications
+                        </div>
+                        <div class="iconcontainerOption" onclick="MessageSide()">
+                          <i class="fa-solid fa-message"><span class="notification_counteur">10</span></i>Message
+                        </div>
+                        <a href="#" class="iconcontainerOption">
+                          <i class="fa-solid fa-user"></i>Profil
+                        </a>
+                        <a href="#" class="iconcontainerOption">
+                          <i class="fa-solid fa-bullhorn"><span class="notification_counteur">1</span></i>ePlaza Market
+                        </a>
+                        <div class="iconcontainerOption" onclick="Suivies()">
+                          <i class="fa-solid fa-users"></i>Suivi(e)s
+                        </div>
+                        <div class="iconcontainerOption" onclick="Suivies()">
+                          <i class="fa-solid fa-users"><span class="notification_counteur">1</span></i>Demande D'Ami(e)
+                        </div>
+                        <div class="iconcontainerOption"onclick="FunctionMoreOption()">
+                          <i class="fa-solid fa-pen"></i>NewaRnetphoto 
+                        </div>
+                        <div class="iconcontainerOption"onclick="FunctionMoreOption()">
+                          <i class="fa-solid fa-right-from-bracket"></i>Deconnexion
+                        </div>
+                      </div>
+                      <div class="swiper-slide sliderLeft">
+                        <div class="conversationHomePage">
+                          <button class="BoutonsRetoure" onclick="TurnBack()"><i class="fa-solid fa-arrow-left"></i> Retournez au Principal</button>
+                          <div class="SearchMessage"><input type="search" name="" id="" placeholder="Trouver un(e) ami(e)"></div>
+                          
+                          <div class="carterPrinciplale">
 
-                    <div class="conteneuramis">
-                      <div class="photoamis">
-                        <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
-                      </div>
-                      <div class="nomamis">
-                        <h3>arsene cirhuza</h3>
-                        <p><small>En ligne </small></p>
-                      </div>
-                    </div>
-                    <div class="conteneuramis">
-                      <div class="photoamis">
-                        <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
-                      </div>
-                      <div class="nomamis">
-                        <h3>arsene cirhuza</h3>
-                        <p><small>En ligne </small></p>
-                      </div>
-                    </div>
+                            <div class="conteneuramis">
+                              <div class="photoamis">
+                                <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
+                              </div>
+                              <div class="nomamis">
+                                <h3>arsene cirhuza</h3>
+                                <p><small>En ligne </small></p>
+                              </div>
+                            </div>
+                            <div class="conteneuramis">
+                              <div class="photoamis">
+                                <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
+                              </div>
+                              <div class="nomamis">
+                                <h3>arsene cirhuza</h3>
+                                <p><small>En ligne </small></p>
+                              </div>
+                            </div>
 
-                  </div>
+                          </div>
 
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <button class="BoutonsRetoure" onclick="TurnBack()"><i class="fa-solid fa-arrow-left"></i> Retournez au Principal</button>
-                <form action="" method="post" class="PostArticleForm">
-                  <input type="file" name="" id="storyPost" accept="image/*" hidden>
-                  <label for="storyPost" class="carterPostStory"><i class="fa-solid fa-plus"></i></label>
-                  <select class="btn" name="temps">
-                    <option value="">Temps pour ce Story</option>
-                    <option value="30">30 Minutes d'apparition</option>
-                    <option value="1">1 heures d'apparition</option>
-                    <option value="6">6 heures d'apparition</option>
-                    <option value="12">12 heures d'apparition</option>
-                    <option value="24">12 heures d'apparition</option>
-                  </select>
-                </form>
-                <div class="BoutonsRetoure add">Ajouter sur Story</div>
-              </div>
-              <div class="swiper-slide">
-                <button class="BoutonsRetoure" onclick="TurnBack()"><i class="fa-solid fa-arrow-left"></i> Retournez au Principal</button>
-                <form action="" method="post" class="PostArticleForm">
-                  <input type="file" name="" id="storyPost" accept="image/*" hidden >
-                  <label for="storyPost" class="carterPostStory"><i class="fa-solid fa-plus"></i></label>                  
-              </form>
-                <div class="BoutonsRetoure add">Modifier mon Profile</div>
-                <p class="Text_Norme">Cette photo offre aux NewaRnautes une première impression visuelle de votre personnalité sur votre profil.</p>
-              </div>
-              <div class="swiper-slide">
-                <button class="BoutonsRetoure" onclick="TurnBack()"><i class="fa-solid fa-arrow-left"></i> Retournez au Principal</button>
-                <form action="" method="post" class="PostArticleForm">
-                  <input type="file" name="" id="storyPost" accept="image/*" hidden>
-                  <label for="storyPost" class="carterPostStory"><i class="fa-solid fa-plus"></i></label>
-                </form>
-                <div class="BoutonsRetoure add">Modifier Ma couverture</div>
-                <p class="Text_Norme">cette photo donne aux visiteurs une première impression visuelle de votre personnalité sur ton Profile</p>
-              </div>
-              <div class="swiper-slide">
-                <button class="BoutonsRetoure" onclick="TurnBack()"><i class="fa-solid fa-arrow-left"></i> Retournez au Principal</button>
-                Createpage
-              </div>
-              <div class="swiper-slide">
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <button class="BoutonsRetoure" onclick="TurnBack()"><i class="fa-solid fa-arrow-left"></i> Retournez au Principal</button>
+                        <form action="" method="post" class="PostArticleForm">
+                          <input type="file" name="" id="storyPost" accept="image/*" hidden>
+                          <label for="storyPost" class="carterPostStory">
+                            <i class="fa-solid fa-plus"></i>
+                            <p>Cliquez pour sélectionner une image</p>
+                          </label>
+                          <select class="btn" name="temps">
+                            <option value="">Temps pour ce Story</option>
+                            <option value="30">30 Minutes d'apparition</option>
+                            <option value="1">1 heures d'apparition</option>
+                            <option value="6">6 heures d'apparition</option>
+                            <option value="12">12 heures d'apparition</option>
+                            <option value="24">12 heures d'apparition</option>
+                          </select>
+                        </form>
+                        <div class="BoutonsRetoure add">Ajouter sur Story</div>
+                      </div>
+                      <div class="swiper-slide">
+                        <button class="BoutonsRetoure" onclick="TurnBack()"><i class="fa-solid fa-arrow-left"></i> Retournez au Principal</button>
+                        <form action="" method="post" class="PostArticleForm">
+                          <input type="file" name="" id="storyPost" accept="image/*" hidden >
+                          <label for="storyPost" class="carterPostStory">
+                            <i class="fa-solid fa-plus"></i>
+                            <p>Cliquez pour sélectionner une image</p>
+                          </label>                  
+                      </form>
+                        <div class="BoutonsRetoure add">Modifier mon Profile</div>
+                        <p class="Text_Norme">Cette photo offre aux NewaRnautes une première impression visuelle de votre personnalité sur votre profil.</p>
+                      </div>
+                      <div class="swiper-slide">
+                        <button class="BoutonsRetoure" onclick="TurnBack()"><i class="fa-solid fa-arrow-left"></i> Retournez au Principal</button>
+                        <form action="" method="post" class="PostArticleForm">
+                          <input type="file" name="" id="storyPost" accept="image/*" hidden>
+                          <label for="storyPost" class="carterPostStory">
+                            <i class="fa-solid fa-plus"></i>
+                            <p>Cliquez pour sélectionner une image</p>
+                          </label>
+                        </form>
+                        <div class="BoutonsRetoure add">Modifier Ma couverture</div>
+                        <p class="Text_Norme">cette photo donne aux visiteurs une première impression visuelle de votre personnalité sur ton Profile</p>
+                      </div>
+                      <div class="swiper-slide">
                 <button class="BoutonsRetoure" onclick="TurnBack()"><i class="fa-solid fa-arrow-left"></i> Retournez au Principal</button>
                 <form action="" method="post" class="PostArticleForm">
                   <div class="swiper mySwiper">
                     <div class="swiper-wrapper CreationGroupe">
-                      <div class="swiper-slide">
-                        <div class="SuivantGroupe"onclick="SuivantGroupeCreation()">Continuer la création</div>
-                        <div class="SearchMessage"><input type="search" name="" id="" placeholder="Qui ajouter dans ce Groupe ?"></div>
-                        <div class="conteneuramis">
-                                  <div class="photoamis">
-                                    <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
-                                  </div>
-                                  <div class="nomamis">
-                                    <h3>arsene cirhuza</h3>
-                                    <p><small>86 Membres </small></p>
-                                  </div>
-                                  <div class="iconeamis"><input type="checkbox" name="" id=""></div>
-                          </div>
+                      <div class="swiper-slide groupesideCreation">
+                        <div class="leftnav groupeCreation"> 
+                          <input type="file" name="" id="photoImage" accept="image/*" hidden>
+                          <label id="GroupePrfileImage" for="photoImage" ><i class="fa-solid fa-image" ></i></label><input type="text" name=""id=""placeholder="Entrer le Num du Groupe" oninput="PosteChamps(event)">
+                      </div>
+                      <div class="suivantBoutonsGroupe"onclick="SuivantGroupeCreation()">Continuer<i class="fa-solid fa-arrow-right"></i></div>
+                        <div class="SearchMessage creationGroupe"><input type="search" name="" id="" placeholder="Qui ajouter dans ce Groupe ?"></div>
                         <div class="conteneuramis">
                                   <div class="photoamis">
                                     <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
@@ -168,7 +173,7 @@
                       </div>
                       </div>
                     </div>
-                </form>
+                  </form>
               </div>
             </div>
           </div>
@@ -180,8 +185,8 @@
                 <div class="optionMenuHome"onclick="PostStory()"> <i class="fa-solid fa-circle-half-stroke"></i> Ajouter une Story</div>
                 <div class="optionMenuHome"onclick="ProfilEdite()"><i class="fa-solid fa-user-gear"></i>Modifier Ton Profile</div>
                 <div class="optionMenuHome"onclick="CouvertureEdite()"><i class="fa-solid fa-user-gear"></i>Modifier Ta Couverture</div>
-                <div class="optionMenuHome"onclick="CreatePage()"><i class="fa-solid fa-flag"></i>Creer Une page</div>
                 <div class="optionMenuHome"onclick="CreatGroupe()"><i class="fa-solid fa-user-group"></i>Creer Un Groupe</div>
+                <div class="optionMenuHome"onclick="CreatGroupe()"><i class="fa-solid fa-file-pdf"></i>Poster Feuille corrigée</div>
               </div>
             </div>
           </div>
@@ -215,236 +220,440 @@
               </div>
               <p class="nameUser">Van</p>
             </div>
+            <div class="containerFrinds swiper-slide">
+              <div class="imageStoryContainer">
+                <div class="coverImage">
+                  <img src="../images/peoples.png" alt="" />
+                </div>
+              </div>
+              <p class="nameUser">Van</p>
+            </div>
+            <div class="containerFrinds swiper-slide">
+              <div class="imageStoryContainer">
+                <div class="coverImage">
+                  <img src="../images/peoples.png" alt="" />
+                </div>
+              </div>
+              <p class="nameUser">Van</p>
+            </div>
+            <div class="containerFrinds swiper-slide">
+              <div class="imageStoryContainer">
+                <div class="coverImage">
+                  <img src="../images/peoples.png" alt="" />
+                </div>
+              </div>
+              <p class="nameUser">Van</p>
+            </div>
+            <div class="containerFrinds swiper-slide">
+              <div class="imageStoryContainer">
+                <div class="coverImage">
+                  <img src="../images/peoples.png" alt="" />
+                </div>
+              </div>
+              <p class="nameUser">Van</p>
+            </div>
+            <div class="containerFrinds swiper-slide">
+              <div class="imageStoryContainer">
+                <div class="coverImage">
+                  <img src="../images/peoples.png" alt="" />
+                </div>
+              </div>
+              <p class="nameUser">Van</p>
+            </div>
+            <div class="containerFrinds swiper-slide">
+              <div class="imageStoryContainer">
+                <div class="coverImage">
+                  <img src="../images/peoples.png" alt="" />
+                </div>
+              </div>
+              <p class="nameUser">Van</p>
+            </div>
           </div>
           </div>
           <!-- postSesion -->
-          <form method="post" class="FormPost">
+          <div method="post" class="FormPost">
             <div class="formulaire">
-              <div class="iconDiv">
+              <div class="iconDiv"onclick="FunctionMoreOption()">
                 <img src="../images/TeameNewarnaute.png"alt=""class="userphoto"/>
               </div>
-              <div class="textChamp">
-                <textarea name=""id=""placeholder="Que dites-vous Jean-luc"></textarea>
-              </div>
+              <div class="leftnav postSession"> 
+                <i class="fa-solid fa-image" onclick="PostWidthInage()"></i><input type="text" name=""id=""placeholder="Quand dites-vous, Jean-Luc ?" oninput="PosteChamps(event)">
             </div>
-            <div class="iconsPost">
-              <div class="rightIcons">
-                Publier <i class="fa-regular fa-paper-plane"></i>
-              </div>
-              <div class="leftIcon">
-                <div class="iconDiv">
-                  <i class="fa-solid fa-unlock-keyhole"></i>
-                </div>
-                <div class="iconDiv menuMedia" onclick="MediaMenu()">
-                  <i class="fa-solid fa-paperclip"></i>
-                </div>
-                <div class="MunuInputs">
-                  <div class="menuInterface">
-                    <input type="file" name="image" id="image" accept="image/*" hidden>
-                    <input type="file" name="video" id="video" accept="video/*" hidden>
-                    <input type="file" name="document" id="document" accept=".pdf, .txt, .docx, .pptx, .ppt, .rtf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation" hidden>
-                    <label for="image" class="iconMenuFile"><i class="fa-solid fa-image"></i></label>
-                    <label for="video" class="iconMenuFile"><i class="fa-solid fa-photo-film"></i></label>
-                    <label for="document" class="iconMenuFile"><i class="fa-solid fa-file-pdf"></i></label>
-                    
+            </div>
+          </div>
+          <!-- division_posts -->
+          <div class="swiper mySwiper other ">
+            <div class="menuHomeChoix">
+              <div class="optionHome active" onclick="FilActualite(event)" id="actualite">Fil d'actualités <i class="fa-solid fa-earth-africa"></i></div>
+              <div class="optionHome"onclick="FilActualite(event)"id="videos">videos <i class="fa-solid fa-clapperboard"></i></div>
+              <div class="optionHome"onclick="FilActualite(event)" id="Statut">Statut <i class="fa-solid fa-paste"></i></div>
+              <div class="optionHome"onclick="FilActualite(event)" id="Livres">Livres <i class="fa-solid fa-book"></i></div>
+            </div>
+              <div class="swiper-wrapper homeSessionPost">
+                <!--  Fil Actualite -->
+                <div class="swiper-slide">
+                    <div class="carterPoste">
+                      <div class="blocHead">
+                        <div class="left_userpost">
+                          <div class="cartePhoto">
+                            <img src="../images/newarnautes.jpg" class="userphoto" />
+                          </div>
+                          <div class="nameUser">
+                            <h3>Jean-luc kashindi</h3>
+                            <small
+                              >Il y 2 min.<i class="fa-solid fa-earth-africa"></i
+                            ></small>
+                          </div>
+                        </div>
+                        <div class="rightmenu">
+                          <div class="iconDiv"><i class="fa-solid fa-ellipsis"></i></div>
+                        </div>
+                      </div>
+                      <div class="corpPost">
+                        <img src="../images/newarnautes.jpg" class="imagePost" />
+                      </div>
+                      
+                      <div class="bottomIocnsEmotion">
+                        <div class="emotionIcons">
+                          <i class="fa-solid fa-thumbs-up"></i><span class="number">1234</span>
+                        </div>
+                        <div class="emotionIcons">
+                          <i class="fa-solid fa-comments"></i><span class="number">1234</span>
+                        </div>
+                        <div class="emotionIcons share" onclick="sharePOst(event)">
+                          <i class="fa-solid fa-share"></i>
+                          <span class="number">120</span>
+                          <div class="menuOptionPartager">
+                            <div class="optionMenuHome"><i class="fa-solid fa-share"></i>Groupe</div>
+                            <div class="optionMenuHome"> <i class="fa-solid fa-flag"></i>Poste</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Frineds -->
+                    <div class="text-shwoSesion">
+                      Savez-vous que ces personnes viennent tout juste d'intégrer NewaRnet récemment?
+                    </div>
+                    <div class="swiper mySwiper other onlyScroll">
+                      <div class="swiper-wrapper containerFriesProposition">
+                      <div class="carteFriends swiper-slide">
+                        <div class="headerImage">
+                          <img src="../images/mobile-shopping-e-commerce-online-store-flat-3d-vector-10352457-removebg-preview.png"/>
+                        </div>
+                        <div class="bottomFriendscarte">
+                          <div class="namesUser">
+                            <h3>Jean-luc kashindi</h3>
+                            <span>12k amis</span>
+                          </div>
+                          <div class="boutonsActions">
+                            <div class="confirmationBoutonsCnter">Ajouter</div>
+                            <div class="confirmationBoutonsCnter suivre">suivre</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carteFriends swiper-slide">
+                        <div class="headerImage">
+                          <img src="../images/mobile-shopping-e-commerce-online-store-flat-3d-vector-10352457-removebg-preview.png"/>
+                        </div>
+                        <div class="bottomFriendscarte">
+                          <div class="namesUser">
+                            <h3>Jean-luc kashindi</h3>
+                            <span>12k amis</span>
+                          </div>
+                          <div class="boutonsActions">
+                            <div class="confirmationBoutonsCnter">Ajouter</div>
+                            <div class="confirmationBoutonsCnter suivre">suivre</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carteFriends swiper-slide">
+                        <div class="headerImage">
+                          <img src="../images/mobile-shopping-e-commerce-online-store-flat-3d-vector-10352457-removebg-preview.png"/>
+                        </div>
+                        <div class="bottomFriendscarte">
+                          <div class="namesUser">
+                            <h3>Jean-luc kashindi</h3>
+                            <span>12k amis</span>
+                          </div>
+                          <div class="boutonsActions">
+                            <div class="confirmationBoutonsCnter">Ajouter</div>
+                            <div class="confirmationBoutonsCnter suivre">suivre</div>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="moreFrieds">voire plus <i class="fa-solid fa-caret-down"></i></div>
+                    <!-- poste_Friends_laste -->
+                    <div class="carterPoste">
+                      <div class="blocHead">
+                        <div class="left_userpost">
+                          <div class="cartePhoto">
+                            <img src="../images/newarnautes.jpg" class="userphoto" />
+                          </div>
+                          <div class="nameUser">
+                            <h3>Jean-luc kashindi</h3>
+                            <small
+                              >Il y 2 min.<i class="fa-solid fa-earth-africa"></i
+                            ></small>
+                          </div>
+                        </div>
+                        <div class="rightmenu">
+                          <div class="iconDiv"><i class="fa-solid fa-ellipsis"></i></div>
+                        </div>
+                      </div>
+                      <div class="corpPost">
+                        <img src="../images/newarnautes.jpg" class="imagePost" />
+                      </div>
+                      
+                      <div class="bottomIocnsEmotion">
+                        <div class="emotionIcons">
+                          <i class="fa-solid fa-thumbs-up"></i><span class="number">1234</span>
+                        </div>
+                        <div class="emotionIcons">
+                          <i class="fa-solid fa-comments"></i><span class="number">1234</span>
+                        </div>
+                        <div class="emotionIcons share" onclick="sharePOst(event)">
+                          <i class="fa-solid fa-share"></i>
+                          <span class="number">120</span>
+                          <div class="menuOptionPartager">
+                            <div class="optionMenuHome"><i class="fa-solid fa-share"></i>Groupe</div>
+                            <div class="optionMenuHome"> <i class="fa-solid fa-flag"></i>Poste</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="textEplaza">ePlaza est un lieu virtuel de promotion des produits avec une large diffusion dans l'écosystème NewaRnet</div>
+                    <div class="swiper mySwiper other onlyScroll cartePage propositions">
+                      <div class="swiper-wrapper">
+                          <div class="Affiche swiper-slide">
+                            <div class="topArtcle">
+                            <img src="../images/placeholder.jpg">
+                            </div>
+                            <div class="OtherDetailsEplaza">
+                              <p>Maison a louer Trois chambresjs sksks ..</p>
+                            <div class="Userimage">
+                              <div class="imagePhoto">
+                                <div class="photoEplaza"></div>
+                                <div class="DetailArtcle">
+                                  <span>Bousness Shop</span>
+                                  <small>12 vues</small>
+                                </div>
+                              </div>
+                              <div class="MenuIconElaza">
+                                voire <i class="fa-solid fa-eye"></i>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                          <div class="Affiche swiper-slide">
+                            <div class="topArtcle">
+                            <img src="../images/placeholder.jpg">
+                            </div>
+                            <div class="OtherDetailsEplaza">
+                              <p>Maison a louer Trois chambresjs sksks ..</p>
+                            <div class="Userimage">
+                              <div class="imagePhoto">
+                                <div class="photoEplaza"></div>
+                                <div class="DetailArtcle">
+                                  <span>Bousness Shop</span>
+                                  <small>12 vues</small>
+                                </div>
+                              </div>
+                              <div class="MenuIconElaza">
+                                voire <i class="fa-solid fa-eye"></i>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                    </div>
+                    </div>
                   </div>
-                </div>
-                <div class="rightIcons newarnetphoto">
-                  NewaRnetphoto <i class="fa-solid fa-pen"></i>
-                </div>
-              </div>
-            </div>
-          </form>
-          <!-- sectionPost  -->
-          <div class="carterPoste">
-            <div class="blocHead">
-              <div class="left_userpost">
-                <div class="cartePhoto">
-                  <img src="../images/newarnautes.jpg" class="userphoto" />
-                </div>
-                <div class="nameUser">
-                  <h3>Jean-luc kashindi</h3>
-                  <small
-                    >Il y 2 min.<i class="fa-solid fa-earth-africa"></i
-                  ></small>
-                </div>
-              </div>
-              <div class="rightmenu">
-                <div class="iconDiv"><i class="fa-solid fa-ellipsis"></i></div>
-              </div>
-            </div>
-            <div class="corpPost">
-              <img src="../images/newarnautes.jpg" class="imagePost" />
-            </div>
-            
-            <div class="bottomIocnsEmotion">
-              <div class="emotionIcons">
-                <i class="fa-solid fa-thumbs-up"></i><span class="number">1234</span>
-              </div>
-              <div class="emotionIcons">
-                <i class="fa-solid fa-comments"></i><span class="number">1234</span>
-              </div>
-              <div class="emotionIcons share" onclick="sharePOst(event)">
-                <i class="fa-solid fa-share"></i>
-                <span class="number">120</span>
-                <div class="menuOptionPartager">
-                  <div class="optionMenuHome"><i class="fa-solid fa-share"></i>Groupe</div>
-                  <div class="optionMenuHome"> <i class="fa-solid fa-flag"></i>Page</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Frineds -->
-          <div class="text-shwoSesion">
-            Savez-vous que ces personnes viennent tout juste d'intégrer NewaRnet
-            récemment?
-          </div>
-          <div class="swiper mySwiper other onlyScroll">
-            <div class="swiper-wrapper containerFriesProposition">
-            <div class="carteFriends swiper-slide">
-              <div class="headerImage">
-                <img src="../images/mobile-shopping-e-commerce-online-store-flat-3d-vector-10352457-removebg-preview.png"/>
-              </div>
-              <div class="bottomFriendscarte">
-                <div class="namesUser">
-                  <h3>Jean-luc kashindi</h3>
-                  <span>12k amis</span>
-                </div>
-                <div class="boutons">
-                  <div class="confirmationBoutonsCnter">Ajouter</div>
-                  <div class="confirmationBoutonsCnter suivre">suivre</div>
-                </div>
-              </div>
-            </div>
-            <div class="carteFriends swiper-slide">
-              <div class="headerImage">
-                <img src="../images/mobile-shopping-e-commerce-online-store-flat-3d-vector-10352457-removebg-preview.png"/>
-              </div>
-              <div class="bottomFriendscarte">
-                <div class="namesUser">
-                  <h3>Jean-luc kashindi</h3>
-                  <span>12k amis</span>
-                </div>
-                <div class="boutons">
-                  <div class="confirmationBoutonsCnter">Ajouter</div>
-                  <div class="confirmationBoutonsCnter suivre">suivre</div>
-                </div>
-              </div>
-            </div>
-            </div>
-          </div>
-          <!-- poste_Friends_laste -->
-          <div class="carterPoste">
-            <div class="blocHead">
-              <div class="left_userpost">
-                <div class="cartePhoto">
-                  <img src="../images/newarnautes.jpg" class="userphoto" />
-                </div>
-                <div class="nameUser">
-                  <h3>Jean-luc kashindi</h3>
-                  <small
-                    >Il y 2 min.<i class="fa-solid fa-earth-africa"></i
-                  ></small>
-                </div>
-              </div>
-              <div class="rightmenu">
-                <div class="iconDiv"><i class="fa-solid fa-ellipsis"></i></div>
-              </div>
-            </div>
-            <div class="corpPost">
-              <img src="../images/newarnautes.jpg" class="imagePost" />
-            </div>
-            <div class="bottomIocnsEmotion">
-              <div class="emotionIcons">
-                <i class="fa-solid fa-thumbs-up"></i
-                ><span class="number">1234</span>
-              </div>
-              <div class="emotionIcons">
-                <i class="fa-solid fa-comments"></i
-                ><span class="number">1234</span>
-              </div>
-              <div class="emotionIcons">
-                <i class="fa-solid fa-share"></i><span class="number">1234</span>
-              </div>
-            </div>
-          </div>
-          <div class="swiper mySwiper other onlyScroll cartePage propositions">
-            <div class="swiper-wrapper">
-                <div class="Affiche swiper-slide">
-                  <div class="topArtcle">
-                  <img src="../images/trois-Couloirs.jpg">
+                  <!-- videosHome -->
+                  <div class="swiper-slide">
+                    <div class="carterPoste">
+                      <div class="blocHead">
+                        <div class="left_userpost">
+                          <div class="cartePhoto">
+                            <img src="../images/newarnautes.jpg" class="userphoto" />
+                          </div>
+                          <div class="nameUser">
+                            <h3>Jean-luc kashindi</h3>
+                            <small
+                              >Il y 2 min.<i class="fa-solid fa-earth-africa"></i
+                            ></small>
+                          </div>
+                        </div>
+                        <div class="rightmenu">
+                          <div class="iconDiv">
+                            <i class="fa-solid fa-ellipsis"></i>
+                            <div class="menuOptionPost"onclick="MenuUserPost(event)">skljks</div>
+                            <div class="menuPosteUseroWNER"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="corpPost">
+                        <img src="../images/newarnautes.jpg" class="imagePost" />
+                      </div>
+                      
+                      <div class="bottomIocnsEmotion">
+                        <div class="emotionIcons">
+                          <i class="fa-solid fa-thumbs-up"></i><span class="number">1234</span>
+                        </div>
+                        <div class="emotionIcons">
+                          <i class="fa-solid fa-comments"></i><span class="number">1234</span>
+                        </div>
+                        <div class="emotionIcons share" onclick="sharePOst(event)">
+                          <i class="fa-solid fa-share"></i>
+                          <span class="number">120</span>
+                          <div class="menuOptionPartager">
+                            <div class="optionMenuHome"><i class="fa-solid fa-share"></i>Groupe</div>
+                            <div class="optionMenuHome"> <i class="fa-solid fa-flag"></i>Poste</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="bottonArticle">
-                      <div class="topArticlesBottom">
-                          <div class="photoamis"></div>
-                          <div class="names">
-                              <H3>Maison à Louer</H3>
-                              <p>20k vues <i class="fa-solid fa-eye"></i></p>
+                  <!-- Statu -->
+                    <div class="swiper-slide">
+                      <div class="swiper mySwiper status">
+                          <div class="swiper-wrapper ScrollPart">
+                            <div class="swiper-slide partyOneSatus">
+                              <div class="leftnav status"> <i class="fa-solid fa-magnifying-glass"></i><input type="search" name=""id=""placeholder="Rechercher une Statut" oninput="RecherCherNewaRnaute(event)"></div>
+                              <div class="conversationuser" onclick="ShowStatut(event)">
+                                <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
+                                <div class="nameUserconversation">
+                                    <h3>Jean-luc kashind</h3>
+                                    <p>12k amis</p>
+                                </div>
+                                <div class="onlineTime">Aujourdiu, 13:45</div>
+                            </div>
+                              <div class="conversationuser"onclick="ShowStatut(event)">
+                                <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
+                                <div class="nameUserconversation">
+                                    <h3>Jean-luc kashind</h3>
+                                    <p>12k amis</p>
+                                </div>
+                                <div class="onlineTime">Aujourdiu, 13:45</div>
+                            </div>
+                              <div class="conversationuser"onclick="ShowStatut(event)">
+                                <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
+                                <div class="nameUserconversation">
+                                    <h3>Jean-luc kashind</h3>
+                                    <p>12k amis</p>
+                                </div>
+                                <div class="onlineTime">Aujourdiu, 13:45</div>
+                            </div>
+                            </div>
+                            <div class="swiper-slide">
+                              <div class="carterPostSatut">
+                                <div class="headerSatatus">
+                                  <div class="" onclick="BackSatutus()"><i class="fa-solid fa-arrow-left"></i></div>
+                                  <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
+                                  <div class="nameUserconversation">
+                                      <h3>Jean-luc kashind</h3>
+                                      <p>12 vues</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                       </div>
-                      <div class="BottomArticlesBottom">
-                          <p>Trois chambres</p>
-                          <p class="prixArticles">100 000FB</p>
+                    </div>
+                  <!-- books -->
+                  <div class="swiper-slide boook">
+                    <div class="swiper mySwiper other">
+                      <div class="menuHomeChoix">
+                        <div class="optionHome active" onclick="documentFormat(event)" id="photoBook">Feuilles corrigées<i class="fa-solid fa-sheet-plastic"></i></div>
+                        <div class="optionHome" onclick="documentFormat(event)" id="pdf">Documents <i class="fa-solid fa-book"></i></div>
                       </div>
-                  </div>
-                </div>
-                <div class="Affiche swiper-slide">
-                  <div class="topArtcle">
-                  <img src="../images/trois-Couloirs.jpg">
-                  </div>
-                  <div class="bottonArticle">
-                      <div class="topArticlesBottom">
-                          <div class="photoamis"></div>
-                          <div class="names">
-                              <H3>Maison à Louer</H3>
-                              <p>20k vues <i class="fa-solid fa-eye"></i></p>
+                      <div class="swiper-wrapper document">
+                        <div class="swiper-slide photoCorriger">
+                            <div class="gridPhoto">
+                              <div class="feuilCorriger">
+                                <div class="topFeuille"></div>
+                                <p>Mathematique Equation</p>
+                              </div>
+                              <div class="feuilCorriger">
+                                <div class="topFeuille"></div>
+                                <p>Mathematique Equation</p>
+                              </div>
+                              <div class="feuilCorriger">
+                                <div class="topFeuille"></div>
+                                <p>Mathematique Equation</p>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="gridPhoto">
+                            <div class="feuilCorriger">
+                              <div class="topFeuille"></div>
+                              <p>Mathematique Equation</p>
+                            </div>
+                            <div class="feuilCorriger">
+                              <div class="topFeuille"></div>
+                              <p>Mathematique Equation</p>
+                            </div>
+                            <div class="feuilCorriger">
+                              <div class="topFeuille"></div>
+                              <p>Mathematique Equation</p>
+                            </div>
                           </div>
+                        </div>
                       </div>
-                      <div class="BottomArticlesBottom">
-                          <p>Trois chambres</p>
-                          <p class="prixArticles">100 000FB</p>
                       </div>
                   </div>
-                </div>
-                <div class="Affiche swiper-slide">
-                  <div class="topArtcle">
-                  <img src="../images/trois-Couloirs.jpg">
-                  </div>
-                  <div class="bottonArticle">
-                      <div class="topArticlesBottom">
-                          <div class="photoamis"></div>
-                          <div class="names">
-                              <H3>Maison à Louer</H3>
-                              <p>20k vues <i class="fa-solid fa-eye"></i></p>
+                  <!-- Post -->
+                  <div class="swiper-slide posteSide">
+                    <div class="cartetPosteCreation">
+                        <div class="headerPatiesPoste">
+                          <span><i class="fa-solid fa-arrow-left" onclick="RetunBackCreatePoste()"></i> Creation de poste</span>
+                        </div>
+                        <form method="post" class="bottomSidepartiePoste">
+                          <input type="file" name="image" id="PosteImage" accept="image/*" hidden>
+                            <input type="file" name="" id="storyPost" accept="image/*" hidden>
+                            <div class="leftnav postSession"> 
+                              <input type="text" name=""id=""placeholder="Écrivez ce que vous désirez poster" oninput="PosteChamps(event)">
                           </div>
-                      </div>
-                      <div class="BottomArticlesBottom">
-                          <p>Trois chambres</p>
-                          <p class="prixArticles">100 000FB</p>
-                      </div>
-                  </div>
-                </div>
-                <div class="Affiche swiper-slide">
-                  <div class="topArtcle">
-                  <img src="../images/trois-Couloirs.jpg">
-                  </div>
-                  <div class="bottonArticle">
-                      <div class="topArticlesBottom">
-                          <div class="photoamis"></div>
-                          <div class="names">
-                              <H3>Maison à Louer</H3>
-                              <p>20k vues <i class="fa-solid fa-eye"></i></p>
+                            <div class="swiper mySwiper other posteMenu">
+                              <div class="menuHomeChoix">
+                                <div class="optionHome active" onclick="PosteFile(event)" id="image">Photo<i class="fa-solid fa-image"></i></div>
+                                <div class="optionHome"onclick="PosteFile(event)"id="videos">videos <i class="fa-solid fa-clapperboard"></i></div>
+                                <div class="optionHome"onclick="PosteFile(event)" id="document">Document<i class="fa-solid fa-file-pdf"></i></div>
+                              </div>
+                            <div class="swiper-wrapper homeSessionPost slidpost">
+                              <input type="file" name="image" id="image" hidden accept="image/*">
+                              <input type="file" name="video" id="video" hidden accept="video/*">
+                              <input type="file" name="document" id="documents" hidden accept=".pdf, .doc, .docx, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document">                              
+                              <label for="image" class="swiper-slide carterPostStory poste">
+                                <i class="fa-solid fa-image"></i>
+                                <p>Cliquez pour sélectionner une image</p>
+                              </label>
+                              <label for="video" class="swiper-slide carterPostStory poste">
+                                <i class="fa-solid fa-clapperboard"></i>
+                                <p>Cliquez pour sélectionner une video</p>
+                              </label>
+                              <label for="documents" class="swiper-slide carterPostStory poste">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                <p>Cliquez pour sélectionner une Document</p>
+                              </label>
+                            </div>
                           </div>
-                      </div>
-                      <div class="BottomArticlesBottom">
-                          <p>Trois chambres</p>
-                          <p class="prixArticles">100 000FB</p>
-                      </div>
+                            <div class="text_demos">Merci de prendre le temps de sélectionner attentivement le niveau d'intégrité approprié pour ce poste.</div>
+                            <div class="InputDouble">
+                              <select name="integrite" class="containeurInputStyle integrite">
+                                <option value="moi seule">Moi seule</option>
+                                <option value="amis">Mes ami(e)s</option>
+                                <option value="NewaRnet">À tous les NewaRnautes</option>
+                              </select>                                                           
+                              <div class="containeurInputStyle poste publication">Publier <i class="fa-solid fa-paper-plane"></i></div>
+                          </div>
+                        </form>
+                    </div>
                   </div>
-                </div>
+              </div>
           </div>
-          </div>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia a quae dicta non nemo aspernatur fuga. Beatae necessitatibus saepe non! Cumque voluptatem repellendus quam asperiores in sunt, dolorum a maiores?
+          <!--FIN division_posts -->
         </div>
         <!-- la partie_Droite -->
       <div class="droite_session">
@@ -472,7 +681,7 @@
                     Amis <i class="fa-solid fa-users"></i>
                   </div>
                   <div class="Suivis menuOptionRight"onclick="OptionDroiteHeader(event)" id="groupeDroite">
-                    Groupe<i class="fa-solid fa-user-group"></i>
+                    <i class="fa-solid fa-user-group"></i><span class="notification_counteur">1</span>Groupe
                   </div>
                 </div>
                 <div class="swiper mySwiper  MenuHome">
@@ -568,10 +777,6 @@
                       </div>
                       <!-- Groupes -->
                       <div class="swiper-slide">
-                        <div class="topGroupeSettings">
-                          <div class="CreerGroupe"onclick="CreationGroupe()">Nouveau Groupe <i class="fa-solid fa-user-group"></i></div>
-                          <div class="MygroupeS">123 Groupes</div>
-                        </div>
                         <div class="voirgroupe">
                           <div class="photoamis">
                             <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
@@ -608,35 +813,7 @@
                             <div class="iconeamis"><i class="fa-solid fa-ellipsis" onclick="OptionUsers()"></i></div>
                           </div>
                         </div>
-                      <!-- suivis -->
-                      <div class="swiper-slide">
-                      <div class="contenaireCreation">
-                        <div class="textChamps Groupena">
-                          <input type="text" name="" id=""placeholder="Le Nom du Groupe">
-                        </div>
-                        <div class="creerBtn">Créer</div>
-                      </div>
-                        <div class="inputSessionGroupecreate">
-                          <div class="textChamps">
-                            <i class="fa-solid fa-magnifying-glass"></i><input type="text" name="" id=""placeholder="Trouver un Amis Facilement..." oninput="rechercherCritere(event)"> 
-                        </div>
-                        </div>
-                        <div class="conteneuramis">
-                          <div class="photoamis">
-                            <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
-                          </div>
-                          <div class="nomamis">
-                            <h3>arsene cirhuza</h3>
-                            <p><small>86 ami(e)s en commun </small></p>
-                          </div>
-                          <div class="iconeamis"><input type="checkbox" name="" id=""></div>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">Slide 6</div>
-                      <div class="swiper-slide">Slide 7</div>
-                      <div class="swiper-slide">Slide 8</div>
-                      <div class="swiper-slide">Slide 9</div>
-        
+                        <!-- fin_left slide -->
                     </div>
                     
                   </div>
@@ -697,17 +874,20 @@
       </main>
       <!-- fint_main -->
     </div>
+    <!-- <script src="../Javascripts/refusActions.js"></script> -->
     <script src="../Javascripts/stylepage.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="../Javascripts/loadingPage.js"></script>
-    <script type="module" src="../Javascripts/bib.js"></script>
+    <script src="../Javascripts/bib.js"></script>
     <script src="../Javascripts/fonctionsAccueil.js"></script>
+    <script src="../Javascripts/HomeStructure.js"></script>
+    <script src="../Ajax_Functions/functionAjax.js"></script>
     <script>
     var swiper = new Swiper(".swiper.mySwiper.MenuHome", {
-  allowSlideNext: false,
-  allowSlidePrev: false,
-  allowTouchMove: false,
-});
+        allowSlideNext: false,
+        allowSlidePrev: false,
+        allowTouchMove: false,
+      });
         var swiper = new Swiper(".mySwiper.other.onlyScroll", {
       slidesPerView: 1,
       spaceBetween: 0,
@@ -717,9 +897,6 @@
         clickable: true,
       },
     });
-
-   
-
     </script>
   </body>
 </html>

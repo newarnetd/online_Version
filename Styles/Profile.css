@@ -1,489 +1,546 @@
-
-
- body{
+body{
+    margin: 10px auto;
     width: 100%;
     height: 100vh;
     background: var(--color-blanche-2);
-} 
-.principal_container{
-    width: 100%;
-    height: 100vh;
-    display: flex;align-items: center;
+    color: var(--color-text);
+    display: flex;
+    align-items: start;
     justify-content: center;
 }
-
-header .header_left{
-   height: 100%;
-   display: flex;
-   align-items: center;
-   gap: 10px ;
-   padding: 10px;
-}
-header .header_left img{
-   width: 30px;
-   height: 100%;
-}
-header .header_left .searcheader{
-   width: 200px;
-   height: 100%;
-   padding: 5px;
-   display: flex;
-   align-items: center;
-   gap: 5px;
-   background: var(--color-blanche-1);
-}
-.searcheader input{
-    outline: none;
-    border: none;
-}
-
-
-header .header_right{
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    font-size: 12px;
-    color: #fff;
-   padding: 5px;
-
-}
-header .header_right .menu_content{
-    width: 70px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-}
-
-.header_right .menu_content img{
-    width: 30%;
-    height: 50%;
-    border-radius: 50%;
-    border: 1px green solid;
-}
-.menu_content_end{
-    height: 110%;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-left: 1px #fff solid;
-   padding: 2px;
-}
-.the_header_text{
-    width: 100px;
-    height: 100%;
-    text-align: center;
-    color: rgba(255, 255, 0, 0.521);
-    /* background: #0f4788; */
-}
-main{
-    margin-top: 200px;
-    width: 70%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    background: var(--color-blanche-2);
-
-}
-main h3{
-    font-size: 15px;
-    margin: 10px 0;
-}
-main h3 span{
-    color: rgb(4, 142, 255);
-}
-.container{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-/* ---------left-------- */
-.container .left_cont{
-    width: 70%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    margin-right: 25%;
-}
-
-
-/* --------- */
-.part_one{
-    width: 100%;
-    height: 300px;
-    background: #000;
-}
-.part_one .onetop{
-    width: 100%;
-    height: 50%;
-    box-shadow: var(--boxshadow_section_blanche);
-}
-.part_one .onetop img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.part_one .onebottom{
-    width: 100%;
-    height: 50%;
-    background: var(--color-blanche-1);
-    position: relative;
-}
-.photo_profil{
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 2PX solid #fff;
-    position: absolute;
-    top: -70px;
-    left: 20px;
-    object-fit: cover;
+.coverProfile .photoCover{
     overflow: hidden;
 }
-.photo_profil img{
+
+.coverProfile .photoCover img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 10px 10px 0 0;
+}
+.profilePhotoUser img{
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.coverProfile .photoCover{
     width: 100%;
     height: 100%;
 }
-.addprofilesect{
+.tittreSession{
     width: 100%;
-    height: 35px;
+    background: var(--color-primary);
+    color:#FFF;
+    padding: 15px;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    gap: 10px;
-    padding: 5px 10px;
-}
-.addprofile h2{
-    font-size: 20px;
-    font-weight: 400;
-}
-.addprofile{
-    width: fit-content;
-    height: 100%;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 2px 15px;
-    color: var(--color-text);
-    border-radius: 2px;
-}
-.more{
-    width: fit-content;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: var(--border);
-    padding: 2px 5px;
-    border-radius: 2px;
 
 }
-.umarfar_and_self{
+.menuSettigns:hover i{
+    color: #FFF;
+}
+.menuSettigns:hover{
+    background: var(--color-primary);
+    color: #FFF;
+    opacity: .8;
+}
+.menuSettigns{
     width: 100%;
-    margin-top: 0px;
+    padding: 15px;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    gap:15px;
     display: flex;
+    border-bottom: 1px solid var(--color-blanche-2);
+    color:var(--color-text);
+
+}
+.optionUserMenu{
+    width: 100%;
+    margin: 10px auto;
+    display: flex;  
+    align-items: start;
+    background: var(--color-blanche-1);
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.otherSEssionAboutMe.about{
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    opacity: .5;
+}
+
+.Gauche_one{
+    width: 100%;
+    height: 100vh;
+}
+.swiper-slide.Suivis h3 span{
+    color: #FFF;
+    background: var(--color-primary);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.swiper-slide.Suivis h3{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    margin: 10px auto;
+    opacity: .8;
+}
+.swiper-slide.Suivis .conteneuramis:hover{
+    background: transparent;
+}
+.swiper-slide.Suivis .conteneuramis .photoamis{
+    background: var(--color-blanche-1);
+}
+.swiper-slide.Suivis .conteneuramis{
+    width: 80%;
+    margin: 10px auto;
+}
+.swiper-slide.apropos{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px 5px 0 0;
+    padding: 10px 8px;
+}
+.couleurschoix,.Toolsschoix {
+    margin: 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.friend .photo  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+}
+.friend.EplazaCarte{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-basis: calc(100% - 1px); 
+    height: 220px;
+    margin: 5px auto;
+    gap:10px;
+}
+.friend.EplazaCarte .photo{
+    width: 100%;
+    height: 100%;
+    background: var(--color-blanche-1);
+}
+.friend .photo{
+    width: 100%;
+    height: 90%;
+    background: var(--color-blanche-1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+.otherSessionPartieProfile{
+    width: 27%;
+    height: 100%;
+    display: flex;
+    position:fixed;
+    top:10px;
+    align-items: center;
+    gap:2px;
     justify-content: space-between;
-    padding: 20px;
 }
-.umarfar{
-    width: fit-content;
-    display: block;
-    line-height: 15px;
+.TextDemomo.eplaza{
+    background: transparent;
+    opacity: 1;
+    color: var(--color-text);
 }
-.umarfar h3{
+.TextDemomo{
+    display: flex;   
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 14px;
+    width: 100%;
+    color: #FFF;
+    border-radius: 3px 3px 0 0;
+    padding: 10px;
+    opacity: .7;
+    background: var(--color-primary);
+}
+.mereDesireClique  .friend span{
+    font-size: 14px;
+    opacity: .7;
+}
+.mereDesireClique  .friend{
+    width: 200px;
+    height: 150px;
+    margin: 3px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-basis: calc(50% - 1px); /* 20px de marge entre les éléments */
+    gap:10px;
+
+}
+.GrisEplazaBoutique{
+    display: flex;
+    gap:1px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.mereDesireClique{
+    display: flex;
+    gap:1px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.coverProfile{
+    width: 100%;
+    height: 40%;
+    background: var(--color-blanche-2);
+    position: relative;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 30px;
+}
+.sessionFriends{
+    width: 100%;
+    border-radius: 5px 5px 0 0 ;
+    max-height:60%;
+    height: 100%;
+    overflow-y: auto;
+    background: var(--color-blanche-1);
+}
+.Gauche_one{
+background: var(--color-blanche-2);
+}
+.boutonsprofile{
+    position: absolute;
+    top: -20px;
+    display: flex;   
+    align-items: center;
+    gap:5px;
+    right:0px;
+}
+.boutonsprofile button:nth-child(2)
+{
+    background: var(--color-blanche-2);
+    color: var(--color-text);
+}
+.boutonsprofile button:nth-child(2) i{
+    color:var(--color-text);
+}
+.containeurInputStyle{
+    background: var(--color-blanche-1);
+}
+.boutonsprofile button i{
+    padding-left: 10px;
+    color: #FFF;
+}
+.boutonsprofile button{
+    background: var(--color-primary);
+    color:#FFF;
+    padding: 10px 12px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.aproposUserInformation h3,.aproposUserInformation p{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    gap:15px;
+}
+.aproposUserInformation h3{
+    font-weight: 400;
+    margin: 25px  10px 0 0;
+    opacity: .5;
+    font-size: 20px;
+
+}
+.partie_one_sessionProfile{
+    width: 100%;
+    display: flex;
+    align-items: start;
+    gap:5px;
+    justify-content: space-between;
+    margin: 10px auto;
+}
+.sessionFriendBottom .textCent{
+    opacity: .8;
+    color:var(--color-text);
+}
+.sessionFriendBottom .userPhotoCarte{
+    background: var(--color-blanche-1);
+}
+.sessionFriendBottom{
+    width:100%;
+    height: 100%;
     display: flex;
     align-items: start;
     justify-content: flex-start;
-    gap: 10px;
-    width: 100%;
 }
-.selfemp{
-    width: fit-content;
+.swiper-slide.allPrincipale{
+    width: 100%;
     display: flex;
+    align-items: start;
     flex-direction: column;
-    gap: 10px;
+    max-height: 100%;
+    height: 100%;
+    overflow-y: scroll;
 }
-.selffull{
+select.containeurInputStyle{
+    width: 50%;
+    margin: 10px auto;
+    color: var(--color-text);
+    overflow: hidden;
+}
+.boutonOnlymobile.suivant{
+    width: 40%;
+}
+
+.swiper-slide.optionUserMenu{
+    height: fit-content;
+    overflow-y: auto;
     display: flex;
-    gap: 10px;
-
-}
-.selffull img{
-    width: 20px;
-    height: 20px;
-
-}
-
-/* ---------- */
-.part_two{
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    flex-direction: column;
+}
+.aproposUserInformation{
+    display: flex;
+    position: relative;
+    align-items:start;
+    justify-content: flex-start;
+    width: 90%;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.textInfoProfile i{
+    padding-right: 10px;
+}
+.textOfuser{
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: var(--color-blanche-1);
-    padding: 15px;
-    border-radius: 0 0 5px 5px;
-}
-.about h3{
-    font-size: 20px;
-}
-.about{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* ---------- */
-.part_three{
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.threetop{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.dashboard p{
-    font-style: italic;
-}
-.threetop .allstar{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-.threecenter{
-    width: 100%;
-    display: flex;
-    box-shadow: var(--boxshadow_section_blanche);
-    background: var(--color-blanche-1);
-    border-radius: 5px;
-    gap:5px;
-
-}
-.threecenter .partie{
-    width: 100%;
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-}
-.partie h1{
-    font-weight:100;
     color: var(--color-text);
+    opacity: .7;
 }
-.threebottom{
-    width: 100%;
+.textInfoProfile{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content:flex-start;
-    gap: 5px;
-    box-shadow: var(--boxshadow_section_blanche);
-    background: var(--color-blanche-1);
-}
-.bottomcont{
-    width: 100%;
-    height: 85px;
-    display: flex;
-    align-items: center;
+    align-items:center;
+    border-bottom: 1px solid var(--color-blanche-2);
     justify-content: flex-start;
-    padding: 5px 0 0 10px;
-    gap: 5px;
-    border-radius: 2px;
-}
-
-.bottomtext{
-    width: 100%;
-    height: 100%;
-    padding-bottom: 10px;
-}
-
-
-
-/* ---------right-------- */
-.container .right_cont{
-    width: 30%;
-    max-height: 85vh;
-    height: 100%;
-    background: var(--color-blanche-1);
-    position: relative;
-    border-radius: 3px;
-    position: fixed;
-    right: 3%;
-    top: 12%;
-}
-.toppartie{
-    width: 100%;
-    height: 300px;
     padding: 10px;
-}
-.shortdiv{
-    width: 100%;
-    height: 12%;
-    display: flex;
-    justify-content: space-between;
-}
-.shortdiv.one{
-    border-bottom: 1px solid rgba(128, 128, 128, 0.541);
-}
-.promoted{
-    width: 100%;
-    height: 75%;
-    background: #fff;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.promtitl{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.promoted_cont{
-    width: 100%;
-    height: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
+    opacity: .5;
+    color: var(--color-text);
 
-.promoted_cont p{
-    font-size: 13px;
 }
-.promoted_cont img{
-    width: 50px;
+.textInfoProfile b{
+    font-weight: 500;
+}
+.leftSideProfile{
+    background: var(--color-blanche-2);
+    width: 50%;
     height: 100%;
+}
+.EplazaMarket{
+    width: 100%;
+    background: var(--color-blanche-2);
+    height: 100%;
+    margin: 10px 0 auto auto;
     
 }
-.viewedpart{
-    width: 100%;
-    height: fit-content;
-    padding: 5px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.viewed{
-    width: 100%;
-    /* height: 30; */
-   display: flex;
-   align-items: center;
-   gap: 10px; 
-}
-.viewed img{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-.viewed_text p{
-    font-size: 15px;
-}
-.viewed_text h3 span{
-    font-size: 15px;
-    color: #000;
-    opacity: .6;
-}
-.side_part{
-    width: 80%;
-    height: fit-content;
-    position: absolute;
-    right: -170px;
-    top: 100px;
+.leftSideProfile{
     background: var(--color-blanche-2);
-    box-shadow: var(--boxshadow_section_blanche);
+    width: 50%;
+    height: 100%;
 }
-.entete{
-    width: 100%;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 0;
+.rightSideProfile{
+    width: 50%;
+    height:100%;
+    border-radius: 5px;
+}
+.detailsActionUser{
     background: var(--color-blanche-1);
-    box-shadow: var(--boxshadow_section_blanche);
+    width: 100%;
+    border-radius:  0 0 5px 5px;
+    
+
 }
-.entete .droit{
+.headerPartie{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height:50%;
+    background: var(--color-blanche-1);
+    border-radius: 10px 10px 0 0;
+}
+.containeurInputStyle.genre{
+    border: none !important;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    height: 30px;
+}
+.InputDouble.selection{
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    display: flex;
+    width: 30%;
+}
+.bottomPartie{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    background: var(--color-blanche-2);
+    border-radius: 10px 10px 0 0;
+}
+.otherSEssionAboutMe{
+    width: 100%;
+    background: var(--color-blanche-1);
+    padding: 10px;
+    color: var(--color-text);
+    border-radius:0 0 3px 3px;
+    margin: 1px auto;
+}
+.profilePhotoUser{
+    position: absolute;
+    bottom: -30px;
+    border: 2px solid var(--color-blanche-1);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background:var(--color-blanche-2);
+    left: 30px;
+}
+.centreSessionProfile{
+    flex-direction: column;
+    background: var(--color-blanche-2);
+    height: 100%;
+    width: 60%;
+    margin-right: 40%;
+}
+.iconeamis{
+    background: var(--color-blanche-2);
+    border-radius: 5px;
+}
+.conteneuramis:hover{
+    background: var(--color-blanche-1);
+}
+.containerPrincipale{
+    display: flex;
+    width: 70%;
+    gap:10px;
+    max-height: 100vh;
+    height: 100%;
+    justify-content: flex-end;
+}
+.sessionFriends h3.Texte{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    padding: 10px;
-    gap: 8px;
+    justify-content: center;
+    text-align: center;
+    width: 90%;
+    padding-top: 10px;
+    font-size: 14px;
+    opacity: .8;
+    
 }
-.entete .droit .green{
-    width: 8px;
-    height: 8px;
-    background: green;
-    border-radius: 50%;
+@media screen and (max-width: 480px) {
+   .otherSessionPartieProfile{
+    display: none;
+   }
+   .bottomPartie{
+    background: var(--color-blanche-1);
+   }
+   .headerPartie{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height:400px;
+    background: var(--color-blanche-1);
+    border-radius: 10px 10px 0 0;
+}
+.partie_one_sessionProfile{
+    display: block;
+    background: var(--color-blanche-1);
+}
+   .containerPrincipale{
+    display: block;
+    width: 100%;
+    height: 100%;
+   }
+   .leftSideProfile{
+    background: var(--color-blanche-1);
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide.Suivis h3{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+.swiper-slide.Suivis span{
+    display: none;
+}
+.rightSideProfile{
+    width: 100%;
+    height:100%;
+    border-radius: 5px;
+    background: var(--color-blanche-1);
 }
 
-.entete .gauche{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-.recherche{
-    width: 95%;
-    height: 25px;
-    padding: 5px;
-    box-shadow: var(--boxshadow_section_blanche);
-    display: flex;
-    justify-content: space-between;
-    border-radius: 5px;
-    margin: 5px auto;
-    background: var(--color-blanche-1);
-}
-.recherche input{
-    border: none;
-    background: transparent;
-    outline: none;
-}
-.discussions{
+   .centreSessionProfile{
+    height: 100%;
     width: 100%;
-    padding: 5px;
+    margin-right: 0%;
+}
+.boutonsprofile button i{
+    padding-left: 5px;
+    color: #FFF;
+}
+.aproposUserInformation h3,.aproposUserInformation p{
     display: flex;
+    align-items:start;
+    justify-content: flex-start;
+    width: 100%;
+    gap:15px;
+    padding-left: 10px;
+    
+}
+.carterPoste{
+    width: 100%;
+}
+.aproposUserInformation{
+    display: flex;
+    position: relative;
+    align-items:center;
+    justify-content: flex-start;
+    width: 98%;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    margin: 0 auto;
 }
-.discuss{
-    width: 100%;
-    height: 40px;
-    display: flex;
-    justify-content:flex-start;
-    align-items: center;
-    padding: 5px 0;
-    gap: 10px;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.534);
+.swiper-slide.Suivis .conteneuramis{
+    width:95%;
+    margin: 10px auto;
 }
-.discuss img{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
-.disctext p{
-    font-size: 12px;
-}
-.disctext p span{
-    font-size: 15px;
-    font-weight: bold;
+
 }

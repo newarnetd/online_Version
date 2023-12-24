@@ -7,18 +7,18 @@
     --color-text:#100f0f;
     --color-icons_Theme_blanche:#BDBDBD;
     --color-icons_Theme_noire:#7c7c7c;
-    --color-primary: rgba(39, 171, 142, 0.861);
+    --color-primary: rgba(26,127,100);
     --swiper-theme-color:var(--color-primary);
     --boxshadow_section_blanche: 0px 4px 10px rgba(0, 0, 0,.2);
-    --color-titre_newarnet: rgba(39, 171, 142, 0.861);
-    --color-blue:rgba(115, 130, 148, 0.935);
+    --color-blue:#dcf8c6;
     --color-jaune-text:rgb(255, 210, 121);
     --color-greenNoire: rgb(41, 41, 41);
+    --color-titre_newarnet: #13c09d;
     --color-green:var(--color-primary);
     --color-bordure-noire:rgba(0, 0, 0, 0.042);
-    --color-red-1:rgb(255, 40, 40);
+    --color-red-1:rgb(246, 105, 105);
     --color-red-2:rgb(167, 31, 31);
-    --color-green_boutons:rgb(56, 140, 63);
+    --color-green_boutons:#13c09d;
     --color-linear-white:linear-gradient(90deg, var(--color-blanche-1) 25%, var(--color-blanche-2) 50%, var(--color-blanche-1) 75%);
     /* LES MESURES DE L'INTERFACE */
     --padding_boutons:10px 12px;
@@ -127,6 +127,7 @@ input,textarea,button{
   border-radius: var(--border-radius_cercle);
   background: var(--color-blanche-2);
 }
+
 .titre_animation{
   color: transparent;
   font-size: 50PX;
@@ -160,4 +161,14 @@ input,textarea,button{
     text-align: center;
     font-size: 12px;
     margin-top: 10px;
+  }
+  .textEplaza{
+    margin: 5px auto;
+    width:100%;
+    color: var(--color-icons_Theme_noire);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
   }

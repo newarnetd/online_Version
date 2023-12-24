@@ -9,4 +9,27 @@ forms.forEach(form => {
         event.preventDefault();
     });
 });
+function gestionnaireRaccourcis(e) {
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.keyCode === 73) {
+        e.preventDefault();
+        alert("NewaRnet a ses normes et principes d'utilisation de sa plateforme. Vous n'avez pas le droit de faire ce qui vous vient à l'esprit. Veuillez consulter sa documentation officielle");
+    }
+    if ((e.ctrlKey || e.metaKey) && e.keyCode === 85) {
+        e.preventDefault();
+        alert("NewaRnet a ses normes et principes d'utilisation de sa plateforme. Vous n'avez pas le droit de faire ce qui vous vient à l'esprit. Veuillez consulter sa documentation officielle");
+    }
+}
+
+function gestionnaireClicDroit(e) {
+    alert("NewaRnet a ses normes et principes d'utilisation de sa plateforme. Vous n'avez pas le droit de faire ce qui vous vient à l'esprit. Veuillez consulter sa documentation officielle");
+    e.preventDefault();
+}
+document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('keydown', gestionnaireRaccourcis);
+    document.addEventListener('contextmenu', gestionnaireClicDroit);
+});
+
+
+
+
 

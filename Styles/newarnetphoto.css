@@ -263,7 +263,151 @@
     padding: 12px 0;
     width: 100%;
 }
+.intefaceText{
+    display: flex;
+    align-items: start;
+    width: 100%;
+    flex-direction: column;
+}
+.boutonsText:first-child{
+    font-size: 25px;
+}
+.boutonsText:nth-child(2){
+    font-size: 16px;
+}
+.boutonsText:nth-child(3){
+    font-size: 12px;
+}
+
+.color:nth-child(2){
+    background: rgb(222, 171, 53);
+}
+.color:nth-child(4){
+    background:#FFFFFF;
+}
+.color:nth-child(5){
+    background:#000000;
+}
+.color:nth-child(8){
+    background:#15ff00;
+}
+.color:nth-child(9){
+    background:#a0033a;
+}
+.color:nth-child(6){
+    background:#3e013c;
+}
+.color:nth-child(7){
+    background:#1a324a;
+}
+.color:nth-child(1){
+    background: rgb(178, 39, 39);
+}
+.color:nth-child(3){
+    background:var(--color-primary);
+}
+.colorInput{
+    width:90%;
+    height: 80px;
+    border-radius: 5px;
+    display: flex;
+    margin: 10px auto;
+    align-items: center;
+    justify-content: center;
+}
+.colorInput input{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+.intextInput{
+    padding: 0;
+}
+.textReponse{
+    width: 95%;
+    margin: 10px auto;
+    text-transform: uppercase;
+}
+.intextInput input{
+    width: 100%;
+    height: 100%;
+}
+.intextInput{
+    display: flex;   
+    margin: 10px auto;
+    width: 90%;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid var(--color-blanche-1);
+}
+.couleurschoix,.Toolsschoix {
+    margin: 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.tools,.color {
+    flex-basis: calc(33.33% - 10px); /* 20px de marge entre les éléments */
+    margin: 3px;
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    background: var(--color-blanche-1);
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+.tools.Galerie{
+    flex-basis: calc(50% - 10px); /* 20px de marge entre les éléments */
+    margin: 3px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 100px;
+    border-radius: 10px;
+    background: var(--color-blanche-1);
+}
+.couleurPrincipale{
+    opacity: .6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:15px;
+}
+.couleurPrincipale span{
+    font-size: 25px;
+    opacity: 1;
+}
+.boutonsText{
+    width: 97%;
+    margin: 5px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding_boutons);
+    border-radius: 5px;
+    font-weight: 100;
+    background: var(--color-blanche-1);
+    cursor: pointer;
+}
 .iconePrincipale small{
     font-size: 12px;
-
+}
+.swiper-slide.canvasclass{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.canvas{
+    width: 95%;
+    border-radius: 10px;
+    margin: 20px auto;
+    height: 90%;
+    background: var(--color-blanche-1);
 }

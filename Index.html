@@ -31,7 +31,7 @@
             <article class="Right_side">
                     <!-- sectionInscription -->
                     <div class="FormConnexion swiper mySwiper">
-                        <div class="swiper-wrapper Desk">
+                        <form method="POST" class="swiper-wrapper Desk">
                             <!-- Ninada -->
                             <div class="swiper-slide nianda">
                                 <div class="optionPhrase" id="DeskOption">
@@ -100,12 +100,12 @@
                               </div>
                               <!-- Ninada -->
                           <div class="swiper-slide connectionPage">
-                            <form action="" method="post" class="connexionForm">
+                            <div  class="connexionForm">
                                 <div class="containeurInputStyle">
-                                    <input type="text" name=""  placeholder="Email ou Numéro de téléphone">
+                                    <input type="text" name="Info_one"  placeholder="Email ou Numéro de téléphone">
                                 </div>
                                 <div class="containeurInputStyle password">
-                                    <input type="password" name="password"  placeholder="Mot de passe">
+                                    <input type="password" name="Info_two"  placeholder="Mot de passe">
                                     <i class="fa-solid fa-eye-slash" id="eye-slash" onclick="PasswordToggle(event)"></i>
                                     <i class="fa-solid fa-eye"onclick="PasswordToggle(event)"></i>
                                 </div>
@@ -114,37 +114,39 @@
                                 <div class="connectionBtn sign_up" onclick="InscriptionFunctionDesk()">Créez un nouveau compte </div>
                                 <div class="bottom_text">
                                     <div class="text_coventions">Avec sa phrase célèbre Un monde à l'unisson,  Tout le concept de NewaRnet est d'être accessible au plus grand nombre</div>
-</div>
-                           </form>
+                                </div>
+                                <div class="erreurMessage"></div>
+                           </div>
                           </div>
                           <div class="swiper-slide">
-                            <form action="" method="post" class="connexionForm">
+                            <div  class="connexionForm">
                                 <div class="textDemonstrationInscription">En cliquant sur le bouton ci-dessous, vous continuez  votre inscription sur NewaRnet</div>
                                 <div class="InputDouble">
                                     <div class="containeurInputStyle">
-                                        <input type="text" name=""  placeholder="Entrer ton Nom">
+                                        <input type="text" name="nom"  placeholder="Entrer ton Nom">
                                     </div>
                                     <div class="containeurInputStyle">
-                                        <input type="text" name=""  placeholder="Entrer ton Prenom">
+                                        <input type="text" name="prenom"  placeholder="Entrer ton Prenom">
                                     </div>
                                 </div>
                                 <div class="containeurInputStyle">
-                                    <input type="text" name=""  placeholder="Entrer Ton Adress Email">
+                                    <input type="text" name="email"  placeholder="Entrer Ton Adress Email">
                                 </div>
                                 <div class="boutonOnlymobile suivant" onclick="Suivant_1()">Suivant</div>
                                 <div class="text_coventions">Bienvenue chez NewaRnet ! partagez, vivez pleinement cette expérience unique. Ravis de vous avoir parmi nous !</div>
-                           </form>
+                                <div class="erreurMessage"></div>
+                           </div>
                           </div>
                           <div class="swiper-slide">
                             <div class="textDemonstrationInscription">Lors de votre prochaine connexion, utilisez cet e-mail ou ce numéro , ainsi que votre mot de passe NewaRnet.</div>
-                            <form action="" method="post" class="connexionForm">
+                            <div  class="connexionForm">
                                 <div class="InputDouble">
                                     <div class="containeurInputStyle">
-                                        <input type="text" name=""  placeholder="Entrer ton numéro">
+                                        <input type="text" name="numero"  placeholder="Entrer ton numéro">
                                     </div>
                                 </div>
                                 <div class="containeurInputStyle password">
-                                    <input type="text" name=""  placeholder="Optez pour un mot de passe solide pour ce compte" id="passwordInputDesk">
+                                    <input type="text" name="password  placeholder="Optez pour un mot de passe solide pour ce compte" id="passwordInputDesk">
                                     <i class="fa-solid fa-eye-slash" id="eye-slash" onclick="PasswordToggle(event)"></i>
                                     <i class="fa-solid fa-eye"onclick="PasswordToggle(event)"></i>
                                 </div>
@@ -158,10 +160,11 @@
                             </div>
                                 <div class="boutonOnlymobile suivant"onclick="Suivant_2()">Suivant</div>
                                 <div class="text_coventions">Nous sommes ravis de vous accueillir dans notre communauté NewaRnet</div>
-                           </form>
+                                <div class="erreurMessage"></div>
+                           </div>
                           </div>
                           <div class="swiper-slide">
-                            <form action="" method="post" class="connexionForm">
+                            <div  class="connexionForm">
                                 <div class="InputDouble">
                                         <select name="jour" class="containeurInputStyle">
                                             <?php
@@ -312,15 +315,16 @@
                                 <div class="boutonOnlymobile suivant">Enregistrez l'inscription</div>
                                 <div class="text_coventions">C'est avec une immense joie que nous vous souhaitons la bienvenue au sein de notre communauté NewaRnet.</div>
                                 <div class="boutonOnlymobile seconncter" onclick="Suivant_0()">Retournez à l'interface principale</div>
-                           </form>
-                          </div>
-                        </div>
+                                <div class="erreurMessage"></div>
+                           </div>
+                          </div>d
+                        </form>
                       </div>
                     <!-- section_connextion_Fin -->
             </article>
             <!-- Droite_side -->
                 <div class=" onlyMobile swiper mySwiper">
-                    <div class="swiper-wrapper Mobile">
+                    <form class="swiper-wrapper Mobile">
                          <!-- Ninada -->
                          <div class="swiper-slide nianda">
                             <div class="optionPhrase" id="MObilMune">
@@ -390,21 +394,22 @@
                           </div>
                           <!-- Ninada -->
                           <div class="swiper-slide connectionPage">
-                            <form action="" method="post" class="connexionForm">
+                            <div  class="connexionForm">
                                 <div class="containeurInputStyle">
-                                    <input type="text" name=""  placeholder="Email ou Numéro de téléphone">
+                                    <input type="text" name="EmailConnexion"  placeholder="Email ou Numéro de téléphone">
                                 </div>
                                 <div class="containeurInputStyle password">
-                                    <input type="password" name=""  placeholder="Mot de passe">
+                                    <input type="password" name="passwordConnexion"  placeholder="Mot de passe">
                                     <i class="fa-solid fa-eye-slash"id="eye-slash" onclick="PasswordToggle(event)"></i>
                                     <i class="fa-solid fa-eye"onclick="PasswordToggle(event)"></i>
                                 </div>
                                 <div class="text_coventions">En vous connectant, vous adhérez à accepter notre politique et nos conditions.</div>
                                 <div class="connectionBtn login">Se connecter</div>
+                                <div class="erreurMessage"></div>
                                 <div class="bottom_text">
                                     <div class="text_coventions">Tout le concept de NewaRnet est d'être accessible au plus grand nombre</div>
                                 </div>
-                           </form>
+                           </div>
                           </div>
                       <div class="swiper-slide">
                             <div class="contentItemsConnectio">
@@ -425,31 +430,31 @@
                             </div>
                     </div>
                     <div class="swiper-slide">
-                        <form action="" method="post" class="connexionForm">
+                        <div  class="connexionForm">
                             <div class="textDemonstrationInscription">En cliquant sur le bouton ci-dessous, vous continuez  votre inscription sur NewaRnet</div>
                             <div class="InputDouble">
                                 <div class="containeurInputStyle">
-                                    <input type="text" name=""  placeholder="Entrer ton Nom">
+                                    <input type="text" name="nom"  placeholder="Entrer ton Nom">
                                 </div>
                                 <div class="containeurInputStyle">
-                                    <input type="text" name=""  placeholder="Entrer ton Prenom">
+                                    <input type="text" name="prenom"  placeholder="Entrer ton Prenom">
                                 </div>
                             </div>
                             <div class="containeurInputStyle">
-                                <input type="text" name=""  placeholder="Entrer  ton Email ">
+                                <input type="text" name="email"  placeholder="Entrer  ton Email ">
                             </div>
                             <div class="boutonOnlymobile suivant" onclick="SuivantMob_1()">Suivant</div>
-                       </form>
+                       </div>
                       </div>
                       <div class="swiper-slide">
                         <div class="textDemonstrationInscription">Lors de votre prochaine connexion, utilisez votre adresse e-mail ou numéro de téléphone, ainsi que votre mot de passe NewaRnet.</div>
-                        <form action="" method="post" class="connexionForm">
+                        <div  class="connexionForm">
                             <div class="InputDouble">
                                 <div class="containeurInputStyle">
-                                    <input type="text" name=""  placeholder="Entrer ton numéro de téléphone.l">
+                                    <input type="text" name="numero"  placeholder="Entrer ton numéro de téléphone.l">
                                 </div>
                                 <div class="containeurInputStyle password">
-                                    <input type="password" name="" id="passwordInputMob" placeholder="Mot de passe">
+                                    <input type="password" name="password" id="passwordInputMob" placeholder="Mot de passe">
                                     <i class="fa-solid fa-eye-slash" id="eye-slash" onclick="PasswordToggle(event)"></i>
                                     <i class="fa-solid fa-eye"onclick="PasswordToggle(event)"></i>
                                 </div>
@@ -463,10 +468,10 @@
                                 </div>
                             </div>
                             <div class="boutonOnlymobile suivant"onclick="SuivantMob_2()">Suivant</div>
-                       </form>
+                       </div>
                       </div>
                       <div class="swiper-slide">
-                        <form action="" method="post" class="connexionForm">
+                        <div  class="connexionForm">
                             <div class="InputDouble">
                                     <select name="jour" class="containeurInputStyle">
                                         <?php
@@ -617,7 +622,7 @@
                             <div class="boutonOnlymobile suivant">Enregistre L'inscription</div>
                             <div class="text_coventions">Nous sommes ravis de vous accueillir dans notre communauté NewaRnet</div>
                             <div class="boutonOnlymobile seconncter" onclick="SuivantMob_0()">Retournez pour se connecter</div>
-                       </form>
+                       </div>
                       </div>
                     </div>
                   </div>
