@@ -30,10 +30,10 @@
                     <div class="iconsHeader"onclick="GroupeFunction()">
                         <i class="fa-solid fa-user-group"></i>
                     </div>
-                    <div class="iconsHeader"onclick="Conversation()">
+                    <div class="iconsHeader moreOpion"onclick="Conversation()">
                         <i class="fa-solid fa-add"></i>
                     </div>
-                    <div class="iconsHeader" onclick="OptionMore()">
+                    <div class="iconsHeader menu" onclick="OptionMore()">
                         <i class="fa-solid fa-ellipsis"></i>
                     </div>
                 </div>
@@ -139,26 +139,89 @@
                    <div class="swiper-slide">
                     <div class="optionUserMenu">
                         <div class="menuSettigns" onclick="GestionMembresDuGroupe()">
-                            <i class="fa-solid fa-users"></i>Gérer les Membres du Groupe
+                            <i class="fa-solid fa-plus-circle"></i>Gestion de rôles
                         </div>
-                        <div class="menuSettigns" onclick="ConfidentialiteEtViePrivee()">
-                            <i class="fa-solid fa-lock"></i>Confidentialité et Vie Privée du Groupe
+                        <div class="menuSettigns Blocage" onclick="GestionMembresDuGroupe()">
+                            <i class="fa-solid fa-trash"></i>Retirer un membre
                         </div>
-                        <div class="menuSettigns" onclick="ThemeDeLaPage()">
-                            <i class="fa-solid fa-paint-roller"></i>Thème de la Page 
-                        </div>
-                        <div class="menuSettigns" onclick="GestionDesNotifications()">
-                            <i class="fa-solid fa-bell"></i>Gérer les Notifications du Groupe
-                        </div>
-                        <div class="menuSettigns">
+                        <div class="menuSettigns" onclick="ConditiondUsage()">
                             <i class="fa-solid fa-exclamation"></i>Exigences du Groupe sur NewaRnet
                         </div>
-                        <div class="menuSettigns">
-                            <i class="fa-solid fa-ban"></i>Système de Blocage du Groupe
+                        <div class="menuSettigns"onclick="ConditiondUsage()">
+                            <i class="fa-solid fa-exclamation"></i>Exigences du chats sur NewaRnet
                         </div>
+                        <div class="menuSettigns Blocage"onclick="BloquerUser()">
+                            <i class="fa-solid fa-ban"></i>Système de Blocage
+                        </div>
+                        
                     </div>
                     
                    </div>
+                   <!-- GestionsMenmbres -->
+                   <div class="swiper-slide GestionMembre">
+                    <div class="InputDouble">
+                        <div class="containeurInputStyle add"><i class="fa-solid fa-user-plus"></i> Comme Admin</div>
+                        <div class="containeurInputStyle remove"><i class="fa-solid fa-user-minus"></i>Retirer du groupe</div>
+                    </div>
+                    <div class="conteneuramis">
+                        <div class="photoamis">
+                          <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
+                        </div>
+                        <div class="nomamis">
+                          <h3>arsene cirhuza</h3>
+                          <p><small>86 Membres </small></p>
+                        </div>
+                        <div class="iconeamis"><input type="checkbox" name="" id="" onchange="ActionUser(event)"></div>
+                </div>
+                    <div class="conteneuramis">
+                        <div class="photoamis">
+                          <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
+                        </div>
+                        <div class="nomamis">
+                          <h3>arsene cirhuza</h3>
+                          <p><small>86 Membres </small></p>
+                        </div>
+                        <div class="iconeamis"><input type="checkbox" name="" id="" onchange="ActionUser(event)"></div>
+                </div>
+                      
+                   </div>
+                   <!-- sytemme de blocage -->
+                   <div class="swiper-slide Blocage">
+                    <div class="InputDouble">
+                        <div class="containeurInputStyle add"onclick="reutnBack()"><i class="fa-solid fa-arrow-left"></i> Retourner</div>
+                        <div class="containeurInputStyle remove"><i class="fa-solid fa-user-minus"></i>Bloquer</div>
+                    </div>
+                    <div class="conteneuramis">
+                        <div class="photoamis">
+                          <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
+                        </div>
+                        <div class="nomamis">
+                          <h3>arsene cirhuza</h3>
+                          <p><small>86 Membres </small></p>
+                        </div>
+                        <div class="iconeamis"><input type="checkbox" name="" id="" onchange="Actionblocage(event)"></div>
+                    </div>
+                      
+                   </div>
+                   <!-- Conditions d'usage -->
+                   <div class="swiper-slide conditions">
+                    <div class="politique">Politique de Conversation NewaRnet</div>
+                    <p>Respect mutuel</p> 
+                    <span class="text"> Nous encourageons des discussions respectueuses et constructives. Tout comportement offensant, discriminatoire, ou toute forme de harcèlement ne sera pas toléré.</span>
+                    
+                    <p>Contenus interdits </p> 
+                      <span class="text">NewaRnet interdit la diffusion de contenus violents, haineux, pornographiques, illégaux, ou tout autre contenu contraire à nos valeurs. L'utilisation de langage obscène ou vulgaire est également strictement prohibée.</span>
+                    
+                    <p>Protection des mineurs</p> 
+                    <span class="text"> La plateforme NewaRnet est ouverte à tous les âges. Par conséquent, tout contenu inapproprié pour les mineurs est formellement interdit.</span>
+                    <p>Mesures en cas d'accusation fausse </p> 
+                    <span class="text">Si un utilisateur accuse à tort un autre membre de comportement répréhensible, l'équipe NewaRnet prendra des mesures appropriées pour résoudre la situation et protéger l'intégrité de la communauté.</span>
+                    <p>Confidentialité </p> 
+                    <span class="text">Respectez la vie privée des autres utilisateurs. La diffusion d'informations personnelles sans consentement est une violation de nos règles.
+                        En cas de non-respect de ces règles, l'équipe NewaRnet se réserve le droit de prendre des mesures, y compris la suspension ou la résiliation du compte. Nous vous encourageons à signaler tout comportement inapproprié afin que nous puissions maintenir un environnement sûr et agréable pour tous.
+                        Merci de contribuer à faire de NewaRnet une plateforme positive et engageante pour tous ses utilisateurs.</span>
+                   </div>
+
                  </div>
             </div>
         </div>
@@ -168,7 +231,7 @@
                 <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
                 <div class="nameUserMessage">
                     <h3>Jean-luc kashindi</h3>
-                    <p>En ligne</p>
+                    <p class="EncoursAction">En ligne</p>
                 </div>
             </div>
             <!-- Debut messages -->
@@ -201,6 +264,7 @@
                                 </div>
                             </div>
                     </div>
+                    <!-- style Image et video -->
                     <div class="messageConversation_users">
                             <div class="FriendMessage">
                                 <div class="messageContextText image">
@@ -211,6 +275,19 @@
                                 </div>
                             </div>
                     </div>
+                    <!-- style Image et video avec Messages -->
+                    <div class="messageConversation_users">
+                            <div class="FriendMessage">
+                                <div class="messageContextText image messageContentFile">
+                                    <div class="image">
+                                        <img src="../images/femme.jpg" alt="">
+                                    </div>
+                                    <p class="messageContent">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, iusto. Ipsa optio iure consequatur commodi accusantium quas libero laudantium temporibus voluptas velit officiis, sunt eligendi explicabo exercitationem necessitatibus quae distinctio.</p>
+                                    <small>12:9</small>
+                                </div>
+                            </div>
+                    </div>
+                    <!-- style pour les document -->
                     <div class="messageConversation_users">
                             <div class="FriendMessage">
                                 <div class="messageContextText document">
@@ -221,10 +298,12 @@
                                         <span class="ReadClass">Fichier PDF. <i class="fa-solid fa-download"></i></span>
                                         </div>
                                     </div>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia corrupti adipisci dolorum a consequuntur voluptatum ratione obcaecati incidunt inventore possimus mollitia cupiditate, magni quia architecto facilis cumque ex ad exercitationem?</p>
                                     <small>12:9</small>
                                 </div>
                             </div>
                     </div>
+                    <!-- style pour les document -->
                     <div class="messageConversation_users">
                             <div class="FriendMessage">
                                 <div class="messageContextText">
@@ -275,7 +354,7 @@
                     </div>
                 </div>
                 <div class="middleSesion swiper-slide Fil">
-                    
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, doloribus harum nemo id laudantium repudiandae. Nihil quae ea quaerat, quo architecto iure minus molestias. Consequatur maiores quisquam praesentium sed quidem.
                 </div>
             </div>
             </div>
@@ -283,14 +362,14 @@
             <div class="bottomSession">
                 <div class="messagecontent">
                     <div class="chempsDesaisi">
-                        <i class="fa-solid fa-paperclip"></i><input type="text" name=""id=""placeholder="Message..." oninput="ChampVerifiction(event)">
+                        <div class="inputLeft" onclick="Filemenu()"><i class="fa-solid fa-paperclip"></i></div><input type="text" name=""id=""placeholder="Message..." oninput="ChampVerifiction(event)">
                     </div>
                     <div class="iconsDroite">
                         <div class="iconsHeader sendsMessage">
-                            <i class="fa-solid fa-paper-plane"></i>
+                            <i class="fa-solid fa-arrow-up"></i>
                         </div>
-                        <div class="iconsHeader">
-                            <i class="fa-solid fa-paper-plane"></i>
+                        <div class="iconsHeader chatBot">
+                            <i class="fa-solid fa-robot"></i>
                         </div>
                     </div>
                 </div>
@@ -300,6 +379,15 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="../Javascripts/stylepage.js"></script>
     <script src="../Javascripts/MessageStructure.js"></script>
+    <script src="../Javascripts/Message.js"></script>
+    <!-- <script src="../Javascripts/refusActions.js"></script> -->
+    <script src="../Javascripts/stylepage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../Javascripts/loadingPage.js"></script>
+    <script src="../Javascripts/bib.js"></script>
+    <script src="../Javascripts/fonctionsAccueil.js"></script>
+    <script src="../Javascripts/HomeStructure.js"></script>
+    <script src="../Ajax_Functions/functionAjax.js"></script>
     <script>
         var swiper = new Swiper(".swiper.mySwiper.MenuHome", {
       allowSlideNext: false,

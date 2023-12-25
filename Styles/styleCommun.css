@@ -19,6 +19,7 @@
     --color-red-1:rgb(246, 105, 105);
     --color-red-2:rgb(167, 31, 31);
     --color-green_boutons:#13c09d;
+    --color-online:rgb(8, 234, 34);
     --color-linear-white:linear-gradient(90deg, var(--color-blanche-1) 25%, var(--color-blanche-2) 50%, var(--color-blanche-1) 75%);
     /* LES MESURES DE L'INTERFACE */
     --padding_boutons:10px 12px;
@@ -172,3 +173,74 @@ input,textarea,button{
     text-align: center;
     font-size: 14px;
   }
+  .containeurInputStyle{
+    width:100%;
+    display:flex;
+    align-items: center;
+    color: var(--color-text);
+    background: var(--color-blanche-2);
+    height: 55px;
+    padding:var(--padding_boutons);
+    margin-bottom: 5px;
+    background: transparent;
+    border:  1px solid var(--color-blanche-2);
+    border-radius: 5px;
+}
+.carterUsermessage{
+  width:50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--color-blanche-1);
+  cursor: pointer;
+  overflow: hidden;
+}
+.headerMessage{
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  padding: 10px;
+  background: var(--color-primary);
+  width: 100%;
+}
+.carterUsersOnline{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+
+}
+.onlineTime{
+  position: absolute;
+  right: 10px;
+}
+.swiper-wrapper.friendsOnline{
+  padding: 10px 12px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center !important;
+  gap:15px !important;
+}
+.nameUseronine{
+  font-size: 13px;
+  opacity: .8;
+}
+.conversationuser{
+  width:100%;
+  position: relative;
+  padding: 7px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  display: flex;
+  gap:10px;
+  justify-content: flex-start;
+  border-bottom: 1px solid var(--color-bordure-noire);
+}
+.InputDouble{
+  width:100%;
+  display: flex;
+  align-items: center;
+  gap:10px;
+}
