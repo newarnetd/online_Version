@@ -71,19 +71,12 @@
                       <div class="swiper-slide sliderLeft">
                         <div class="conversationHomePage">
                           <button class="BoutonsRetoure" onclick="TurnBack()"><i class="fa-solid fa-arrow-left"></i> Retournez au Principal</button>
-                          <div class="SearchMessage"><input type="search" name="" id="" placeholder="Trouver un(e) ami(e)"></div>
+                          <div class="SearchMessage creationGroupe">
+                            <input type="search" name="" id="" placeholder="Trouver un Ami(e)">
+                          </div>
                           
                           <div class="carterPrinciplale">
 
-                            <div class="conteneuramis">
-                              <div class="photoamis">
-                                <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
-                              </div>
-                              <div class="nomamis">
-                                <h3>arsene cirhuza</h3>
-                                <p><small>En ligne </small></p>
-                              </div>
-                            </div>
                             <div class="conteneuramis">
                               <div class="photoamis">
                                 <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
@@ -101,8 +94,8 @@
                       <div class="swiper-slide">
                         <button class="BoutonsRetoure" onclick="TurnBack()"><i class="fa-solid fa-arrow-left"></i> Retournez au Principal</button>
                         <form action="" method="post" class="PostArticleForm">
-                          <input type="file" name="" id="storyPost" accept="image/*" hidden>
-                          <label for="storyPost" class="carterPostStory">
+                          <input type="file" name="image" id="imagestory" hidden accept="image/*" onchange="updateLabelAndDisplay(this, 'imageStory')">
+                          <label for="imagestory" class="carterPostStory other" id="imageStory">
                             <i class="fa-solid fa-plus"></i>
                             <p>Cliquez pour sélectionner une image</p>
                           </label>
@@ -120,8 +113,8 @@
                       <div class="swiper-slide">
                         <button class="BoutonsRetoure" onclick="TurnBack()"><i class="fa-solid fa-arrow-left"></i> Retournez au Principal</button>
                         <form action="" method="post" class="PostArticleForm">
-                          <input type="file" name="" id="storyPost" accept="image/*" hidden >
-                          <label for="storyPost" class="carterPostStory">
+                          <input type="file" name="image" id="imageProfieutilisateur" hidden accept="image/*" onchange="updateLabelAndDisplay(this, 'imageprofil')">
+                          <label for="imageProfieutilisateur" class="carterPostStory other" id="imageprofil">
                             <i class="fa-solid fa-plus"></i>
                             <p>Cliquez pour sélectionner une image</p>
                           </label>                  
@@ -132,8 +125,8 @@
                       <div class="swiper-slide">
                         <button class="BoutonsRetoure" onclick="TurnBack()"><i class="fa-solid fa-arrow-left"></i> Retournez au Principal</button>
                         <form action="" method="post" class="PostArticleForm">
-                          <input type="file" name="" id="storyPost" accept="image/*" hidden>
-                          <label for="storyPost" class="carterPostStory">
+                          <input type="file" name="image" id="imagecouvert" hidden accept="image/*" onchange="updateLabelAndDisplay(this, 'imagecouverture')">
+                          <label for="imagecouvert" class="carterPostStory other" id="imagecouverture">
                             <i class="fa-solid fa-plus"></i>
                             <p>Cliquez pour sélectionner une image</p>
                           </label>
@@ -148,12 +141,11 @@
                     <div class="swiper-wrapper CreationGroupe">
                       <div class="swiper-slide groupesideCreation">
                         <div class="leftnav groupeCreation"> 
-                          <input type="file" name="" id="photoImage" accept="image/*" hidden>
-                          <label id="GroupePrfileImage" for="photoImage" ><i class="fa-solid fa-image" ></i></label><input type="text" name=""id=""placeholder="Entrer le Num du Groupe" oninput="PosteChamps(event)">
+                            <input type="text" name=""id=""placeholder="Entrer le nom du Groupe">
                       </div>
                       <div class="suivantBoutonsGroupe"onclick="SuivantGroupeCreation()">Continuer<i class="fa-solid fa-arrow-right"></i></div>
                         <div class="SearchMessage creationGroupe"><input type="search" name="" id="" placeholder="Qui ajouter dans ce Groupe ?"></div>
-                        <div class="conteneuramis">
+                          <div class="conteneuramis">
                                   <div class="photoamis">
                                     <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
                                   </div>
@@ -161,12 +153,12 @@
                                     <h3>arsene cirhuza</h3>
                                     <p><small>86 Membres </small></p>
                                   </div>
-                                  <div class="iconeamis"><input type="checkbox" name="" id=""></div>
+                                  <div class="iconeamis"><input type="checkbox" name="" id="" onchange="creationGroupeVerification(event)"></div>
                           </div>
                       </div>
                       <div class="swiper-slide">
-                        <input type="file" name="" id="storyPost" accept="image/*" hidden>
-                        <label for="storyPost" class="carterPostStory"><i class="fa-solid fa-image"></i></label>
+                        <input type="file" name="image" id="imageGroup" hidden accept="image/*" onchange="updateLabelAndDisplay(this, 'imagegroupe')">
+                        <label for="imageGroup" class="carterPostStory other" id="imagegroupe"><i class="fa-solid fa-image"></i></label>
                       </form>
                       <div class="BoutonsRetoure add">Créer ce groupe</div>
                       <p class="Text_Norme">Vous assumerez le rôle d'admin direct dans ce groupe, en accord avec les normes  de NewaRnet.</p>
@@ -186,7 +178,7 @@
                 <div class="optionMenuHome"onclick="ProfilEdite()"><i class="fa-solid fa-user-gear"></i>Modifier Ton Profile</div>
                 <div class="optionMenuHome"onclick="CouvertureEdite()"><i class="fa-solid fa-user-gear"></i>Modifier Ta Couverture</div>
                 <div class="optionMenuHome"onclick="CreatGroupe()"><i class="fa-solid fa-user-group"></i>Creer Un Groupe</div>
-                <div class="optionMenuHome"onclick="CreatGroupe()"><i class="fa-solid fa-file-pdf"></i>Poster Feuille corrigée</div>
+                <div class="optionMenuHome"onclick="CreatGroupe()"><i class="fa-solid fa-file-pdf"></i>Poster une Feuille</div>
               </div>
             </div>
           </div>
@@ -196,78 +188,14 @@
           <!-- stoys_friends -->
           <div class="swiper mySwiper other onlyScroll">
             <div class="swiper-wrapper storys_users">
-            <div class="containerFrinds swiper-slide">
-              <div class="imageStoryContainer">
-                <div class="coverImage">
-                  <img src="../images/peoples.png" alt="" />
+              <div class="containerFrinds swiper-slide">
+                <div class="imageStoryContainer">
+                  <div class="coverImage">
+                    <img src="../images/peoples.png" alt="" />
+                  </div>
                 </div>
+                <p class="nameUser">Van</p>
               </div>
-              <p class="nameUser">Van</p>
-            </div>
-            <div class="containerFrinds swiper-slide">
-              <div class="imageStoryContainer">
-                <div class="coverImage">
-                  <img src="../images/peoples.png" alt="" />
-                </div>
-              </div>
-              <p class="nameUser">Van</p>
-            </div>
-            <div class="containerFrinds swiper-slide">
-              <div class="imageStoryContainer">
-                <div class="coverImage">
-                  <img src="../images/peoples.png" alt="" />
-                </div>
-              </div>
-              <p class="nameUser">Van</p>
-            </div>
-            <div class="containerFrinds swiper-slide">
-              <div class="imageStoryContainer">
-                <div class="coverImage">
-                  <img src="../images/peoples.png" alt="" />
-                </div>
-              </div>
-              <p class="nameUser">Van</p>
-            </div>
-            <div class="containerFrinds swiper-slide">
-              <div class="imageStoryContainer">
-                <div class="coverImage">
-                  <img src="../images/peoples.png" alt="" />
-                </div>
-              </div>
-              <p class="nameUser">Van</p>
-            </div>
-            <div class="containerFrinds swiper-slide">
-              <div class="imageStoryContainer">
-                <div class="coverImage">
-                  <img src="../images/peoples.png" alt="" />
-                </div>
-              </div>
-              <p class="nameUser">Van</p>
-            </div>
-            <div class="containerFrinds swiper-slide">
-              <div class="imageStoryContainer">
-                <div class="coverImage">
-                  <img src="../images/peoples.png" alt="" />
-                </div>
-              </div>
-              <p class="nameUser">Van</p>
-            </div>
-            <div class="containerFrinds swiper-slide">
-              <div class="imageStoryContainer">
-                <div class="coverImage">
-                  <img src="../images/peoples.png" alt="" />
-                </div>
-              </div>
-              <p class="nameUser">Van</p>
-            </div>
-            <div class="containerFrinds swiper-slide">
-              <div class="imageStoryContainer">
-                <div class="coverImage">
-                  <img src="../images/peoples.png" alt="" />
-                </div>
-              </div>
-              <p class="nameUser">Van</p>
-            </div>
           </div>
           </div>
           <!-- postSesion -->
@@ -521,7 +449,9 @@
                             <div class="swiper-slide partyOneSatus">
                               <div class="leftnav status"> <i class="fa-solid fa-magnifying-glass"></i><input type="search" name=""id=""placeholder="Rechercher une Statut" oninput="RecherCherNewaRnaute(event)"></div>
                               <div class="conversationuser" onclick="ShowStatut(event)">
-                                <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
+                                <div class="carterUsermessage">
+                                  <img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt="">
+                                </div>
                                 <div class="nameUserconversation">
                                     <h3>Jean-luc kashind</h3>
                                     <p>12k amis</p>
@@ -549,9 +479,10 @@
                               <div class="carterPostSatut">
                                 <div class="headerSatatus">
                                   <div class="" onclick="BackSatutus()"><i class="fa-solid fa-arrow-left"></i></div>
-                                  <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
+                                  <div class="carterUsermessage">
+                                    <img class="userphoto statut" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
                                   <div class="nameUserconversation">
-                                      <h3>Jean-luc kashind</h3>
+                                      <h3>Jean-luc kashindihj</h3>
                                       <p>12 vues</p>
                                   </div>
                                 </div>
@@ -610,8 +541,6 @@
                           <span><i class="fa-solid fa-arrow-left" onclick="RetunBackCreatePoste()"></i> Creation de poste</span>
                         </div>
                         <form method="post" class="bottomSidepartiePoste">
-                          <input type="file" name="image" id="PosteImage" accept="image/*" hidden>
-                            <input type="file" name="" id="storyPost" accept="image/*" hidden>
                             <div class="leftnav postSession"> 
                               <input type="text" name=""id=""placeholder="Écrivez ce que vous désirez poster" oninput="PosteChamps(event)">
                           </div>
@@ -622,21 +551,27 @@
                                 <div class="optionHome"onclick="PosteFile(event)" id="document">Document<i class="fa-solid fa-file-pdf"></i></div>
                               </div>
                             <div class="swiper-wrapper homeSessionPost slidpost">
-                              <input type="file" name="image" id="imagePost" hidden accept="image/*">
-                              <input type="file" name="video" id="video" hidden accept="video/*">
-                              <input type="file" name="document" id="documents" hidden accept=".pdf, .doc, .docx, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document">                              
-                              <label for="imagePost" class="swiper-slide carterPostStory poste">
-                                <i class="fa-solid fa-image"></i>
-                                <p>Cliquez pour sélectionner une image</p>
-                              </label>
-                              <label for="video" class="swiper-slide carterPostStory poste">
-                                <i class="fa-solid fa-clapperboard"></i>
-                                <p>Cliquez pour sélectionner une video</p>
-                              </label>
-                              <label for="documents" class="swiper-slide carterPostStory poste">
-                                <i class="fa-solid fa-file-pdf"></i>
-                                <p>Cliquez pour sélectionner une Document</p>
-                              </label>
+                              <input type="file" name="image" id="imagePost" hidden accept="image/*" onchange="updateLabelAndDisplay(this, 'imageDisplay')">
+                              <input type="file" name="video" id="videomessage" hidden accept="video/*" onchange="updateLabelAndDisplay(this, 'videoDisplay')">
+                              <input type="file" name="document" id="documents" hidden accept=".pdf, .doc, .docx, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document" onchange="updateLabelAndDisplay(this, 'documentDisplay')"> 
+                              <div class="swiper-slide">
+                              <label for="imagePost" id="imageDisplay" class="carterPostStory poste">
+                                  <i class="fa-solid fa-image"></i>
+                                  <p>Cliquez pour sélectionner une image</p>
+                                </label>
+                              </div>
+                                <div class="swiper-slide">
+                                <label for="videomessage" id="videoDisplay" class="carterPostStory poste">
+                                  <i class="fa-solid fa-clapperboard"></i>
+                                  <p>Cliquez pour sélectionner une video</p>
+                                </label>
+                              </div>
+                                <div class="swiper-slide">
+                                <label for="documents" id="documentDisplay" class="carterPostStory poste">
+                                  <i class="fa-solid fa-file-pdf"></i>
+                                  <p>Cliquez pour sélectionner une Document</p>
+                                </label>
+                              </div>
                             </div>
                           </div>
                             <div class="text_demos">Merci de prendre le temps de sélectionner attentivement le niveau d'intégrité approprié pour ce poste.</div>

@@ -2,10 +2,44 @@ const menuSwipper = document.querySelector(".swiper-wrapper.LeftSide");
 const menuSwipperDroit = document.querySelector(".swiper-wrapper.DroiteSide");
 const leftIcon = document.querySelector(".iconsHeader.Returnback");
 const leftIconSearch = document.querySelector(".iconsHeader.search");
-function Filemenu()
-{
-    menuSwipperDroit.style.transform = "TranslateX(-100%)";
+const inputFile = document.querySelector("#InputFile");
+const inputLeftBack = document.querySelector(".inputLeft.back");
+
+function hideInputFile() {
+    inputFile.style.display = 'none';
+    inputLeftBack.style.display = 'flex';
+    menuSwipperDroit.style.transform = "translateX(-100%)"; 
 }
+
+function showInputFile() {
+    inputFile.style.display = 'flex';
+    inputLeftBack.style.display = 'none';
+    menuSwipperDroit.style.transform = "translateX(0%)"; 
+}
+
+function PosteFileMessagePage(event)
+{
+    let value = event.currentTarget;
+    let OptionsBtn = document.querySelectorAll(".optionHome");
+    let MereSlides = document.querySelector(".swiper.mySwiper .swiper-wrapper.menuFil");
+    OptionsBtn.forEach(option =>{
+        option.classList.remove('active');
+    })
+    value.classList.add('active');
+    if(value.id =="image")
+    {
+        MereSlides.style.transform = 'translateX(0%)';
+    }else if(value.id =="videos")
+    {
+        MereSlides.style.transform = 'translateX(-100%)';
+
+    }else if(value.id =="document")
+    {
+        MereSlides.style.transform = 'translateX(-200%)';
+
+    }
+}
+
 function searchFunction(event)
 {
     event.currentTarget.style.display = 'none';

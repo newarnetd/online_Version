@@ -421,9 +421,20 @@ main {
   width: 100%;
   height: 100%;
 }
-.carterPostStory{
+.carterPostStory img, .carterPostStory video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.carterPostStory.other{
   width:100%;
   height: 250px;
+}
+.carterPostStory{
+  width:100%;
+  height: 380px;
+  margin: 0 auto;
+  overflow: hidden;
   background: var(--color-blanche-2);
   display: flex;
   align-items: center;
@@ -439,7 +450,8 @@ main {
 }
 .suivantBoutonsGroupe{
   right: 20px;
- padding: 8px 12px;
+  padding: 8px 12px;
+  width: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -465,8 +477,11 @@ main {
   justify-content: center;
 }
 .leftnav.groupeCreation input{
-  width: 70%;
-  border-bottom:  1px solid var(--color-blanche-2);
+  width: 100%;
+  margin: 5px auto;
+  border:  1px solid var(--color-blanche-2);
+  padding: 20px;
+  border-radius: 5px;
 }
 .leftnav.groupeCreation{
   width: 100%;
@@ -508,19 +523,7 @@ main {
 .containeurInputStyle.integrite{
   background: var(--color-blanche-2);
 }
-.swiper-slide.carterPostStory.poste img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.swiper-slide.carterPostStory.poste{
-  width: 100%;
-  height: 250px;
-  margin: 0px auto;
-  overflow: hidden;
-  border-radius: 3px;
-  margin: 0;
-}
+
 .swiper-wrapper.homeSessionPost.slidpost {
   
 }
@@ -541,9 +544,17 @@ main {
   justify-content: center;
   text-align: center;
 }
+.swiper-slide.groupesideCreation .leftnav.groupeCreation,.swiper-slide.groupesideCreation .suivantBoutonsGroupe{
+  display: none;
+}
+.SearchMessage.creationGroupe{
+  width: 98%;
+  margin: 10px auto;
+  border-radius: 5px;
+}
 .SearchMessage{
   width: 100%;
-  margin: 5px auto;
+  margin: 10px auto;
   background: var(--color-blanche-2);
   padding: 10px 12px;
   border-radius: 20px;
@@ -1059,8 +1070,11 @@ background: var(--color-blanche-1);
   border: 1px solid var(--color-blanche-1);
   border-radius: 10px;
 }
-.swiper-slide.partyOneSatus .carterUsermessage{
+.userphoto.statut{
   background: var(--color-blanche-1);
+}
+.swiper-slide.partyOneSatus{
+  background: var(--color-blanche-2);
 }
 .swiper-slide.boook{
   width: 100%;

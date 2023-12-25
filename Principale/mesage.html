@@ -354,7 +354,38 @@
                     </div>
                 </div>
                 <div class="middleSesion swiper-slide Fil">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, doloribus harum nemo id laudantium repudiandae. Nihil quae ea quaerat, quo architecto iure minus molestias. Consequatur maiores quisquam praesentium sed quidem.
+                    <input type="file" name="image" id="PosteImage" accept="image/*" hidden>
+                    <input type="file" name="" id="storyPost" accept="image/*" hidden>
+                  <div class="menuHomeChoix">
+                    <div class="optionHome active" onclick="PosteFileMessagePage(event)" id="image">Photo<i class="fa-solid fa-image"></i></div>
+                    <div class="optionHome"onclick="PosteFileMessagePage(event)"id="videos">videos <i class="fa-solid fa-clapperboard"></i></div>
+                    <div class="optionHome"onclick="PosteFileMessagePage(event)" id="document">Document<i class="fa-solid fa-file-pdf"></i></div>
+                  </div>
+                  <div class="swiper mySwiper">
+                    <div class="swiper-wrapper menuFil">
+                        <input type="file" name="image" id="imagePost" hidden accept="image/*" onchange="updateLabelAndDisplay(this, 'imageDisplay')">
+                        <input type="file" name="video" id="videomessage" hidden accept="video/*" onchange="updateLabelAndDisplay(this, 'videoDisplay')">
+                        <input type="file" name="document" id="documents" hidden accept=".pdf, .doc, .docx, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document" onchange="updateLabelAndDisplay(this, 'documentDisplay')"> 
+                        <div class="swiper-slide">
+                        <label for="imagePost" id="imageDisplay" class="carterPostStory poste">
+                            <i class="fa-solid fa-image"></i>
+                            <p>Cliquez pour sélectionner une image</p>
+                          </label>
+                        </div>
+                          <div class="swiper-slide">
+                          <label for="videomessage" id="videoDisplay" class="carterPostStory poste">
+                            <i class="fa-solid fa-clapperboard"></i>
+                            <p>Cliquez pour sélectionner une video</p>
+                          </label>
+                        </div>
+                          <div class="swiper-slide">
+                          <label for="documents" id="documentDisplay" class="carterPostStory poste">
+                            <i class="fa-solid fa-file-pdf"></i>
+                            <p>Cliquez pour sélectionner une Document</p>
+                          </label>
+                        </div>
+                    </div>
+                  </div>
                 </div>
             </div>
             </div>
@@ -362,7 +393,9 @@
             <div class="bottomSession">
                 <div class="messagecontent">
                     <div class="chempsDesaisi">
-                        <div class="inputLeft" onclick="Filemenu()"><i class="fa-solid fa-paperclip"></i></div><input type="text" name=""id=""placeholder="Message..." oninput="ChampVerifiction(event)">
+                        <div id="InputFile" class="inputLeft" onclick="hideInputFile()"><i class="fa-solid fa-paperclip"></i></div>
+                        <div class="inputLeft back" onclick="showInputFile()"><i class="fa-solid fa-arrow-left"></i></div>
+                        <input type="text" name=""id=""placeholder="Message..." oninput="ChampVerifiction(event)">
                     </div>
                     <div class="iconsDroite">
                         <div class="iconsHeader sendsMessage">

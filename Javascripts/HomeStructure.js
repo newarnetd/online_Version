@@ -20,6 +20,22 @@ function PosteFile(event)
 
     }
 }
+function creationGroupeVerification(event) {
+    var checkbox = event.target;
+ 
+    let mere = event.target.closest('.swiper-slide.groupesideCreation');
+    let inputCheckboxes = mere.querySelectorAll("input[type='checkbox']");
+    
+    let shouldDisplay = Array.from(inputCheckboxes).some(input => input.checked);
+ 
+    if (shouldDisplay) {
+        document.querySelector(".swiper-slide.groupesideCreation .leftnav.groupeCreation").style.display = 'flex';
+        document.querySelector(".swiper-slide.groupesideCreation .suivantBoutonsGroupe").style.display = 'flex';
+    } else {
+        document.querySelector(".swiper-slide.groupesideCreation .leftnav.groupeCreation").style.display = 'none';
+        document.querySelector(".swiper-slide.groupesideCreation .suivantBoutonsGroupe").style.display = 'none';
+    }
+ }
 function FilActualite(event)
 {
     let value = event.currentTarget;
