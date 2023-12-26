@@ -29,10 +29,9 @@ function CreatGroupe()
 {
     leftMererSlider.style.transform = "TranslateX(-500%)" ;
 }
-function sharePOst(event)
-{
-    event.currentTarget.classList.toggle('partager');
-}
+
+
+
 function OptionDroiteHeader(event) {
     document.querySelectorAll(".menuOptionRight").forEach(item => {
         item.classList.remove('active');

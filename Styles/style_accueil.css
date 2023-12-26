@@ -524,9 +524,6 @@ main {
   background: var(--color-blanche-2);
 }
 
-.swiper-wrapper.homeSessionPost.slidpost {
-  
-}
 .PostArticleForm{
   width: 90%;
   margin: 0px auto;
@@ -688,51 +685,72 @@ main {
   justify-content: center;
   
 }
-.emotionIcons.share.partager .menuOptionPartager i{
-  color: var(--color-icons_Theme_blanche);
-}
-.emotionIcons.share.partager .menuOptionPartager{
-  width: 150px;
-  border-radius: 3px;
-  height: 120px;
-  background: var(--color-blanche-1);
-  color: var(--color-text);
-  transform: translateY(-100px);
-  transition-delay: .1s,0.5s ,0.5s;
-  flex-direction: column;
-  display: flex;
-  box-shadow: var(--boxshadow_section_blanche);
-  
-}
-.emotionIcons.share.partager .menuOptionPartager .optionMenuHome:hover{
-  background: var(--color-blanche-2);
 
-}
-.emotionIcons.share.partager .menuOptionPartager .optionMenuHome{
-  color: var(--color-text);
-  border-bottom: 1px solid var(--color-blanche-2);
-  cursor: pointer;
-  padding: 8px;
-}
+
 .emotionIcons.share{
   position: relative;
 }
 .emotionIcons.share i{
   z-index: var(--z-index-2);
 }
-.menuOptionPartager .optionMenuHome,.menuOptionPartager .optionMenuHome i{
-  color: var(--color-blanche-2);
+.menuchoix{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 12px;
+  cursor: pointer;
+  gap:10px;
+  border-bottom: 1px solid  var(--color-blanche-2);
 }
+.BoutonsAction:nth-child(2) i{
+  color: #FFF;
+}
+.BoutonsAction:nth-child(2){
+  background: var(--color-primary);
+  color: #FFF;
+  display: none;
+}
+.BoutonsAction{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding_boutons);
+  gap:10px;
+  background: var(--color-blanche-2);
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+.menuOptionPartager.active,.menuOptionPartager.GroupeFrindsSelect.active{
+  max-height: 100%;
+  height:100%;
+  padding: 10px;
+}
+
+.menuOptionPartager .SearchMessage.creationGroupe input{
+  padding-left: 10px;
+}
+.menuOptionPartager.GroupeFrindsSelect .SearchMessage.creationGroupe{
+  height: 45px;
+  padding: 12px;
+  border-radius: 20px;
+}
+.menuOptionPartager .conteneuramis:hover{
+background: transparent;
+}
+.menuOptionPartager.GroupeFrindsSelect,
 .menuOptionPartager{
   position: absolute;
-  width: 20px;
+  width: 100%;
+  bottom: 0;
   overflow: hidden;
-  height: 20px;
-  border-radius: 50%;
+  max-height: 0%;
   background: var(--color-blanche-2);
   color:var(--color-blanche-2);
-  transition:  transform .1s,width 0.2s,height 0.2s;
-  transition-delay: .5s,0.1s ,0.1s;
+  transition:all .1s ease;
+  z-index: 1000;
+  background: var(--color-blanche-1);
 }
 .iconDiv.menuMedia{
   overflow: hidden;
@@ -914,6 +932,7 @@ margin-right: 50px;
   height: 100%;
   overflow: hidden;
   width: 100%;
+  position: relative;
 }
 .bottomIocnsEmotion {
   display: flex;

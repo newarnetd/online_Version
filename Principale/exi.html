@@ -1,61 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>File Input Example</title>
-  <style>
-    /* Add your styles here */
-  </style>
-</head>
-<body>
+<img src="../images/Af-1 (6).jpg" class="imagePost" />
+                        
+                      </div>
+                       
+                      <div class="menuOptionPartager GroupeShare">
+                        <div class="swiper mySwiper other">
+                            <div class="swiper-wrapper partagerGroupes commentaireSession">
+                              <div class="swiper-slide partagerAmis">
+                                  <div class="InputDouble">
+                                    <div class="shareBtn" onclick="TurnBackCreation(event)"><i class="fa-solid fa-arrow-left"></i>Annuler</div>
+                                  <div class="shareBtn"><i class="fa-solid fa-share"></i>Partager </div>
+                                  </div>
+                                  <div class="conteneuramis">
+                                    <div class="photoamis">
+                                      <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
+                                    </div>
+                                    <div class="nomamis">
+                                      <h3>arsene cirhuza</h3>
+                                      <p><small>86 Membres </small></p>
+                                    </div>
+                                    <div class="iconeamis"><input type="checkbox" name="" id="" onchange="VerificationChecked(event)"></div>
+                                  </div>
+                              </div> 
+                              <div class="swiper-slide commentaireSide">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore tempora necessitatibus nam ad tempore illo ipsam numquam incidunt qui eius ratione voluptatum, sit, reprehenderit hic modi. Dolor quisquam debitis architecto.
+                              </div> 
+                          </div>
+                        </div>  
+                      </div>
 
-  <input type="file" name="image" id="imagePost" hidden accept="image/*" onchange="updateLabelAndDisplay(this, 'imageDisplay')">
-  <input type="file" name="video" id="video" hidden accept="video/*" onchange="updateLabelAndDisplay(this, 'videoDisplay')">
-  <input type="file" name="document" id="documents" hidden accept=".pdf, .doc, .docx, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document" onchange="updateLabelAndDisplay(this, 'documentDisplay')"> 
 
-  <label for="imagePost" class="swiper-slide carterPostStory poste">
-    <i class="fa-solid fa-image"></i>
-    <p>Cliquez pour sélectionner une image</p>
-  </label>
 
-  <label for="video" class="swiper-slide carterPostStory poste">
-    <i class="fa-solid fa-clapperboard"></i>
-    <p>Cliquez pour sélectionner une vidéo</p>
-  </label>
 
-  <label for="documents" class="swiper-slide carterPostStory poste">
-    <i class="fa-solid fa-file-pdf"></i>
-    <p>Cliquez pour sélectionner un document</p>
-  </label>
 
-  <div id="imageDisplay"></div>
-  <div id="videoDisplay"></div>
-  <div id="documentDisplay"></div> 
-
-  <script>
-    function updateLabelAndDisplay(input, displayId) {
-      var fileInput = input;
-      var displayElement = document.getElementById(displayId);
-
-      if (fileInput.files && fileInput.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-          if (displayId === 'videoDisplay') {
-            // Utilisez la balise vidéo directement sans la balise source
-            displayElement.innerHTML = '<video controls><source src="' + e.target.result + '" type="video/mp4"></video>';
-          } else if (displayId === 'documentDisplay') {
-            // Code pour afficher les informations sur le document (par exemple, le nom de fichier, la miniature)
-          } else {
-            displayElement.innerHTML = '<img src="' + e.target.result + '" alt="Uploaded Image">';
-          }
-        };
-
-        reader.readAsDataURL(fileInput.files[0]);
-      }
-    }
-  </script>
-
-</body>
-</html>
+                      
+                      <!-- moreOption -->
+                      
+                      <!-- shareoPTION -->
+                      <div class="swiper-slide">
+                        
+                      </div>
+                      <!-- GroupeUser -->
+                      <div class="swiper-slide">
+                        <div class="menuOptionPartager">
+                        <div class="boutonsShareFlex">
+                          <div class="shareBtn" onclick="TurnBackCreation(event)"><i class="fa-solid fa-arrow-left"></i>Annuler</div>
+                        <div class="shareBtn"><i class="fa-solid fa-share"></i>Partager </div>
+                        </div>
+                      </div>
+                      </div>
+                        <!-- paratgerGroupe -->

@@ -20,6 +20,28 @@ function PosteFile(event)
 
     }
 }
+function ReturnShare(event)
+{
+    let mere = event.target.closest('.carterPoste');
+    mere.querySelector(".menuOptionPartager.GroupeFrindsSelect").classList.remove('active')
+}
+function GroupeFriendsShare(event)
+{
+    let mere = event.target.closest('.carterPoste');
+    mere.querySelector(".menuOptionPartager.GroupeFrindsSelect").classList.toggle('active')
+}
+function VerificationChecked(event) {
+    var checkbox = event.target;
+    let mere = event.target.closest('.menuOptionPartager.GroupeFrindsSelect');
+    let inputCheckboxes = mere.querySelectorAll("input[type='checkbox']");
+    let shouldDisplay = Array.from(inputCheckboxes).some(input => input.checked);
+ 
+    if (shouldDisplay) {
+        mere.querySelector(".InputDouble .BoutonsAction:nth-child(2)").style.display = 'flex';
+    } else {
+        mere.querySelector(".InputDouble .BoutonsAction:nth-child(2)").style.display = 'none';
+    }
+}
 function creationGroupeVerification(event) {
     var checkbox = event.target;
  
@@ -70,6 +92,39 @@ function BackSatutus()
 {
     let MereSlides = document.querySelector(".swiper-wrapper.ScrollPart");
     MereSlides.style.transform = 'translateX(0%)';
+}
+function GroupePostShare(event) {
+    let cardPost = event.currentTarget.closest(".carterPoste");
+    let mereSlide = cardPost.querySelector(".swiper.mySwiper.other .swiper-wrapper.cartePosteCorp");
+    mereSlide.style.transform = "translateX(-300%)";
+}
+function sharePost(event) {
+    let cardPost = event.currentTarget.closest(".carterPoste");
+    cardPost.querySelector(".menuOptionPartager").classList.toggle('active');
+}
+function CommentPoste(event) {
+    let cardPost = event.currentTarget.closest(".carterPoste");
+    let mereSlide = cardPost.querySelector(".swiper.mySwiper.other .swiper-wrapper.cartePosteCorp");
+    mereSlide.style.transform = "translateX(-400%)";
+}
+function  MorePosteMenu(event) {
+    let cardPost = event.currentTarget.closest(".carterPoste");
+    let mereSlide = cardPost.querySelector(".swiper.mySwiper.other .swiper-wrapper.cartePosteCorp");
+    mereSlide.style.transform = "translateX(-100%)";
+}
+function TurnBackCreation(event)
+{
+    let cardPost = event.currentTarget.closest(".carterPoste");
+    
+    if (cardPost) {
+        let shareMenu = cardPost.querySelector('.menuOptionPartager.GroupeShare');
+        
+        if (shareMenu) {
+            shareMenu.classList.remove('active');
+        } else {
+            console.error('Menu de partage introuvable dans la carte de poste.');
+        }
+    }
 }
 function PostWidthInage()
 {

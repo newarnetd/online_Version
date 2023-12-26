@@ -72,7 +72,7 @@
                         <div class="conversationHomePage">
                           <button class="BoutonsRetoure" onclick="TurnBack()"><i class="fa-solid fa-arrow-left"></i> Retournez au Principal</button>
                           <div class="SearchMessage creationGroupe">
-                            <input type="search" name="" id="" placeholder="Trouver un Ami(e)">
+                            <input type="search" name="" id="" placeholder="Trouver un(e) Ami(e)">
                           </div>
                           
                           <div class="carterPrinciplale">
@@ -239,8 +239,34 @@
                       </div>
                       <div class="corpPost">
                         <img src="../images/newarnautes.jpg" class="imagePost" />
+                        <div class="menuOptionPartager">
+                          <div class="menuchoix"onclick="partager('link', 'NewaRnet', 'okay')"><i class="fa-solid fa-share-nodes"></i><span>Partager sur d'autres réseaux sociaux</span></div>
+                          <div class="menuchoix"><i class="fa-solid fa-share-from-square"></i> <span>Partager sur NewaRnet</span></div>
+                          <div class="menuchoix"onclick="GroupeFriendsShare(event)"><i class="fa-solid fa-retweet"></i> <span>Partager comme message</span></div>
+                          <div class="menuchoix"onclick="GroupeFriendsShare(event)"> <i class="fa-solid fa-share"></i> <span>Partager dans un groupe</span></div>
                       </div>
-                      
+                      <!-- Friends et Groupes Sharing -->
+                      <div class="menuOptionPartager GroupeFrindsSelect">
+                        <div class="InputDouble">
+                          <div class="BoutonsAction" onclick="ReturnShare(event)"><i class="fa-solid fa-arrow-left"></i>Retourner</div>
+                          <div class="BoutonsAction">Partager<i class="fa-solid fa-share"></i></div>
+                        </div>
+                        <div class="SearchMessage creationGroupe">
+                          <i class="fa-solid fa-magnifying-glass"></i><input type="search" name="" id="" placeholder="Trouver un(e) Ami(e)">
+                        </div>
+                        <div class="conteneuramis">
+                          <div class="photoamis">
+                            <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
+                          </div>
+                          <div class="nomamis">
+                            <h3>arsene cirhuza</h3>
+                            <p><small>86 ami(e)s en commun </small></p>
+                          </div>
+                          <div class="iconeamis"><input type="checkbox" name="" id=""onchange="VerificationChecked(event)"></div>
+                      </div>
+                      </div>
+                      <!-- Friends et Groupes Sharing -->
+                      </div>
                       <div class="bottomIocnsEmotion">
                         <div class="emotionIcons">
                           <i class="fa-solid fa-thumbs-up"></i><span class="number">1234</span>
@@ -248,13 +274,9 @@
                         <div class="emotionIcons">
                           <i class="fa-solid fa-comments"></i><span class="number">1234</span>
                         </div>
-                        <div class="emotionIcons share" onclick="sharePOst(event)">
+                        <div class="emotionIcons share" onclick="sharePost(event)">
                           <i class="fa-solid fa-share"></i>
                           <span class="number">120</span>
-                          <div class="menuOptionPartager">
-                            <div class="optionMenuHome"><i class="fa-solid fa-share"></i>Groupe</div>
-                            <div class="optionMenuHome"> <i class="fa-solid fa-flag"></i>Poste</div>
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -312,45 +334,6 @@
                       </div>
                     </div>
                     <div class="moreFrieds">voire plus <i class="fa-solid fa-caret-down"></i></div>
-                    <!-- poste_Friends_laste -->
-                    <div class="carterPoste">
-                      <div class="blocHead">
-                        <div class="left_userpost">
-                          <div class="cartePhoto">
-                            <img src="../images/newarnautes.jpg" class="userphoto" />
-                          </div>
-                          <div class="nameUser">
-                            <h3>Jean-luc kashindi</h3>
-                            <small
-                              >Il y 2 min.<i class="fa-solid fa-earth-africa"></i
-                            ></small>
-                          </div>
-                        </div>
-                        <div class="rightmenu">
-                          <div class="iconDiv"><i class="fa-solid fa-ellipsis"></i></div>
-                        </div>
-                      </div>
-                      <div class="corpPost">
-                        <img src="../images/newarnautes.jpg" class="imagePost" />
-                      </div>
-                      
-                      <div class="bottomIocnsEmotion">
-                        <div class="emotionIcons">
-                          <i class="fa-solid fa-thumbs-up"></i><span class="number">1234</span>
-                        </div>
-                        <div class="emotionIcons">
-                          <i class="fa-solid fa-comments"></i><span class="number">1234</span>
-                        </div>
-                        <div class="emotionIcons share" onclick="sharePOst(event)">
-                          <i class="fa-solid fa-share"></i>
-                          <span class="number">120</span>
-                          <div class="menuOptionPartager">
-                            <div class="optionMenuHome"><i class="fa-solid fa-share"></i>Groupe</div>
-                            <div class="optionMenuHome"> <i class="fa-solid fa-flag"></i>Poste</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                     <div class="textEplaza">ePlaza est un lieu virtuel de promotion des produits avec une large diffusion dans l'écosystème NewaRnet</div>
                     <div class="swiper mySwiper other onlyScroll cartePage propositions">
                       <div class="swiper-wrapper">
@@ -399,48 +382,7 @@
                   </div>
                   <!-- videosHome -->
                   <div class="swiper-slide">
-                    <div class="carterPoste">
-                      <div class="blocHead">
-                        <div class="left_userpost">
-                          <div class="cartePhoto">
-                            <img src="../images/newarnautes.jpg" class="userphoto" />
-                          </div>
-                          <div class="nameUser">
-                            <h3>Jean-luc kashindi</h3>
-                            <small
-                              >Il y 2 min.<i class="fa-solid fa-earth-africa"></i
-                            ></small>
-                          </div>
-                        </div>
-                        <div class="rightmenu">
-                          <div class="iconDiv">
-                            <i class="fa-solid fa-ellipsis"></i>
-                            <div class="menuOptionPost"onclick="MenuUserPost(event)">skljks</div>
-                            <div class="menuPosteUseroWNER"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="corpPost">
-                        <img src="../images/newarnautes.jpg" class="imagePost" />
-                      </div>
-                      
-                      <div class="bottomIocnsEmotion">
-                        <div class="emotionIcons">
-                          <i class="fa-solid fa-thumbs-up"></i><span class="number">1234</span>
-                        </div>
-                        <div class="emotionIcons">
-                          <i class="fa-solid fa-comments"></i><span class="number">1234</span>
-                        </div>
-                        <div class="emotionIcons share" onclick="sharePOst(event)">
-                          <i class="fa-solid fa-share"></i>
-                          <span class="number">120</span>
-                          <div class="menuOptionPartager">
-                            <div class="optionMenuHome"><i class="fa-solid fa-share"></i>Groupe</div>
-                            <div class="optionMenuHome"> <i class="fa-solid fa-flag"></i>Poste</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                   videoSession
                   </div>
                   <!-- Statu -->
                     <div class="swiper-slide">

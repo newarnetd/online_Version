@@ -44,42 +44,15 @@ function updateLabelAndDisplay(input, displayId) {
       reader.readAsDataURL(fileInput.files[0]);
     }
   }
-// Fonction pour partager via l'API Web Share ou une alternative
 function partager(donnees, titre, texte) {
-  // Vérifier si l'API Web Share est prise en charge par le navigateur
   if (navigator.share) {
-    // Appel à l'API Web Share
     navigator.share({
       title: titre,
       text: texte,
       url: donnees
     })
-      .then(() => console.log('Partage réussi'))
-      .catch(() => afficherAlternative(donnees, titre, texte));
-  } else {
-    // Si l'API Web Share n'est pas prise en charge, afficher une alternative
-    afficherAlternative(donnees, titre, texte);
+      .then(() => console.log('Partage réussi depuis NewaRnet'))
   }
-}
-
-// Fonction alternative de partage basée sur des liens
-function afficherAlternative(donnees, titre, texte) {
-  // Vous pouvez implémenter votre propre logique alternative ici.
-  // Par exemple, créer des liens vers des applications de partage spécifiques ou afficher un message d'invitation à partager.
-  console.log("L'API Web Share n'est pas prise en charge par votre navigateur.");
-  console.log("Voici des liens alternatifs vers des applications de partage :");
-
-  // Exemple : Twitter
-  const lienTwitter = `https://twitter.com/intent/tweet?text=${encodeURIComponent(texte)}&url=${encodeURIComponent(donnees)}&hashtags=VotreHashtag`;
-  console.log(`Twitter : ${lienTwitter}`);
-
-  // Exemple : Facebook
-  const lienFacebook = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(donnees)}&quote=${encodeURIComponent(texte)}`;
-  console.log(`Facebook : ${lienFacebook}`);
-
-  // ... Ajoutez d'autres liens pour d'autres applications de partage
-
-  // Vous pouvez également afficher un message demandant à l'utilisateur de partager manuellement le lien.
 }
 
 
