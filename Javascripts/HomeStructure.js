@@ -25,6 +25,11 @@ function ReturnShare(event)
     let mere = event.target.closest('.carterPoste');
     mere.querySelector(".menuOptionPartager.GroupeFrindsSelect").classList.remove('active')
 }
+function OptionMorePost(event)
+{
+    let mere = event.target.closest('.carterPoste');
+    mere.querySelector(".menuOptionPartager.moreoption").classList.toggle('active')
+}
 function GroupeFriendsShare(event)
 {
     let mere = event.target.closest('.carterPoste');
@@ -100,7 +105,7 @@ function GroupePostShare(event) {
 }
 function sharePost(event) {
     let cardPost = event.currentTarget.closest(".carterPoste");
-    cardPost.querySelector(".menuOptionPartager").classList.toggle('active');
+    cardPost.querySelector(".menuOptionPartager.shareFiles").classList.toggle('active');
 }
 function CommentPoste(event) {
     let cardPost = event.currentTarget.closest(".carterPoste");

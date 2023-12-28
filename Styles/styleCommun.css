@@ -7,19 +7,20 @@
     --color-text:#100f0f;
     --color-icons_Theme_blanche:#BDBDBD;
     --color-icons_Theme_noire:#7c7c7c;
-    --color-primary: rgba(26,127,100);
+    --color-primary: #0d876f;
     --swiper-theme-color:var(--color-primary);
     --boxshadow_section_blanche: 0px 4px 10px rgba(0, 0, 0,.2);
     --color-blue:#dcf8c6;
     --color-jaune-text:rgb(255, 210, 121);
     --color-greenNoire: rgb(41, 41, 41);
-    --color-titre_newarnet: #13c09d;
+    --color-titre_newarnet: #0d876f;
+    --color-request:rgb(201, 245, 201);
     --color-green:var(--color-primary);
     --color-bordure-noire:rgba(0, 0, 0, 0.042);
     --color-red-1:rgb(246, 105, 105);
     --color-red-2:rgb(167, 31, 31);
-    --color-green_boutons:#13c09d;
-    --color-online:rgb(8, 234, 34);
+    --color-green_boutons:#0d876f;
+    --color-online:#00a400;
     --color-linear-white:linear-gradient(90deg, var(--color-blanche-1) 25%, var(--color-blanche-2) 50%, var(--color-blanche-1) 75%);
     /* LES MESURES DE L'INTERFACE */
     --padding_boutons:10px 12px;
@@ -202,6 +203,23 @@ input,textarea,button{
   background: var(--color-primary);
   width: 100%;
 }
+.counteurBare {
+  position: absolute;
+  width: 0;
+  background: var(--color-primary);
+  height: 100%;
+  transition: width .1s ease;
+}
+.barrScrolle {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background: #FFF;
+  box-shadow: var(--boxshadow_section_blanche);
+  height: 5px;
+  overflow: hidden; 
+}
+
 .carterUsersOnline{
   display: flex;
     justify-content: center;
@@ -243,4 +261,44 @@ input,textarea,button{
   display: flex;
   align-items: center;
   gap:10px;
+}
+.onlineTime.messageColor{
+  background: var(--color-red-1);
+  color: #FFF;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+}
+.mereAnimationclique .loading{
+  width: 20px;
+  height: 20px;
+}
+.mereAnimationclique span{
+  font-size: 13px;
+}
+.mereAnimationclique{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.loading{
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 3px solid var(--color-blanche-1);
+  border-top:3px solid var(--color-primary);
+  animation: loading  .7s linear infinite;
+}
+@keyframes loading {
+  0%{
+      transform: rotate(0deg);
+  }
+  100%{
+      transform: rotate(360deg);
+  }
 }

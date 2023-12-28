@@ -1,3 +1,6 @@
+<?php
+include("Principale/others.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +11,13 @@
     <link rel="stylesheet" href="Styles/index.css">
     <link rel="shortcut icon" href="images/Logo.png" type="image/jpeg" style="width:300px;height:300px">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <title>NewaRnet</title>
 </head>
 <body>
+    <div class="barrScrolle">
+        <div class="counteurBare"></div>
+    </div>
     <div class="ReferencePage">
             <!-- Gauche_side -->
             <article class="leftside">
@@ -21,10 +28,10 @@
                     <h2 class="titre_animation interd">NewaRnet</h2>
                 </div>
                     <!-- text_newarnet -->
-                <div class="text_the_newaRnet">Créez votre compte dès maintenant et plongez dans une aventure captivante sur NewaRnet. Rejoignez la communauté des NewaRnautes engagés </div>
+                <div class="text_the_newaRnet interd">NewaRnet, basé sur le principe d'Internet Pour Tous, invitez donc vos proches à vous rejoindre dès maintenant.</div>
                 <div class="block_boutons">
-                    <div class="class_boutons_asisstence"onclick="Suivant_3()">Besoin de Assistente Nianda ? <i class="fa-solid fa-clipboard-question"></i></div>
-                    <div class="class_boutons_asisstence">Portrait mobile <i class="fa-solid fa-download"></i></div>
+                    <div class="class_boutons_asisstence"onclick="Suivant_3()">Assistente Nianda ? <i class="fa-solid fa-clipboard-question"></i></div>
+                    <div class="class_boutons_asisstence invitationsUsers"onclick="invitation()">Invitez vos proches<i class="fa-solid fa-users"></i></div>
                 </div>
             </article>
             <!-- Fin des Blocks -->
@@ -110,7 +117,7 @@
                                     <i class="fa-solid fa-eye"onclick="PasswordToggle(event)"></i>
                                 </div>
                                 <div class="text_coventions">En vous connectant, vous adhérez à accepter notre politique et nos conditions.</div>
-                                <div class="connectionBtn login">Se connecter</div>
+                                <div class="connectionBtn login"onclick="connextion(event)">Se connecter</div>
                                 <div class="connectionBtn sign_up" onclick="InscriptionFunctionDesk()">Créez un nouveau compte </div>
                                 <div class="bottom_text">
                                     <div class="text_coventions">Avec sa phrase célèbre Un monde à l'unisson,  Tout le concept de NewaRnet est d'être accessible au plus grand nombre</div>
@@ -123,17 +130,17 @@
                                 <div class="textDemonstrationInscription">En cliquant sur le bouton ci-dessous, vous continuez  votre inscription sur NewaRnet</div>
                                 <div class="InputDouble">
                                     <div class="containeurInputStyle">
-                                        <input type="text" name="nom"  placeholder="Entrer ton Nom">
+                                        <input type="text" name="nom" id="nom"  placeholder="Entrer ton Nom">
                                     </div>
                                     <div class="containeurInputStyle">
-                                        <input type="text" name="prenom"  placeholder="Entrer ton Prenom">
+                                        <input type="text" name="prenom" id="prenom"  placeholder="Entrer ton Prenom">
                                     </div>
                                 </div>
                                 <div class="containeurInputStyle">
-                                    <input type="text" name="email"  placeholder="Entrer Ton Adress Email">
+                                    <input type="text" name="email" id="email"  placeholder="Entrer Ton Adress Email">
                                 </div>
-                                <div class="boutonOnlymobile suivant" onclick="Suivant_1()">Suivant</div>
-                                <div class="text_coventions">Bienvenue chez NewaRnet ! partagez, vivez pleinement cette expérience unique. Ravis de vous avoir parmi nous !</div>
+                                <div class="boutonOnlymobile suivant" onclick="Suivant_1(event)">Suivant</div>
+                                
                                 <div class="erreurMessage"></div>
                            </div>
                           </div>
@@ -142,11 +149,11 @@
                             <div  class="connexionForm">
                                 <div class="InputDouble">
                                     <div class="containeurInputStyle">
-                                        <input type="text" name="numero"  placeholder="Entrer ton numéro">
+                                        <input type="number" name="numero" id="numero"  placeholder="Entrer ton numéro">
                                     </div>
                                 </div>
                                 <div class="containeurInputStyle password">
-                                    <input type="text" name="password  placeholder="Optez pour un mot de passe solide pour ce compte" id="passwordInputDesk">
+                                    <input type="text" name="password" id="password"  placeholder="Optez pour un mot de passe solide pour ce compte" id="passwordInputDesk">
                                     <i class="fa-solid fa-eye-slash" id="eye-slash" onclick="PasswordToggle(event)"></i>
                                     <i class="fa-solid fa-eye"onclick="PasswordToggle(event)"></i>
                                 </div>
@@ -158,8 +165,8 @@
                                     <i class="fa-solid fa-check"onclick="capierPassword(event)"></i>
                                 </div>
                             </div>
-                                <div class="boutonOnlymobile suivant"onclick="Suivant_2()">Suivant</div>
-                                <div class="text_coventions">Nous sommes ravis de vous accueillir dans notre communauté NewaRnet</div>
+                                <div class="boutonOnlymobile suivant"onclick="Suivant_2(event)">Suivant</div>
+                                
                                 <div class="erreurMessage"></div>
                            </div>
                           </div>
@@ -184,7 +191,7 @@
                                                 $nom_mois = date("F", mktime(0, 0, 0, $mois, 1));
                                                 echo '<option value="' . $mois . '">' . $nom_mois . '</option>';
                                             }
-                                            ?>
+                                            ?>                                        
                                         </select>
                                         <select name="annee" class="containeurInputStyle">
                                             <?php
@@ -314,7 +321,7 @@
                                 </div>
                                 <div class="boutonOnlymobile suivant">Enregistrez l'inscription</div>
                                 <div class="text_coventions">C'est avec une immense joie que nous vous souhaitons la bienvenue au sein de notre communauté NewaRnet.</div>
-                                <div class="boutonOnlymobile seconncter" onclick="Suivant_0()">Retournez à l'interface principale</div>
+                                <div class="boutonOnlymobile seconncter" onclick="Suivant_0(event)">Retournez à l'interface principale</div>
                                 <div class="erreurMessage"></div>
                            </div>
                           </div>
@@ -394,6 +401,9 @@
                           </div>
                           <!-- Ninada -->
                           <div class="swiper-slide connectionPage">
+                            <div class="text_demos">
+                                <h2 class="titre_animation interd">NewaRnet</h2>
+                            </div>
                             <div  class="connexionForm">
                                 <div class="containeurInputStyle">
                                     <input type="text" name="EmailConnexion"  placeholder="Email ou Numéro de téléphone">
@@ -404,7 +414,7 @@
                                     <i class="fa-solid fa-eye"onclick="PasswordToggle(event)"></i>
                                 </div>
                                 <div class="text_coventions">En vous connectant, vous adhérez à accepter notre politique et nos conditions.</div>
-                                <div class="connectionBtn login">Se connecter</div>
+                                <div class="connectionBtn login" onclick="connextion(event)">Se connecter</div>
                                 <div class="erreurMessage"></div>
                                 <div class="bottom_text">
                                     <div class="text_coventions">Tout le concept de NewaRnet est d'être accessible au plus grand nombre</div>
@@ -419,31 +429,35 @@
                                 <div class="text_demos">
                                     <h2 class="titre_animation interd">NewaRnet</h2>
                                 </div>
-                                <div class="text_coventions"> NewaRnet révolutionne la fluidité de l'écosystème de connectivité interactive.</div>
                                 <div class="containeBoutonsOnlyBoutons">
-                                    <div class="boutonOnlymobile" onclick="connectionMobile()">Se connecter</div>
-                                    <div class="boutonOnlymobile" onclick="InscriptionFunctionMobile()">Créez un compte</div>
+                                    <div class="boutonOnlymobile boutonsActions" onclick="connectionMobile()">Se connecter</div>
+                                    <div class="boutonOnlymobile boutonsActions" onclick="InscriptionFunctionMobile()">Créez un compte</div>
                                 </div>
                                 <div class="text_demos">
-                                <div class="boutonOnlymobile signup" onclick="NiandaMobile()">Besoin del' Assistente Nianda ? <i class="fa-solid fa-clipboard-question"></i></div>
+                                    <div class="boutonOnlymobile signup" onclick="NiandaMobile()">Assistente Nianda<i class="fa-solid fa-clipboard-question"></i></div>
+                                </div>
+                            <div class="text_coventions interd">NewaRnet, basé sur le principe d'Internet Pour Tous, invitez donc vos proches à vous rejoindre dès maintenant.</div>
+                            <div class="bottomLink" onclick="invitation()">
+                                <div class="boutonOnlymobile boutonsActions share">Invitez vos proches<i class="fa-solid fa-users"></i></div>
                             </div>
-                            </div>
+                        </div>
                     </div>
                     <div class="swiper-slide">
                         <div  class="connexionForm">
                             <div class="textDemonstrationInscription">En cliquant sur le bouton ci-dessous, vous continuez  votre inscription sur NewaRnet</div>
                             <div class="InputDouble">
                                 <div class="containeurInputStyle">
-                                    <input type="text" name="nom"  placeholder="Entrer ton Nom">
+                                    <input type="text" name="nom" id="Mobnom"  placeholder="Entrer ton Nom">
                                 </div>
                                 <div class="containeurInputStyle">
-                                    <input type="text" name="prenom"  placeholder="Entrer ton Prenom">
+                                    <input type="text" name="prenom" id="Mobprenom"  placeholder="Entrer ton Prenom">
                                 </div>
                             </div>
                             <div class="containeurInputStyle">
-                                <input type="text" name="email"  placeholder="Entrer  ton Email ">
+                                <input type="text" name="email" id="Mobemail"  placeholder="Entrer Ton Adress Email">
                             </div>
-                            <div class="boutonOnlymobile suivant" onclick="SuivantMob_1()">Suivant</div>
+                            <div class="boutonOnlymobile suivant" onclick="SuivantMob_1(event)">Suivant</div>
+                            <div class="erreurMessage"></div>
                        </div>
                       </div>
                       <div class="swiper-slide">
@@ -451,7 +465,7 @@
                         <div  class="connexionForm">
                             <div class="InputDouble">
                                 <div class="containeurInputStyle">
-                                    <input type="text" name="numero"  placeholder="Entrer ton numéro de téléphone.l">
+                                    <input type="number" name="numero" id="numeroMob" placeholder="Entrer ton numéro de téléphone.l">
                                 </div>
                                 <div class="containeurInputStyle password">
                                     <input type="password" name="password" id="passwordInputMob" placeholder="Mot de passe">
@@ -467,171 +481,199 @@
                                     <i class="fa-solid fa-check"onclick="capierPasswordMobile(event)"></i>
                                 </div>
                             </div>
-                            <div class="boutonOnlymobile suivant"onclick="SuivantMob_2()">Suivant</div>
+                            <div class="boutonOnlymobile suivant"onclick="SuivantMob_2(event)">Suivant</div>
                        </div>
+                       <div class="erreurMessage"></div>
                       </div>
-                      <div class="swiper-slide">
-                        <div  class="connexionForm">
-                            <div class="InputDouble">
-                                    <select name="jour" class="containeurInputStyle">
-                                        <?php
-                                        $mois = 1; // Janvier
-                                        $annee = date("Y"); // Année actuelle
-                                    
-                                        $nombre_jours = cal_days_in_month(CAL_GREGORIAN, $mois, $annee);
-                                    
-                                        for ($jour = 1; $jour <= $nombre_jours; $jour++) {
-                                            echo '<option value="' . $jour . '">' . $jour . '</option>';
-                                        }
-                                        ?>
-                                    </select>
-                                    <select name="mois" class="containeurInputStyle password">
-                                        <?php
-                                        for ($mois = 1; $mois <= 12; $mois++) {
-                                            $nom_mois = date("F", mktime(0, 0, 0, $mois, 1));
-                                            echo '<option value="' . $mois . '">' . $nom_mois . '</option>';
-                                        }
-                                        ?>
-                                    </select>
-                                    <select name="annee" class="containeurInputStyle">
-                                        <?php
-                                        $annee_actuelle = date("Y");
-                                        $annee_debut = $annee_actuelle - 40; // Vous pouvez ajuster le nombre d'années en arrière
-                                    
-                                        for ($annee = $annee_debut; $annee <= $annee_actuelle; $annee++) {
-                                            echo '<option value="' . $annee . '">' . $annee . '</option>';
-                                        }
-                                        ?>
-                                    </select>
-                            </div>
-                                <select name="centre_interet" class="containeurInputStyle">
-                                    <?php
-                                    $centres_interet = [
-                                        "Voyages",
-                                        "Photographie",
-                                        "Jardinage",
-                                        "Cuisine",
-                                        "Cinéma",
-                                        "Musique",
-                                        "Danse",
-                                        "Théâtre",
-                                        "Arts visuels",
-                                        "Littérature",
-                                        "Mode",
-                                        "Sport",
-                                        "Fitness",
-                                        "Course à pied",
-                                        "Yoga",
-                                        "Artisanat",
-                                        "Bricolage",
-                                        "Jeux vidéo",
-                                        "Informatique",
-                                        "Programmation",
-                                        "Réseaux sociaux",
-                                        "Blogging",
-                                        "Écriture",
-                                        "Poésie",
-                                        "BD/Comics",
-                                        "Manga/Anime",
-                                        "Science-fiction",
-                                        "Fantasy",
-                                        "Astronomie",
-                                        "Psychologie",
-                                        "Développement personnel",
-                                        "Philosophie",
-                                        "Histoire",
-                                        "Archéologie",
-                                        "Sciences occultes",
-                                        "Spiritualité",
-                                        "Méditation",
-                                        "Vie sauvage",
-                                        "Protection de l'environnement",
-                                        "Activisme",
-                                        "Volontariat",
-                                        "Psychologie positive",
-                                        "Cryptomonnaies",
-                                        "Investissement",
-                                        "Camping",
-                                        "Randonnée",
-                                        "Vélo",
-                                        "Plongée sous-marine",
-                                        "Ski",
-                                        "Surf",
-                                        "Arts martiaux",
-                                        "Canoë-kayak",
-                                        "Équitation",
-                                        "Astronomie",
-                                        "Chasse au trésor",
-                                        "Énigmes",
-                                        "Escape games",
-                                        "Astrologie",
-                                        "Voyance",
-                                        "Numérologie",
-                                        "Jeux de société",
-                                        "Échecs",
-                                        "Poker",
-                                        "Jeux de cartes",
-                                        "Jeux de rôle",
-                                        "Jeux de stratégie",
-                                        "Cueillette de champignons",
-                                        "Oenologie",
-                                        "Bières artisanales",
-                                        "Cocktails",
-                                        "Thé",
-                                        "Café",
-                                        "Véganisme",
-                                        "Cuisine du monde",
-                                        "Voyage culinaire",
-                                        "Collection de vinyles",
-                                        "Concerts",
-                                        "Spectacles comiques",
-                                        "Musées",
-                                        "Expositions d'art",
-                                        "Festivals",
-                                        "Danse sociale",
-                                        "Langues étrangères",
-                                        "Véhicules anciens",
-                                        "Couture",
-                                        "Tricot",
-                                        "Crochet",
-                                        "Jouets vintage",
-                                        "Photographie animalière",
-                                        "Course de drones",
-                                        "Parapente",
-                                        "Modélisme",
-                                        "Science des fusées",
-                                        "Jardinage vertical",
-                                        "Bénévolat",
-                                        "Éducation des enfants",
-                                        "Parentalité positive",
-                                        "Astronomie amateur",
-                                        "Photographie urbaine",
-                                        "Parkour",
-                                        "Méditation en pleine conscience",
-                                    ];
-                                
-                                    foreach ($centres_interet as $centre) {
-                                        echo '<option value="' . $centre . '">' . $centre . '</option>';
+                      <div class="swiper-slide fin">
+                        <div class="InputDouble">
+                            <select name="jour" class="containeurInputStyle">
+                                <?php
+                                    $mois = 1; // Janvier
+                                    $annee = date("Y"); // Année actuelle
+
+                                    $nombre_jours = cal_days_in_month(CAL_GREGORIAN, $mois, $annee);
+
+                                    for ($jour = 1; $jour <= $nombre_jours; $jour++) {
+                                    $timestamp = strtotime("$annee-$mois-$jour");
+                                    $nom_mois = strftime("%B", $timestamp); // %B donne le nom du mois en toutes lettres
+                                    echo '<option value="' . $jour . '">' . $nom_mois . '</option>';
                                     }
                                     ?>
-                                </select>
-                            <div class="InputDouble">
-                                <div class="containeurInputStyle genre"><input type="radio" name="genre" onchange="selectGenre(event)"id="Homme"> <span>Homme</span><i class="fa-solid fa-person"></i></div>
-                                <div class="containeurInputStyle genre"><input type="radio" name="genre"onchange="selectGenre(event)" > <span>Femme</span><i class="fa-solid fa-person-dress"></i></div>
-                            </div>
+                            </select>
+                            <select name="mois" class="containeurInputStyle password">
+                                <?php
+                                for ($mois = 1; $mois <= 12; $mois++) {
+                                    $nom_mois = date("F", mktime(0, 0, 0, $mois, 1));
+                                    echo '<option value="' . $mois . '">' . $nom_mois . '</option>';
+                                }
+                                ?>                                        
+                            </select>
+                            <select name="annee" class="containeurInputStyle">
+                                <?php
+                                $annee_actuelle = date("Y");
+                                $annee_debut = $annee_actuelle - 40; // Vous pouvez ajuster le nombre d'années en arrière
+                            
+                                for ($annee = $annee_debut; $annee <= $annee_actuelle; $annee++) {
+                                    echo '<option value="' . $annee . '">' . $annee . '</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <select name="centre_interet" class="containeurInputStyle">
+                            <?php
+                            $centres_interet = [
+                                "Voyages",
+                                "Photographie",
+                                "Jardinage",
+                                "Cuisine",
+                                "Cinéma",
+                                "Musique",
+                                "Danse",
+                                "Théâtre",
+                                "Arts visuels",
+                                "Littérature",
+                                "Mode",
+                                "Sport",
+                                "Fitness",
+                                "Course à pied",
+                                "Yoga",
+                                "Artisanat",
+                                "Bricolage",
+                                "Jeux vidéo",
+                                "Informatique",
+                                "Programmation",
+                                "Réseaux sociaux",
+                                "Blogging",
+                                "Écriture",
+                                "Poésie",
+                                "BD/Comics",
+                                "Manga/Anime",
+                                "Science-fiction",
+                                "Fantasy",
+                                "Astronomie",
+                                "Psychologie",
+                                "Développement personnel",
+                                "Philosophie",
+                                "Histoire",
+                                "Archéologie",
+                                "Sciences occultes",
+                                "Spiritualité",
+                                "Méditation",
+                                "Vie sauvage",
+                                "Protection de l'environnement",
+                                "Activisme",
+                                "Volontariat",
+                                "Psychologie positive",
+                                "Cryptomonnaies",
+                                "Investissement",
+                                "Camping",
+                                "Randonnée",
+                                "Vélo",
+                                "Plongée sous-marine",
+                                "Ski",
+                                "Surf",
+                                "Arts martiaux",
+                                "Canoë-kayak",
+                                "Équitation",
+                                "Astronomie",
+                                "Chasse au trésor",
+                                "Énigmes",
+                                "Escape games",
+                                "Astrologie",
+                                "Voyance",
+                                "Numérologie",
+                                "Jeux de société",
+                                "Échecs",
+                                "Poker",
+                                "Jeux de cartes",
+                                "Jeux de rôle",
+                                "Jeux de stratégie",
+                                "Cueillette de champignons",
+                                "Oenologie",
+                                "Bières artisanales",
+                                "Cocktails",
+                                "Thé",
+                                "Café",
+                                "Véganisme",
+                                "Cuisine du monde",
+                                "Voyage culinaire",
+                                "Collection de vinyles",
+                                "Concerts",
+                                "Spectacles comiques",
+                                "Musées",
+                                "Expositions d'art",
+                                "Festivals",
+                                "Danse sociale",
+                                "Langues étrangères",
+                                "Véhicules anciens",
+                                "Couture",
+                                "Tricot",
+                                "Crochet",
+                                "Jouets vintage",
+                                "Photographie animalière",
+                                "Course de drones",
+                                "Parapente",
+                                "Modélisme",
+                                "Science des fusées",
+                                "Jardinage vertical",
+                                "Bénévolat",
+                                "Éducation des enfants",
+                                "Parentalité positive",
+                                "Astronomie amateur",
+                                "Photographie urbaine",
+                                "Parkour",
+                                "Méditation en pleine conscience",
+                            ];
+                        
+                            foreach ($centres_interet as $centre) {
+                                echo '<option value="' . $centre . '">' . $centre . '</option>';
+                            }
+                            ?>
+                        </select>
+                    <div class="InputDouble">
+                        <div class="containeurInputStyle genre"><input type="radio" name="genre" onchange="selectGenre(event)"id="Homme"> <span>Homme</span><i class="fa-solid fa-person"></i></div>
+                        <div class="containeurInputStyle genre"><input type="radio" name="genre"onchange="selectGenre(event)" id="Femme"> <span>Femme</span><i class="fa-solid fa-person-dress"></i></div>
+                    </div>
+                           
                             <div class="boutonOnlymobile suivant">Enregistre L'inscription</div>
-                            <div class="text_coventions">Nous sommes ravis de vous accueillir dans notre communauté NewaRnet</div>
-                            <div class="boutonOnlymobile seconncter" onclick="SuivantMob_0()">Retournez pour se connecter</div>
+                            <div class="boutonOnlymobile seconncter" onclick="SuivantMob_0(event)">Retournez pour se connecter</div>
+                        <div class="erreurMessage"></div>
                        </div>
                       </div>
-                    </div>
-                  </div>
-                  
+                </div>
+    </div>
+    <div class="animationload interd">
+        <div class="containeurpage interd">
+            <div class="headerphoto interd"><img src="images/linkedin.png" alt=""></div>
+            <div class="animationMere interd">
+                <p>NewaRnet est en cours...</p>
+                <div class="loading interd"></div>
+            </div>
+        </div>
+    </div>
+<script src="JQuery/functions.js"></script>
+<script src="Javascripts/loadingPage.js"></script>               
 <script src="Ajax_Functions/FunctionsJs.js"></script>
+<script src="Ajax_Functions/functionAjax.js"></script>
 <script src="Javascripts/refusActions.js"></script>
-  <script src="Javascripts/stylepage.js"></script>
-  <script src="Javascripts/indexStyle.js"></script>
-  <script src="Javascripts/sesionNianda.js"></script>
-  <script src="Javascripts/conectionFunctions.js"></script>
+<script src="Javascripts/stylepage.js"></script>
+<script src="Javascripts/indexStyle.js"></script>
+<script src="Javascripts/sesionNianda.js"></script>
+<script src="Javascripts/conectionFunctions.js"></script>
+  <script>
+    function connextion(event)
+    {
+        let Element = event.currentTarget;
+        Element.innerHTML = "";
+        Element.innerHTML = `<div class="mereAnimationclique"><span>En cours</span><div class="loading interd"></div></div>`;
+        let form = document.querySelector('.swiper-wrapper.Desk');
+        function callback(data)
+        {
+            alert(data);
+        }
+        functionAjax('Principale/Connection.php', form, callback);
+    }
+  </script>
 </body>
 </html>

@@ -220,18 +220,7 @@ body{
     display: flex;
     gap:12px;
 }
-.onlineTime.messageColor{
-    background: var(--color-red-1);
-    color: #FFF;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    font-size: 12px;
-    align-items: center;
-    justify-content: center;
 
-}
 .nameUserMessage p{
     font-size: 14px;
     opacity: .7;
@@ -663,6 +652,7 @@ span.ReadClass i{
     justify-content: space-around;
     width: 100%;
 }
+
 .menuSettigns:hover,.menuSettigns:hover i{
     background: var(--color-blanche-2);
     color: var(--color-text);

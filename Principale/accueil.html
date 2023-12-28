@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="../Styles/styleCommun.css" />
+    <link rel="stylesheet" href="../Styles/commentaire.css">
     <!-- <link rel="stylesheet" href="../Styles/message.css"> -->
     <link rel="stylesheet" href="../Styles/index.css">
     <link rel="stylesheet" href="../Styles/eplaza.css">
@@ -27,7 +28,7 @@
           </div>
         </div>
           <div class="leftnav"> 
-            <i class="fa-solid fa-magnifying-glass"></i><input type="search" name=""id=""placeholder="Rechercher un NewaRnaute..." oninput="RecherCherNewaRnaute(event)">
+            <i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-solid fa-magnifying-glass"></i><input type="search" name=""id=""placeholder="Rechercher un NewaRnaute..." oninput="RecherCherNewaRnaute(event)">
         </div>
       </nav>
       <!-- Debut_main -->
@@ -36,10 +37,6 @@
         <div class="leftmain swiper mySwiper">
           <div class="swiper-wrapper leftOption">
                       <div class="swiper-slide sesionOption">
-                        <div class="photoUserOwner"onclick="FunctionMoreOption()">
-                          <div class="imagageOwnerComp"><img src="../images/homme.jpg" alt=""></div>
-                          <span>Vous</span>
-                        </div>
                         <div class="iconcontainerOption" onclick="HommePrinciplae()">
                           <i class="fa-solid fa-home"></i>Accueil
                         </div>
@@ -61,12 +58,9 @@
                         <div class="iconcontainerOption" onclick="Suivies()">
                           <i class="fa-solid fa-users"><span class="notification_counteur">1</span></i>Demande D'Ami(e)
                         </div>
-                        <div class="iconcontainerOption"onclick="FunctionMoreOption()">
-                          <i class="fa-solid fa-pen"></i>NewaRnetphoto 
-                        </div>
-                        <div class="iconcontainerOption"onclick="FunctionMoreOption()">
-                          <i class="fa-solid fa-right-from-bracket"></i>Deconnexion
-                        </div>
+                        <a href="#" class="iconcontainerOption">
+                          <i class="fa-solid fa-right-from-bracket"></i>Se déconnecter
+                        </a>
                       </div>
                       <div class="swiper-slide sliderLeft">
                         <div class="conversationHomePage">
@@ -178,31 +172,20 @@
                 <div class="optionMenuHome"onclick="ProfilEdite()"><i class="fa-solid fa-user-gear"></i>Modifier Ton Profile</div>
                 <div class="optionMenuHome"onclick="CouvertureEdite()"><i class="fa-solid fa-user-gear"></i>Modifier Ta Couverture</div>
                 <div class="optionMenuHome"onclick="CreatGroupe()"><i class="fa-solid fa-user-group"></i>Creer Un Groupe</div>
-                <div class="optionMenuHome"onclick="CreatGroupe()"><i class="fa-solid fa-file-pdf"></i>Poster une Feuille</div>
+                <a class="optionMenuHome" href="#"><i class="fa-solid fa-user"></i>Afficher mon Profile </a>
               </div>
             </div>
           </div>
         </div>
         <!-- la partie_centrale -->
         <div class="centre_session">
-          <!-- stoys_friends -->
-          <div class="swiper mySwiper other onlyScroll">
-            <div class="swiper-wrapper storys_users">
-              <div class="containerFrinds swiper-slide">
-                <div class="imageStoryContainer">
-                  <div class="coverImage">
-                    <img src="../images/peoples.png" alt="" />
-                  </div>
-                </div>
-                <p class="nameUser">Van</p>
-              </div>
-          </div>
-          </div>
+         
           <!-- postSesion -->
           <div method="post" class="FormPost">
             <div class="formulaire">
-              <div class="iconDiv"onclick="FunctionMoreOption()">
-                <img src="../images/TeameNewarnaute.png"alt=""class="userphoto"/>
+              <div class="photoUserOwner"onclick="FunctionMoreOption()">
+                <div class="imagageOwnerComp"><img src="../images/linkedin.png" alt=""></div>
+                <span>Vous</span>
               </div>
               <div class="leftnav postSession"> 
                 <i class="fa-solid fa-image" onclick="PostWidthInage()"></i><input type="text" name=""id=""placeholder="Quand dites-vous, Jean-Luc ?" oninput="PosteChamps(event)">
@@ -224,7 +207,7 @@
                       <div class="blocHead">
                         <div class="left_userpost">
                           <div class="cartePhoto">
-                            <img src="../images/newarnautes.jpg" class="userphoto" />
+                            <img src="../images/linkedin.png" class="userphoto" />
                           </div>
                           <div class="nameUser">
                             <h3>Jean-luc kashindi</h3>
@@ -233,18 +216,24 @@
                             ></small>
                           </div>
                         </div>
-                        <div class="rightmenu">
+                        <div class="rightmenu" onclick="OptionMorePost(event)">
                           <div class="iconDiv"><i class="fa-solid fa-ellipsis"></i></div>
                         </div>
                       </div>
                       <div class="corpPost">
-                        <img src="../images/newarnautes.jpg" class="imagePost" />
-                        <div class="menuOptionPartager">
+                        <img src="../images/linkedin.png" class="imagePost" />
+                        <div class="menuOptionPartager shareFiles">
                           <div class="menuchoix"onclick="partager('link', 'NewaRnet', 'okay')"><i class="fa-solid fa-share-nodes"></i><span>Partager sur d'autres réseaux sociaux</span></div>
                           <div class="menuchoix"><i class="fa-solid fa-share-from-square"></i> <span>Partager sur NewaRnet</span></div>
                           <div class="menuchoix"onclick="GroupeFriendsShare(event)"><i class="fa-solid fa-retweet"></i> <span>Partager comme message</span></div>
                           <div class="menuchoix"onclick="GroupeFriendsShare(event)"> <i class="fa-solid fa-share"></i> <span>Partager dans un groupe</span></div>
                       </div>
+                      <!-- moreOptions -->
+                      <div class="menuOptionPartager moreoption">
+                        <div class="menuchoix"><i class="fa-solid fa-download"></i><span>Télécharger</span></div>
+                        <div class="menuchoix"><i class="fa-solid fa-trash"></i> <span>Supprimer</span></div>
+                        <div class="menuchoix"><i class="fa-solid fa-pen-to-square"></i> <span>Modifier</span></div>
+                    </div>                    
                       <!-- Friends et Groupes Sharing -->
                       <div class="menuOptionPartager GroupeFrindsSelect">
                         <div class="InputDouble">
@@ -389,6 +378,7 @@
                       <div class="swiper mySwiper status">
                           <div class="swiper-wrapper ScrollPart">
                             <div class="swiper-slide partyOneSatus">
+                               <!-- stoys_friends -->
                               <div class="leftnav status"> <i class="fa-solid fa-magnifying-glass"></i><input type="search" name=""id=""placeholder="Rechercher une Statut" oninput="RecherCherNewaRnaute(event)"></div>
                               <div class="conversationuser" onclick="ShowStatut(event)">
                                 <div class="carterUsermessage">
@@ -436,42 +426,18 @@
                   <!-- books -->
                   <div class="swiper-slide boook">
                     <div class="swiper mySwiper other">
-                      <div class="menuHomeChoix">
-                        <div class="optionHome active" onclick="documentFormat(event)" id="photoBook">Feuilles corrigées<i class="fa-solid fa-sheet-plastic"></i></div>
-                        <div class="optionHome" onclick="documentFormat(event)" id="pdf">Documents <i class="fa-solid fa-book"></i></div>
-                      </div>
-                      <div class="swiper-wrapper document">
-                        <div class="swiper-slide photoCorriger">
-                            <div class="gridPhoto">
-                              <div class="feuilCorriger">
-                                <div class="topFeuille"></div>
-                                <p>Mathematique Equation</p>
-                              </div>
-                              <div class="feuilCorriger">
-                                <div class="topFeuille"></div>
-                                <p>Mathematique Equation</p>
-                              </div>
-                              <div class="feuilCorriger">
-                                <div class="topFeuille"></div>
-                                <p>Mathematique Equation</p>
-                              </div>
-                            </div>
+                      <div class="gridPhoto">
+                        <div class="feuilCorriger">
+                          <div class="topFeuille"></div>
+                          <p>Mathematique Equation</p>
                         </div>
-                        <div class="swiper-slide">
-                          <div class="gridPhoto">
-                            <div class="feuilCorriger">
-                              <div class="topFeuille"></div>
-                              <p>Mathematique Equation</p>
-                            </div>
-                            <div class="feuilCorriger">
-                              <div class="topFeuille"></div>
-                              <p>Mathematique Equation</p>
-                            </div>
-                            <div class="feuilCorriger">
-                              <div class="topFeuille"></div>
-                              <p>Mathematique Equation</p>
-                            </div>
-                          </div>
+                        <div class="feuilCorriger">
+                          <div class="topFeuille"></div>
+                          <p>Mathematique Equation</p>
+                        </div>
+                        <div class="feuilCorriger">
+                          <div class="topFeuille"></div>
+                          <p>Mathematique Equation</p>
                         </div>
                       </div>
                       </div>
@@ -654,6 +620,13 @@
                       </div>
                       <!-- Groupes -->
                       <div class="swiper-slide">
+                        <div class="textCenteNotification">
+                          <div class="returnBtn"onclick="OptionDroiteHeader(event)"id="invitationDroite"><i class="fa-solid fa-arrow-left"></i> Retourner</div>
+                          <h3>Groupe<i class="fa-solid fa-users"></i></h3>
+                        </div>
+                        <div class="SearchMessage creationGroupe notification">
+                          <i class="fa-solid fa-magnifying-glass"></i><input type="search" name="" id="" placeholder="Rechercher...">
+                        </div>
                         <div class="voirgroupe">
                           <div class="photoamis">
                             <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
@@ -698,6 +671,13 @@
         </div>
          <!-- sms -->
          <div class="swiper-slide sms">
+          <div class="textCenteNotification">
+            <div class="returnBtn"onclick="HommePrinciplae()"><i class="fa-solid fa-arrow-left"></i> Retourner</div>
+            <h3>Messages<i class="fa-solid fa-message"></i></h3>
+          </div>
+          <div class="SearchMessage creationGroupe notification">
+            <i class="fa-solid fa-magnifying-glass"></i><input type="search" name="" id="" placeholder="Rechercher...">
+          </div>
           <div class="conversationuser">
             <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
             <div class="nameUserconversation">
@@ -719,20 +699,22 @@
         <div class="swiper-slide">
           <div class="swiper-slide notif">
             <div class="textCenteNotification">
-              <h3>Notifications</h3>
+              <div class="returnBtn"onclick="HommePrinciplae()"><i class="fa-solid fa-arrow-left"></i> Retourner</div>
+              <h3>Notifications <i class="fa-solid fa-bell"></i></h3>
             </div>
-            <div class="conversationuser Notification">
-             <div class="userowner">
-              <div class="carterUsermessage"><img class="userphoto" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
-              <div class="nameUserconversation">
-                  <h3>Jean-luc kashind</h3>
-                  <p>Relation amicale </p>
-              </div>
-             </div>
-              <div class="div_TextNotification">
-                Il vient d'accepetre votre invitation comme amis sur nearneaute
-              </div>
-          </div>
+            <div class="SearchMessage creationGroupe notification">
+              <i class="fa-solid fa-magnifying-glass"></i><input type="search" name="" id="" placeholder="Rechercher...">
+            </div>
+            <div class="cartecommentaire notification">
+              <div class="imagePhoto">
+                  <div class="photoEplaza"></div>
+                  <div class="DetailArtcle">
+                    <span>Bousness Shop</span>
+                    <small>ily 2j</small>
+                  </div>
+                </div>
+                <p>Bonjour c'est correcter</p>
+            </div>
           </div>
         </div>
         <!-- Rechercher -->

@@ -1,0 +1,90 @@
+.carterposteCommentaire{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+.carterposteCommentaire .carterPoste{
+    width: 30%;
+    margin: 10px auto;
+    background: var(--color-blanche-1);
+    box-shadow: none;
+    position: relative;
+    height: calc(100vh - 20px);
+}
+.cartecommentaire p{
+    font-size: 15px;
+    margin: 5px auto;
+    width: 95%;
+}
+.emotionIcons{
+    background: var(--color-blanche-2);
+}
+.photoEplaza{
+    background: var(--color-blanche-1);
+}
+.imagePhoto{
+    gap:10px;
+    display: flex;
+}
+.commentaireUsers{
+    max-height: 100%;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    overflow-y: auto;
+    justify-content: flex-start;
+}
+.sessionComentaireSide{
+    width: 95%;
+    margin: 5px auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    justify-content: center;
+    background: var(--color-blanche-2);
+    border-radius: 20px;
+}
+.leftnav.comentaireInoput i{
+    display: none;
+    cursor: pointer;
+}
+.leftnav.comentaireInoput{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background: var(--color-blanche-2);
+
+}
+.cartecommentaire{
+    background: var(--color-blanche-2);
+    border-radius:10px;
+    padding: 2px;
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 3px;
+}
+
+/* Tablettes */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .carterPoste{
+        width: 100%;
+        margin: 0px auto;
+        height: calc(100vh - 0px);
+    }
+}
+/* Mobile portrait */
+@media screen and (max-width: 480px) {
+    .carterPoste{
+        width: 100%;
+        margin: 0px auto;
+        height: calc(100vh - 0px);
+    }
+    
+}
