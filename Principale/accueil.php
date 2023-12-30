@@ -16,9 +16,6 @@ include("otherPrincipale.php");
     <link rel="stylesheet" href="../Styles/style_accueil.css"/>
     <link rel="shortcut icon"href="../images/Logo.png"type="image/jpeg"style="width: 300px; height: 300px"/>
     <title>NewaRnet</title>
-    <style>
-    
-</style>
   </head>
   <body>
   <div class="barrScrolle"><div class="counteurBare"></div></div>
@@ -99,7 +96,7 @@ include("otherPrincipale.php");
                           <input type="file" name="image" id="imagestory" hidden accept="image/*" onchange="updateLabelAndDisplay(this,event,'imageStory')">
                           <label for="imagestory" class="carterPostStory other" id="imageStory">
                             <i class="fa-solid fa-plus"></i>
-                            <p>Cliquez pour sélectionner une image</p>
+                            <p><div class="selectIcon"><i class="fa-solid fa-cloud-arrow-up"></i></div></p>
                           </label>
                           <select class="btn" name="temps">
                             <option value="">Temps pour ce Story</option>
@@ -114,26 +111,26 @@ include("otherPrincipale.php");
                       </div>
                       <div class="swiper-slide">
                         <button class="BoutonsRetoure" onclick="TurnBack()"><i class="fa-solid fa-arrow-left"></i> Retournez au Principal</button>
-                        <form action="" method="post" class="PostArticleForm">
-                          <input type="file" name="image" id="imageProfieutilisateur" hidden accept="image/*" onchange="updateLabelAndDisplay(this,event, 'imageprofil')">
+                        <form action="" method="post" enctype="multipart/form-data" class="PostArticleForm" id="ModificationProfile">
+                          <input type="file" name="ProfilePhoto" id="imageProfieutilisateur" hidden accept="image/*" onchange="updateLabelAndDisplay(this,event, 'imageprofil')">
                           <label for="imageProfieutilisateur" class="carterPostStory profile_cover other" id="imageprofil">
                           <img src="<?php echo  $profile?>" alt="">
-                          <p>Cliquez pour sélectionner une image</p>
+                          <p><div class="selectIcon"><i class="fa-solid fa-cloud-arrow-up"></i></div></p>
                           </label>                  
                       </form>
-                        <div class="BoutonsRetoure add">Modifier mon Profile</div>
+                        <div class="BoutonsRetoure add" onclick="ChangerProfile(event)" id="Profile">Modifier mon Profile</div>
                         <p class="Text_Norme">Cette photo offre aux NewaRnautes une première impression visuelle de votre personnalité sur votre profil.</p>
                       </div>
                       <div class="swiper-slide">
                         <button class="BoutonsRetoure" onclick="TurnBack()"><i class="fa-solid fa-arrow-left"></i> Retournez au Principal</button>
-                        <form action="" method="post" class="PostArticleForm">
-                          <input type="file" name="image" id="imagecouvert" hidden accept="image/*" onchange="updateLabelAndDisplay(this,event,'imagecouverture')">
+                        <form action="" method="post" enctype="multipart/form-data"  class="PostArticleForm" id="Modificationcouverture">
+                          <input type="file" name="couvertureImage" id="imagecouvert" hidden accept="image/*" onchange="updateLabelAndDisplay(this,event,'imagecouverture')">
                           <label for="imagecouvert" class="carterPostStory profile_cover other" id="imagecouverture">
                               <img src="<?php echo  $couverture?>" alt="">
-                            <p>Cliquez pour sélectionner une image</p>
+                            <p><div class="selectIcon"><i class="fa-solid fa-cloud-arrow-up"></i></div></p>
                           </label>
                         </form>
-                        <div class="BoutonsRetoure add">Modifier Ma couverture</div>
+                        <div class="BoutonsRetoure add"onclick="ChangerCouvrture(event)">Modifier Ma couverture</div>
                         <p class="Text_Norme">cette photo donne aux visiteurs une première impression visuelle de votre personnalité sur ton Profile</p>
                       </div>
                       <div class="swiper-slide">
@@ -203,8 +200,8 @@ include("otherPrincipale.php");
                 <!--  Fil Actualite -->
                 <div class="swiper-slide">
                    
-                    <!-- postes ici -->
-                    <div class="text-shwoSesion">
+                    <div class="PostesOnecoucher"></div>
+                    <div class="textEplaza">
                       Savez-vous que ces personnes viennent tout juste d'intégrer NewaRnet récemment?
                     </div>
                     <div class="swiper mySwiper other onlyScroll">
@@ -289,7 +286,7 @@ include("otherPrincipale.php");
                               <div class="swiper-slide">
                               <label for="imagePost" id="imageDisplay" class="carterPostStory poste">
                                   <i class="fa-solid fa-image"></i>
-                                  <p>Cliquez pour sélectionner une image</p>
+                                  <p><div class="selectIcon"><i class="fa-solid fa-cloud-arrow-up"></i></div></p>
                                 </label>
                               </div>
                                 <div class="swiper-slide">
@@ -309,8 +306,8 @@ include("otherPrincipale.php");
                             <div class="text_demos">Merci de prendre le temps de sélectionner attentivement le niveau d'intégrité approprié pour ce poste.</div>
                             <div class="InputDouble">
                               <select name="integrite" class="containeurInputStyle integrite">
+                              <option value="amis">Mes ami(e)s</option>
                                 <option value="moi">Moi seule</option>
-                                <option value="amis">Mes ami(e)s</option>
                                 <option value="tous">À tous les NewaRnautes</option>
                               </select>                                                           
                               <div class="containeurInputStyle poste publication" onclick="poster(event)">Publier <i class="fa-solid fa-paper-plane"></i></div>
@@ -495,6 +492,7 @@ include("otherPrincipale.php");
       <!-- fint_main -->
     </div>
     <!-- <script src="../Javascripts/refusActions.js"></script> -->
+    <script src="../Javascripts/actionLoadingHome.js"></script>
     <script src="../Javascripts/loadingPage.js"></script>
     <script src="../Javascripts/stylepage.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -517,20 +515,7 @@ include("otherPrincipale.php");
         clickable: true,
       },
     });
-  function poster(event)
-  {
-    let Element = event.currentTarget;
-    Element.innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
-    let form = document.querySelector(".bottomSidepartiePoste");
-    let page = "poster.php";
-    function callback(data)
-    {
-      Element.innerHTML = "";
-      console.log(data);
-    }
-    functionAjax(page, form, callback);
-  }
-
+  
     </script>
   </body>
 </html>

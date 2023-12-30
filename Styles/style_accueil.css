@@ -151,11 +151,7 @@ color:var(--color-text);
 .InputDouble .containeurInputStyle.poste.publication i{
 color:#FFF;
 }
-.InputDouble .containeurInputStyle.poste.publication{
-  display:none;
-  background:var(--color-primary) !important;
-  color:#FFF;
-}
+
 .animationload{
 width: 100%;
 height: 100vh;
@@ -636,7 +632,7 @@ main {
   
 }
 .containeurInputStyle.poste.publication{
-  display: flex;
+  display: none;
   align-items:center;
   justify-content: center;
   gap:10px;
@@ -1666,18 +1662,67 @@ width:80%;
   height: 100%;
   object-fit: cover;
 }
+
+ .InputDouble .containeurInputStyle.poste.publication{
+  display:none;
+  background:var(--color-primary) !important;
+  color:#FFF;
+}
+.bottomFriendscarte .boutonsActions .confirmationBoutonsCnter i{
+  padding-left:10px;
+  color:#717171;
+}
+.selectIcon i{ 
+  font-size:16px;
+}
+.selectIcon{
+position:absolute;
+width:70px;
+box-shadow:var(--boxshadow_section_blanche);
+height:70px;
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:var(--color-blanche-1);
+cursor:pointer;
+padding:20px;
+}
+.bottomFriendscarte .boutonsActions .confirmationBoutonsCnter{
+  width: 240px;
+  padding: 5px;
+  margin-bottom: 0;
+  padding: 8px 12px;
+}
 .headerImage {
   width: 100%;
-  height: 70%;
+  height: 68%;
   background: var(--color-blanche-1);
 }
 .bottomFriendscarte {
   flex-direction: column;
-  height: 30%;
+  height: 32%;
+  width:100%;
   padding: var(--padding_boutons);
   align-items: start;
   display: flex;
-  padding: 7px 10px;
+  padding: 7px 5px;
+}
+.bottomFriendscarte .boutonsActions .confirmationBoutonsCnter:nth-child(1) i{
+  color:#fff;
+}
+.bottomFriendscarte .boutonsActions .confirmationBoutonsCnter:nth-child(1){
+  background: var(--color-green_boutons);
+  color: #FFF;
+  border: none;
+}
+.bottomFriendscarte .boutonsActions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding:0px;
+  align-items: center;
 }
 .leftnav.status{
   box-shadow: var(--boxshadow_section_blanche);
@@ -1697,25 +1742,8 @@ width:80%;
   color:var(--color-text);
   padding: 8px;
 }
-.bottomFriendscarte .boutonsActions .confirmationBoutonsCnter{
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 10px;
-}
-.bottomFriendscarte .boutonsActions .confirmationBoutonsCnter:nth-child(1){
-  background: var(--color-green_boutons);
-  color: #FFF;
-  border: none;
-}
-.bottomFriendscarte .boutonsActions {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  padding:  0 10px;
-  background: transparent;
-  align-items: center;
-}
+
+
 .bottomFriendscarte .namesUser h3{
   font-size: 15px;
 }

@@ -1,7 +1,4 @@
 <?php
- $key="07c2870e0e749bb82b00cc03e166aafb";
- $DB = new Database();
- $limite = 15;
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -112,35 +109,6 @@ function nettoyerDonnee($valeur)
     }
     return $valeur;
 }
-function nettoyerNomFichier($filename) {
-    $cleaned_filename = preg_replace("/[^a-zA-Z0-9]+/", "", $filename);
-    $cleaned_filename = $cleaned_filename . "_" . time();
-    return $cleaned_filename;
-}
-function resize_image($source, $width = 512, $height = 512) {
-    $source_image = imagecreatefromjpeg($source);
-    if ($source_image === false) {
-        echo "Erreur lors de la création de l'image à partir de JPEG.";
-        return false;
-    }
-    $source_width = imagesx($source_image);
-    $source_height = imagesy($source_image);
-    $ratio = $source_width / $source_height;
-
-    if ($width / $height > $ratio) {
-        $new_width = $height * $ratio;
-        $new_height = $height;
-    } else {
-        $new_width = $width;
-        $new_height = $width / $ratio;
-    }
-    $new_image = imagecreatetruecolor($new_width, $new_height);
-    imagecopyresampled($new_image, $source_image, 0, 0, 0, 0, $new_width, $new_height, $source_width, $source_height);
-    imagedestroy($source_image);
-    return $new_image;
-}
-
-
 function limiterChaine($chaine, $limite) 
 {
     if (strlen($chaine) > $limite) {

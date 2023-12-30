@@ -114,6 +114,16 @@ function ShowStatut(event)
     let MereSlides = document.querySelector(".swiper-wrapper.ScrollPart");
     MereSlides.style.transform = 'translateX(-100%)';
 }
+function LecturesPoste()
+  {
+    let page = "lecturePostes.php";
+    let value ="";
+    function callback(data)
+    {
+      document.querySelector('.PostesOnecoucher').innerHTML = data;
+    }
+    sendValueAjax(page, value, callback)
+  }
 function BackSatutus()
 {
     let MereSlides = document.querySelector(".swiper-wrapper.ScrollPart");
@@ -167,8 +177,10 @@ function PosteChamps(event)
         MereSlides.style.transform = 'translateX(-400%)';
         document.querySelector(".menuHomeChoix").style.display='none';
         document.querySelector(".FormPost").style.display='none';
+        document.querySelector(".InputDouble .containeurInputStyle.poste.publication").style.display='flex';
     }else{
         event.target.value = '';
+        document.querySelector(".InputDouble .containeurInputStyle.poste.publication").style.display='none';
         RetunBackCreatePoste();
     }
 }
@@ -202,3 +214,51 @@ function MenuUserPost(event)
     let value = event.currentTarget;
     value.classList.toggle('active');
 }
+function poster(event)
+  {
+    let Element = event.currentTarget;
+    Element.innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
+    let form = document.querySelector(".bottomSidepartiePoste");
+    let page = "poster.php";
+    function callback(data)
+    {
+      if(data.trim() === 'true')
+      {
+        RetunBackCreatePoste();
+        Element.innerHTML = `Publier <i class="fa-solid fa-paper-plane"></i>`;
+        document.querySelector(".InputDouble .containeurInputStyle.poste.publication").style.display='none';
+        LecturesPoste();
+      }else{
+        Element.innerHTML = `Publier <i class="fa-solid fa-paper-plane"></i>`;
+        alert(data);
+      }
+    }
+    functionAjax(page, form, callback);
+  }
+
+  function ChangerProfile(event)
+  {
+    let Element = event.currentTarget;
+    Element.innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
+    let page = "ModificationProfile.php";
+    let form = document.querySelector("#ModificationProfile");
+    function callback(data)
+    {
+      alert(data);
+    }
+    functionAjax(page, form, callback);
+        
+  }
+  function ChangerCouvrture(event)
+  {
+    let Element = event.currentTarget;
+    Element.innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
+    let page = "ModificationProfile.php";
+    let form = document.querySelector("#Modificationcouverture");
+    function callback(data)
+    {
+      alert(data);
+    }
+    functionAjax(page, form, callback);
+        
+  }  

@@ -16,7 +16,7 @@
                         </div>
                       </div>
                       <div class="corpPost">
-                        <img src="../images/linkedin.png" class="imagePost" />
+                        <img src="../images/Af-1 (7).jpg" class="imagePost"/>
                         <div class="menuOptionPartager shareFiles">
                           <div class="menuchoix"onclick="partager('link', 'NewaRnet', 'okay')"><i class="fa-solid fa-share-nodes"></i><span>Partager sur d'autres réseaux sociaux</span></div>
                           <div class="menuchoix"><i class="fa-solid fa-share-from-square"></i> <span>Partager sur NewaRnet</span></div>

@@ -11,8 +11,8 @@ $profile = ($USERS_ROW['ver_profile'] !== 0) ? $USERS_ROW['profile'] : ($sexe ==
       <img src="<?php echo $profile?>" class="userphoto" />
     </div>
     <div class="nameUser">
-      <h3><?php echo $nom_comple_friends ?></h3>
-      <p><small>12k suivi(e)s</small></p>
+        <h3><?php echo  limiterChaine($nom_comple_friends,20)?></h3>
+        <span><?php echo $suivi?></span>
       <div class="boutonsUserConfirme">
         <div class="confirmeBtn boutonAdmettre ajouter">Ajouter <i class="fa-solid fa-user-plus"></i></div>
         <div class="supprimerBtn boutonAdmettre suivre">suivre <i class="fa-solid fa-user-plus"></i></div>
