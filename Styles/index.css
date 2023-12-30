@@ -6,25 +6,7 @@ body{
 .onlyMobile{
     display: none;
 }
-.containeurpage{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-}
-.headerphoto img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
-.containeurpage span{
-    font-size: 14px;
-    color: #605d5d;
-    margin: 10px;
-}
 .animationMere p{
     font-size: 13px;
 }
@@ -45,15 +27,7 @@ body{
     box-shadow: var(--boxshadow_section_blanche);
 }
 
-.animationload{
-    width: 100%;
-    height: 100vh;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    background: var(--color-blanche-1);
 
-}
 .ReferencePage{
     background:var(--color-blanche-2);
     height:100vh;

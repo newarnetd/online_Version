@@ -1,3 +1,6 @@
+document.addEventListener("DOMContentLoaded", function() {
+    
+});
 function PosteFile(event)
 {
     let value = event.currentTarget;
@@ -61,6 +64,24 @@ function creationGroupeVerification(event) {
     } else {
         document.querySelector(".swiper-slide.groupesideCreation .leftnav.groupeCreation").style.display = 'none';
         document.querySelector(".swiper-slide.groupesideCreation .suivantBoutonsGroupe").style.display = 'none';
+    }
+ }
+ function BoutiquesFile(event)
+ {
+    let value = event.currentTarget;
+    let OptionsBtn = document.querySelectorAll(".optionHome");
+    let MereSlides = document.querySelector(".swiper.mySwiper.other .swiper-wrapper.Boutique");
+    OptionsBtn.forEach(option =>{
+        option.classList.remove('active');
+    })
+    value.classList.add('active');
+    if(value.id =="boutique")
+    {
+        MereSlides.style.transform = 'translateX(0%)';
+    }else if(value.id =="artcles")
+    {
+        MereSlides.style.transform = 'translateX(-100%)';
+
     }
  }
 function FilActualite(event)

@@ -9,7 +9,6 @@ function functionAjax(page, form, callback) {
           }
       }
   };
-  ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   ajax.send(new FormData(form));
 }
 
@@ -28,25 +27,39 @@ function sendValueAjax(page, value, callback) {
   ajax.send("value=" + encodeURIComponent(value));
 }
 
-function updateLabelAndDisplay(input, displayId) {
-    var fileInput = input;
-    var displayElement = document.getElementById(displayId);
+function updateLabelAndDisplay(input, event, displayId) {
+  var fileInput = input;
+  var displayElement = document.getElementById(displayId);
+  displayElement.innerHTML = `<div class="mereAnimationclique"><span>Chargement..</span><div class="loading interd"></div></div>`;
 
-    if (fileInput.files && fileInput.files[0]) {
-      var reader = new FileReader();
+  if (fileInput.files && fileInput.files[0]) {
+    var reader = new FileReader();
 
-      reader.onload = function (e) {
-        if (displayId === 'videoDisplay') {
-          displayElement.innerHTML = '<video controls autoplay muted><source autoplay src="' + e.target.result + '" type="video/mp4"></video>';
-        } else if (displayId === 'documentDisplay') {
-        } else {
-          displayElement.innerHTML = '<img src="' + e.target.result + '">';
-        }
-      };
+    reader.onload = function (e) {
+      if (displayId === 'videoDisplay') {
+        displayElement.innerHTML = '<video controls autoplay muted><source autoplay src="' + e.target.result + '" type="video/mp4"></video>';
+      } else if (displayId === 'documentDisplay') {
+        var file = fileInput.files[0];
+        var fileName = file.name;
+        var documentTitle = fileName.substr(0, fileName.lastIndexOf('.')) || fileName;
+        var fileSize = (file.size / 1024).toFixed(2);
+        var fileType = file.type || 'Non disponible';
+        displayElement.innerHTML = '<div class="document-title"> Nom du Fichier :' + documentTitle + '</div>' +
+          '<div class="document-info">Taille: ' + fileSize + ' KB</div>' +
+          '<div class="document-info">Type: ' + fileType + '</div>';
+      } else {
+        displayElement.innerHTML = '<img src="' + e.target.result + '">';
+      }
+      var boutonSend = document.querySelector('.InputDouble .containeurInputStyle.poste.publication');
+      if (boutonSend) {
+        boutonSend.style.display = 'flex';
+      }
+    };
 
-      reader.readAsDataURL(fileInput.files[0]);
-    }
+    reader.readAsDataURL(fileInput.files[0]);
   }
+}
+
 function partager(donnees, titre, texte) {
   if (navigator.share) {
     navigator.share({

@@ -363,9 +363,9 @@
                   </div>
                   <div class="swiper mySwiper">
                     <div class="swiper-wrapper menuFil">
-                        <input type="file" name="image" id="imagePost" hidden accept="image/*" onchange="updateLabelAndDisplay(this, 'imageDisplay')">
-                        <input type="file" name="video" id="videomessage" hidden accept="video/*" onchange="updateLabelAndDisplay(this, 'videoDisplay')">
-                        <input type="file" name="document" id="documents" hidden accept=".pdf, .doc, .docx, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document" onchange="updateLabelAndDisplay(this, 'documentDisplay')"> 
+                        <input type="file" name="image" id="imagePost" hidden accept="image/*" onchange="updateLabelAndDisplay(this,event, 'imageDisplay')">
+                        <input type="file" name="video" id="videomessage" hidden accept="video/*" onchange="updateLabelAndDisplay(this,event, 'videoDisplay')">
+                        <input type="file" name="document" id="documents" hidden accept=".pdf, .doc, .docx, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document" onchange="updateLabelAndDisplay(this,event, 'documentDisplay')"> 
                         <div class="swiper-slide">
                         <label for="imagePost" id="imageDisplay" class="carterPostStory poste">
                             <i class="fa-solid fa-image"></i>

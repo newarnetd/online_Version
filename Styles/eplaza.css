@@ -4,7 +4,7 @@
     gap:10px
 }
 body{
-    background: var(--color-blanche-1);
+    background: var(--color-blanche-2);
 }
 .MenuUserLafet{
     display: flex;
@@ -44,10 +44,9 @@ body{
 .lefteplaza{
     width:30%;
     height:100vh;
-    border-right: 1px solid     var(--color-bordure-noire);
     display: flex;
     align-items: start;
-    background: var(--color-blanche-2);
+    background: var(--color-blanche-1);
     flex-direction: column;
     position: sticky;
     top: 0;
@@ -157,7 +156,7 @@ body{
     overflow: hidden;
 }
 .imageOwner{
-    background: var(--color-blanche-2);
+    background: var(--color-blanche-1);
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -195,6 +194,9 @@ font-size: 30px;
 .imageProfile .fa-solid.fa-arrow-left{
     display: none;
 }
+.swiper.mySwiper.publicite{
+    width: 100%;
+}
 .imageProfile{
     display: flex;
     align-items: start;
@@ -208,21 +210,224 @@ font-size: 30px;
     justify-content:space-between;
     gap:10px;
 }
-.rightPlaza.Profile .Profiletop{
-    width:80%;
-    margin: 20px auto;
+.Profiletop{
+    width:90%;
+    margin: 30px auto;
+    padding-bottom: 20px;
 }
 .rightPlaza.Profile{
     display: flex;
     flex-direction: column;
     gap:10px;
 }
+.contaaineurPub.leftside .cartetBup{
+    background: var(--color-blanche-2);
+    width:200px;
+    height:250px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--boxshadow_section_blanche);
+    }
+.contaaineurPub{
+    width:95%;
+    margin: 20px auto;
+
+}
+.allcontentpub{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap:10px;
+    justify-content: center;
+}
+.moreIcons i{
+    font-size: 15px;
+    color: #FFF;
+}
+.moreIcons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-primary);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 17px;
+    cursor: pointer;
+    box-shadow: var(--boxshadow_section_blanche);
+}
+.vues{
+    position: absolute;
+    top:3px;
+    background: var(--color-primary);
+    color: #FFF;
+    padding: 2px 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+    border-radius: 3px;
+    right: 2px;
+}
+.contacter{
+    position: absolute;
+    width: 100%;
+    background: rgba(0, 0, 0, .5);
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    bottom: 0;
+    color: #FFFF;
+}
+.contentPublicite h3{
+    font-size: 20px;
+}
+.contentPublicite .topArticlesBottom{
+    margin-bottom: 10px;
+}
+.contentPublicite h3,.contentPublicite p, .contentPublicite .names h3{
+    color: #414141;
+}
+
+.contentPublicite{
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.swiper-wrapper.PeinciplaeSesionPage .swiper-slider{
+    width: 100%;
+}
+.articlesPhoto{
+    margin: 10px auto;
+    width: 100%;
+    height: 350px;
+    background: var(--color-blanche-1);
+    border-radius: 10px;
+}
+.visualisationArticles .rightside_vis{
+    width: 80%;
+    height: 100vh;
+    padding: 15px;
+    margin: 0 auto;
+}
+.visualisationArticles{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.menuPublicite{
+    position: absolute;
+    overflow: hidden;
+    width: 10px;
+    margin: 10px;
+    border-radius: 50%;
+    transition: transform .7s,width 0.2s,height 0.2s;
+    transition-delay: .5s width .5s height .5s;
+    z-index: -1;
+}
+.tittre.secon{
+    font-size: 20px;
+}
+h3.tittre{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 20px auto;
+    font-size: 23px;
+    text-align: center;
+}
+.cartetBup.privilige:hover .menuPublicite{
+    position: FIXED;
+    top:0;
+    width: 35%;
+    margin: 10px auto;
+    height: 300px;
+    border-radius: 5px 5px 0 0 ;
+    z-index: 1000000 !important;
+    background: #bfbfbf;
+    color:#414141;
+    box-shadow: var(--boxshadow_section_blanche);
+    
+}
+.cartetBup.privilige .InputDouble{
+    width: 80%;
+    margin: 10px auto;
+}
+.cartetBup.privilige .InputDouble button i{
+    color: #FFF;
+    padding-left: 10px;
+}
+.cartetBup.privilige .InputDouble button:nth-child(2) i{
+    color: #414141;
+}
+.cartetBup.privilige .InputDouble button:nth-child(2){
+    background: #FFF;
+    box-shadow: var(--boxshadow_section_blanche);
+    color: #414141;
+}
+.cartetBup.privilige .InputDouble button{
+    padding: 12px;
+    border-radius: 5px;
+    color: #FFF;
+    background: #075E54;
+    width: 100%;
+    box-shadow: var(--boxshadow_section_blanche);
+    cursor: pointer;
+}
+.headerColor  i{
+    padding-left: 10px;
+    color: #FFF;
+}
+.headerColor{
+    width:100%;
+    height: 60px;
+    background: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    font-size: 18px;
+}
+
+.cartetBup img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+hr.ligne{
+    width: 80%;
+    margin: 5px auto;
+    border-bottom: 1px solid var(--color-icons_Theme_noire);
+}
+.cartetBup.privilige{
+    background: var(--color-blanche-1);
+    width:320px;
+height:240px;
+border-radius: 5px;
+position: relative;
+overflow: hidden;
+box-shadow: var(--boxshadow_section_blanche);
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
 .menupourandroidbuttonoptions{
     display: none;
 }
 .principaleOptions,.groupsShare{
     width:100%;
-    height:80%;
+    height:60%;
     display:flex;
     align-items: center;
     justify-content: flex-start;
@@ -252,6 +457,10 @@ font-size: 30px;
     border-radius: 10px;
     width:60px;
 }
+.titre_animation.interd{
+    font-size: 30px;
+    -webkit-text-stroke: 3px var(--color-titre) !important;
+  }
 .MenuContaineurOptionseplaza{
     width:100%;
     height:100%;
@@ -310,25 +519,22 @@ font-size: 30px;
 }
 .eplaza_title .textChamps{
     width:50%;
-    background: var(--color-blanche-2);
+    background: var(--color-blanche-1);
     height: 55px;
     border-radius: 30px;
 }
 .textChamps{
     width:90%;
-    background: var(--color-blanche-1);
+    background: var(--color-blanche-2);
     padding: 15px;
     border-radius: 30px;
 }
-.eplaza_title .titre_animation{
-    font-size: 30px;
-    display: flex;
-    -webkit-text-stroke:  3px var(--color-titre_newarnet) !important;
-}
+
 .rightPlaza{
     width:70%;
     height:100%;
-    background: var(--color-blanche-1);
+    padding: 10px;
+    background: var(--color-blanche-2);
 }
 .menupourandroidbutton{
     display: none;
@@ -436,7 +642,8 @@ font-size: 30px;
 .topArticlesBottom .photoamis{
     width:60px;
     height:60px;
-    background: var(--color-blanche-2);
+    background: var(--color-blanche-1);
+    border-radius: 50%;
 }
 .names h3{
     font-weight: bold;

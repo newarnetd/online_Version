@@ -1,5 +1,6 @@
 <?php
 include("Principale/others.php");
+verificationSession();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,9 +16,7 @@ include("Principale/others.php");
     <title>NewaRnet</title>
 </head>
 <body>
-    <div class="barrScrolle">
-        <div class="counteurBare"></div>
-    </div>
+<div class="barrScrolle"><div class="counteurBare"></div></div>
     <div class="ReferencePage">
             <!-- Gauche_side -->
             <article class="leftside">
@@ -28,7 +27,7 @@ include("Principale/others.php");
                     <h2 class="titre_animation interd">NewaRnet</h2>
                 </div>
                     <!-- text_newarnet -->
-                <div class="text_the_newaRnet interd">NewaRnet, basé sur le principe d'Internet Pour Tous, invitez donc vos proches à vous rejoindre dès maintenant.</div>
+                <div class="text_the_newaRnet interd">NewaRnet, basé sur le principe d'Internet Pour Tous, vous encourage à inviter vos proches à nous rejoindre dès maintenant.</div>
                 <div class="block_boutons">
                     <div class="class_boutons_asisstence"onclick="Suivant_3()">Assistente Nianda ? <i class="fa-solid fa-clipboard-question"></i></div>
                     <div class="class_boutons_asisstence invitationsUsers"onclick="invitation()">Invitez vos proches<i class="fa-solid fa-users"></i></div>
@@ -118,11 +117,11 @@ include("Principale/others.php");
                                 </div>
                                 <div class="text_coventions">En vous connectant, vous adhérez à accepter notre politique et nos conditions.</div>
                                 <div class="connectionBtn login"onclick="connextion(event)">Se connecter</div>
+                                <div class="erreurMessage"></div>
                                 <div class="connectionBtn sign_up" onclick="InscriptionFunctionDesk()">Créez un nouveau compte </div>
                                 <div class="bottom_text">
                                     <div class="text_coventions">Avec sa phrase célèbre Un monde à l'unisson,  Tout le concept de NewaRnet est d'être accessible au plus grand nombre</div>
                                 </div>
-                                <div class="erreurMessage"></div>
                            </div>
                           </div>
                           <div class="swiper-slide">
@@ -149,7 +148,7 @@ include("Principale/others.php");
                             <div  class="connexionForm">
                                 <div class="InputDouble">
                                     <div class="containeurInputStyle">
-                                        <input type="number" name="numero" id="numero"  placeholder="Entrer ton numéro">
+                                        <input type="number" name="tel" id="numero"  placeholder="Entrer ton numéro">
                                     </div>
                                 </div>
                                 <div class="containeurInputStyle password">
@@ -186,17 +185,23 @@ include("Principale/others.php");
                                             ?>
                                         </select>
                                         <select name="mois" class="containeurInputStyle password">
-                                            <?php
-                                            for ($mois = 1; $mois <= 12; $mois++) {
-                                                $nom_mois = date("F", mktime(0, 0, 0, $mois, 1));
-                                                echo '<option value="' . $mois . '">' . $nom_mois . '</option>';
-                                            }
-                                            ?>                                        
+                                        <option value="janvier">Janvier</option>
+                                            <option value="fevrier">Février</option>
+                                            <option value="mars">Mars</option>
+                                            <option value="avril">Avril</option>
+                                            <option value="mai">Mai</option>
+                                            <option value="juin">Juin</option>
+                                            <option value="juillet">Juillet</option>
+                                            <option value="aout">Août</option>
+                                            <option value="septembre">Septembre</option>
+                                            <option value="octobre">Octobre</option>
+                                            <option value="novembre">Novembre</option>
+                                            <option value="decembre">Décembre</option>                              
                                         </select>
                                         <select name="annee" class="containeurInputStyle">
                                             <?php
                                             $annee_actuelle = date("Y");
-                                            $annee_debut = $annee_actuelle - 40; // Vous pouvez ajuster le nombre d'années en arrière
+                                            $annee_debut = $annee_actuelle - 40; 
                                         
                                             for ($annee = $annee_debut; $annee <= $annee_actuelle; $annee++) {
                                                 echo '<option value="' . $annee . '">' . $annee . '</option>';
@@ -316,12 +321,12 @@ include("Principale/others.php");
                                         ?>
                                     </select>
                                 <div class="InputDouble">
-                                    <div class="containeurInputStyle genre" ><input onchange="selectGenre(event)"id="Homme" type="radio" name="genre"> <span>Homme</span><i class="fa-solid fa-person"></i></div>
-                                    <div class="containeurInputStyle genre"><input onchange="selectGenre(event)" type="radio" name="genre" id="Femme"> <span>Femme</span><i class="fa-solid fa-person-dress"></i></div>
+                                    <div class="containeurInputStyle genre" ><input onchange="selectGenre(event)"id="Homme" type="radio" name="genre" value="Homme"> <span>Homme</span><i class="fa-solid fa-person"></i></div>
+                                    <div class="containeurInputStyle genre"><input onchange="selectGenre(event)" type="radio" name="genre" id="Femme" value="Femme"> <span>Femme</span><i class="fa-solid fa-person-dress"></i></div>
                                 </div>
-                                <div class="boutonOnlymobile suivant">Enregistrez l'inscription</div>
+                                <div class="boutonOnlymobile suivant" onclick="EnregistrerInscription(event)">Enregistrez l'inscription</div>
                                 <div class="text_coventions">C'est avec une immense joie que nous vous souhaitons la bienvenue au sein de notre communauté NewaRnet.</div>
-                                <div class="boutonOnlymobile seconncter" onclick="Suivant_0(event)">Retournez à l'interface principale</div>
+                                <div class="boutonOnlymobile seconncter" onclick="Suivant_0(event)">Annuler</div>
                                 <div class="erreurMessage"></div>
                            </div>
                           </div>
@@ -330,7 +335,7 @@ include("Principale/others.php");
                     <!-- section_connextion_Fin -->
             </article>
             <!-- Droite_side -->
-                <div class=" onlyMobile swiper mySwiper">
+            <div class=" onlyMobile swiper mySwiper">
                     <form class="swiper-wrapper Mobile">
                          <!-- Ninada -->
                          <div class="swiper-slide nianda">
@@ -436,7 +441,7 @@ include("Principale/others.php");
                                 <div class="text_demos">
                                     <div class="boutonOnlymobile signup" onclick="NiandaMobile()">Assistente Nianda<i class="fa-solid fa-clipboard-question"></i></div>
                                 </div>
-                            <div class="text_coventions interd">NewaRnet, basé sur le principe d'Internet Pour Tous, invitez donc vos proches à vous rejoindre dès maintenant.</div>
+                            <div class="text_coventions interd">NewaRnet, basé sur le principe d'Internet Pour Tous, vous encourage à inviter vos proches à nous rejoindre dès maintenant.</div>
                             <div class="bottomLink" onclick="invitation()">
                                 <div class="boutonOnlymobile boutonsActions share">Invitez vos proches<i class="fa-solid fa-users"></i></div>
                             </div>
@@ -465,7 +470,7 @@ include("Principale/others.php");
                         <div  class="connexionForm">
                             <div class="InputDouble">
                                 <div class="containeurInputStyle">
-                                    <input type="number" name="numero" id="numeroMob" placeholder="Entrer ton numéro de téléphone.l">
+                                    <input type="number" name="tel" id="numeroMob" placeholder="Entrer ton numéro de téléphone.l">
                                 </div>
                                 <div class="containeurInputStyle password">
                                     <input type="password" name="password" id="passwordInputMob" placeholder="Mot de passe">
@@ -502,17 +507,23 @@ include("Principale/others.php");
                                     ?>
                             </select>
                             <select name="mois" class="containeurInputStyle password">
-                                <?php
-                                for ($mois = 1; $mois <= 12; $mois++) {
-                                    $nom_mois = date("F", mktime(0, 0, 0, $mois, 1));
-                                    echo '<option value="' . $mois . '">' . $nom_mois . '</option>';
-                                }
-                                ?>                                        
+                            <option value="janvier">Janvier</option>
+                                <option value="fevrier">Février</option>
+                                <option value="mars">Mars</option>
+                                <option value="avril">Avril</option>
+                                <option value="mai">Mai</option>
+                                <option value="juin">Juin</option>
+                                <option value="juillet">Juillet</option>
+                                <option value="aout">Août</option>
+                                <option value="septembre">Septembre</option>
+                                <option value="octobre">Octobre</option>
+                                <option value="novembre">Novembre</option>
+                                <option value="decembre">Décembre</option>                                   
                             </select>
                             <select name="annee" class="containeurInputStyle">
                                 <?php
                                 $annee_actuelle = date("Y");
-                                $annee_debut = $annee_actuelle - 40; // Vous pouvez ajuster le nombre d'années en arrière
+                                $annee_debut = $annee_actuelle - 40; 
                             
                                 for ($annee = $annee_debut; $annee <= $annee_actuelle; $annee++) {
                                     echo '<option value="' . $annee . '">' . $annee . '</option>';
@@ -641,7 +652,7 @@ include("Principale/others.php");
                         <div class="erreurMessage"></div>
                        </div>
                       </div>
-                </div>
+            </div>
     </div>
     <div class="animationload interd">
         <div class="containeurpage interd">
@@ -652,28 +663,147 @@ include("Principale/others.php");
             </div>
         </div>
     </div>
+
+<script src="Javascripts/stylepage.js"></script>
 <script src="JQuery/functions.js"></script>
 <script src="Javascripts/loadingPage.js"></script>               
 <script src="Ajax_Functions/FunctionsJs.js"></script>
 <script src="Ajax_Functions/functionAjax.js"></script>
 <script src="Javascripts/refusActions.js"></script>
-<script src="Javascripts/stylepage.js"></script>
-<script src="Javascripts/indexStyle.js"></script>
 <script src="Javascripts/sesionNianda.js"></script>
 <script src="Javascripts/conectionFunctions.js"></script>
-  <script>
-    function connextion(event)
+<script src="Ajax_Functions/connexion_inscription.js"></script>
+<script>
+     const MereContent = document.querySelector(".swiper-wrapper.Desk");
+    const MereContentMobile = document.querySelector(".swiper-wrapper.Mobile");
+    function InscriptionFunctionDesk()
     {
-        let Element = event.currentTarget;
-        Element.innerHTML = "";
-        Element.innerHTML = `<div class="mereAnimationclique"><span>En cours</span><div class="loading interd"></div></div>`;
-        let form = document.querySelector('.swiper-wrapper.Desk');
-        function callback(data)
-        {
-            alert(data);
-        }
-        functionAjax('Principale/Connection.php', form, callback);
+        MereContent.style.transform='translateX(-200%)';
     }
-  </script>
+    function InscriptionFunctionMobile()
+    {
+        MereContentMobile.style.transform='translateX(-300%)';
+    }
+    function connectionMobile()
+    {
+        MereContentMobile.style.transform='translateX(-100%)';
+    }
+    function NiandaMobile()
+    {
+        MereContentMobile.style.transform='translateX(-0%)';
+    }
+
+    function SuivantMob_1(event)
+    {
+        
+        let mere = event.currentTarget.closest('.swiper-slide');
+        let nom = mere.querySelector('input#Mobnom');
+        let prenom = mere.querySelector('input#Mobprenom');
+        let email = mere.querySelector('input#Mobemail');
+        let erreurMessage = mere.querySelector('.erreurMessage');
+
+        if (nom.value.trim() === '' || prenom.value.trim() === '' || email.value.trim() === '') {
+            erreurMessage.textContent = "Veuillez remplir tous les champs.";
+            return;
+        }
+        if (!isNaN(nom.value.trim()) || !isNaN(prenom.value.trim())) {
+            erreurMessage.textContent = "Le nom et le prénom ne doivent pas être des nombres.";
+            return;
+        }
+        let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email.value.trim())) {
+        erreurMessage.textContent = "L'adresse e-mail est incorrecte ";
+        return;
+        }
+        MereContentMobile.style.transform='translateX(-400%)';
+    }
+    function SuivantMob_2(event)
+    {
+        let mere = event.currentTarget.closest('.swiper-slide');
+        let password= mere.querySelector('input#passwordInputMob');
+        let numero = mere.querySelector('input#numeroMob');
+        let erreurMessage = mere.querySelector('.erreurMessage');
+        if (numero.value.trim() === '' || password.value.trim() === '') {
+            erreurMessage.textContent = "Veuillez remplir tous les champs.";
+            return;
+        }
+        MereContentMobile.style.transform='translateX(-500%)';
+    }
+    function SuivantMob_3(event)
+    {
+    
+        MereContentMobile.style.transform='translateX(100%)';
+    }
+    function SuivantMob_0(event)
+    {
+        let mere = event.currentTarget.closest('.swiper-slide.fin');
+        let Homme = mere.querySelector('input#Homme');
+        let Femme = mere.querySelector('input#Femme');
+        let erreurMessage = mere.querySelector('.erreurMessage');
+
+        if (!Femme.checked && !Homme.checked) {
+            erreurMessage.textContent = "Sélectionnez votre Genre";
+            return;
+        }
+        MereContentMobile.style.transform='translateX(-200%)';
+    }
+    function Suivant_1(event) {
+        let mere = event.currentTarget.closest('.swiper-slide');
+        let nom = mere.querySelector('input#nom');
+        let prenom = mere.querySelector('input#prenom');
+        let email = mere.querySelector('input#email');
+        let erreurMessage = mere.querySelector('.erreurMessage');
+
+        if (nom.value.trim() === '' || prenom.value.trim() === '' || email.value.trim() === '') {
+            erreurMessage.textContent = "Veuillez remplir tous les champs.";
+            return;
+        }
+        if (!isNaN(nom.value.trim()) || !isNaN(prenom.value.trim())) {
+            erreurMessage.textContent = "Le nom et le prénom ne doivent pas être des nombres.";
+            return;
+        }
+        let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email.value.trim())) {
+        erreurMessage.textContent = "L'adresse e-mail est incorrecte";
+        return;
+        }
+
+        MereContent.style.transform = 'translateX(-300%)';
+    }
+
+
+    function Suivant_2()
+    {
+        let mere = event.currentTarget.closest('.swiper-slide');
+        let password= mere.querySelector('input#password');
+        let numero = mere.querySelector('input#numero');
+        let erreurMessage = mere.querySelector('.erreurMessage');
+        if (numero.value.trim() === '' || password.value.trim() === '') {
+            erreurMessage.textContent = "Veuillez remplir tous les champs.";
+            return;
+        }
+
+        MereContent.style.transform='translateX(-400%)';
+    }
+    function Suivant_3(event) {
+        let mere = event.currentTarget.closest('.swiper-slide');
+        let Homme = mere.querySelector('input#Homme');
+        let Femme = mere.querySelector('input#Femme');
+        let erreurMessage = mere.querySelector('.erreurMessage');
+
+        if (!Femme.checked && !Homme.checked) {
+            erreurMessage.textContent = "Sélectionnez votre Genre";
+            return;
+        }
+
+        MereContent.style.transform = 'translateX(0%)';
+    }
+
+    function Suivant_0()
+    {
+        MereContent.style.transform='translateX(-100%)';
+    }
+
+</script>
 </body>
 </html>

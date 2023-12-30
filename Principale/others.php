@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("connectionsBD/connexion.php");
 include("class/Message.php");
 include("class/post.php");

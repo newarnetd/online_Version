@@ -342,7 +342,6 @@ class Post
 
 		if(is_numeric($id)){
  
-			//get like details
 			$sql = "select likes from likes where type='$type' && contentid = '$id' limit 1";
 			$result = $DB->read($sql);
 			if(is_array($result)){
@@ -381,7 +380,7 @@ class Post
 					$sql = "update likes set likes = '$likes_string' where type='$type' && contentid = '$id' limit 1";
 					$DB->save($sql);
 
-					//increment the right table
+					
 					$sql = "update {$type}s set likes = likes + 1 where {$type}id = '$id' limit 1";
 					$DB->save($sql);
 
@@ -389,7 +388,6 @@ class Post
 						$post = new Post();
 						$single_post = $post->get_one_post($id);
 
-						//add notification
 						add_notification($_SESSION['mybook_userid'],"like",$single_post);
 					}
 
@@ -402,7 +400,6 @@ class Post
 					$sql = "update likes set likes = '$likes_string' where type='$type' && contentid = '$id' limit 1";
 					$DB->save($sql);
 
-					//increment the right table
 					$sql = "update {$type}s set likes = likes - 1 where {$type}id = '$id' limit 1";
 					$DB->save($sql);
 

@@ -99,7 +99,9 @@ function MessageSide() {
 function HommePrinciplae() {
     document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(0%)";
 }
-
+function BoutiquesHOmes() {
+    document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-400%)";
+}
 function HomeSide() {
     setDisplayStyle(".droite_session", "flex");
 }

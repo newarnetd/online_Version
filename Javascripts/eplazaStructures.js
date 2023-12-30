@@ -48,3 +48,34 @@ function SelectArticle(event) {
   {
     document.querySelector(".swiper-wrapper.boutique").style.transform = "TranslateX(-100%)";
   }
+  function visualisation()
+  {
+    let MereSlides = document.querySelector(".swiper.mySwiper .swiper-wrapper.PeinciplaeSesionPage");
+    MereSlides.style.transform = 'translateX(-100%)';
+    
+  }
+  function Menueplaza(event)
+  {
+    let value = event.currentTarget;
+    let OptionsBtn = document.querySelectorAll(".optionHome");
+    let MereSlides = document.querySelector(".swiper.mySwiper .swiper-wrapper.sessionpage");
+    OptionsBtn.forEach(option =>{
+        option.classList.remove('active');
+    })
+    value.classList.add('active');
+    if(value.id =="actualite")
+    {
+        MereSlides.style.transform = 'translateX(0%)';
+    }else if(value.id =="Publicites")
+    {
+      MereSlides.style.transform = 'translateX(-100%)';
+    
+    }else if(value.id =="Locations")
+    {
+      MereSlides.style.transform = 'translateX(-200%)';
+    
+    }else if(value.id =="Boutique")
+    {
+      MereSlides.style.transform = 'translateX(-300%)';
+    }
+  }

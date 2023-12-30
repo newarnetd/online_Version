@@ -8,6 +8,7 @@
     --color-icons_Theme_blanche:#BDBDBD;
     --color-icons_Theme_noire:#7c7c7c;
     --color-primary: #0d876f;
+    --color-titre:#0d876f;
     --swiper-theme-color:var(--color-primary);
     --boxshadow_section_blanche: 0px 4px 10px rgba(0, 0, 0,.2);
     --color-blue:#dcf8c6;
@@ -133,7 +134,7 @@ input,textarea,button{
 .titre_animation{
   color: transparent;
   font-size: 50PX;
-  -webkit-text-stroke:  6px var(--color-titre_newarnet) !important;
+  -webkit-text-stroke:  6px var(--color-titre) !important;
   -webkit-background-clip: text;
   background-size: contain;
   background-position: 0 0;
@@ -262,6 +263,26 @@ input,textarea,button{
   align-items: center;
   gap:10px;
 }
+.containeurpage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.headerphoto img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.containeurpage span{
+  font-size: 14px;
+  color: #605d5d;
+  margin: 10px;
+}
+
 .onlineTime.messageColor{
   background: var(--color-red-1);
   color: #FFF;

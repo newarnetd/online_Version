@@ -1,30 +1,29 @@
 <?php
+ $key="07c2870e0e749bb82b00cc03e166aafb";
+ $DB = new Database();
+ $limite = 15;
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "newarnet";
+$conn = new mysqli($servername, $username, $password, $database);
 function encrypt($data, $key) {
-    if (empty($data) || empty($key)) {
-        throw new InvalidArgumentException("Les données et la clé ne peuvent pas être vides.");
-    }
     $iv = random_bytes(16);
     $encryptedData = openssl_encrypt($data, 'aes-256-cbc', $key, OPENSSL_RAW_DATA, $iv);
-    if ($encryptedData === false) {
-        throw new RuntimeException("Échec du chiffrement OpenSSL.");
-    }
     $encryptedData = $iv . $encryptedData;
     return base64_encode($encryptedData);
 }
 
+
 function decrypt($encryptedData, $key) {
-    if (empty($encryptedData) || empty($key)) {
-        throw new InvalidArgumentException("Les données chiffrées et la clé ne peuvent pas être vides.");
-    }
     $encryptedData = base64_decode($encryptedData);
     $iv = substr($encryptedData, 0, 16);
     $encryptedData = substr($encryptedData, 16);
-    $decryptedData = openssl_decrypt($encryptedData, 'aes-256-cbc', $key, OPENSSL_RAW_DATA, $iv);
 
-    if ($decryptedData === false) {
-        throw new RuntimeException("Échec du déchiffrement OpenSSL.");
-    }
-    return rtrim(htmlspecialchars($decryptedData), "\0");
+    $paddedIV = str_pad($iv, 16, "\0");
+
+    $decryptedData = openssl_decrypt($encryptedData, 'aes-256-cbc', $key, OPENSSL_RAW_DATA, $paddedIV);
+    return htmlspecialchars($decryptedData);
 }
 
 function create_userid()
@@ -41,44 +40,48 @@ function create_userid()
     }
     return $userid;
 }
+function verificationSession()
+{
+    
+    if(isset($_SESSION['ownerConnected']) && $_SESSION['ownerConnected'] !== null)
+    {
+        global $key;
+        authentification(decrypt($_SESSION['ownerConnected'],$key));
+        header("Location:Principale/accueil.php");
+    }
+    
+}
 
+function userdetail($id)
+{
+    
+}
 function authentification($id)
 {
-    if(is_numeric($id))
-    {
-        $id = esc($id);
-        $query = "SELECT * FROM users where userid = ? limit 1";
-        $DB = new Database();
-	    $result = $DB->read($query,[$id]);  
-        if(!is_array($result))
-        {
-            header("Location:../");
-            exit;
-        }else{
-            if(isset($id)){
-                set_online($id);
-            }
-        }
+    $query = "SELECT * FROM users WHERE userid = ? LIMIT 1";
+    $DB = new Database();
+    $result = $DB->read($query, [$id]);  
 
-    }else{
-        header("Location:../");
+    if(is_array($result) && !empty($result))
+    {
+        set_online($id);
+        
+    }
+    else
+    {
+        header("Location: ../");
         exit;
     }
 }
-
 function set_online($id){
-	if(!is_numeric($id)){
-		return;
-	}
 	$online = time();
     $DB = new Database();
     $query = "SELECT * FROM users where userid = ? limit 1";
     $result = $DB->read($query,[$id]);  
     $result = $result[0];
-    $date =$result["date_d'inscription"];
-	$query = "UPDATE users SET enligne = ?, `date_d'inscription` = ? WHERE userid = ?";
+	$query = "UPDATE users SET enligne = ? WHERE userid = ?";
 	$DB = new Database();
-	$DB->save($query,[$online,$date,$id]);
+	$DB->save($query,[$online,$id]);
 
 }
 function calculerTempsEcoule($heureDebut)
@@ -109,38 +112,91 @@ function nettoyerDonnee($valeur)
     }
     return $valeur;
 }
-function recadrerImage($cheminImage)
-{
-    list($largeurOrig, $hauteurOrig) = getimagesize($cheminImage);
-    $nouvelleLargeur = 512;
-    $nouvelleHauteur = 512;
-    $ratioOrig = $largeurOrig / $hauteurOrig;
-    if ($ratioOrig > 1) {
-        $nouvelleHauteur = $nouvelleLargeur / $ratioOrig;
-    } else {
-        $nouvelleLargeur = $nouvelleHauteur * $ratioOrig;
+function nettoyerNomFichier($filename) {
+    $cleaned_filename = preg_replace("/[^a-zA-Z0-9]+/", "", $filename);
+    $cleaned_filename = $cleaned_filename . "_" . time();
+    return $cleaned_filename;
+}
+function resize_image($source, $width = 512, $height = 512) {
+    $source_image = imagecreatefromjpeg($source);
+    if ($source_image === false) {
+        echo "Erreur lors de la création de l'image à partir de JPEG.";
+        return false;
     }
-    $imageOrig = imagecreatefromjpeg($cheminImage);
-    $imageRecadree = imagecreatetruecolor($nouvelleLargeur, $nouvelleHauteur);
-    imagecopyresampled(
-        $imageRecadree, 
-        $imageOrig,     
-        0,             
-        0,              
-        0,              
-        0,              
-        $nouvelleLargeur,
-        $nouvelleHauteur,
-        $largeurOrig,
-        $hauteurOrig  
-    );
+    $source_width = imagesx($source_image);
+    $source_height = imagesy($source_image);
+    $ratio = $source_width / $source_height;
 
-    ob_start();
-    imagejpeg($imageRecadree, NULL);
-    $imageData = ob_get_clean();
-    imagedestroy($imageOrig);
-    imagedestroy($imageRecadree);
-    return $imageData;
+    if ($width / $height > $ratio) {
+        $new_width = $height * $ratio;
+        $new_height = $height;
+    } else {
+        $new_width = $width;
+        $new_height = $width / $ratio;
+    }
+    $new_image = imagecreatetruecolor($new_width, $new_height);
+    imagecopyresampled($new_image, $source_image, 0, 0, 0, 0, $new_width, $new_height, $source_width, $source_height);
+    imagedestroy($source_image);
+    return $new_image;
 }
 
+
+function limiterChaine($chaine, $limite) 
+{
+    if (strlen($chaine) > $limite) {
+        $chaine = substr($chaine, 0, $limite - 3) . '...';
+    }
+
+    return $chaine;
+}
+function getFriends($id, $type)
+{
+    global $DB;
+
+    $sql = "SELECT * FROM relations WHERE user = ? AND type = ? LIMIT 1";
+    $result = $DB->read($sql, [$id, $type]);
+
+    if ($result) {
+        return $result;
+    } else {
+        return getRandomFriendsList($id);
+    }
+}
+
+function getRandomFriendsList($id)
+{
+    global $DB;
+    global $limite;
+    $sql = "SELECT * FROM users WHERE userid != ? ORDER BY RAND() LIMIT $limite";
+    $result = $DB->read($sql, [$id]);
+
+    return $result;
+}
+
+function getRandomFriendsList_prefere($id, $sexe)
+{
+    global $DB;
+    global $key;
+    global $limite;
+    $sql = "SELECT * FROM users WHERE userid != ? ORDER BY RAND() LIMIT $limite";
+    $randomUsers = $DB->read($sql, [$id]);
+    foreach ($randomUsers as &$user) {
+        $user['sexe'] = decrypt($user['sexe'], $key);
+    }
+    $filteredUsers = array_filter($randomUsers, function ($user) use ($sexe) {
+        return $user['sexe'] != $sexe;
+    });
+    $finalResult = array_slice($filteredUsers, 0, $limite);
+
+    return $finalResult;
+}
+function Mesinvitations($id)
+{
+    global $DB;
+    global $limite;
+    $sql = "SELECT * FROM invitations WHERE owner = ? LIMIT  $limite";
+    $result = $DB->read($sql, [$id]);
+
+    return $result;
+}
 ?>
