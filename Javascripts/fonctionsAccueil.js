@@ -40,7 +40,8 @@ function OptionDroiteHeader(event) {
 
     switch (event.target.id) {
         case "amisDroite":
-            afficherAmisDroite();
+            let id  = event.target.getAttribute('y');
+            afficherAmisDroite(id);
             break;
 
         case "groupeDroite":
@@ -55,8 +56,10 @@ function OptionDroiteHeader(event) {
     }
 }
 
-function afficherAmisDroite() {
+function afficherAmisDroite(id) 
+{
     document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(-100%)";
+    ChargementFriends(id);
 }
 function afficherCreerGroupe() {
     document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(-200%)";
@@ -84,15 +87,7 @@ function setDisplayStyle(className, displayValue) {
 function NotificationSide() {
     document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-200%)";
 }
-function RecherCherNewaRnaute(event)
-{
-    if(event.target.value.trim() != '')
-    {
-        document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-300%)";
-    }else{
-        document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(0%)";
-    }
-}
+
 function MessageSide() {
     document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-100%)";
 }
@@ -137,5 +132,54 @@ function appliquerImageDeFond(event) {
             reader.readAsDataURL(input.files[0]);
         }
     }
-
-  
+    function AddRelation(event) {
+        const element = event.currentTarget; 
+        element.innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
+        const page = "Relations.php";
+        const value = element.getAttribute('owner');
+        function callback(data) {
+          if(data.trim() === "true")
+          {
+            element.innerHTML =`Ami(e) <i class="fa-solid fa-user-check"></i>`;
+          }else{
+            element.innerHTML =`Ajouter <i class="fa-solid fa-plus"></i>`;
+          }
+        }
+      
+        sendValueAjax(page, value, callback);
+      }
+      function suivreRelation(event) {
+        const element = event.currentTarget; 
+        element.innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
+        const page = "suivre.php";
+        const value = element.getAttribute('owner');
+        function callback(data) {
+          if(data.trim() === "true")
+          {
+            element.innerHTML =`suivi(e) <i class="fa-solid fa-user-check"></i>`;
+          }else{
+            element.innerHTML =`suivre <i class="fa-solid fa-plus"></i>`;
+          }
+        }
+      
+        sendValueAjax(page, value, callback);
+      }
+      
+      function RecherCherNewaRnaute(event)
+      {
+          if(event.target.value.trim() != '')
+          {
+              document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-300%)";
+              const page = "searchPage.php";
+              let value = event.target.value;
+              function callback(data) {
+                setTimeout(() => {
+                  document.querySelector(".containeurData").innerHTML = data;
+                }, 1000);
+              }
+              sendValueAjax(page, value, callback);
+          }else{
+              document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(0%)";
+          }
+      }
+ 

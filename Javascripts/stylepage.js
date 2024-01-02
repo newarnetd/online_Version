@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let textTitre = localStorage.getItem('--color-titre');
 
     applyColors(colorBlanche1, colorBlanche2, colorText, colorJauneText,textTitre,textTitre);
+    suipperSlide();
 });
 function sunFunction() {
     applyColors('#243639', '#08141a', '#FFFFFF', 'rgb(255, 210, 121)','#BDBDBD');

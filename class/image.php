@@ -131,72 +131,68 @@ class Image
 		imagedestroy($new_cropped_image);
 	}
 
-	public function resize_image($original_file_name,$resized_file_name,$max_width,$max_height)
-	{
+	public function resize_image($original_file_name, $resized_file_name, $max_width, $max_height)
+{
+    if (file_exists($original_file_name)) {
 
-		if(file_exists($original_file_name))
-		{
+        $image_info = getimagesize($original_file_name);
+        $original_mime_type = $image_info['mime'];
+        switch ($original_mime_type) {
+            case 'image/jpeg':
+                $original_image = imagecreatefromjpeg($original_file_name);
+                break;
+            case 'image/png':
+                $original_image = imagecreatefrompng($original_file_name);
+                break;
+            case 'image/gif':
+                $original_image = imagecreatefromgif($original_file_name);
+                break;
+            default:
+                return false;
+        }
 
-			$original_image = imagecreatefromjpeg($original_file_name);
+        $original_width = imagesx($original_image);
+        $original_height = imagesy($original_image);
+        if ($original_height > $original_width) {
+            $ratio = $max_width / $original_width;
+            $new_width = $max_width;
+            $new_height = $original_height * $ratio;
+        } else {
+            $ratio = $max_height / $original_height;
+            $new_height = $max_height;
+            $new_width = $original_width * $ratio;
+        }
+        if ($max_width != $max_height) {
+            if ($max_height > $max_width) {
+                $adjustment = ($max_height > $new_height) ? ($max_height / $new_height) : ($new_height / $max_height);
+            } else {
+                $adjustment = ($max_width > $new_width) ? ($max_width / $new_width) : ($new_width / $max_width);
+            }
 
-			$original_width = imagesx($original_image);
-			$original_height = imagesy($original_image);
+            $new_width = $new_width * $adjustment;
+            $new_height = $new_height * $adjustment;
+        }
+        $new_image = imagecreatetruecolor($new_width, $new_height);
+        imagecopyresampled($new_image, $original_image, 0, 0, 0, 0, $new_width, $new_height, $original_width, $original_height);
+        imagedestroy($original_image);
+        switch ($original_mime_type) {
+            case 'image/jpeg':
+                imagejpeg($new_image, $resized_file_name, 90);
+                break;
+            case 'image/png':
+                imagepng($new_image, $resized_file_name);
+                break;
+            case 'image/gif':
+                imagegif($new_image, $resized_file_name);
+                break;
+        }
+        imagedestroy($new_image);
 
-			if($original_height > $original_width)
-			{
-				$ratio = $max_width / $original_width;
+        return true;
+    }
+    return false;
+}
 
-				$new_width = $max_width;
-				$new_height = $original_height * $ratio;
-
-			}else
-			{
-				$ratio = $max_height / $original_height;
-
-				$new_height = $max_height;
-				$new_width = $original_width * $ratio;
-			}
-		}
-		if($max_width != $max_height)
-		{
-
-			if($max_height > $max_width)
-			{
-
-				if($max_height > $new_height)
-				{
-					$adjustment = ($max_height / $new_height);
-				}else
-				{
-					$adjustment = ($new_height / $max_height);
-				}
-
-				$new_width = $new_width * $adjustment;
-				$new_height = $new_height * $adjustment;
-			}else
-			{
-
-				if($max_width > $new_width)
-				{
-					$adjustment = ($max_width / $new_width);
-				}else
-				{
-					$adjustment = ($new_width / $max_width);
-				}
-
-				$new_width = $new_width * $adjustment;
-				$new_height = $new_height * $adjustment;
-			}
-		}
-
-		$new_image = imagecreatetruecolor($new_width, $new_height);
-		imagecopyresampled($new_image, $original_image, 0, 0, 0, 0, $new_width, $new_height, $original_width, $original_height);
-
-		imagedestroy($original_image);
-
-		imagejpeg($new_image,$resized_file_name,90);
-		imagedestroy($new_image);
-	}
 	public function get_thumb_cover($filename)
 	{
 

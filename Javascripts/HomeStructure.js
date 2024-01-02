@@ -236,29 +236,38 @@ function poster(event)
     functionAjax(page, form, callback);
   }
 
-  function ChangerProfile(event)
-  {
+  function ChangerProfile(event) {
     let Element = event.currentTarget;
-    Element.innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
+    Element.innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">En cours...</span><div class="loading interd"></div></div>`;
+  
+    let pageactuel = window.location.href; 
     let page = "ModificationProfile.php";
     let form = document.querySelector("#ModificationProfile");
-    function callback(data)
-    {
-      alert(data);
+  
+    function callback(data) {
+      if (data.trim() == 'true') {
+        window.location.href = pageactuel;
+      } else {
+        alert("Ce fichier n'est pas pris en compte dans notre système");
+      }
     }
     functionAjax(page, form, callback);
-        
   }
+  
   function ChangerCouvrture(event)
   {
     let Element = event.currentTarget;
     Element.innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
     let page = "ModificationProfile.php";
     let form = document.querySelector("#Modificationcouverture");
-    function callback(data)
-    {
-      alert(data);
-    }
+    let pageactuel = window.location.href; 
+    function callback(data) {
+        if (data.trim() == 'true') {
+          window.location.href = pageactuel;
+        } else {
+          alert("Ce fichier n'est pas pris en compte dans notre système");
+        }
+      }
     functionAjax(page, form, callback);
         
   }  

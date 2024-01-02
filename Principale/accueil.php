@@ -16,19 +16,72 @@ include("otherPrincipale.php");
     <link rel="stylesheet" href="../Styles/style_accueil.css"/>
     <link rel="shortcut icon"href="../images/Logo.png"type="image/jpeg"style="width: 300px; height: 300px"/>
     <title>NewaRnet</title>
+    <style>
+      .photoamis img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        border-radius:5px;
+      }
+.allContente{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  z-index:1;
+}
+.swiper-wrapper.menuDroiteAll{
+  background:var(--color-blanche-1);
+  border-radius: 5px;
+  height:100vh;
+}
+span.notification_counteur.active{
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color:#FFF;
+  font-size: 10px;
+  border-radius: 50%;
+  background: var(--color-red-1);
+  top:-15px;
+  border:1px  solid var(--color-blanche-2);
+  left:-15px;
+}
+#invitationDroite span.notification_counteur.active{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius:5px;
+  right:100%;
+  left:90%;
+  top:-10px;
+}
+.confirmeBtn.boutonAdmettre.ajouter.attente i{
+  color:#FFF;
+}
+.supprimerBtn.boutonAdmettre.suivre.supresion{
+  background:#b45e62;
+  color:#FFF;
+  border:none;
+}
+.confirmeBtn.boutonAdmettre.ajouter.attente{
+  background:#4d536a;
+  color:#FFF;
+  border:none;
+}
+#invitationDroite{
+  position:relative;
+}
+    </style>
   </head>
   <body>
-  <div class="barrScrolle"><div class="counteurBare"></div></div>
-    <div class="animationload interd">
-      <div class="containeurpage interd">
-          <div class="headerphoto interd"><img src="../images/linkedin.png"></div>
-          <div class="animationMere interd">
-              <p>NewaRnet est en cours...</p>
-              <div class="loading interd"></div>
-          </div>
-      </div>
-  </div>
-    <div class="containerPage">
+  <div class="allContente">
+<div class="containeurTous">
       <!-- nav_session -->
       <nav>
         <div class="rightnav">
@@ -45,6 +98,7 @@ include("otherPrincipale.php");
       </nav>
       <!-- Debut_main -->
       <main>
+        
         <!-- cote_gauche_des_icons -->
         <div class="leftmain swiper mySwiper">
           <div class="swiper-wrapper leftOption">
@@ -175,7 +229,6 @@ include("otherPrincipale.php");
         </div>
         <!-- la partie_centrale -->
         <div class="centre_session">
-         
           <!-- postSesion -->
           <div method="post" class="FormPost">
             <div class="formulaire">
@@ -332,9 +385,20 @@ include("otherPrincipale.php");
                 </div>
                 <div class="menuRight">
                   <div class="Amis menuOptionRight active"onclick="OptionDroiteHeader(event)"id="invitationDroite">
-                    Invitations <i class="fa-solid fa-envelope-open-text"></i>
+                  <?php
+                      $numberInvitation = GetInvitations($my_id);
+                      $numberInvitation = ($numberInvitation > 0) ? $numberInvitation : '';
+
+                      $notification_class = ($numberInvitation !== '') ? "notification_counteur active" : "notification_counteur";
+                      ?>
+
+                      <?php if ($numberInvitation !== ''): ?>
+                          Invitations<span class="<?php echo $notification_class ?>"><?php echo $numberInvitation ?></span> <i class="fa-solid fa-envelope-open-text"></i>
+                      <?php else: ?>
+                          Invitations<i class="fa-solid fa-envelope-open-text"></i>
+                      <?php endif; ?>
                   </div>
-                  <div class="Suivis menuOptionRight" onclick="OptionDroiteHeader(event)"id="amisDroite">
+                  <div class="Suivis menuOptionRight" onclick="OptionDroiteHeader(event)"id="amisDroite" y="<?php echo  encrypt($my_id,$key)?>">
                     Amis <i class="fa-solid fa-users"></i>
                   </div>
                   <div class="Suivis menuOptionRight"onclick="OptionDroiteHeader(event)" id="groupeDroite">
@@ -350,17 +414,29 @@ include("otherPrincipale.php");
                         if($Invitatons)
                         {
                           echo"<div class='textCent'> Des NewaRnautes vous invitent à une amitié sur NewaRnet. En connaissez-vous un(e)?</div>";
-
+                          foreach($Invitatons as $USERS_ROW_INVITATION)
+                          {
+                            global $key;
+                            global $user;
+                            $USERS_ROW =  $user->get_user($USERS_ROW_INVITATION['userid']);
+                            include("int_invitationsUser.php");
+                          }
+                          echo '<hr class="ligne">';
                         }
+                        
                       ?>
                         <!-- Demmade d'amis -->
+                        
                         <div class="textCent">Pour obtenir davantage de contenu, veuillez ajouter plusieurs amis.</div>
                         <?php
                         global $my_id;
                         $USERS_ROWS = getFriends($my_id,'amis');
-                        foreach($USERS_ROWS as $USERS_ROW)
+                        if($USERS_ROWS)
                         {
-                          include("int_Friends_Add.php");
+                          foreach($USERS_ROWS as $USERS_ROW)
+                          {
+                            include("int_Friends_Add.php");
+                          }
                         }
                         
                         ?>
@@ -369,6 +445,7 @@ include("otherPrincipale.php");
                       <div class="swiper-slide usersAfficher">
                         <div class="textCenter"><h3>Avec ces amis, vous pouvez discuter et les intégrer dans des groupes.</h3></div>
                           <!-- mes amis -->
+                            <div class="mesAmisListe"></div>
                           <div class="menuUsers">
                             <div class="menuOptionusers"onclick="MessageSide()">
                               <i class="fa-solid fa-message" ></i> Nouveau Message
@@ -429,68 +506,18 @@ include("otherPrincipale.php");
         </div>
         <!-- Rechercher -->
         <div class="swiper-slide">
+          <div class="containeurData">
             <!-- Recherche user -->
-            <div class="LoadingCircle">
-               <div class="containeurLoad"><div class="loading interd"></div></div>
-              </div>
+           <div class="Faux-contacte">
+             <?php include("FauxContenusSearch.php") ?>
+           </div>
+           </div>
         </div>
-        <!-- Boutiques -->
-        <div class="swiper-slide">
-          <div class="ContaineurBoutique">
-            <div class="headerPhoto">
-              <div class="carteProfile"></div>
-              <span>Boutique</span>
-            </div>
-            <div class="optionsMen">
-              <div class="menuHomeChoix">
-                <div class="optionHome active" onclick="BoutiquesFile(event)" id="boutique">Mes Boutiques<i class="fa-solid fa-shop"></i></div>
-                <div class="optionHome"onclick="BoutiquesFile(event)" id="artcles">Ariticlees<i class="fa-solid fa-cart-shopping"></i></div>
-              </div>
-              <div class="swiper mySwiper other">
-                <div class="swiper-wrapper Boutique">
-                  <div class="swiper-slide">
-                    <div class="gridPhoto Eplaza">
-                      <div class="feuilCorriger">
-                        <div class="containeurEplaza">
-                          <div class="topFeuille eplaza"><img src="../images/Af-1 (1).jpg" alt=""></div>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                  <div class="swiper-slide">
-                    <div class="conteneuramis">
-                      <div class="photoamis">
-                          <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
-                      </div>
-                      <div class="nomamis">
-                          <h3>arsene cirhuza</h3>
-                          <p><small>En ligne </small></p>
-                      </div>
-                    </div>
-                    <div class="conteneuramis">
-                      <div class="photoamis">
-                          <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
-                      </div>
-                      <div class="nomamis">
-                          <h3>arsene cirhuza</h3>
-                          <p><small>En ligne </small></p>
-                      </div>
-                  </div>
-                  
-                    </div>
-                  </div>
-                </div>
-            </div>
-          </div>
-        </div>
-            <!-- Amis Propostions -->
-            <div class="swiper-slide">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, porro eos suscipit nam numquam, repellat minima aliquid distinctio architecto laboriosam quibusdam veritatis non reprehenderit optio necessitatibus voluptatum, ea iusto deserunt.
-            </div>
+          <!-- Boutiques -->
         </div>
       </main>
       <!-- fint_main -->
-    </div>
+</div>
     <!-- <script src="../Javascripts/refusActions.js"></script> -->
     <script src="../Javascripts/actionLoadingHome.js"></script>
     <script src="../Javascripts/loadingPage.js"></script>
@@ -501,7 +528,7 @@ include("otherPrincipale.php");
     <script src="../Javascripts/HomeStructure.js"></script>
     <script src="../Ajax_Functions/functionAjax.js"></script>
     <script>
-    var swiper = new Swiper(".swiper.mySwiper.MenuHome", {
+     var swiper = new Swiper(".swiper.mySwiper.MenuHome", {
         allowSlideNext: false,
         allowSlidePrev: false,
         allowTouchMove: false,
@@ -515,7 +542,50 @@ include("otherPrincipale.php");
         clickable: true,
       },
     });
-  
-    </script>
+    function Confirmer(event)
+      {
+        const element = event.currentTarget; 
+        element.innerHTML = `...`;
+        const page = "confirmation.php";
+        let value = element.getAttribute('owner');
+        function callback(data) {
+          if(data.trim() =='true')
+          {
+            element.innerHTML = `déjà ami(e)`;
+          }else{
+            alert(data);
+          }
+        }
+        sendValueAjax(page, value, callback);
+      }
+      function supprimerInvitation(event)
+      {
+        const element = event.currentTarget; 
+        element.innerHTML = `...`;
+        const page = "confirmation.php";
+        let value = element.getAttribute('owner');
+        function callback(data) {
+            if(data.trim() =='true')
+            {
+              element.innerHTML = 'supprimeé(e)';
+            }else{
+              alert(data);
+            }
+        }
+        sendValueAjax(page, value, callback);
+      }
+  function ChargementFriends(id)
+  {
+    
+    document.querySelector(".mesAmisListe").innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
+    let page = "readFriends.php";
+    let value = id;
+    function callback(data) {
+      document.querySelector(".mesAmisListe").innerHTML = data;
+      }
+      sendValueAjax(page, value, callback);
+  } 
+  </script>
+ 
   </body>
 </html>

@@ -1,8 +1,4 @@
 function textRegenerate(conteneur, text, champSaisi, options = {}) {
-  if (text === "") {
-    champSaisi.style.display = "flex";
-    return;
-  }
   const {
     duration = 50,
     displayStyle = "flex",
@@ -10,7 +6,6 @@ function textRegenerate(conteneur, text, champSaisi, options = {}) {
     }, 
   } = options;
   conteneur.value = "";
-  champSaisi.style.display = "none";
   let index = 0;
   const intervalId = setInterval(() => {
     const valeur = text.trim().charAt(index);

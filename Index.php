@@ -14,6 +14,11 @@ verificationSession();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <title>NewaRnet</title>
+    <style>
+        .animationload{
+  display: none !important;
+}
+    </style>
 </head>
 <body>
 <div class="barrScrolle"><div class="counteurBare"></div></div>
@@ -786,15 +791,7 @@ verificationSession();
         MereContent.style.transform='translateX(-400%)';
     }
     function Suivant_3(event) {
-        let mere = event.currentTarget.closest('.swiper-slide');
-        let Homme = mere.querySelector('input#Homme');
-        let Femme = mere.querySelector('input#Femme');
-        let erreurMessage = mere.querySelector('.erreurMessage');
-
-        if (!Femme.checked && !Homme.checked) {
-            erreurMessage.textContent = "Sélectionnez votre Genre";
-            return;
-        }
+       
 
         MereContent.style.transform = 'translateX(0%)';
     }

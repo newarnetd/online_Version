@@ -11,7 +11,7 @@
     --color-titre:#0d876f;
     --swiper-theme-color:var(--color-primary);
     --boxshadow_section_blanche: 0px 4px 10px rgba(0, 0, 0,.2);
-    --color-blue:#dcf8c6;
+    --color-blue:#b45e62;
     --color-jaune-text:rgb(255, 210, 121);
     --color-greenNoire: rgb(41, 41, 41);
     --color-titre_newarnet: #0d876f;
@@ -22,6 +22,7 @@
     --color-red-2:rgb(167, 31, 31);
     --color-green_boutons:#0d876f;
     --color-online:#00a400;
+    --otherGreen:#47a351;
     --color-linear-white:linear-gradient(90deg, var(--color-blanche-1) 25%, var(--color-blanche-2) 50%, var(--color-blanche-1) 75%);
     /* LES MESURES DE L'INTERFACE */
     --padding_boutons:10px 12px;
@@ -263,6 +264,7 @@ input,textarea,button{
   align-items: center;
   gap:10px;
 }
+
 .containeurpage{
   display: flex;
   justify-content: center;

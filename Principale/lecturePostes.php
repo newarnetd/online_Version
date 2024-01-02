@@ -9,8 +9,11 @@ if($_SERVER['REQUEST_METHOD'] === "POST")
     $data = $DB->read($query,[$my_id]);
     if($data)
     {
-        foreach($data as $ROW)
+        foreach($data as $data_poste)
         {
+            global $key;
+            global $user;
+            $OWNER =  $user->get_user($data_poste['userid']);
             include("int_poste.php");
         }
     }

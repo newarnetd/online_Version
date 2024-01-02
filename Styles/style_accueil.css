@@ -50,13 +50,7 @@ body {
   margin-top: 20px;
   flex-direction: column;
 }
-.containerPage {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-}
+
 .containeurLoad{
   background:var(--color-blanche-2);
   border-radius: 50%;
@@ -194,22 +188,7 @@ background: var(--color-blanche-1);
   position: relative;
   width: 100%;
 }
-main {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  gap: 10px;
-  margin: 10px;
-  margin-top: 80px;
-  position: relative;
-}
-.centre_session {
-  width: 40%;
-  margin-left: 23%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
+
 
 .iconcontainerOption {
   padding: 10px 20px;
@@ -428,16 +407,7 @@ main {
   cursor: pointer;
   border-radius: var(--border-radius_cercle);
 }
-.FormPost {
-  width: 100%;
-  padding: 10px;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  padding: 3px;
-  margin: 15px auto;
-  position: relative;
-}
+
 .menuIcon{
   display: flex;
   align-items: center;
@@ -1027,24 +997,28 @@ transform: translateY(100px);
 margin-right: 50px;
 }
 
-.iconcontainerOption  span.notification_counteur.active{
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color:#FFF;
-  font-size: 10px;
-  border-radius: 50%;
-  background: var(--color-red-1);
-  top:-15px;
-  border:1px  solid var(--color-blanche-2);
-  left:-15px;
-}
+
 .iconcontainerOption i,.Suivis.menuOptionRight{
   position: relative;
+}
+
+.confirmeBtn.boutonAdmettre.ajouter i{
+  color:var(--color-text);
+}
+.confirmeBtn.boutonAdmettre.ajouter{
+  background:var(--color-blanche-1);
+  border:1px solid var(--color-text);
+  color:var(--color-text);
+}
+.emotionIcons {
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 12px 20px;
+background: var(--color-blanche-2);
+border-radius: 20px;
+gap: 10px;
+box-shadow: var(--boxshadow_section_blanche);
 }
 .left_userpost {
   display: flex;
@@ -1056,7 +1030,7 @@ margin-right: 50px;
   height: 100%;
   object-fit: contain;
 }
-.corpPost {
+.corpPost{
   background: var(--color-blanche-2);
   max-height: 400px;
   height: 100%;
@@ -1074,15 +1048,7 @@ margin-right: 50px;
 .emotionIcons span {
   font-size: 13px;
 }
-.emotionIcons {
-  display: flex;
-  align-items: center;
-  padding: 10px 15px;
-  background: var(--color-blanche-2);
-  border-radius: 20px;
-  gap: 10px;
-  box-shadow: var(--boxshadow_section_blanche);
-}
+
 
 .headerSesionRight {
   background: var(--color-blanche-1);
@@ -1367,6 +1333,28 @@ max-height: 63vh;
   max-width:100%;
   width:100%;
   max-height: 63vh;
+}
+.identiteUse {
+  display: flex;
+  align-items: start;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+.containerFriends {
+  width: 90%;
+  flex-direction: column;
+  display: flex;
+  cursor: pointer;
+  align-items: start;
+  justify-content: flex-start;
+  margin: 10px auto;
+}
+.userPhotoCarte {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--border-radius_cercle);
+  background: var(--color-blanche-2);
 }
 .containerFriends {
   width: 90%;
@@ -1672,22 +1660,7 @@ width:80%;
   padding-left:10px;
   color:#717171;
 }
-.selectIcon i{ 
-  font-size:16px;
-}
-.selectIcon{
-position:absolute;
-width:70px;
-box-shadow:var(--boxshadow_section_blanche);
-height:70px;
-border-radius:10px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:var(--color-blanche-1);
-cursor:pointer;
-padding:20px;
-}
+
 .bottomFriendscarte .boutonsActions .confirmationBoutonsCnter{
   width: 240px;
   padding: 5px;
@@ -1754,10 +1727,7 @@ padding:20px;
 .containerFrinds.swiper-slide{
   width: 60px;
 }
-.centre_session .swiper.mySwiper{
-width: 100%;
-display: flex;
-}
+
 .centre_session .swiper.mySwiper .swiper-wrapper{
   gap:5px;
 }
@@ -2085,6 +2055,226 @@ nav .leftnav .fa-solid.fa-ellipsis-vertical{
 nav .leftnav .fa-solid.fa-magnifying-glass{
   display: flex;
 }
+.Faux-contacte .conteneuramis:hover{
+  background:transparent;
+}
+.Faux-contacte,.conteneuramis{
+  width:100%;
+  border:none;
+}
+
+
+.containeurData{
+  width:100%;
+  max-height:100vh;
+  overflow-y:auto;
+  height:100%;
+}
+  @keyframes skeletonAnimation {
+  0% {
+    background-position: -200% 0; 
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.Faux-contacte{
+  background: var(--color-linear-white);
+  animation: skeletonAnimation 2s linear infinite;
+  background-size: 200% 100%;
+}
+.Faux-contacte .nomamis h3{
+  width:200px;
+  height:13px;
+  background:var(--color-blanche-2);
+  border-radius:10px;
+}
+.Faux-contacte .nomamis p{
+  width:130px;
+  height:10px;
+  margin-top:8px;
+  background:var(--color-blanche-2);
+  border-radius:10px;
+}
+
+.Faux-contacte .conteneuramis .photoamis{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+}
+
+.contenuPropositions{
+  display:flex;
+  padding:10px;
+  position:relative;
+}
+.contenuPropositions .textEplaza{
+  justify-content:flex-start;
+  font-weight:100;
+  color:#bdbdbd;
+}
+.containerPage.homepage{
+width: 100%;
+height: 100%;
+
+}
+main {
+width: 100%;
+height: 100%;
+display: flex;
+gap: 10px;
+margin: 10px;
+margin-top: 330px !important;
+position: relative;
+}
+.FormPost{
+width: 100%;
+padding: 10px;
+align-items: center;
+justify-content: center;
+background: transparent;
+padding: 3px;
+margin: 15px auto;
+position: relative;
+}
+.centre_session {
+margin-top:70px;
+width: 40%;
+margin-left: 23%;
+height: 100%;
+display: flex;
+flex-direction: column;
+}
+.carterPartiesProposition{
+  width:40%;
+  height:98%;
+  margin:20px auto;
+  background:var(--color-blanche-1);
+  overflow:hidden;
+  transform:translateX(-100%);
+ }
+ .headerSideCarter{
+  width:100%;
+  height:70px;
+  background:var(--color-primary);
+  color:#FFF;
+  display:flex;align-items:center;justify-content:center;
+ }
+ .containerUtilisateur{
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  flex-direction:column;
+ }
+
+
+.profilephoto img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:50%
+}
+.profilephoto{
+width:120px;height:120px;
+background:var(--color-blanche-2);
+border-radius:50%;
+}
+.UtilisateurInfos{
+display:flex;
+align-items:center;
+flex-direction:column;
+gap:10px;
+margin-top:20px;
+}
+.nameUserNew span{
+color:var();
+}
+.nameUserNew h3{
+font-size:20px
+}
+.nameUserNew{
+display:flex;
+align-items:center;
+justify-content:center;
+width:100%;
+gap:10px;
+flex-direction:column;
+}
+
+
+
+.swiper.mySwiper.NewUserInterface{
+  width:40%;
+  margin:0px auto;
+  height:100vh !important;
+  background:var(--color-blanche-1);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:-1;
+}
+
+.InputDouble.inputs button i{
+padding-left:10px;
+}
+.InputDouble.inputs button{
+padding:15px;
+cursor:pointer;
+width:100%;
+background:transparent;
+border:1px solid var(--color-text);
+color:var(--color-text);
+border-radius:5px;
+
+}
+.InputDouble.inputs{
+display:flex;
+align-items:center;
+margin:20px auto;
+width:50%;
+justify-content:space-between;
+}
+
+.swiper-wrapper.newUserCarte, .swiper-wrapper.newUserCarte .swiper-slide{
+background:var(--color-blanche-1);
+position:relative;
+}
+
+.textAjouterFriends{
+width:90%;
+display:flex;
+align-items:center;
+margin:12px auto;
+text-align:center;
+color:#BDBDBD;
+}
+
+
+.selectIcon i{ 
+font-size:16px;
+color:#414141;
+}
+.selectIcon{
+position:absolute;
+width:70px;
+box-shadow:var(--boxshadow_section_blanche);
+height:70px;
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:rgba(0,0,0,.2);
+cursor:pointer;
+padding:20px;
+}
+hr.ligneBottom{
+margin:10px auto;
+border-bottom:1px solid var(--color-blanche-2);
+width:100%;
+}
+
 /* Petits écrans d'ordinateur portable */
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
 

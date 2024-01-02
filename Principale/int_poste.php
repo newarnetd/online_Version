@@ -1,13 +1,38 @@
+<?php
+$nom_decrypte = decrypt($OWNER['nom'], $key);
+$prenom_decrypte = decrypt($OWNER['prenom'], $key);
+$sexe = $OWNER['sexe'];
+$nom_comple_friends = $nom_decrypte . ' ' . $prenom_decrypte;
+$profile = ($OWNER['ver_profile'] !== 0) ? decrypt($OWNER['profile'],$key) : ($sexe === "Femme" ? '../images/femme.jpg' : '../images/homme.jpg');
+$suivi = $OWNER['suivi'];
+$dawload = $all_droits = false;
+global $my_id;
+if($suivi !== 0)
+{
+  $suivi = $suivi ."amis";
+}else{
+  $suivi = "@" .$prenom_decrypte;
+}
+$date = calcTemps(decrypt($data_poste['date'],$key));
+if($data_poste['has_image'] !== 0)
+{
+  $dawload = true;
+}
+
+if($data_poste['userid'] === $my_id)
+{
+  $all_droits = true;
+}
+?>
 <div class="carterPoste">
                       <div class="blocHead">
                         <div class="left_userpost">
                           <div class="cartePhoto">
-                            <img src="../images/linkedin.png" class="userphoto" />
+                            <img src="<?php echo $profile?>" class="userphoto" />
                           </div>
                           <div class="nameUser">
-                            <h3>Jean-luc kashindi</h3>
-                            <small
-                              >Il y 2 min.<i class="fa-solid fa-earth-africa"></i
+                            <h3><?php echo $nom_comple_friends ?></h3>
+                            <small>Il y a <?php echo $date ?>.<i class="fa-solid fa-earth-africa"></i
                             ></small>
                           </div>
                         </div>
@@ -16,7 +41,7 @@
                         </div>
                       </div>
                       <div class="corpPost">
-                        <img src="../images/Af-1 (7).jpg" class="imagePost"/>
+                        <?=  $dawload ? '<img src="../images/Af-1 (7).jpg" class="imagePost"/>' : ''?>
                         <div class="menuOptionPartager shareFiles">
                           <div class="menuchoix"onclick="partager('link', 'NewaRnet', 'okay')"><i class="fa-solid fa-share-nodes"></i><span>Partager sur d'autres réseaux sociaux</span></div>
                           <div class="menuchoix"><i class="fa-solid fa-share-from-square"></i> <span>Partager sur NewaRnet</span></div>
@@ -25,9 +50,9 @@
                       </div>
                       <!-- moreOptions -->
                       <div class="menuOptionPartager moreoption">
-                        <div class="menuchoix"><i class="fa-solid fa-download"></i><span>Télécharger</span></div>
-                        <div class="menuchoix"><i class="fa-solid fa-trash"></i> <span>Supprimer</span></div>
-                        <div class="menuchoix"><i class="fa-solid fa-pen-to-square"></i> <span>Modifier</span></div>
+                        <?= $dawload ? '<div class="menuchoix"><i class="fa-solid fa-download"></i><span>Télécharger</span></div>' : ''; ?>
+                        <?= $all_droits ? '<div class="menuchoix"><i class="fa-solid fa-trash"></i> <span>Supprimer</span></div>' : ''; ?>
+                        <?= $all_droits ? '<div class="menuchoix"><i class="fa-solid fa-pen-to-square"></i> <span>Modifier</span></div>' : ''; ?>
                     </div>                    
                       <!-- Friends et Groupes Sharing -->
                       <div class="menuOptionPartager GroupeFrindsSelect">
@@ -40,8 +65,7 @@
                         </div>
                         <div class="conteneuramis">
                           <div class="photoamis">
-                            <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
-                          </div>
+                            <img src="../images/jobIcon.jpg"width="100%"height="100%"/></div>
                           <div class="nomamis">
                             <h3>arsene cirhuza</h3>
                             <p><small>86 ami(e)s en commun </small></p>
@@ -53,14 +77,14 @@
                       </div>
                       <div class="bottomIocnsEmotion">
                         <div class="emotionIcons">
-                          <i class="fa-solid fa-thumbs-up"></i><span class="number">1234</span>
+                          <i class="fa-solid fa-thumbs-up"></i><span class="number"></span>
                         </div>
                         <div class="emotionIcons">
-                          <i class="fa-solid fa-comments"></i><span class="number">1234</span>
+                          <i class="fa-solid fa-comments"></i><span class="number"></span>
                         </div>
                         <div class="emotionIcons share" onclick="sharePost(event)">
                           <i class="fa-solid fa-share"></i>
-                          <span class="number">120</span>
+                          <span class="number"></span>
                         </div>
                       </div>
                     </div>

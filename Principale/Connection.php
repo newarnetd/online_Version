@@ -7,6 +7,7 @@ include("../class/user.php");
 include("../functions/functions.php");
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
+    
     if (!empty($_POST['Info_one']) && !empty($_POST['Info_two'])) {
 
       
@@ -26,6 +27,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             $result = $stmt->get_result();
     
             if ($result->num_rows > 0) {
+                global $key;
                 while ($row = $result->fetch_assoc()) {
                     $decryptedEmail = decrypt($row['email'], $key);
                     $decryptedPassword = decrypt($row['password'], $key);

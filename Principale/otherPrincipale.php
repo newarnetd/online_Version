@@ -1,8 +1,6 @@
 <?php
 session_start();
 $key="07c2870e0e749bb82b00cc03e166aafb";
-$limite = 15;
-$limiteost =  10;
 include("../connectionsBD/connexion.php");
 include("../class/Message.php");
 include("../class/post.php");

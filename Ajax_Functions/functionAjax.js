@@ -81,6 +81,18 @@ function invitation() {
       .catch((error) => console.error('Erreur lors du partage :', error));
   }
 }
+function TextReg(conteneur, text) {
+  duration = 50,
+  conteneur.textContent = "";
+  let index = 0;
+  const intervalId = setInterval(() => {
+    const valeur = text.trim().charAt(index);
+    requestAnimationFrame(() => {
+      conteneur.textContent += valeur;
+    });
+    index++;
+  } , duration);
+}
 
 
 
