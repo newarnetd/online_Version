@@ -59,8 +59,17 @@ function notification($recepteur,$Emmeuteur,$type)
         global $key;
         $notifId = create_userid();
         $date = encrypt(date("Y-m-d H:i:s"),$key);
-        $sql = "INSERT INTO notifications (userid,notif_id,owner,date,type) VALUES (?,?,?,?,?)";
+        $sql = "INSERT INTO notifications (userid,owner,date,notif_id,type) VALUES (?,?,?,?,?)";
         $DB->save($sql, [$recepteur, $Emmeuteur, $date,$notifId,'amis']);
+    }
+    if($type === "story")
+    {
+        global $DB;
+        global $key;
+        $notifId = create_userid();
+        $date = encrypt(date("Y-m-d H:i:s"),$key);
+        $sql = "INSERT INTO notifications (owner,date,notif_id,type) VALUES (?,?,?,?)";
+        $DB->save($sql, [$Emmeuteur, $date,$notifId,'story']);
     }
 }
 function verificationSession()
@@ -226,51 +235,68 @@ function limiterChaine($chaine, $limite)
 
     return $chaine;
 }
-function getFriends($id, $type)
+function getFriends($id, $sexe)
 {
     global $DB;
+    global $key;
+    global $limite;
+    $sql = "SELECT * FROM users
+            WHERE userid != ? 
+            AND userid NOT IN (SELECT ownerid FROM amis WHERE amisid = ?)
+            AND userid NOT IN (SELECT amisid FROM amis WHERE ownerid = ?)
+            ORDER BY identifiantuser  DESC LIMIT $limite";
 
-    $sql = "SELECT * FROM relations WHERE userid = ? AND type = ?  LIMIT 1";
-    $result = $DB->read($sql, [$id, $type]);
-    if ($result) {
-        if(!empty($result['amis']))
-        {
-            return $result;
-        }else{
-            return getRandomFriendsList($id);
-        }
-    } else {
-        return getRandomFriendsList($id);
+    $randomUsers = $DB->read($sql, [$id, $id, $id]);
+
+    foreach ($randomUsers as &$user) {
+        $user['sexe'] = decrypt($user['sexe'], $key);
     }
+
+    $filteredUsers = array_filter($randomUsers, function ($user) use ($sexe) {
+        return $user['sexe'] = $sexe;
+    });
+
+    $finalResult = array_slice($filteredUsers, 0, $limite);
+
+    return $finalResult;
 }
 
 function getRandomFriendsList($id)
 {
     global $DB;
     global $limite;
-    $sql = "SELECT * FROM users WHERE userid != ? ORDER BY RAND() LIMIT $limite";
+    $sql = "SELECT * FROM users WHERE userid != ? where ORDER BY RAND() LIMIT $limite";
     $result = $DB->read($sql, [$id]);
 
     return $result;
 }
 
-function getRandomFriendsList_prefere($id, $sexe)
+function getRandomNonFriendsList($id, $sexe)
 {
     global $DB;
     global $key;
     global $limite;
-    $sql = "SELECT * FROM users WHERE userid != ? ORDER BY RAND() LIMIT $limite";
-    $randomUsers = $DB->read($sql, [$id]);
+    $sql = "SELECT * FROM users
+            WHERE userid != ? 
+            AND userid NOT IN (SELECT ownerid FROM amis WHERE amisid = ?)
+            AND userid NOT IN (SELECT amisid FROM amis WHERE ownerid = ?)
+            ORDER BY identifiantuser  DESC LIMIT $limite";
+
+    $randomUsers = $DB->read($sql, [$id, $id, $id]);
+
     foreach ($randomUsers as &$user) {
         $user['sexe'] = decrypt($user['sexe'], $key);
     }
+
     $filteredUsers = array_filter($randomUsers, function ($user) use ($sexe) {
         return $user['sexe'] != $sexe;
     });
+
     $finalResult = array_slice($filteredUsers, 0, $limite);
 
     return $finalResult;
 }
+
 function Mesinvitations($id)
 {
     global $DB;

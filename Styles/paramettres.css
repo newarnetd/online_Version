@@ -5,21 +5,7 @@
     height:97vh;
     margin:10px auto;
 }
-.SuivantBoutonNewUserCursor button{
-padding:15px;
-width:50%;
-background:var(--color-primary);
-margin:5px auto;
-color:#FFF;
-box-shadow:var(--boxshadow_section_blanche);
-border-radius:5px;
-cursor:pointer !important;
-display:flex;align-items:center;
-justify-content:center;
-width:60px;
-height:60px;
-border-radius:50%
-}
+
 .BoutonsRetoure.add.new i{
 padding-left:20px;
 }
@@ -29,13 +15,7 @@ color:#FFF;
 display:flex;align-items:center;
 justify-content:center;
 }
-.SuivantBoutonNewUserCursor{
-position:absolute;
-bottom:10px;
-display:flex;
-align-items:center;
-right:30px;
-}
+
 .swiper-wrapper.containeurSession, .swiper-wrapper .swiper-slide{
 position:relative;
 height:85vh;

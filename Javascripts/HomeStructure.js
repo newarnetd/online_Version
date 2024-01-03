@@ -271,3 +271,97 @@ function poster(event)
     functionAjax(page, form, callback);
         
   }  
+  function Confirmer(event)
+      {
+        const element = event.currentTarget; 
+        element.innerHTML = `...`;
+        const page = "confirmation.php";
+        let value = element.getAttribute('owner');
+        function callback(data) {
+          if(data.trim() =='true')
+          {
+            element.innerHTML = `déjà ami(e)`;
+          }else{
+            alert(data);
+          }
+        }
+        sendValueAjax(page, value, callback);
+      }
+      function supprimerInvitation(event)
+      {
+        const element = event.currentTarget; 
+        element.innerHTML = `...`;
+        const page = "confirmation.php";
+        let value = element.getAttribute('owner');
+        function callback(data) {
+            if(data.trim() =='true')
+            {
+              element.innerHTML = 'supprimeé(e)';
+            }else{
+              alert(data);
+            }
+        }
+        sendValueAjax(page, value, callback);
+      }
+  function ChargementFriends(id)
+  {
+    document.querySelector(".mesAmisListe").innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
+    let page = "readFriends.php";
+    let value = id;
+    function callback(data) {
+      document.querySelector(".mesAmisListe").innerHTML = data;
+      }
+      sendValueAjax(page, value, callback);
+  } 
+  function AddRelation(event) {
+    const element = event.currentTarget; 
+    element.innerHTML =  "....";
+    const page = "Relations.php";
+    const value = element.getAttribute('owner');
+    function callback(data) {
+      if(data.trim() === "true")
+      {
+        element.innerHTML =`Ami(e) <i class="fa-solid fa-user-check"></i>`;
+        element.style.color= "#FFF";
+        element.style.background= 'var(--color-addRelation)';
+      }else{
+        element.innerHTML =`Ajouter <i class="fa-solid fa-plus"></i>`;
+      }
+    }
+  
+    sendValueAjax(page, value, callback);
+  }
+  function suivreRelation(event) {
+    const element = event.currentTarget; 
+    element.innerHTML =  "....";
+    const page = "suivre.php";
+    const value = element.getAttribute('owner');
+    function callback(data) {
+      if(data.trim() === "true")
+      {
+        element.innerHTML =`suivi(e) <i class="fa-solid fa-user-check"></i>`;
+        element.style.color= "#FFF";
+        element.style.color= 'var(--color-addRelation)';
+      }else{
+        element.innerHTML =`suivre <i class="fa-solid fa-plus"></i>`;
+      }
+    }
+  
+    sendValueAjax(page, value, callback);
+  }
+  function cliquedImage()
+{
+document.querySelector(".BoutonsRetoure.add.storyAddBtn").style.display = 'flex';
+document.querySelector(".BoutonsRetoure.add.createAddBtn").style.display = 'flex';
+document.querySelector(".BoutonsRetoure.add.modificationPhotociover").style.display = 'flex';
+document.querySelector(".BoutonsRetoure.add.profilePhotoAdd").style.display = 'flex';
+}
+function Mesamis(value)
+{
+document.querySelector("#FrinedsGroupesAdd").innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
+let page = "AmisGroupesAdd.php";
+function callback(data) {
+  document.querySelector("#FrinedsGroupesAdd").innerHTML = data;
+  }
+  sendValueAjax(page, value, callback);
+} 

@@ -49,6 +49,7 @@ function updateLabelAndDisplay(input, event, displayId) {
           '<div class="document-info">Type: ' + fileType + '</div>';
       } else {
         displayElement.innerHTML = '<img src="' + e.target.result + '">';
+        cliquedImage();
       }
       var boutonSend = document.querySelector('.InputDouble .containeurInputStyle.poste.publication');
       if (boutonSend) {

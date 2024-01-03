@@ -24,6 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                     $sql = "INSERT INTO invitations (owner, userid, date,invitationId) VALUES (?, ?, ?,?)";
                     $DB->save($sql, [$id_clicked, $my_id, $date,$invitation_id]);
                     AddDatahyperSync($my_id, $id_clicked, "ajouter");
+                    $type = "amis";
+                    notification($id_clicked,$my_id,$type);
                     echo "true";
 
         }else{
@@ -50,6 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $sql = "INSERT INTO invitations (owner, userid, date,invitationId) VALUES (?, ?, ?,?)";
         $DB->save($sql, [$id_clicked, $my_id, $date,$invitation_id]);
         AddDatahyperSync($my_id, $id_clicked, "ajouter");
+        $type = "amis";
+        notification($id_clicked,$my_id,$type);
         echo "true";
     }
 }

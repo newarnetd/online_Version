@@ -12,15 +12,18 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         {
             global $key;
             global $user;
+            $USERS_ROW =  $user->get_user($_ROW['ownerid']);
             if($_ROW['ownerid'] === $my_id)
             {
                 $USERS_ROW =  $user->get_user($_ROW['amisid']);
             }else{
                 $USERS_ROW =  $user->get_user($_ROW['ownerid']);
             }
-            include("int_mes_amis.php");
-
+            include("Int_friends_select.php");
         }
+        
+    }else{
+        echo"<div class='BoutonsRetoure add'>Inviter votre Entourage</div>";
     }
     
 }

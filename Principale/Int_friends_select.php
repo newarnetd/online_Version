@@ -1,10 +1,25 @@
+<?php
+$nom_decrypte = decrypt($USERS_ROW['nom'], $key);
+$prenom_decrypte = decrypt($USERS_ROW['prenom'], $key);
+$sexe = decrypt($USERS_ROW['sexe'], $key);
+$nom_comple_friends = $nom_decrypte . ' ' . $prenom_decrypte;
+$profile = ($USERS_ROW['ver_profile'] !== 0) ? decrypt($USERS_ROW['profile'],$key) : ($sexe === "Femme" ? '../images/femme.jpg' : '../images/homme.jpg');
+$suivi = $USERS_ROW['suivi'];
+ $nom_comple_friends = limiterChaine($nom_comple_friends,13);
+if($suivi != 0)
+{
+  $suivi = $suivi ." "."suivi(s)";
+}else{
+  $suivi = "@" .$prenom_decrypte;
+}
+?>
 <div class="conteneuramis">
     <div class="photoamis">
-        <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
+        <img src="<?php echo $profile ?>"/>
     </div>
     <div class="nomamis">
-        <h3>arsene cirhuza</h3>
+        <h3><?php echo $nom_comple_friends ?></h3>
         <p><small>86 Membres </small></p>
     </div>
-    <div class="iconeamis"><input type="checkbox" name="" id="" onchange="creationGroupeVerification(event)"></div>
+    <div class="iconeamis"><input type="checkbox" name="membre" id="" onchange="creationGroupeVerification(event)"></div>
 </div>

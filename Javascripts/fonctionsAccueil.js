@@ -25,9 +25,10 @@ function CouvertureEdite()
     leftMererSlider.style.transform = "TranslateX(-400%)" ;
 }
 
-function CreatGroupe()
-{
-    leftMererSlider.style.transform = "TranslateX(-500%)" ;
+function CreatGroupe(event)
+{   let value = event.currentTarget.getAttribute('y');
+    leftMererSlider.style.transform = "TranslateX(-500%)";
+    Mesamis(value);
 }
 
 
@@ -132,38 +133,7 @@ function appliquerImageDeFond(event) {
             reader.readAsDataURL(input.files[0]);
         }
     }
-    function AddRelation(event) {
-        const element = event.currentTarget; 
-        element.innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
-        const page = "Relations.php";
-        const value = element.getAttribute('owner');
-        function callback(data) {
-          if(data.trim() === "true")
-          {
-            element.innerHTML =`Ami(e) <i class="fa-solid fa-user-check"></i>`;
-          }else{
-            element.innerHTML =`Ajouter <i class="fa-solid fa-plus"></i>`;
-          }
-        }
-      
-        sendValueAjax(page, value, callback);
-      }
-      function suivreRelation(event) {
-        const element = event.currentTarget; 
-        element.innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
-        const page = "suivre.php";
-        const value = element.getAttribute('owner');
-        function callback(data) {
-          if(data.trim() === "true")
-          {
-            element.innerHTML =`suivi(e) <i class="fa-solid fa-user-check"></i>`;
-          }else{
-            element.innerHTML =`suivre <i class="fa-solid fa-plus"></i>`;
-          }
-        }
-      
-        sendValueAjax(page, value, callback);
-      }
+  
       
       function RecherCherNewaRnaute(event)
       {

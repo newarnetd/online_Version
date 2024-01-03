@@ -42,6 +42,28 @@ box-shadow:none;
   margin:20px auto;
   display:none;
 }
+.SuivantBoutonNewUserCursor button{
+padding:15px;
+width:50%;
+background:var(--color-primary);
+margin:5px auto;
+color:#FFF;
+box-shadow:var(--boxshadow_section_blanche);
+border-radius:5px;
+cursor:pointer !important;
+display:flex;align-items:center;
+justify-content:center;
+width:60px;
+height:60px;
+border-radius:50%
+}
+.SuivantBoutonNewUserCursor{
+    position:absolute;
+    bottom:5px;
+    display:flex;
+    align-items:center;
+    right:10px;
+}
     </style>
 </head>
 <body>
@@ -54,7 +76,7 @@ box-shadow:none;
             <div class="profilephoto"><img src="<?php echo $profile ?>" alt=""></div>
             <div class="nameUserNew">
                 <h3><?php echo $nom_comple ?> </h3>
-                <span >Lecture et pation</span>
+                <span><?php echo $my_passion ?></span>
             </div>
         </div>
         <div class="InputDouble inputs"onclick="DecalerLeft(event)" id="tree">
@@ -67,26 +89,27 @@ box-shadow:none;
         </div>
         <div class="swiper-slide">
         <div class="swiper-slide">
-        <div class="leftnav FrinedsNew"> 
-            <i class="fa-solid fa-magnifying-glass"></i><input type="search" name=""id=""placeholder="Rechercher un NewaRnaute..." oninput="RecherCherNewaRnaute(event)">
-        </div>
         <div class="SuivantBoutonNewUserCursor" onclick="DecalerLeft(event)" id="two">
           <button><i class="fa-solid fa-arrow-right"></i></button>
         </div>
+        <div class="leftnav FrinedsNew"> 
+        <i class="fa-solid fa-magnifying-glass"></i><input type="search" name="search" id="search" placeholder="Rechercher un NewaRnaute..." oninput="searchUser(event,'ParametreUsersRech.php','datausersFriends')">
+        </div>        
         <h3 class="textAjouterFriends">Ajoutez au moins 5 amis pour bénéficier d'un accès élargi à notre contenu.</h3>
         <hr classe="ligneBottom">
-        <?php
-                        global $my_id;
-                        $USERS_ROWS = getFriends($my_id,'amis');
-                        if($USERS_ROWS)
-                        {
-                          foreach($USERS_ROWS as $USERS_ROW)
-                          {
-                            include("int_Friends_Add.php");
-                          }
-                        }
-                        
-                        ?>
+          <div id="datausersFriends">
+          <?php
+                global $my_id;
+                $USERS_ROWS = getFriends($my_id,'amis');
+                if($USERS_ROWS)
+                {
+                  foreach($USERS_ROWS as $USERS_ROW)
+                  {
+                    include("int_Friends_Add.php");
+                  }
+                }
+              ?>  
+          </div>
       </div>
         </div>
         <div class="swiper-slide PofilePhotoNew">
@@ -277,8 +300,7 @@ function updateLabelAndDisplay(input, event, displayId) {
           {
             if(data.trim() !== 'true')
             {
-              //alert("Selectionner une autre image pas celle-ci");
-              console.log(data);
+              alert("Selectionner une autre image pas celle-ci");
               document.querySelector('.BoutonsRetoure.add.new').style.display = 'none';
             }
 
@@ -290,6 +312,17 @@ function updateLabelAndDisplay(input, event, displayId) {
     };
 
     reader.readAsDataURL(fileInput.files[0]);
+  }
+}
+function searchUser(event, page, Cont) {
+  let contenteneur = document.getElementById(Cont);
+  if (event.target.value.trim() != '') {
+    let value = event.target.value;
+    contenteneur.innerHTML = '';
+    function callback(data) {
+      contenteneur.innerHTML = data;
+    }
+    sendValueAjax(page, value, callback);
   }
 }
 </script>

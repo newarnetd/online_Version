@@ -22,6 +22,7 @@ if($detail_user)
     $profile = ($detail_user['ver_profile'] !== 0) ? decrypt($detail_user['profile'],$key) : ($my_sexe=== "Femme" ? FEMME_IMAGE : HOMME_IMAGE);
     $couverture = ($detail_user['ver_couverture'] !== 0) ? decrypt($detail_user['couverture'],$key) : PLACEHOLDER_IMAGE;
     $my_id = decrypt($_SESSION['ownerConnected'],$key);
+    $my_passion = decrypt($detail_user['preference'],$key);
 }
 
 ?>
