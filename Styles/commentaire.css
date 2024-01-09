@@ -6,7 +6,7 @@
     justify-content: center;
 }
 .carterposteCommentaire .carterPoste{
-    width: 30%;
+    width: 40%;
     margin: 10px auto;
     background: var(--color-blanche-1);
     box-shadow: none;
@@ -36,17 +36,7 @@
     overflow-y: auto;
     justify-content: flex-start;
 }
-.sessionComentaireSide{
-    width: 95%;
-    margin: 5px auto;
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 50px;
-    justify-content: center;
-    background: var(--color-blanche-2);
-    border-radius: 20px;
-}
+
 .leftnav.comentaireInoput i{
     display: none;
     cursor: pointer;

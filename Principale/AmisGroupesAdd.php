@@ -1,30 +1,17 @@
 <?php
 include("otherPrincipale.php");
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
-    global $DB;
-    global $limite;
-    $id = decrypt($_POST['value'],$key);
-    $sql = "SELECT * FROM amis WHERE ownerid = ? OR amisid = ?";
-    $result = $DB->read($sql, [$id, $id]);
-    if($result)
-    {
+    global $my_id;
+    global $user;
+    $result= $user->Mesamis($my_id,"amis");
+    if($result){
         foreach($result as $_ROW)
         {
-            global $key;
-            global $user;
-            $USERS_ROW =  $user->get_user($_ROW['ownerid']);
-            if($_ROW['ownerid'] === $my_id)
-            {
-                $USERS_ROW =  $user->get_user($_ROW['amisid']);
-            }else{
-                $USERS_ROW =  $user->get_user($_ROW['ownerid']);
-            }
+            $USERS_ROW =  $user->get_user($_ROW['userid']);
             include("Int_friends_select.php");
         }
-        
     }else{
-        echo"<div class='BoutonsRetoure add'>Inviter votre Entourage</div>";
-    }
-    
+        echo"<div class='textCent'>Vous ne comptez aucun(e) ami(e) au sein de votre répertoire d'amis sur NewaRnet.</div>";
+    } 
 }
 ?>

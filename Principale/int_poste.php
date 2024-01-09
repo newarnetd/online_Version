@@ -6,6 +6,8 @@ $nom_comple_friends = $nom_decrypte . ' ' . $prenom_decrypte;
 $profile = ($OWNER['ver_profile'] !== 0) ? decrypt($OWNER['profile'],$key) : ($sexe === "Femme" ? '../images/femme.jpg' : '../images/homme.jpg');
 $suivi = $OWNER['suivi'];
 $dawload = $all_droits = false;
+$idpost = $data_poste['postid'];
+$linkComment = "commentaire.php?%i= " .$idpost;
 global $my_id;
 if($suivi !== 0)
 {
@@ -23,6 +25,7 @@ if($data_poste['userid'] === $my_id)
 {
   $all_droits = true;
 }
+$likes_count = $data_poste['likes'];
 ?>
 <div class="carterPoste">
                       <div class="blocHead">
@@ -32,7 +35,7 @@ if($data_poste['userid'] === $my_id)
                           </div>
                           <div class="nameUser">
                             <h3><?php echo $nom_comple_friends ?></h3>
-                            <small>Il y a <?php echo $date ?>.<i class="fa-solid fa-earth-africa"></i
+                            <small><?php echo $date ?>.<i class="fa-solid fa-earth-africa"></i
                             ></small>
                           </div>
                         </div>
@@ -76,13 +79,13 @@ if($data_poste['userid'] === $my_id)
                       <!-- Friends et Groupes Sharing -->
                       </div>
                       <div class="bottomIocnsEmotion">
-                        <div class="emotionIcons">
-                          <i class="fa-solid fa-thumbs-up"></i><span class="number"></span>
+                        <div class="emotionIcons"y="<?php echo $idpost?>" onclick="likePost(event)">
+                        <i class="fa-solid fa-thumbs-up"></i><span class="number"><?php echo ($likes_count ? $likes_count : ""); ?></span>
                         </div>
-                        <div class="emotionIcons">
+                        <a class="emotionIcons" href="<?php echo $linkComment?>">
                           <i class="fa-solid fa-comments"></i><span class="number"></span>
-                        </div>
-                        <div class="emotionIcons share" onclick="sharePost(event)">
+                        </a>
+                        <div class="emotionIcons share" href="y=<?php echo $idpost?>" onclick="sharePost(event)">
                           <i class="fa-solid fa-share"></i>
                           <span class="number"></span>
                         </div>

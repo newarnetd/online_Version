@@ -25,4 +25,4 @@ BEGIN
 END //
 
 DELIMITER ;
-CALL AddIndexToAllColumns('relations');
+/*CALL AddIndexToAllColumns('relations');*/

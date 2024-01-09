@@ -14,6 +14,64 @@
     <link rel="stylesheet" href="../Styles/commentaire.css">
     <link rel="shortcut icon"href="../images/Logo.png"type="image/jpeg"style="width: 300px; height: 300px"/>
     <title>NewaRnet</title>
+    <style>
+      .leftnav.comentaireInoput{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background:transparent !important;
+    padding-right:0;
+   
+}
+.sessionComentaireSide{
+    width: 95%;
+    margin: 5px auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    justify-content: center;
+    background:transparent !important;
+    border:1px solid  var(--color-blanche-2);
+    border-radius: 20px;
+}
+   .commentaireDefaut{
+    width:100%;
+    height:50%;
+    display:flex;align-items:center;justify-content:center;
+    flex-direction:column;
+   }
+   .iconeComment span{
+    
+   }
+   .iconeComment i{
+    font-size:55px;
+   }
+   .iconeComment{
+    width:100%;
+    display:flex;align-items:center;justify-content:center;
+   }
+   .sendIc i{
+    color:var(--color-text);
+   }
+   .sendIc{
+    background:var(--color-blanche-2);
+    color:#FFF;
+    padding:12px 20px;
+    border-radius:3px 20px 20px 3px;
+    height:50px;
+    display:flex;align-items:center;justify-content:center;
+
+   }
+   .emotionIcons{
+    box-shadow:none;
+   }
+   .bottomIocnsEmotion{
+    border-bottom:1px solid var(--color-blanche-2);
+    margin-bottom:10px;
+   }
+    </style>
 </head>
 <body>
     <div class="carterposteCommentaire">
@@ -36,33 +94,6 @@
             </div>
             <div class="corpPost">
               <img src="../images/Af-1 (6).jpg" class="imagePost" />
-              <div class="menuOptionPartager">
-                <div class="menuchoix"onclick="partager('link', 'NewaRnet', 'okay')"><i class="fa-solid fa-share-nodes"></i><span>Partager sur d'autres réseaux sociaux</span></div>
-                <div class="menuchoix"><i class="fa-solid fa-share-from-square"></i> <span>Partager sur NewaRnet</span></div>
-                <div class="menuchoix"onclick="GroupeFriendsShare(event)"><i class="fa-solid fa-retweet"></i> <span>Partager comme message</span></div>
-                <div class="menuchoix"onclick="GroupeFriendsShare(event)"> <i class="fa-solid fa-share"></i> <span>Partager dans un groupe</span></div>
-            </div>
-            <!-- Friends et Groupes Sharing -->
-            <div class="menuOptionPartager GroupeFrindsSelect">
-              <div class="InputDouble">
-                <div class="BoutonsAction" onclick="ReturnShare(event)"><i class="fa-solid fa-arrow-left"></i>Retourner</div>
-                <div class="BoutonsAction">Partager<i class="fa-solid fa-share"></i></div>
-              </div>
-              <div class="SearchMessage creationGroupe">
-                <i class="fa-solid fa-magnifying-glass"></i><input type="search" name="" id="" placeholder="Trouver un(e) Ami(e)">
-              </div>
-              <div class="conteneuramis">
-                <div class="photoamis">
-                  <img src="../images/Af-1 (5).jpg"width="100%"height="100%"/>
-                </div>
-                <div class="nomamis">
-                  <h3>arsene cirhuza</h3>
-                  <p><small>86 ami(e)s en commun </small></p>
-                </div>
-                <div class="iconeamis"><input type="checkbox" name="" id=""onchange="VerificationChecked(event)"></div>
-            </div>
-            </div>
-            <!-- Friends et Groupes Sharing -->
             </div>
             <div class="bottomIocnsEmotion">
               <div class="emotionIcons">
@@ -77,20 +108,15 @@
               </div>
             </div>
             <div class="commentaireUsers">
-              <div class="cartecommentaire">
-                <div class="imagePhoto">
-                    <div class="photoEplaza"></div>
-                    <div class="DetailArtcle">
-                      <span>Bousness Shop</span>
-                      <small>ily 2j</small>
-                    </div>
-                  </div>
-                  <p>Bonjour c'est correcter</p>
-              </div>
+             <div class="commentaireDefaut">
+              <div class="iconeComment"><i class="fa-regular fa-comments"></i></div>
+              <span class="textEplaza">Cette publication n'a actuellement aucun commentaire.</span>
+             </div>
             </div>
            <div class="sessionComentaireSide">
             <div class="leftnav comentaireInoput"> 
-                <input type="text" name=""id=""placeholder="Écris ton commentaire..."oninput="ComentaiPOST(event)"><i class="fa-solid fa-paper-plane"></i>
+                <input type="text" name=""id=""placeholder="Écris ton commentaire..."oninput="ComentaiPOST(event)">
+                <div class="sendIc"><i class="fa-solid fa-arrow-up"></i></div>
             </div>
            </div>
           </div>

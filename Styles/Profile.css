@@ -8,539 +8,221 @@ body{
     align-items: start;
     justify-content: center;
 }
-.coverProfile .photoCover{
-    overflow: hidden;
-}
-
-.coverProfile .photoCover img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    cursor: pointer;
-    border-radius: 10px 10px 0 0;
-}
-.profilePhotoUser img{
-    width: 100%;
+img{
+    width:100%;
     height:100%;
     object-fit: cover;
-    border-radius: 50%;
-    cursor: pointer;
+    
 }
 
-.coverProfile .photoCover{
-    width: 100%;
-    height: 100%;
+
+.cartePhotoGallery .imageGalleryUser img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 5px;
+    
 }
-.tittreSession{
+.cartePhotoGallery{
+    display: grid;
+    grid-template-columns: repeat( 3,auto);
+    gap:5px;
+    padding: 10px;
+}
+.textes span,.textes h3{
+    color:#FFF;
+}
+.textes{
+    display: flex;
     width: 100%;
+    padding: 15px 8px;
+    justify-content: space-between;
     background: var(--color-primary);
     color:#FFF;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+    margin:10px auto
 }
-.menuSettigns:hover i{
-    color: #FFF;
+.textes span:nth-child(2):hover{
+    border: 1px solid #BDBDBD;
+    padding: 3px 15px;
+    border-radius: 5px;
 }
-.menuSettigns:hover{
-    background: var(--color-primary);
-    color: #FFF;
-    opacity: .8;
-}
-.menuSettigns{
-    width: 100%;
-    padding: 15px;
-    align-items: center;
-    justify-content: flex-start;
+.textes span:nth-child(2){
     cursor: pointer;
-    gap:15px;
-    display: flex;
-    border-bottom: 1px solid var(--color-blanche-2);
-    color:var(--color-text);
-
 }
-.optionUserMenu{
-    width: 100%;
-    margin: 10px auto;
-    display: flex;  
-    align-items: start;
+.InfosAccademique{
+    padding: 10px;
+}
+.otherInformationUser .leftSideInformations{
+    width:50%;
     background: var(--color-blanche-1);
-    justify-content: flex-start;
-    flex-direction: column;
-}
-.otherSEssionAboutMe.about{
-    text-align: center;
-    justify-content: center;
-    display: flex;
-    opacity: .5;
 }
 
-.Gauche_one{
+.otherInformationUser .leftSideInformations .textEplaza{
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-blanche-2);
+}
+.otherInformationUser{
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
     width: 100%;
+    margin-top: 5px;
+    gap:2px;
+}
+.ParentDivs{
+    width:60%;
+    margin-top:70px;
     height: 100vh;
 }
-.swiper-slide.Suivis h3 span{
-    color: #FFF;
-    background: var(--color-primary);
-    padding: 5px 10px;
+.coverphotoUser{
+    width:100%;
+    height:100%;
+}
+.coverphotoUser img{
+    width: 100%;
+    height:100%;
+    object-fit:cover;
+}
+.amisEncommun .amisEncommun .image:hover{
+    transform: scale(-8);
+}
+.amisEncommun .image:nth-child(2){
+    position: absolute;
+    left:20px;
+}
+.RightSideInformations{
+    width:50%;
+    background: var(--color-blanche-1);
+}
+.rightSideProfile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.amisEncommun .image:nth-child(4){
+    position: absolute;
+    left:65px;
+}
+.amisEncommun .image{
+    border:1px solid var(--color-blanche-1);
+    cursor: pointer;
+}
+.amisEncommun{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap:0px;
+    position: relative;
+}
+.leftInfosusers .profilePhotoUsers{
+    width:120px;
+    height: 120px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.leftInfosusers{
+    display: flex;
+    gap:10px;
+    margin-top: 10px;
+}
+.amisEncommun .image img{
+    width:100%;
+    height:100%;object-fit: cover;
+    border-radius: 50%;
+}
+.amisEncommun .image{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.bottomside .bouton,.topSide .bouton{
+    background: var(--color-blanche-2);
+    padding: 7px 12px;
+    width:120px;
     border-radius: 5px;
     cursor: pointer;
-}
-.swiper-slide.Suivis h3{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 90%;
-    margin: 10px auto;
-    opacity: .8;
-}
-.swiper-slide.Suivis .conteneuramis:hover{
-    background: transparent;
-}
-.swiper-slide.Suivis .conteneuramis .photoamis{
-    background: var(--color-blanche-1);
-}
-.swiper-slide.Suivis .conteneuramis{
-    width: 80%;
-    margin: 10px auto;
-}
-.swiper-slide.apropos{
-    width: 100%;
-    height: 100%;
-    border-radius: 5px 5px 0 0;
-    padding: 10px 8px;
-}
-.couleurschoix,.Toolsschoix {
-    margin: 10px auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-.friend .photo  img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 3px;
-}
-.friend.EplazaCarte{
-    width: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    flex-basis: calc(100% - 1px); 
-    height: 220px;
-    margin: 5px auto;
-    gap:10px;
 }
-.friend.EplazaCarte .photo{
-    width: 100%;
-    height: 100%;
-    background: var(--color-blanche-1);
+.topSide .bouton:nth-child(1) i,.topSide .bouton:nth-child(2) i{
+    padding-right: 10px;   
 }
-.friend .photo{
-    width: 100%;
-    height: 90%;
-    background: var(--color-blanche-1);
-    border-radius: 3px;
-    overflow: hidden;
-}
-.otherSessionPartieProfile{
-    width: 27%;
-    height: 100%;
-    display: flex;
-    position:fixed;
-    top:10px;
-    align-items: center;
-    gap:2px;
-    justify-content: space-between;
-}
-.TextDemomo.eplaza{
-    background: transparent;
-    opacity: 1;
-    color: var(--color-text);
-}
-.TextDemomo{
-    display: flex;   
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    font-size: 14px;
-    width: 100%;
-    color: #FFF;
-    border-radius: 3px 3px 0 0;
-    padding: 10px;
-    opacity: .7;
-    background: var(--color-primary);
-}
-.mereDesireClique  .friend span{
-    font-size: 14px;
-    opacity: .7;
-}
-.mereDesireClique  .friend{
-    width: 200px;
-    height: 150px;
-    margin: 3px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    flex-basis: calc(50% - 1px); /* 20px de marge entre les éléments */
-    gap:10px;
-
-}
-.GrisEplazaBoutique{
-    display: flex;
-    gap:1px;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-.mereDesireClique{
-    display: flex;
-    gap:1px;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-.coverProfile{
-    width: 100%;
-    height: 40%;
-    background: var(--color-blanche-2);
-    position: relative;
-    border-radius: 10px 10px 0 0;
-    margin-bottom: 30px;
-}
-.sessionFriends{
-    width: 100%;
-    border-radius: 5px 5px 0 0 ;
-    max-height:60%;
-    height: 100%;
-    overflow-y: auto;
-    background: var(--color-blanche-1);
-}
-.Gauche_one{
-background: var(--color-blanche-2);
-}
-.boutonsprofile{
-    position: absolute;
-    top: -20px;
-    display: flex;   
-    align-items: center;
-    gap:5px;
-    right:0px;
-}
-.boutonsprofile button:nth-child(2)
-{
-    background: var(--color-blanche-2);
-    color: var(--color-text);
-}
-.boutonsprofile button:nth-child(2) i{
-    color:var(--color-text);
-}
-.containeurInputStyle{
-    background: var(--color-blanche-1);
-}
-.boutonsprofile button i{
-    padding-left: 10px;
-    color: #FFF;
-}
-.boutonsprofile button{
-    background: var(--color-primary);
-    color:#FFF;
-    padding: 10px 12px;
-    cursor: pointer;
-    border-radius: 3px;
-}
-.aproposUserInformation h3,.aproposUserInformation p{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    gap:15px;
-}
-.aproposUserInformation h3{
-    font-weight: 400;
-    margin: 25px  10px 0 0;
-    opacity: .5;
-    font-size: 20px;
-
-}
-.partie_one_sessionProfile{
-    width: 100%;
-    display: flex;
-    align-items: start;
-    gap:5px;
-    justify-content: space-between;
-    margin: 10px auto;
-}
-.sessionFriendBottom .textCent{
-    opacity: .8;
-    color:var(--color-text);
-}
-.sessionFriendBottom .userPhotoCarte{
-    background: var(--color-blanche-1);
-}
-.sessionFriendBottom{
-    width:100%;
-    height: 100%;
-    display: flex;
-    align-items: start;
-    justify-content: flex-start;
-}
-.swiper-slide.allPrincipale{
-    width: 100%;
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-    max-height: 100%;
-    height: 100%;
-    overflow-y: scroll;
-}
-select.containeurInputStyle{
-    width: 50%;
-    margin: 10px auto;
-    color: var(--color-text);
-    overflow: hidden;
-}
-.boutonOnlymobile.suivant{
-    width: 40%;
-}
-
-.swiper-slide.optionUserMenu{
-    height: fit-content;
-    overflow-y: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    flex-direction: column;
-}
-.aproposUserInformation{
-    display: flex;
-    position: relative;
-    align-items:start;
-    justify-content: flex-start;
-    width: 90%;
-    flex-direction: column;
-    margin: 0 auto;
-}
-.textInfoProfile i{
+.bottomside .bouton:nth-child(1) i{
     padding-right: 10px;
 }
-.textOfuser{
+.bottomside .bouton:nth-child(1){
+    background: var(--color-addRelation);
+    color:#FFF;
+
+}
+.bottomside .bouton:nth-child(2) i{
+    color:#FFF;
+}
+.bottomside .bouton:nth-child(2){
+width:50px;
+padding:12px 20px;
+background: var(--color-primary);
+color:#FFF;
+}
+.bottomside{
+    margin-top: 10px;
+    justify-content: flex-end !important;
+    width: 100%;
+}
+.bottomside,.topSide{
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    color: var(--color-text);
-    opacity: .7;
-}
-.textInfoProfile{
-    display: flex;
-    align-items:center;
-    border-bottom: 1px solid var(--color-blanche-2);
-    justify-content: flex-start;
-    padding: 10px;
-    opacity: .5;
-    color: var(--color-text);
-
-}
-.textInfoProfile b{
-    font-weight: 500;
-}
-.leftSideProfile{
-    background: var(--color-blanche-2);
-    width: 50%;
-    height: 100%;
-}
-.EplazaMarket{
-    width: 100%;
-    background: var(--color-blanche-2);
-    height: 100%;
-    margin: 10px 0 auto auto;
-    
-}
-.leftSideProfile{
-    background: var(--color-blanche-2);
-    width: 50%;
-    height: 100%;
-}
-.rightSideProfile{
-    width: 50%;
-    height:100%;
-    border-radius: 5px;
-}
-.detailsActionUser{
-    background: var(--color-blanche-1);
-    width: 100%;
-    border-radius:  0 0 5px 5px;
-    
-
-}
-.headerPartie{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    height:50%;
-    background: var(--color-blanche-1);
-    border-radius: 10px 10px 0 0;
-}
-.containeurInputStyle.genre{
-    border: none !important;
-    justify-content: flex-start;
-    align-items: center;
-    display: flex;
-    height: 30px;
-}
-.InputDouble.selection{
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: start;
-    display: flex;
-    width: 30%;
-}
-.bottomPartie{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    background: var(--color-blanche-2);
-    border-radius: 10px 10px 0 0;
-}
-.otherSEssionAboutMe{
-    width: 100%;
-    background: var(--color-blanche-1);
-    padding: 10px;
-    color: var(--color-text);
-    border-radius:0 0 3px 3px;
-    margin: 1px auto;
-}
-.profilePhotoUser{
-    position: absolute;
-    bottom: -30px;
-    border: 2px solid var(--color-blanche-1);
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background:var(--color-blanche-2);
-    left: 30px;
-}
-.centreSessionProfile{
-    flex-direction: column;
-    background: var(--color-blanche-2);
-    height: 100%;
-    width: 60%;
-    margin-right: 40%;
-}
-.iconeamis{
-    background: var(--color-blanche-2);
-    border-radius: 5px;
-}
-.conteneuramis:hover{
-    background: var(--color-blanche-1);
-}
-.containerPrincipale{
-    display: flex;
-    width: 70%;
     gap:10px;
-    max-height: 100vh;
-    height: 100%;
-    justify-content: flex-end;
 }
-.sessionFriends h3.Texte{
-    display: flex;
+.infosUsercarte{
+    width:100%;
+    display:flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 90%;
-    padding-top: 10px;
-    font-size: 14px;
-    opacity: .8;
-    
+    justify-content: space-between;
+    background: var(--color-blanche-1);
+    padding: 10px;
 }
-@media screen and (max-width: 480px) {
-   .otherSessionPartieProfile{
-    display: none;
-   }
-   .bottomPartie{
-    background: var(--color-blanche-1);
-   }
-   .headerPartie{
+.detailInfoProfileUsers h3{
+    font-weight: 500;
+    font-size: 20px;
+}
+.detailInfoProfileUsers{
     display: flex;
-    width: 100%;
+    align-items: start;
+    justify-content: flex-start;
     flex-direction: column;
-    height:400px;
-    background: var(--color-blanche-1);
+}
+hr.ligne{
+    margin:15px auto;
+    border-bottom: 1px solid #BDBDBD;
+}
+
+.headerParent{
+    width:100%;
     border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    height: 300px;
 }
-.partie_one_sessionProfile{
-    display: block;
-    background: var(--color-blanche-1);
-}
-   .containerPrincipale{
-    display: block;
-    width: 100%;
-    height: 100%;
-   }
-   .leftSideProfile{
-    background: var(--color-blanche-1);
-    width: 100%;
-    height: 100%;
-}
-.swiper-slide.Suivis h3{
-    text-align: center;
+.infoAbout{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content:flex-start;
     width: 100%;
-
+    gap:15px
 }
-.swiper-slide.Suivis span{
-    display: none;
+span.textInfodemo{
+    font-size: 16px;
+    color:#BDBDBD;
 }
-.rightSideProfile{
-    width: 100%;
-    height:100%;
-    border-radius: 5px;
-    background: var(--color-blanche-1);
-}
-
-   .centreSessionProfile{
-    height: 100%;
-    width: 100%;
-    margin-right: 0%;
-}
-.boutonsprofile button i{
-    padding-left: 5px;
-    color: #FFF;
-}
-.aproposUserInformation h3,.aproposUserInformation p{
-    display: flex;
-    align-items:start;
-    justify-content: flex-start;
-    width: 100%;
-    gap:15px;
-    padding-left: 10px;
-    
-}
-.carterPoste{
-    width: 100%;
-}
-.aproposUserInformation{
-    display: flex;
-    position: relative;
-    align-items:center;
-    justify-content: flex-start;
-    width: 98%;
-    flex-direction: column;
-    margin: 0 auto;
-}
-.swiper-slide.Suivis .conteneuramis{
-    width:95%;
-    margin: 10px auto;
-}
-
+.SearchMessage.creationGroupe{
+    width: 90%;
+    height: 50px;
+    padding-left:20px;
+    border-radius: 30px;
 }

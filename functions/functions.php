@@ -14,7 +14,33 @@ function encrypt($data, $key) {
     return base64_encode($encryptedData);
 }
 
-
+function vrificationImage($file)
+{
+    define('MAX_IMAGE_SIZE', 10 * 1024 * 1024);
+    if (isset($file['name']) && !empty($file['name'])) 
+    {
+         if ($file['size'] > MAX_IMAGE_SIZE) 
+         {
+             echo "La taille de l'image ne doit pas dépasser 5MB.";
+         } else {   
+             $folder = "../NewaRnautes/Story/" . decrypt($_SESSION['ownerConnected'],$key) . "/";
+             if(!file_exists($folder))
+             {
+                 mkdir($folder,0777,true);
+                 file_put_contents($folder . "index.php", "");
+             }
+             global $image_class;
+             $image_class = new Image();
+             $myimage = $folder . $image_class->generate_filename(15) . ".jpg";
+             move_uploaded_file($file['tmp_name'], $myimage);
+             $image_class->resize_image($myimage,$myimage,512,512);
+             $status = 1;
+             $imageposted = true;
+         }
+     }else{
+         echo"Sélectionner une image";
+     }
+}
 function decrypt($encryptedData, $key) {
     $encryptedData = base64_decode($encryptedData);
     $iv = substr($encryptedData, 0, 16);
@@ -40,34 +66,24 @@ function create_userid()
     }
     return $userid;
 }
-function addFriends($recepteur,$Emmeuteur)
+function notification($recepteur,$Emmeuteur,$type,$contentId)
 {
-    
-        global $DB;
-        global $key;
-        global $user;
-        $USERS_ROW = $user->get_user($recepteur);
-        $status =encrypt('actif',$key);
-        $sql = "INSERT INTO amis (ownerid,amisid,status,sexe,preference) VALUES (?,?,?,?,?)";
-        $DB->save($sql, [$Emmeuteur,$recepteur,$status,$USERS_ROW['sexe'],$USERS_ROW['preference']]);
-}
-function notification($recepteur,$Emmeuteur,$type)
-{
-    if($type === "amis")
+    global $DB;
+    global $key;
+    $date = encrypt(date("Y-m-d H:i:s"),$key);
+    $notifId = create_userid();
+    if($type === "accepter")
     {
-        global $DB;
-        global $key;
-        $notifId = create_userid();
-        $date = encrypt(date("Y-m-d H:i:s"),$key);
         $sql = "INSERT INTO notifications (userid,owner,date,notif_id,type) VALUES (?,?,?,?,?)";
-        $DB->save($sql, [$recepteur, $Emmeuteur, $date,$notifId,'amis']);
+        $DB->save($sql, [$recepteur, $Emmeuteur, $date,$notifId,$type]);
+    }
+    if($type =="aimer" || $type =="commenter" || $type =="partager"){
+        $sql = "INSERT INTO notifications (userid,owner,date,notif_id,type,contentid) VALUES (?,?,?,?,?,?)";
+        $DB->save($sql, [$recepteur, $Emmeuteur, $date,$notifId,$type,$contentId]);
     }
     if($type === "story")
     {
-        global $DB;
-        global $key;
-        $notifId = create_userid();
-        $date = encrypt(date("Y-m-d H:i:s"),$key);
+       
         $sql = "INSERT INTO notifications (owner,date,notif_id,type) VALUES (?,?,?,?)";
         $DB->save($sql, [$Emmeuteur, $date,$notifId,'story']);
     }
@@ -190,7 +206,7 @@ function calcTemps($pasttime)
                         
                         }else if ($answer == 1) { 
                         
-                            return "une min";
+                            return "1 min";
                             
                         }else {
                             
@@ -235,68 +251,21 @@ function limiterChaine($chaine, $limite)
 
     return $chaine;
 }
-function getFriends($id, $sexe)
+function AmisIncommun($id, $targetUser)
 {
     global $DB;
-    global $key;
-    global $limite;
-    $sql = "SELECT * FROM users
-            WHERE userid != ? 
-            AND userid NOT IN (SELECT ownerid FROM amis WHERE amisid = ?)
-            AND userid NOT IN (SELECT amisid FROM amis WHERE ownerid = ?)
-            ORDER BY identifiantuser  DESC LIMIT $limite";
-
-    $randomUsers = $DB->read($sql, [$id, $id, $id]);
-
-    foreach ($randomUsers as &$user) {
-        $user['sexe'] = decrypt($user['sexe'], $key);
+    global $user; 
+    $sql = "SELECT * FROM amis WHERE (ownerid = ? OR amisid = ?) AND (ownerid = ? OR amisid = ?)";
+    
+    $result = $DB->read($sql, [$id, $id, $targetUser, $targetUser]);
+    $commonFriends = [];
+    foreach ($result as $communFriend) {
+        $commonFriendDetails = $user->get_user($communFriend['ownerid']);
+        $commonFriends[] = $commonFriendDetails;
     }
 
-    $filteredUsers = array_filter($randomUsers, function ($user) use ($sexe) {
-        return $user['sexe'] = $sexe;
-    });
-
-    $finalResult = array_slice($filteredUsers, 0, $limite);
-
-    return $finalResult;
+    return $commonFriends;
 }
-
-function getRandomFriendsList($id)
-{
-    global $DB;
-    global $limite;
-    $sql = "SELECT * FROM users WHERE userid != ? where ORDER BY RAND() LIMIT $limite";
-    $result = $DB->read($sql, [$id]);
-
-    return $result;
-}
-
-function getRandomNonFriendsList($id, $sexe)
-{
-    global $DB;
-    global $key;
-    global $limite;
-    $sql = "SELECT * FROM users
-            WHERE userid != ? 
-            AND userid NOT IN (SELECT ownerid FROM amis WHERE amisid = ?)
-            AND userid NOT IN (SELECT amisid FROM amis WHERE ownerid = ?)
-            ORDER BY identifiantuser  DESC LIMIT $limite";
-
-    $randomUsers = $DB->read($sql, [$id, $id, $id]);
-
-    foreach ($randomUsers as &$user) {
-        $user['sexe'] = decrypt($user['sexe'], $key);
-    }
-
-    $filteredUsers = array_filter($randomUsers, function ($user) use ($sexe) {
-        return $user['sexe'] != $sexe;
-    });
-
-    $finalResult = array_slice($filteredUsers, 0, $limite);
-
-    return $finalResult;
-}
-
 function Mesinvitations($id)
 {
     global $DB;
@@ -358,6 +327,69 @@ function GetInvitations($ownerId)
     }
 }
 
+function PropositionAmis($id)
+{
+		$DB = new Database();
+		global $user;
+		global $limite;
+		$USERS_ROWSFiends= $user->Mesamis($id,"amis");
+        if($USERS_ROWSFiends)
+        {
+            foreach($USERS_ROWSFiends as  $DataFriends)
+                {
+                $FriendsIds =  $DataFriends['userid'];
+                }
+            $sql = "SELECT * FROM users
+            WHERE userid != ? 
+            AND userid != ? ORDER BY RAND()  LIMIT $limite";
+            $USERS_ROWS = $DB->read($sql, [$id, $FriendsIds]);
+            return $USERS_ROWS;   
+        }else{
+            $sql = "SELECT * FROM users
+            WHERE userid != ?  ORDER BY RAND()  LIMIT $limite";
+            $USERS_ROWS = $DB->read($sql, [$id]);
+            return $USERS_ROWS;
+        }
+}
+function processInvitation($sender, $receiver, $action) 
+{
+        global $DB;
 
+        $sql = "SELECT amis FROM relations WHERE type='amis' AND userid = ? LIMIT 1";
+        $result = $DB->read($sql, [$sender]);
 
+        if ($result) {
+            $Amis = json_decode($result[0]['amis'], true);
+            $user_ids = array_column($Amis, "userid");
+
+            if (!in_array($receiver, $user_ids)) {
+                $arr["userid"] = $receiver;
+                $Amis[] = $arr;
+                $amis_string = json_encode($Amis);
+
+                $sql = "UPDATE relations SET amis = ? WHERE type = 'amis' AND userid = ? LIMIT 1";
+                $DB->save($sql, [$amis_string, $sender]);
+                global $id_clicked;
+                $sql = "DELETE FROM invitations WHERE invitationId = ? LIMIT 1";
+                $DB->save($sql, [$id_clicked]);
+                AddDatahyperSync($sender, $receiver, $action);
+                $type = $action;
+                notification($receiver, $sender, $type,"");
+                echo "true";
+            }
+        } else {
+            $arr["userid"] = $receiver;
+            $relations = json_encode([$arr]);
+
+            $sql = "INSERT INTO relations (userid, amis, type) VALUES (?, ?, 'amis')";
+            $DB->save($sql, [$sender, $relations]);
+            global $id_clicked;
+            $sql = "DELETE FROM invitations WHERE invitationId = ? LIMIT 1";
+            $DB->save($sql, [$id_clicked]);
+            AddDatahyperSync($sender, $receiver, $action);
+            $type = $action;
+            notification($receiver, $sender, $type,"");
+            echo "true";
+        }
+}
 ?>

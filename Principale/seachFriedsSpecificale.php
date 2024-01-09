@@ -16,11 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST")
             $USERS_ROW =  $user->get_user($id);   
             include("int_search_User.php");
         }
-    }else{
-        echo"<div class='PopositionInvitation'>
-        <div class='textEplaza'>Aucun ami trouvé pour le moment, mais notre système propose d'inviter votre cible depuis d'autres réseaux sociaux en cliquant ci-dessous.</div>
-        <div class='confirmeBtn boutonAdmettre ajouter'onclick='share()'>Inviter des personnes<i class='fa-solid fa-share-nodes'></i></div>
-        </div>";
     }
 }
 ?>

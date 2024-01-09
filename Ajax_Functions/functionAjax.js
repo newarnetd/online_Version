@@ -71,11 +71,18 @@ function partager(donnees, titre, texte) {
       .then(() => console.log('Partage réussi depuis NewaRnet'))
   }
 }
+function share()
+{
+  let data = 'https://newarnet.com';
+  let tittre = "NewaRnet for Africa c'est le nouveau slogan qui circule sur la toile. L'heure est venue pour notre génération. Rendez-vous sur NewaRnet.";
+  let cont = `Découvrez le nouveau réseau social africain, NewaRnet, basé sur son slogan Internet pour Tous`;
+  partager(data,tittre,cont) ;
+}
 function invitation() {
   if (navigator.share) {
     navigator.share({
-      title: "Invitation depuis NewaRnet",
-      text: "L'heure est venue pour notre génération. Rendez-vous sur NewaRnet.",
+      title: "NewaRnet for Africa c'est le nouveau slogan qui circule sur la toile. L'heure est venue pour notre génération. Rendez-vous sur NewaRnet.",
+      text: "Découvrez le nouveau réseau social africain, NewaRnet, basé sur son slogan Internet pour Tous",
       url: "https://NewaRnet.com"
     })
       .then(() => console.log('Partage réussi depuis NewaRnet'))
@@ -94,7 +101,6 @@ function TextReg(conteneur, text) {
     index++;
   } , duration);
 }
-
 
 
 

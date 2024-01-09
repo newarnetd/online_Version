@@ -35,44 +35,38 @@ class User
 			return false;
 		}
 	}
-	public function get_groupe($id)
-	{
+	
 
-		$query = "SELECT * from groupe WHERE groupid  = ? LMIT 1";
+	
+public function Mesamis($id, $type)
+{
+    $DB = new Database();
+    $sql = "SELECT amis FROM relations WHERE type = ? AND userid = ? LIMIT 1";
+    $result = $DB->read($sql, [$type, $id]);
+
+    if ($result && is_array($result)) {
+        $FriedsIds = json_decode($result[0]['amis'], true);
+        return $FriedsIds;
+    }
+    return array();
+}
+
+	public function Mes_suivi($id,$type){
+
 		$DB = new Database();
-		$result = $DB->read($query, [$id]); 
+		$sql = "SELECT suivre FROM relations WHERE type= ? && userid = ? limit 1";
+			$result = $DB->read($sql,[$type,$id]);
+			if($result){
 
-		if($result)
-		{
-			return $result[0];
-		}else
-		{
-
-			return false;
-		}
+				$following = json_decode($result[0]['suivre'],true);
+				return $following;
+			}
+			return array();
 	}
-
-	public function get_friends($id)
-	{
-
-		$query = "select * from users where userid != ? ";
-		$DB = new Database();
-		$result = $DB->read($query,[$id]);
-
-		if($result)
-		{
-			return $result;
-		}else
-		{
-
-			return false;
-		}
-	}
-
 
 	public function relation_liaison($id, $type) {
 		$DB = new Database();
-		$type = addslashes($type);
+		$type = nettoyerDonnee($type);
 	
 		if (is_numeric($id)) {
 			$sql = "SELECT liaison FROM relation WHERE type = ? AND userid = ?";
@@ -102,92 +96,19 @@ class User
 		}
 		return false;
 	}
-	public function relation_liaison_tous($id, $type) {
+	
+	function get_relation($id,$type){
+
 		$DB = new Database();
-		$type = addslashes($type);
-	
-		if (is_numeric($id)) {
-			$sql = "SELECT liaison FROM relation WHERE type = ? AND userid = ?";
-			$DB = new Database();
-			$result = $DB->read($sql, [$type, $id]);
-	
-			if ($result) {
-				$liaison = json_decode($result[0]['liaison'], true);
-				return $liaison;
-			}
-		}
-		
-		return false;
-	}
-	
-	public function liaison_pubications($id,$type){
-
-	$DB = new Database();
-	$type = addslashes($type);
-
-	if (is_numeric($id)) {
-		$sql = "SELECT liaison FROM relation WHERE type= ? && userid= ?  LIMIT 1";
-		$DB = new Database();
-		$result = $DB->read($sql,[$type,$id]);
-		$liaison = json_decode($result[0]['liaison'], true);
-		return  $liaison;
-	}
-	}
-
-	public function follow_user($id,$type,$contentid){
-
-			if($id == $contentid && $type == 'user'){
-				return;
-			}
-
-			$sql = "select following from likes where type= ? && contentid = ? limit 1";
-			$DB = new Database();
-			$result = $DB->read($sql, [$type, $contentid]);
+		$type = nettoyerDonnee($type);
+			$sql = "select $type from relations where type='$type' && userid = '$id' limit 1";
+			$result = $DB->read($sql);
 			if(is_array($result)){
 
-				$likes = json_decode($result[0]['following'],true);
-
-				$user_ids = array_column($likes, "userid");
- 
-				if(!in_array($id, $user_ids)){
-
-					$arr["userid"] = $id;
-					$arr["date"] = date("Y-m-d H:i:s");
-
-					$likes[] = $arr;
-
-					$likes_string = json_encode($likes);
-					$sql = "update likes set following = ? where type= ?  && contentid = ? limit 1";
-					$DB->save($sql,[$likes_string, $type,$contentid]);
-
-					$user = new User();
-					$single_post = $user->get_user($id);
-				}else{
-
-					$key = array_search($id, $user_ids);
-					unset($likes[$key]);
-
-					$likes_string = json_encode($likes);
-					$sql = "update likes set following = ? where type= ? && contentid = ? limit 1";
-					$DB->save($sql,[$likes_string,$type,$contentid]);
- 
-				}
-				
-
-			}else{
-
-				$arr["userid"] = $id;
-				$arr["date"] = date("Y-m-d H:i:s");
-
-				$arr2[] = $arr;
-
-				$following = json_encode($arr2);
-				$sql = "insert into likes (type,contentid,following) values (?,?,?)";
-				$DB->save($sql,[$type,$contentid,$following]);
- 				$user = new User();
-				$single_post = $user->get_user($id);
+				$relation = json_decode($result[0][$type],true);
+				return $relation;
 			}
-
+		return false;
 	}
 
 	

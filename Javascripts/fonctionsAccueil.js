@@ -4,10 +4,7 @@ function SuivantGroupeCreation()
 {
     suivantGroupe.style.transform = "TranslateX(-100%)" ;
 }
-function NewConversation()
-{
-    leftMererSlider.style.transform = "TranslateX(-100%)" ;
-}
+
 function PostStory()
 {
     leftMererSlider.style.transform = "TranslateX(-200%)" ;
@@ -65,10 +62,7 @@ function afficherAmisDroite(id)
 function afficherCreerGroupe() {
     document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(-200%)";
 }
-function Suivies() {
-    document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(-300%)"; 
-}
-
+ 
 function afficherFirndsCartes() {
     document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(0%)";
 }
@@ -95,9 +89,7 @@ function MessageSide() {
 function HommePrinciplae() {
     document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(0%)";
 }
-function BoutiquesHOmes() {
-    document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-400%)";
-}
+
 function HomeSide() {
     setDisplayStyle(".droite_session", "flex");
 }
@@ -135,21 +127,4 @@ function appliquerImageDeFond(event) {
     }
   
       
-      function RecherCherNewaRnaute(event)
-      {
-          if(event.target.value.trim() != '')
-          {
-              document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-300%)";
-              const page = "searchPage.php";
-              let value = event.target.value;
-              function callback(data) {
-                setTimeout(() => {
-                  document.querySelector(".containeurData").innerHTML = data;
-                }, 1000);
-              }
-              sendValueAjax(page, value, callback);
-          }else{
-              document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(0%)";
-          }
-      }
- 
+     

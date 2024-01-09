@@ -19,7 +19,10 @@ if($suivi != 0)
     </div>
     <div class="nomamis">
         <h3><?php echo $nom_comple_friends ?></h3>
-        <p><small>86 Membres </small></p>
+        <p><small>
+         128 masi 
+        </small></p>
+        
     </div>
     <div class="iconeamis"><input type="checkbox" name="membre" id="" onchange="creationGroupeVerification(event)"></div>
 </div>

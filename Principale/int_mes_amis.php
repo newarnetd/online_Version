@@ -1,7 +1,7 @@
 <?php
 $nom_decrypte = decrypt($USERS_ROW['nom'], $key);
 $prenom_decrypte = decrypt($USERS_ROW['prenom'], $key);
-$sexe = decrypt($USERS_ROW['sexe'], $key);
+$sexe = decrypt($ROW['sexe'], $key);
 $nom_comple_friends = $nom_decrypte . ' ' . $prenom_decrypte;
 $profile = ($USERS_ROW['ver_profile'] !== 0) ? decrypt($USERS_ROW['profile'],$key) : ($sexe === "Femme" ? '../images/femme.jpg' : '../images/homme.jpg');
 $suivi = $USERS_ROW['suivi'];

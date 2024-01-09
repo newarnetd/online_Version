@@ -7,21 +7,23 @@ verificationSession();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="Styles/styleCommun.css">
     <link rel="stylesheet" href="Styles/index.css">
     <link rel="shortcut icon" href="images/Logo.png" type="image/jpeg" style="width:300px;height:300px">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <title>NewaRnet</title>
     <style>
-        .animationload{
-  display: none !important;
-}
+     
     </style>
 </head>
 <body>
-<div class="barrScrolle"><div class="counteurBare"></div></div>
+<div class="barrScrolle"><div></div></div>
+  <div class="contaneurImage">
+    <div class="photoImage"><img src="images/0000000000000000.png" alt=""></div>
+    <span>Un instant, on fait de notre mieux.</span>
+  </div>
     <div class="ReferencePage">
             <!-- Gauche_side -->
             <article class="leftside">
@@ -34,7 +36,7 @@ verificationSession();
                     <!-- text_newarnet -->
                 <div class="text_the_newaRnet interd">NewaRnet, basé sur le principe d'Internet Pour Tous, vous encourage à inviter vos proches à nous rejoindre dès maintenant.</div>
                 <div class="block_boutons">
-                    <div class="class_boutons_asisstence"onclick="Suivant_3()">Assistente Nianda ? <i class="fa-solid fa-clipboard-question"></i></div>
+                    <div class="class_boutons_asisstence"onclick="Suivant_3(event)">Assistente Nianda ? <i class="fa-solid fa-clipboard-question"></i></div>
                     <div class="class_boutons_asisstence invitationsUsers"onclick="invitation()">Invitez vos proches<i class="fa-solid fa-users"></i></div>
                 </div>
             </article>
@@ -659,148 +661,143 @@ verificationSession();
                       </div>
             </div>
     </div>
-    <div class="animationload interd">
-        <div class="containeurpage interd">
-            <div class="headerphoto interd"><img src="images/linkedin.png" alt=""></div>
-            <div class="animationMere interd">
-                <p>NewaRnet est en cours...</p>
-                <div class="loading interd"></div>
-            </div>
-        </div>
-    </div>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+const MereContent = document.querySelector(".swiper-wrapper.Desk");
+const MereContentMobile = document.querySelector(".swiper-wrapper.Mobile");
+function InscriptionFunctionDesk()
+{
+    MereContent.style.transform='translateX(-200%)';
+}
+function InscriptionFunctionMobile()
+{
+    MereContentMobile.style.transform='translateX(-300%)';
+}
+function connectionMobile()
+{
+    MereContentMobile.style.transform='translateX(-100%)';
+}
+function NiandaMobile()
+{
+    MereContentMobile.style.transform='translateX(-0%)';
+}
+
+function SuivantMob_1(event)
+{
+    
+    let mere = event.currentTarget.closest('.swiper-slide');
+    let nom = mere.querySelector('input#Mobnom');
+    let prenom = mere.querySelector('input#Mobprenom');
+    let email = mere.querySelector('input#Mobemail');
+    let erreurMessage = mere.querySelector('.erreurMessage');
+
+    if (nom.value.trim() === '' || prenom.value.trim() === '' || email.value.trim() === '') {
+        erreurMessage.textContent = "Veuillez remplir tous les champs.";
+        return;
+    }
+    if (!isNaN(nom.value.trim()) || !isNaN(prenom.value.trim())) {
+        erreurMessage.textContent = "Le nom et le prénom ne doivent pas être des nombres.";
+        return;
+    }
+    let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(email.value.trim())) {
+    erreurMessage.textContent = "L'adresse e-mail est incorrecte ";
+    return;
+    }
+    MereContentMobile.style.transform='translateX(-400%)';
+}
+function SuivantMob_2(event)
+{
+    let mere = event.currentTarget.closest('.swiper-slide');
+    let password= mere.querySelector('input#passwordInputMob');
+    let numero = mere.querySelector('input#numeroMob');
+    let erreurMessage = mere.querySelector('.erreurMessage');
+    if (numero.value.trim() === '' || password.value.trim() === '') {
+        erreurMessage.textContent = "Veuillez remplir tous les champs.";
+        return;
+    }
+    MereContentMobile.style.transform='translateX(-500%)';
+}
+function SuivantMob_3(event)
+{
+
+    MereContentMobile.style.transform='translateX(100%)';
+}
+function SuivantMob_0(event)
+{
+    let mere = event.currentTarget.closest('.swiper-slide.fin');
+    let Homme = mere.querySelector('input#Homme');
+    let Femme = mere.querySelector('input#Femme');
+    let erreurMessage = mere.querySelector('.erreurMessage');
+
+    if (!Femme.checked && !Homme.checked) {
+        erreurMessage.textContent = "Sélectionnez votre Genre";
+        return;
+    }
+    MereContentMobile.style.transform='translateX(-200%)';
+}
+function Suivant_1(event) {
+    let mere = event.currentTarget.closest('.swiper-slide');
+    let nom = mere.querySelector('input#nom');
+    let prenom = mere.querySelector('input#prenom');
+    let email = mere.querySelector('input#email');
+    let erreurMessage = mere.querySelector('.erreurMessage');
+
+    if (nom.value.trim() === '' || prenom.value.trim() === '' || email.value.trim() === '') {
+        erreurMessage.textContent = "Veuillez remplir tous les champs.";
+        return;
+    }
+    if (!isNaN(nom.value.trim()) || !isNaN(prenom.value.trim())) {
+        erreurMessage.textContent = "Le nom et le prénom ne doivent pas être des nombres.";
+        return;
+    }
+    let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(email.value.trim())) {
+    erreurMessage.textContent = "L'adresse e-mail est incorrecte";
+    return;
+    }
+
+    MereContent.style.transform = 'translateX(-300%)';
+}
+
+
+function Suivant_2()
+{
+    let mere = event.currentTarget.closest('.swiper-slide');
+    let password= mere.querySelector('input#password');
+    let numero = mere.querySelector('input#numero');
+    let erreurMessage = mere.querySelector('.erreurMessage');
+    if (numero.value.trim() === '' || password.value.trim() === '') {
+        erreurMessage.textContent = "Veuillez remplir tous les champs.";
+        return;
+    }
+
+    MereContent.style.transform='translateX(-400%)';
+}
+function Suivant_3(event) {
+   
+
+    MereContent.style.transform = 'translateX(0%)';
+}
+
+function Suivant_0()
+{
+    MereContent.style.transform='translateX(-100%)';
+}
+
+</script>
+
+<script src="JQuery/loadingIndex.js"></script>
+<script src="Javascripts/indexStyle.js"></script>
+<script src="Javascripts/otherIndexPage.js"></script>
 <script src="Javascripts/stylepage.js"></script>
-<script src="JQuery/functions.js"></script>
-<script src="Javascripts/loadingPage.js"></script>               
+<script src="JQuery/functions.js"></script>             
 <script src="Ajax_Functions/FunctionsJs.js"></script>
 <script src="Ajax_Functions/functionAjax.js"></script>
 <script src="Javascripts/refusActions.js"></script>
 <script src="Javascripts/sesionNianda.js"></script>
 <script src="Javascripts/conectionFunctions.js"></script>
 <script src="Ajax_Functions/connexion_inscription.js"></script>
-<script>
-     const MereContent = document.querySelector(".swiper-wrapper.Desk");
-    const MereContentMobile = document.querySelector(".swiper-wrapper.Mobile");
-    function InscriptionFunctionDesk()
-    {
-        MereContent.style.transform='translateX(-200%)';
-    }
-    function InscriptionFunctionMobile()
-    {
-        MereContentMobile.style.transform='translateX(-300%)';
-    }
-    function connectionMobile()
-    {
-        MereContentMobile.style.transform='translateX(-100%)';
-    }
-    function NiandaMobile()
-    {
-        MereContentMobile.style.transform='translateX(-0%)';
-    }
-
-    function SuivantMob_1(event)
-    {
-        
-        let mere = event.currentTarget.closest('.swiper-slide');
-        let nom = mere.querySelector('input#Mobnom');
-        let prenom = mere.querySelector('input#Mobprenom');
-        let email = mere.querySelector('input#Mobemail');
-        let erreurMessage = mere.querySelector('.erreurMessage');
-
-        if (nom.value.trim() === '' || prenom.value.trim() === '' || email.value.trim() === '') {
-            erreurMessage.textContent = "Veuillez remplir tous les champs.";
-            return;
-        }
-        if (!isNaN(nom.value.trim()) || !isNaN(prenom.value.trim())) {
-            erreurMessage.textContent = "Le nom et le prénom ne doivent pas être des nombres.";
-            return;
-        }
-        let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (!emailRegex.test(email.value.trim())) {
-        erreurMessage.textContent = "L'adresse e-mail est incorrecte ";
-        return;
-        }
-        MereContentMobile.style.transform='translateX(-400%)';
-    }
-    function SuivantMob_2(event)
-    {
-        let mere = event.currentTarget.closest('.swiper-slide');
-        let password= mere.querySelector('input#passwordInputMob');
-        let numero = mere.querySelector('input#numeroMob');
-        let erreurMessage = mere.querySelector('.erreurMessage');
-        if (numero.value.trim() === '' || password.value.trim() === '') {
-            erreurMessage.textContent = "Veuillez remplir tous les champs.";
-            return;
-        }
-        MereContentMobile.style.transform='translateX(-500%)';
-    }
-    function SuivantMob_3(event)
-    {
-    
-        MereContentMobile.style.transform='translateX(100%)';
-    }
-    function SuivantMob_0(event)
-    {
-        let mere = event.currentTarget.closest('.swiper-slide.fin');
-        let Homme = mere.querySelector('input#Homme');
-        let Femme = mere.querySelector('input#Femme');
-        let erreurMessage = mere.querySelector('.erreurMessage');
-
-        if (!Femme.checked && !Homme.checked) {
-            erreurMessage.textContent = "Sélectionnez votre Genre";
-            return;
-        }
-        MereContentMobile.style.transform='translateX(-200%)';
-    }
-    function Suivant_1(event) {
-        let mere = event.currentTarget.closest('.swiper-slide');
-        let nom = mere.querySelector('input#nom');
-        let prenom = mere.querySelector('input#prenom');
-        let email = mere.querySelector('input#email');
-        let erreurMessage = mere.querySelector('.erreurMessage');
-
-        if (nom.value.trim() === '' || prenom.value.trim() === '' || email.value.trim() === '') {
-            erreurMessage.textContent = "Veuillez remplir tous les champs.";
-            return;
-        }
-        if (!isNaN(nom.value.trim()) || !isNaN(prenom.value.trim())) {
-            erreurMessage.textContent = "Le nom et le prénom ne doivent pas être des nombres.";
-            return;
-        }
-        let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (!emailRegex.test(email.value.trim())) {
-        erreurMessage.textContent = "L'adresse e-mail est incorrecte";
-        return;
-        }
-
-        MereContent.style.transform = 'translateX(-300%)';
-    }
-
-
-    function Suivant_2()
-    {
-        let mere = event.currentTarget.closest('.swiper-slide');
-        let password= mere.querySelector('input#password');
-        let numero = mere.querySelector('input#numero');
-        let erreurMessage = mere.querySelector('.erreurMessage');
-        if (numero.value.trim() === '' || password.value.trim() === '') {
-            erreurMessage.textContent = "Veuillez remplir tous les champs.";
-            return;
-        }
-
-        MereContent.style.transform='translateX(-400%)';
-    }
-    function Suivant_3(event) {
-       
-
-        MereContent.style.transform = 'translateX(0%)';
-    }
-
-    function Suivant_0()
-    {
-        MereContent.style.transform='translateX(-100%)';
-    }
-
-</script>
 </body>
 </html>

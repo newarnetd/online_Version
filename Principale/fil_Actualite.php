@@ -1,13 +1,11 @@
                 <div class="swiper-slide">
-                   
+                      <!-- poste -->
                    <div class="PostesOnecoucher"></div>
-
-                   
-                   <!-- Propostion_modification -->
+                      <!-- Propostion_modification -->
                     <div class="carterTargetFrinds">
                             <div class="divText">
                               <span>Suggestions pour vous</span>
-                              <span>Voir plus <i class="fa-solid fa-caret-down"></i></span>
+                              <span y="<?php global $my_id; echo encrypt($my_id,$key) ?>" onclick="MoreFriends(event)">Voir plus <i class="fa-solid fa-caret-down"></i></span>
                             </div>
                             <div class="contaneurPropositions">
                                 <div class="carterFriendsPropo">
@@ -51,42 +49,12 @@
                             </div>
                     </div>
                     <!-- Propostion_modification -->
+                    <?php
+                    
+                    ?>
                     <div class="textEplaza">Bonjour Jean-Luc, David est également ami avec ces personnes. Connaissez-vous l'une d'entre elles ?</div>
                     <div class="swiper mySwiper profilephotoSuggestion">
                         <div class="swiper-wrapper">
-
-                          <div class="swiper-slide profilePhoto">
-                            <div class="headerSide">
-                              <div class="divText">
-                                <div class="identiteUse">
-                                    <div class="photoamis">
-                                          <img src="../images/1696508580709.jpg"/>
-                                        </div>
-                                        <div class="nomamis">
-                                          <h3>Jean-luc kashi...</h3>
-                                          <p><small>86 ami(e)s en commun </small></p>
-                                        </div>
-                                    </div>
-                                    <span>suivre</span>
-                                </div>
-                              </div>
-                            </div>
-                          <div class="swiper-slide profilePhoto">
-                            <div class="headerSide">
-                              <div class="divText">
-                                <div class="identiteUse">
-                                    <div class="photoamis">
-                                          <img src="../images/1696508580709.jpg"/>
-                                        </div>
-                                        <div class="nomamis">
-                                          <h3>Jean-luc kashi...</h3>
-                                          <p><small>86 ami(e)s en commun </small></p>
-                                        </div>
-                                    </div>
-                                    <span>suivre</span>
-                                </div>
-                              </div>
-                            </div>
                           <div class="swiper-slide profilePhoto">
                             <div class="headerSide">
                               <div class="divText">
@@ -110,18 +78,46 @@
                     <!-- suggestion PhotoUsers -->
                    <div class="swiper mySwiper other onlyScroll">
                    <hr class="ligne">
-                      <div class="divText"><span>Suggestions pour vous</span><span>Voir plus <i class="fa-solid fa-caret-down"></i></span></div>
+                      <div class="divText"><span>Suggestions pour vous</span><span  y="<?php global $my_id; echo encrypt($my_id,$key) ?>" onclick="MoreFriends(event)">Voir plus <i class="fa-solid fa-caret-down"></i></span></div>
                      <div class="swiper-wrapper containerFriesProposition">
                          <!-- Friends -->
                          <?php
-                         global $my_sexe;
                          global $my_id;
-                         $USERS_ROWS_FIENDS = getRandomNonFriendsList($my_id, $my_sexe);
-                        foreach($USERS_ROWS_FIENDS as $USERS_FRIENDS)
-                         {
-                           include("Int_Friends_1.php");
-                         }
-                         ?>
+                        global $user;
+                        $USERS_ROWSFiends= $user->Mesamis($my_id,"amis");
+                        if($USERS_ROWSFiends)
+                        {
+                            foreach($USERS_ROWSFiends as  $DataFriends)
+                            {
+                              $FriendsIds =  $DataFriends['userid'];
+                            }
+                            $sql = "SELECT * FROM users
+                            WHERE userid != ? 
+                            AND userid != ? ORDER BY RAND()  LIMIT $limite";
+                            $USERS_ROWS = $DB->read($sql, [$my_id, $FriendsIds]);
+                          
+                            if($USERS_ROWS)
+                            {
+                              foreach($USERS_ROWS as $USERS_FRIENDS)
+                              {
+                                include("Int_Friends_1.php");
+                              }
+                            }
+                        }else{
+                          $sql = "SELECT * FROM users
+                            WHERE userid != ? ORDER BY RAND()  LIMIT $limite";
+                            $USERS_ROWS = $DB->read($sql, [$my_id]);
+                          
+                            if($USERS_ROWS)
+                            {
+                              foreach($USERS_ROWS as $USERS_FRIENDS)
+                              {
+                                include("Int_Friends_1.php");
+                              }
+                            }
+
+                        }
+                        ?>
                      </div>
                    </div>
                    <div class="textEplaza">ePlaza est un lieu virtuel de promotion des produits avec une large diffusion dans l'écosystème NewaRnet</div>
@@ -133,7 +129,7 @@
                  </div>
                  <!-- videosHome -->
                  <div class="swiper-slide">
-                  videoSession
+                      
                  </div>
                  <!-- Statu -->
                    <div class="swiper-slide">
@@ -190,7 +186,6 @@
                              <input type="file" name="document" id="documents" hidden accept=".pdf, .doc, .docx, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document" onchange="updateLabelAndDisplay(this,event, 'documentDisplay')"> 
                              <div class="swiper-slide">
                              <label for="imagePost" id="imageDisplay" class="carterPostStory poste">
-                                 <i class="fa-solid fa-image"></i>
                                  <p><div class="selectIcon"><i class="fa-solid fa-cloud-arrow-up"></i></div></p>
                                </label>
                              </div>

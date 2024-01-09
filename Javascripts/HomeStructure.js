@@ -365,3 +365,93 @@ function callback(data) {
   }
   sendValueAjax(page, value, callback);
 } 
+function Suivies(event) {
+  let id = event.currentTarget.getAttribute('y');
+  document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(-300%)"; 
+  Chargementsuivis(id);
+  
+}
+function Chargementsuivis(value)
+{
+  document.querySelector(".ListeSuivi").innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
+let page = "readSuivis.php";
+function callback(data) {
+  document.querySelector(".ListeSuivi").innerHTML = data;
+  }
+  sendValueAjax(page, value, callback);
+}
+function NewConversation(event)
+{   
+leftMererSlider.style.transform = "TranslateX(-100%)" ;
+  document.querySelector(".carterPrinciplale").innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
+  let id = event.currentTarget.getAttribute('y');
+  let page = "NewConversationFriends.php";
+  let value = id;
+  function callback(data) {
+    document.querySelector(".carterPrinciplale").innerHTML = data;
+    }
+    sendValueAjax(page, value, callback);
+  
+}
+function MoreFriends(event) {
+let value = event.target.getAttribute('y');
+document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-400%)";
+let contenteneur = document.getElementById('dataRechercheUserSecond');
+  let page = "moreFriends.php";
+  function callback(data) {
+    setTimeout(() => {
+      contenteneur.innerHTML = data;
+    }, 1500);
+    }
+    sendValueAjax(page, value, callback);
+}
+function searchUser(event, page, Cont) {
+let contenteneur = document.getElementById(Cont);
+if (event.target.value.trim() != '') {
+  let value = event.target.value;
+  contenteneur.innerHTML = '';
+  function callback(data) {
+    contenteneur.innerHTML = data;
+  }
+  sendValueAjax(page, value, callback);
+}
+}
+function RecherCherNewaRnaute(event)
+    {
+        if(event.target.value.trim() != '')
+        {
+            document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-300%)";
+            const page = "searchPage.php";
+            let value = event.target.value;
+            function callback(data) {
+              setTimeout(() => {
+                document.querySelector(".containeurData").innerHTML = data;
+              }, 1000);
+            }
+            sendValueAjax(page, value, callback);
+        }else{
+            document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(0%)";
+        }
+}
+function addStory(event)
+{
+  event.target.innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
+  let page = "addStoty.php";
+  let form = document.querySelector("#PostFormStory");
+  let erreur = document.querySelector(".erreurImagesStory");
+  function callback(data) 
+  {
+    if(data.trim() === 'true')
+    {
+      TurnBack();
+    }else{
+      erreur.innerHTML = data;
+      event.target.innerHTML ="Ajouter sur Story";
+      setTimeout(() => {
+        erreur.innerHTML = "";
+      }, 10000);
+    }
+  }
+  functionAjax(page, form, callback);
+}
+  

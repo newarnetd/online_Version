@@ -40,3 +40,46 @@ width:90%
 position:absolute;
 bottom:20%;
 }
+.leftnav.FrinedsNew{
+    width:90%;
+    height:55px;
+    margin:10px auto;
+    border-radius:30px;
+    background:transparent;
+    border:1px solid var(--color-blanche-2);
+    box-shadow:none;
+    }
+    .swiper-slide{
+      max-height:85vh;
+      overflow-y:auto !important;
+      height:100%;
+    }
+    .BoutonsRetoure.add.new{
+      width:30%;
+      margin:20px auto;
+      display:none;
+    }
+    .SuivantBoutonNewUserCursor button{
+    padding:15px;
+    width:50%;
+    background:var(--color-primary);
+    margin:5px auto;
+    color:#FFF;
+    box-shadow:var(--boxshadow_section_blanche);
+    border-radius:5px;
+    cursor:pointer !important;
+    display:flex;align-items:center;
+    justify-content:center;
+    width:60px;
+    height:60px;
+    border-radius:50%
+    }
+    .SuivantBoutonNewUserCursor{
+        position:absolute;
+        bottom:5px;
+        display:flex;
+        align-items:center;
+        right:10px;
+    }
+ 
+      

@@ -23,7 +23,7 @@ if(($detail_user['ver_profile'] !== 0))
     <link rel="shortcut icon"href="../images/Logo.png"type="image/jpeg"style="width: 300px; height: 300px"/>
     <title>NewaRnet</title>
     <style>
-       .leftnav.FrinedsNew{
+               .leftnav.FrinedsNew{
 width:90%;
 height:55px;
 margin:10px auto;
@@ -79,17 +79,16 @@ border-radius:50%
                 <span><?php echo $my_passion ?></span>
             </div>
         </div>
-        <div class="InputDouble inputs"onclick="DecalerLeft(event)" id="tree">
+        <div class="InputDouble inputs"onclick="deplacementFuntion(event)" id="tree">
             <button>Compléter mon Profil <i class="fa-solid fa-pen-to-square"></i></button>  
         </div>
         <p class="textEplaza">Bienvenue sur NewaRnet ! Merci pour votre première visite. Explorez davantage de contenus en vous abonnant à des genres qui vous intéressent et en ajoutant des membres comme amis.</p>
-        <div class="SuivantBoutonNewUserCursor" onclick="DecalerLeft(event)" id="one">
+        <div class="SuivantBoutonNewUserCursor" onclick="deplacementFuntion(event)" id="one">
           <button><i class="fa-solid fa-arrow-right"></i></button>
         </div>
         </div>
         <div class="swiper-slide">
-        <div class="swiper-slide">
-        <div class="SuivantBoutonNewUserCursor" onclick="DecalerLeft(event)" id="two">
+        <div class="SuivantBoutonNewUserCursor" onclick="deplacementFuntion(event)" id="two">
           <button><i class="fa-solid fa-arrow-right"></i></button>
         </div>
         <div class="leftnav FrinedsNew"> 
@@ -100,7 +99,7 @@ border-radius:50%
           <div id="datausersFriends">
           <?php
                 global $my_id;
-                $USERS_ROWS = getFriends($my_id,'amis');
+                $USERS_ROWS = PropositionAmis($my_id);
                 if($USERS_ROWS)
                 {
                   foreach($USERS_ROWS as $USERS_ROW)
@@ -110,11 +109,10 @@ border-radius:50%
                 }
               ?>  
           </div>
-      </div>
         </div>
         <div class="swiper-slide PofilePhotoNew">
                         <form action="" method="post" enctype="multipart/form-data" class="PostArticleForm" id="ModificationProfile">
-                          <input type="file" name="ProfilePhoto" id="imageProfieutilisateur" hidden accept="image/*" onchange="updateLabelAndDisplay(this,event, 'imageprofil')">
+                          <input type="file" name="ProfilePhoto" id="imageProfieutilisateur" hidden accept="image/*" onchange="updateLabelAndDisplayParamettre(this,event, 'imageprofil')">
                           <label for="imageProfieutilisateur" class="carterPostStory profile_cover other" id="imageprofil" onclick="SelectionImageParametre()">
                             <?php
                             $DB = new Database();
@@ -135,7 +133,7 @@ border-radius:50%
                           <p><div class="selectIcon"><i class="fa-solid fa-cloud-arrow-up"></i></div></p>
                           </label>                  
                       </form>
-                        <div class="BoutonsRetoure add new" onclick="DecalerLeft(event)" id="GoPageProfile">suivant <i class="fa-solid fa-arrow-right"></i></div>
+                        <div class="BoutonsRetoure add new" onclick="deplacementFuntion(event)" id="GoPageProfile">suivant <i class="fa-solid fa-arrow-right"></i></div>
                         <p class="Text_Norme">Cette photo offre aux NewaRnautes une première impression visuelle de votre personnalité sur votre profil.</p>
                       </div>
                       <form method="POST" class="swiper-slide optionUserMenu allSettigns" id="modificationInfos">
@@ -209,122 +207,16 @@ border-radius:50%
        
         <div class="swiper-pagination"></div>
     </div>
- <!-- <script src="../Javascripts/refusActions.js"></script> -->
- <script src="../Javascripts/actionLoadingHome.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- <script src="../Javascripts/refusActions.js"></script> -->
+    <script src="../Javascripts/actionLoadingHome.js"></script>
     <script src="../Javascripts/loadingPage.js"></script>
     <script src="../Javascripts/stylepage.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="../Javascripts/bib.js"></script>
     <script src="../Javascripts/fonctionsAccueil.js"></script>
     <script src="../Javascripts/HomeStructure.js"></script>
+    <script src="../Javascripts/parametresPageStye.js"></script>
     <script src="../Ajax_Functions/functionAjax.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-  function DecalerLeft(event)
-  {
-    let value = event.currentTarget;
-    let MereSlides = document.querySelector(".swiper.mySwiper .swiper-wrapper");
-    if(value.id =="one")
-    {
-        MereSlides.style.transform = 'translateX(-100%)';
-    }else if(value.id =="two")
-    {
-        MereSlides.style.transform = 'translateX(-200%)';
 
-    }else if(value.id =="tree")
-    {
-        MereSlides.style.transform = 'translateX(-300%)';
-
-    }else if(value.id =="GoPageProfile")
-    {
-        window.location.href="accueil.php";
-
-    }
-  }
-  function selectMode(selectedValue) {
-    if (selectedValue === "Mode clair") {
-        darkFunction();
-    } else if (selectedValue === "Mode sombre") {
-        sunFunction();
-    }
-}
-function Modification(event)
-{
-  let Element = event.currentTarget;
-    Element.innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
-    let page = "UpdateInfos.php";
-    let form = document.querySelector("#modificationInfos");
-    function callback(data)
-    {
-      if(data.trim() !== 'true')
-      {
-        document.querySelector('.erreurMessage').textContent = data;
-        setTimeout(() => {
-                Element.innerHTML ="Engrestre ces modifications";
-            }, 3000);
-      }else{
-        let MereSlides = document.querySelector(".swiper.mySwiper .swiper-wrapper");
-        MereSlides.style.transform = 'translateX(0%)';
-        window.location.href="Parametres.php";
-      }
-    }
-    functionAjax(page, form, callback);
-}
-
-function updateLabelAndDisplay(input, event, displayId) {
-  var fileInput = input;
-  var displayElement = document.getElementById(displayId);
-  displayElement.innerHTML = `<div class="mereAnimationclique"><span>Chargement..</span><div class="loading interd"></div></div>`;
-
-  if (fileInput.files && fileInput.files[0]) {
-    var reader = new FileReader();
-
-    reader.onload = function (e) {
-      if (displayId === 'videoDisplay') {
-        displayElement.innerHTML = '<video controls autoplay muted><source autoplay src="' + e.target.result + '" type="video/mp4"></video>';
-      } else if (displayId === 'documentDisplay') {
-        var file = fileInput.files[0];
-        var fileName = file.name;
-        var documentTitle = fileName.substr(0, fileName.lastIndexOf('.')) || fileName;
-        var fileSize = (file.size / 1024).toFixed(2);
-        var fileType = file.type || 'Non disponible';
-        displayElement.innerHTML = '<div class="document-title"> Nom du Fichier :' + documentTitle + '</div>' +
-          '<div class="document-info">Taille: ' + fileSize + ' KB</div>' +
-          '<div class="document-info">Type: ' + fileType + '</div>';
-      } else {
-        displayElement.innerHTML = '<img src="' + e.target.result + '">';
-        document.querySelector('.BoutonsRetoure.add.new').style.display = 'flex';
-        let page = "ModificationProfile.php";
-        let form = document.querySelector("#ModificationProfile");
-          function callback(data)
-          {
-            if(data.trim() !== 'true')
-            {
-              alert("Selectionner une autre image pas celle-ci");
-              document.querySelector('.BoutonsRetoure.add.new').style.display = 'none';
-            }
-
-            
-          }
-          functionAjax(page, form, callback);
-      }
-      
-    };
-
-    reader.readAsDataURL(fileInput.files[0]);
-  }
-}
-function searchUser(event, page, Cont) {
-  let contenteneur = document.getElementById(Cont);
-  if (event.target.value.trim() != '') {
-    let value = event.target.value;
-    contenteneur.innerHTML = '';
-    function callback(data) {
-      contenteneur.innerHTML = data;
-    }
-    sendValueAjax(page, value, callback);
-  }
-}
-</script>
   </body>
 </html>
