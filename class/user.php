@@ -38,32 +38,97 @@ class User
 	
 
 	
-public function Mesamis($id, $type)
+	public function Mesamis($id, $type)
+	{
+		global $my_id;
+		$DB = new Database();
+		$sql = "SELECT amis FROM relations WHERE type = ? AND userid = ? LIMIT 1";
+		$result = $DB->read($sql, [$type, $id]);
+	
+		if ($result && is_array($result)) {
+			$FriedsIds = json_decode($result[0]['amis'], true);
+	
+			return $FriedsIds;
+		}
+	
+		return array();
+	}
+	
+public function Mes_suivi($id, $type)
 {
+    global $my_id;
+    $DB = new Database();
+    $sql = "SELECT suivre FROM relations WHERE type = ? AND userid = ? LIMIT 1";
+    $result = $DB->read($sql, [$type, $id]);
+
+    if ($result && is_array($result)) {
+        $following = json_decode($result[0]['suivre'], true);
+        $following = array_filter($following, function ($friend) use ($my_id) {
+            return $friend !== $my_id;
+        });
+
+        shuffle($following);
+        return $following;
+    }
+
+    return array();
+}
+public function AmisRand($id, $type, $limiter)
+{
+    global $my_id;
     $DB = new Database();
     $sql = "SELECT amis FROM relations WHERE type = ? AND userid = ? LIMIT 1";
     $result = $DB->read($sql, [$type, $id]);
 
     if ($result && is_array($result)) {
         $FriedsIds = json_decode($result[0]['amis'], true);
+        $FriedsIds = array_filter($FriedsIds, function ($friend) use ($my_id) {
+            return $friend !== $my_id;
+        });
+
+        shuffle($FriedsIds);
+        $FriedsIds = array_slice($FriedsIds, 0, $limiter);
         return $FriedsIds;
     }
+
     return array();
 }
 
-	public function Mes_suivi($id,$type){
+public function suivi_DesAmis($id, $type,$limiterNumber)
+{
+    global $my_id;
+    $DB = new Database();
+    $sql = "SELECT suivre FROM relations WHERE type = ? AND userid = ? LIMIT 1";
+    $result = $DB->read($sql, [$type, $id]);
 
-		$DB = new Database();
-		$sql = "SELECT suivre FROM relations WHERE type= ? && userid = ? limit 1";
-			$result = $DB->read($sql,[$type,$id]);
-			if($result){
+    if ($result && is_array($result)) {
+        $following = json_decode($result[0]['suivre'], true);
+        shuffle($following);
+        $following = array_slice($following, 0, $limiterNumber);
 
-				$following = json_decode($result[0]['suivre'],true);
-				return $following;
-			}
-			return array();
-	}
+        return $following;
+    }
 
+    return array();
+}
+
+public function Amis_DesAmis($id, $type,$limiterNumber)
+{
+    global $my_id;
+    $DB = new Database();
+    $sql = "SELECT amis FROM relations WHERE type = ? AND userid = ? LIMIT 1";
+    $result = $DB->read($sql, [$type, $id]);
+
+    if ($result && is_array($result)) {
+        $FriedsIds = json_decode($result[0]['amis'], true);
+        shuffle($FriedsIds);
+        $FriedsIds = array_slice($FriedsIds, 0, $limiterNumber);
+
+        return $FriedsIds;
+    }
+
+    return array();
+}
 	public function relation_liaison($id, $type) {
 		$DB = new Database();
 		$type = nettoyerDonnee($type);

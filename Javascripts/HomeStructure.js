@@ -50,22 +50,7 @@ function VerificationChecked(event) {
         mere.querySelector(".InputDouble .BoutonsAction:nth-child(2)").style.display = 'none';
     }
 }
-function creationGroupeVerification(event) {
-    var checkbox = event.target;
- 
-    let mere = event.target.closest('.swiper-slide.groupesideCreation');
-    let inputCheckboxes = mere.querySelectorAll("input[type='checkbox']");
-    
-    let shouldDisplay = Array.from(inputCheckboxes).some(input => input.checked);
- 
-    if (shouldDisplay) {
-        document.querySelector(".swiper-slide.groupesideCreation .leftnav.groupeCreation").style.display = 'flex';
-        document.querySelector(".swiper-slide.groupesideCreation .suivantBoutonsGroupe").style.display = 'flex';
-    } else {
-        document.querySelector(".swiper-slide.groupesideCreation .leftnav.groupeCreation").style.display = 'none';
-        document.querySelector(".swiper-slide.groupesideCreation .suivantBoutonsGroupe").style.display = 'none';
-    }
- }
+
  function BoutiquesFile(event)
  {
     let value = event.currentTarget;
@@ -271,38 +256,7 @@ function poster(event)
     functionAjax(page, form, callback);
         
   }  
-  function Confirmer(event)
-      {
-        const element = event.currentTarget; 
-        element.innerHTML = `...`;
-        const page = "confirmation.php";
-        let value = element.getAttribute('owner');
-        function callback(data) {
-          if(data.trim() =='true')
-          {
-            element.innerHTML = `déjà ami(e)`;
-          }else{
-            alert(data);
-          }
-        }
-        sendValueAjax(page, value, callback);
-      }
-      function supprimerInvitation(event)
-      {
-        const element = event.currentTarget; 
-        element.innerHTML = `...`;
-        const page = "confirmation.php";
-        let value = element.getAttribute('owner');
-        function callback(data) {
-            if(data.trim() =='true')
-            {
-              element.innerHTML = 'supprimeé(e)';
-            }else{
-              alert(data);
-            }
-        }
-        sendValueAjax(page, value, callback);
-      }
+  
   function ChargementFriends(id)
   {
     document.querySelector(".mesAmisListe").innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
@@ -313,7 +267,35 @@ function poster(event)
       }
       sendValueAjax(page, value, callback);
   } 
+  
   function AddRelation(event) {
+    const element = event.currentTarget; 
+    element.innerHTML =  "....";
+    const page = "Relations.php";
+    const value = element.getAttribute('owner');
+    function callback(data) {
+        if (data.trim() === "true") {
+            element.innerHTML = `Invitation envoyée <i class="fa-solid fa-user-check"></i>`;
+            element.style.color = "#FFF";
+            element.style.background = 'var(--color-addRelation)';
+            
+            const parentWithSibling = element.closest('.supprimerBtn.boutonAdmettre.suivre');
+            if (parentWithSibling) {
+                const siblingToDelete = parentWithSibling.querySelector('.boutonsUserConfirme');
+                if (siblingToDelete) {
+                    siblingToDelete.style.display = 'none';
+                }
+            }
+        } else {
+            element.innerHTML = `Ajouter <i class="fa-solid fa-plus"></i>`;
+        }
+    }
+    sendValueAjax(page, value, callback);
+}
+
+
+  function OtherFontionAdd(event)
+  {
     const element = event.currentTarget; 
     element.innerHTML =  "....";
     const page = "Relations.php";
@@ -321,29 +303,11 @@ function poster(event)
     function callback(data) {
       if(data.trim() === "true")
       {
-        element.innerHTML =`Ami(e) <i class="fa-solid fa-user-check"></i>`;
+        element.innerHTML =`Envoyée`;
         element.style.color= "#FFF";
         element.style.background= 'var(--color-addRelation)';
       }else{
         element.innerHTML =`Ajouter <i class="fa-solid fa-plus"></i>`;
-      }
-    }
-  
-    sendValueAjax(page, value, callback);
-  }
-  function suivreRelation(event) {
-    const element = event.currentTarget; 
-    element.innerHTML =  "....";
-    const page = "suivre.php";
-    const value = element.getAttribute('owner');
-    function callback(data) {
-      if(data.trim() === "true")
-      {
-        element.innerHTML =`suivi(e) <i class="fa-solid fa-user-check"></i>`;
-        element.style.color= "#FFF";
-        element.style.color= 'var(--color-addRelation)';
-      }else{
-        element.innerHTML =`suivre <i class="fa-solid fa-plus"></i>`;
       }
     }
   
@@ -454,4 +418,86 @@ function addStory(event)
   }
   functionAjax(page, form, callback);
 }
+function likePost(event) {
+  let value = event.currentTarget.getAttribute('y');
+  let page = "likePoste.php";
+  let numberElement = event.currentTarget.querySelector('.number');
+
+  function callback(data) {
+    if (data.trim() !== '') {
+      numberElement.textContent = data;
+      numberElement.style.color = "var(--color-primary)";
+      event.currentTarget.style.border = "1px solid var(--color-primary)";
+    } else {
+      numberElement.textContent = data;
+      numberElement.style.color = "var(--color-icons_Theme_blanche)";
+      event.currentTarget.style.border = "none";
+    }
+  }
+
+  sendValueAjax(page, value, callback);
+}
+function suivreRelation(event) {
+    const element = event.currentTarget; 
+    element.innerHTML =  "....";
+    const page = "suivre.php";
+    const value = element.getAttribute('owner');
+    function callback(data) {
+      if(data.trim() === "true")
+      {
+        element.innerHTML =`suivi(e) <i class="fa-solid fa-user-check"></i>`;
+        element.style.color= "#FFF";
+        element.style.color= 'var(--color-addRelation)';
+      }else{
+        element.innerHTML =`suivre <i class="fa-solid fa-plus"></i>`;
+      }
+    }
   
+    sendValueAjax(page, value, callback);
+  }
+  function Confirmer(event)
+      {
+        const element = event.currentTarget; 
+        element.innerHTML = `...`;
+        const page = "confirmation.php";
+        let value = element.getAttribute('owner');
+        function callback(data) {
+          element.innerHTML = `déjà ami(e)`;
+        }
+        sendValueAjax(page, value, callback);
+      }
+      function supprimerInvitation(event)
+      {
+        const element = event.currentTarget; 
+        element.innerHTML = `...`;
+        const page = "confirmation.php";
+        let value = element.getAttribute('owner');
+        function callback(data) {
+          element.innerHTML = 'supprimeé(e)';
+        }
+        sendValueAjax(page, value, callback);
+      }
+      function NotificationSide() {
+          document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-200%)";
+          let page = "readNotification.php";
+          let value = "";
+          function callback(data) {
+            document.querySelector('.dataNotificationAll').innerHTML = data;
+          }
+          sendValueAjax(page, value, callback);
+        }
+
+        function MessageSide() {
+            document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-100%)";
+        }
+        function AlbumPhotoHomPage()
+        {
+          document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-500%)";
+          document.querySelector('#dataAlbum').innerHTML = `<div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div>`;
+          const page = "lectureAlbum.php";
+            let value = "";
+            function callback(data) {
+              document.querySelector('#dataAlbum').innerHTML = data;
+            }
+            sendValueAjax(page, value, callback);
+        }

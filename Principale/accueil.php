@@ -27,175 +27,6 @@ if(($detail_user['ver_profile'] == 0))
     <link rel="shortcut icon"href="../images/Logo.png"type="image/jpeg"style="width: 300px; height: 300px"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>NewaRnet</title>
-    <style>
-      .mobileMenu,.bottomMenusIcons{
-        display:none;
-      }
-      .emotionIcons{
-    box-shadow:none;
-   }
-      @media screen and (max-width: 480px) 
-      {
-        .leftmain.swiper.mySwiper,.centre_session ,.droite_session,nav .leftnav, nav .rightnav,.menuTopLeftBouton{
-          display:none !important;
-        }
-        .photoImage{
-        width:50px;height:50px;border-radius:5px;
-        background:#FFF;
-        margin-bottom:20px;
-        overflow:hidden;
-        box-shadow:var(--boxshadow_section_blanche);
-        }
-        .bottomMenusIcons{
-          width:100%;
-          height:10vh;
-          position:fixed;
-          bottom:0;
-          display:flex;
-          border-top:1px solid var(--color-blanche-2);
-        }
-        nav {
-        width: 100%;
-        height: 20vh;
-        display: flex;
-        align-items:start;
-        justify-content: space-between;
-        position: fixed;
-        top: 0px;
-        border:none;
-        padding:0;
-        z-index: var(--z-index-1);
-        background:var(--color-blanche-1);
-      }
-      .mobileMenu{
-        display:block;
-        width:100%;
-        height:100%;
-        padding:5px 10px;
-        background:transparent;
-      }
-      .topMenuTitre{
-        display:flex;
-        justify-content:space-between;
-        width:100%;
-      }
-      .titre_animation.accueil.interd{
-        font-size: 25px;
-        -webkit-text-stroke: 2.5px var(--color-titre) !important;
-      }
-      .bottomMenuIcons{
-        width:100%;
-      }
-      .IconsMeuRight i{
-        font-size:18px;
-      }
-      .IconsMeuRight{
-        display:flex;align-items:center;
-        gap:30px;
-      }
-      .iconcontainerOption{
-        flex-direction:column;
-        gap:2px;
-      }
-      .menuMoibile i{
-        font-size:14px;
-      }
-      .menuMoibile{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        gap:5px;
-      }
-      .optionHome.active::before{
-        content: '';
-        width: 100%;
-        height: 1px;
-        border-radius: 40px;
-        background: var(--color-icons_Theme_noire);
-        position: absolute;
-        bottom: -12px;
-        transition: all .5s ease;
-
-        }
-      .menuHomeChoix{
-        justify-content:space-between;
-        width:100%;
-      }
-      body{
-        background:var(--color-blanche-1);
-      }
-      .parentIconsMobile{
-        width:100%;
-        display:flex;
-        align-items:center;
-        justify-content:space-around;
-        height:100%;
-        background:var(--color-blanche-1);
-      }
-      .menuIconsPrincipale span{
-        font-size:12px;
-        opacity:.5;
-        font-weight:100;
-      }
-      .centre_session{
-        width:100%;
-        margin:0;
-      }
-      .menuIconsPrincipale{
-        display:flex;
-        align-items:center;
-        flex-direction:column;
-        gap:5px;
-      }
-      .leftnav.postSession{
-        background:var(--color-blanche-2);
-        display:flex;
-      }
-      .PosteCarteInterface input{
-        width:90%;
-        height:100%;
-        background:transparent;
-      }
-      .PosteCarteInterface i{
-        padding-right:10px;
-      }
-      .PosteCarteInterface{
-        width:100%;
-        margin:5px auto;
-        border-radius:25px;
-        height:47px;
-        display:flex;align-items:center;
-        justify-content:center;
-        padding:10px;
-        font-size:15px;
-        background:var(--color-blanche-2);
-      }
-      .boutonOptionsMobile{
-        position:fixed;
-        bottom:14vh;
-        left:10px;
-      }
-      .iconsBoutonMobilePlus{
-        background:var(--color-primary);
-        color:#FFF;
-        box-shadow: var(--boxshadow_section_blanche);
-        border-radius:50%;
-        display:flex;align-items:center;
-        justify-content:center;
-        width:55px;
-        height:55px
-      }
-      .MobileDataPrincipale{
-        width:100vw;
-        max-height:70vh;
-        height:100%;
-        overflow:auto;
-        margin-top:20vh;
-        padding-bottom:10px;
-      }
-      
-      }
-    </style>
   </head>
   <body>
   <div class="barrScrolle"><div></div></div>
@@ -284,10 +115,10 @@ if(($detail_user['ver_profile'] == 0))
                         <div class="iconcontainerOption" onclick="Suivies(event)" y="<?php global $my_id; echo encrypt($my_id,$key) ?>">
                           <i class="fa-solid fa-users"></i>Suivi(e)s
                         </div>
-                        <div class="iconcontainerOption" onclick="Suivies(event)">
+                        <div class="iconcontainerOption" y="<?php echo encrypt($my_id,$key) ?>" onclick="MoreFriends(event)">
                           <i class="fa-solid fa-users"><span class="notification_counteur"></span></i>Demande D'Ami(e)
                         </div>
-                        <div class="iconcontainerOption" onclick="Suivies(event)">
+                        <div class="iconcontainerOption" onclick="AlbumPhotoHomPage()">
                         <i class="fa-regular fa-image"></i>album photo
                         </div>
                         <a href="logout.php" class="iconcontainerOption">
@@ -298,9 +129,8 @@ if(($detail_user['ver_profile'] == 0))
                         <div class="conversationHomePage">
                           <button class="BoutonsRetoure" onclick="TurnBack()"><i class="fa-solid fa-arrow-left"></i> Retournez au Principal</button>
                           <div class="SearchMessage creationGroupe">
-                            <input type="search" name=""  placeholder="Trouver un(e) Ami(e)">
+                            <input type="search" name=""  placeholder="Trouver un(e) Ami(e)...">
                           </div>
-                          
                           <div class="carterPrinciplale">
                               
                           </div>
@@ -352,15 +182,15 @@ if(($detail_user['ver_profile'] == 0))
                       </div>
               <div class="swiper-slide">
                   <button class="BoutonsRetoure" onclick="TurnBack()"><i class="fa-solid fa-arrow-left"></i> Retournez au Principal</button>
-                <form action="" method="post" class="PostArticleForm">
+                <form action="" method="post" class="PostArticleForm" id="CreationGroupeFormule">
                   <div class="swiper mySwiper">
                     <div class="swiper-wrapper CreationGroupe">
                       <div class="swiper-slide groupesideCreation">
                         <div class="leftnav groupeCreation"> 
-                            <input type="text" name=""id=""placeholder="Entrer le nom du Groupe">
+                            <input type="text" name="name_groupe"id=""placeholder="Entrer le nom du Groupe">
                       </div>
                       <div class="suivantBoutonsGroupe"onclick="SuivantGroupeCreation()">Continuer<i class="fa-solid fa-arrow-right"></i></div>
-                        <div class="SearchMessage creationGroupe"><input type="search" name="" id="" placeholder="Qui ajouter dans ce Groupe ?"></div>
+                        <div class="SearchMessage creationGroupe"><input type="search" name="" id="" placeholder="Qui ajouter dans ce Groupe ?" oninput="searchUser(event, 'RechercherAmis.php', 'FrinedsGroupesAdd')"></div>
                           <!-- Frinds-select -->
                           <div id="FrinedsGroupesAdd"></div>
                       </div>
@@ -368,7 +198,7 @@ if(($detail_user['ver_profile'] == 0))
                         <input type="file" name="image" id="imageGroup" hidden accept="image/*" onchange="updateLabelAndDisplay(this,event, 'imagegroupe')">
                         <label for="imageGroup" class="carterPostStory other" id="imagegroupe"><i class="fa-solid fa-image"></i></label>
                       </form>
-                      <div class="BoutonsRetoure add createAddBtn">Créer ce groupe</div>
+                      <div class="BoutonsRetoure add createAddBtn" onclick="GroupeNew(event)">Créer ce groupe</div>
                       <p class="Text_Norme">Vous assumerez le rôle d'admin direct dans ce groupe, en accord avec les normes  de NewaRnet.</p>
                       </div>
                       </div>
@@ -469,10 +299,10 @@ if(($detail_user['ver_profile'] == 0))
                           Invitations<i class="fa-solid fa-envelope-open-text"></i>
                       <?php endif; ?>
                   </div>
-                  <div class="Suivis menuOptionRight" onclick="OptionDroiteHeader(event)"id="amisDroite" y="<?php echo  encrypt($my_id,$key)?>">
+                  <div class="Suivis menuOptionRight" onclick="OptionDroiteHeader(event)"id="amisDroite" y="<?php echo encrypt($my_id,$key)?>">
                     Amis <i class="fa-solid fa-users"></i>
                   </div>
-                  <div class="Suivis menuOptionRight"onclick="OptionDroiteHeader(event)" id="groupeDroite">
+                  <div class="Suivis menuOptionRight"onclick="OptionDroiteHeader(event)" id="groupeDroite" y="<?php echo encrypt($my_id,$key)?>">
                     <i class="fa-solid fa-user-group"></i>Groupe
                   </div>
                 </div>
@@ -502,39 +332,40 @@ if(($detail_user['ver_profile'] == 0))
                         <?php
                         global $my_id;
                         global $user;
-                        $USERS_ROWSFiends= $user->Mesamis($my_id,"amis");
-                        if($USERS_ROWSFiends)
-                        {
-                            foreach($USERS_ROWSFiends as  $DataFriends)
-                            {
-                              $FriendsIds =  $DataFriends['userid'];
+                        $USERS_ROWSFriends = $user->Mesamis($my_id, "amis");
+                        
+                        if ($USERS_ROWSFriends) {
+                            $FriendsIds = array();
+                        
+                            foreach ($USERS_ROWSFriends as $DataFriends) {
+                                $FriendsIds[] = $DataFriends['userid'];
                             }
+                        
                             $sql = "SELECT * FROM users
-                            WHERE userid != ? 
-                            AND userid != ? ORDER BY RAND()  LIMIT $limite";
-                            $USERS_ROWS = $DB->read($sql, [$my_id, $FriendsIds]);
-                          
-                            if($USERS_ROWS)
-                            {
-                              foreach($USERS_ROWS as $USERS_ROW)
-                              {
-                                include("int_Friends_Add.php");
-                              }
+                                    WHERE userid != ? 
+                                    AND userid NOT IN (" . implode(',', array_fill(0, count($FriendsIds), '?')) . ")
+                                    ORDER BY RAND() LIMIT $limite";
+                        
+                            $params = array_merge([$my_id], $FriendsIds);
+                            $USERS_ROWS = $DB->read($sql, $params);
+                        
+                            if ($USERS_ROWS) {
+                                foreach ($USERS_ROWS as $USERS_ROW) {
+                                  include("int_Friends_Add.php");
+                                }
                             }
-                        }else{
-                          $sql = "SELECT * FROM users
-                            WHERE userid != ? ORDER BY RAND()  LIMIT $limite";
+                        } else {
+                            $sql = "SELECT * FROM users
+                                    WHERE userid != ? ORDER BY RAND() LIMIT $limite";
                             $USERS_ROWS = $DB->read($sql, [$my_id]);
-                          
-                            if($USERS_ROWS)
-                            {
-                              foreach($USERS_ROWS as $USERS_ROW)
-                              {
-                                include("int_Friends_Add.php");
-                              }
+                        
+                            if ($USERS_ROWS) {
+                                foreach ($USERS_ROWS as $USERS_ROW) {
+                                  include("int_Friends_Add.php");
+                                }
                             }
-
                         }
+                        
                         ?>
                     </div>
                       <!-- Friends -->
@@ -560,9 +391,9 @@ if(($detail_user['ver_profile'] == 0))
                           <h3>Groupe<i class="fa-solid fa-users"></i></h3>
                         </div>
                         <div class="SearchMessage creationGroupe notification">
-                          <i class="fa-solid fa-magnifying-glass"></i><input type="search" name="" id="" placeholder="Rechercher...">
+                          <i class="fa-solid fa-magnifying-glass"></i><input type="search" name="" id="" placeholder="Rechercher..."oninput="searchUser(event, 'RechercherMesGroupe.php', 'MesGroupeofUser')">
                         </div>
-                         <!-- Mes groupes  here-->
+                         <div id="MesGroupeofUser"></div>
                       </div>
                       <!-- suivis -->
                       <div class="swiper-slide">
@@ -578,13 +409,16 @@ if(($detail_user['ver_profile'] == 0))
          <!-- sms -->
          <div class="swiper-slide sms">
           <div class="textCenteNotification">
-            <div class="returnBtn"onclick="HommePrinciplae()"><i class="fa-solid fa-arrow-left"></i> Retourner</div>
+          <div class="returnBtn"onclick="HommePrinciplae()"><i class="fa-solid fa-arrow-left"></i> Retourner</div>
             <h3>Messages<i class="fa-solid fa-message"></i></h3>
           </div>
           <div class="SearchMessage creationGroupe notification">
             <i class="fa-solid fa-magnifying-glass"></i><input type="search" name="" id="" placeholder="Rechercher...">
           </div>
                 <!-- conversation here -->
+                <div class="dataConversationsAll">
+              <div class="mereAnimationclique"><span style="color:var(--color-text)">Encours...</span><div class="loading interd" style="border: 3px solid var(--color-blanche-2);border-top:3px solid var(--color-primary)"></div></div>
+              </div>
         </div>
         <!-- Notification -->
         <div class="swiper-slide">
@@ -597,6 +431,9 @@ if(($detail_user['ver_profile'] == 0))
               <i class="fa-solid fa-magnifying-glass"></i><input type="search" name="" id="" placeholder="Rechercher...">
             </div>
               <!-- Notifications here -->
+              <div class="dataNotificationAll">
+              <div class="mereAnimationclique"><span style="color:var(--color-text)">Encours...</span><div class="loading interd" style="border: 3px solid var(--color-blanche-2);border-top:3px solid var(--color-primary)"></div></div>
+              </div>
           </div>
         </div>
         <!-- Rechercher -->
@@ -608,17 +445,23 @@ if(($detail_user['ver_profile'] == 0))
            </div>
            </div>
         </div>
-          <!-- Boutiques -->
-          <div class="swiper-slide">
-          <div class="leftnav searchNav"> 
-            </i><i class="fa-solid fa-magnifying-glass"></i><input type="search" name=""id=""placeholder="Rechercher un NewaRnaute..."oninput="searchUser(event, 'seachFriedsSpecificale.php', 'dataRechercheUserSecond')">
-        </div>
+          <!-- MoreFriends-->
+            <div class="swiper-slide">
+            <div class="leftnav searchNav"> 
+              </i><i class="fa-solid fa-magnifying-glass"></i><input type="search" name=""id=""placeholder="Rechercher un NewaRnaute..."oninput="searchUser(event, 'seachFriedsSpecificale.php', 'dataRechercheUserSecond')">
+            </div>
             <div id="dataRechercheUserSecond">
-          <div id="dataSearcheContent">
-             <?php include("FauxContenusSearch.php") ?>
-           </div>
+            <div id="dataSearcheContent">
+              <?php include("FauxContenusSearch.php") ?>
+            </div>
            </div>
           </div>
+           <!-- AlbumPhoto -->
+           <div class="swiper-slide">
+           <div class="tittreAlbum"><h2>Album photo NewaRnet</h2> </div>
+            <div id="dataAlbum"></div>
+          </div>
+           <!-- AlbumPhoto -->
         </div>
       </main>
       <!-- fint_main -->
@@ -664,6 +507,7 @@ if(($detail_user['ver_profile'] == 0))
         clickable: true,
       },
     });
+   
   </script>
   <script>
        var swiper = new Swiper(".swiper.mySwiper.profilephotoSuggestion", {
@@ -672,27 +516,6 @@ if(($detail_user['ver_profile'] == 0))
         dynamicBullets: true,
       },
     });
-    function likePost(event) {
-  let value = event.currentTarget.getAttribute('y');
-  let page = "likePoste.php";
-  let numberElement = event.currentTarget.querySelector('.number');
-
-  function callback(data) {
-    if (data.trim() !== '') {
-      numberElement.textContent = data;
-      numberElement.style.color = "var(--color-primary)";
-      event.currentTarget.style.border = "1px solid var(--color-primary)";
-    } else {
-      numberElement.textContent = data;
-      numberElement.style.color = "var(--color-icons_Theme_blanche)";
-      event.currentTarget.style.border = "none";
-    }
-  }
-
-  sendValueAjax(page, value, callback);
-}
-
-
   </script>
   </body>
 </html>

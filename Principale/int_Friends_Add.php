@@ -5,6 +5,7 @@ $sexe = decrypt($USERS_ROW['sexe'], $key);
 $nom_comple_friends = $nom_decrypte . ' ' . $prenom_decrypte;
 $profile = ($USERS_ROW['ver_profile'] !== 0) ? decrypt($USERS_ROW['profile'],$key) : ($sexe === "Femme" ? '../images/femme.jpg' : '../images/homme.jpg');
 $suivi = $USERS_ROW['suivi'];
+$nom_comple_friends = limiterChaine($nom_comple_friends,13);
 if($suivi != 0)
 {
   $suivi = $suivi ." "."suivi(s)";

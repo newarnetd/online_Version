@@ -12,6 +12,7 @@ if($suivi != 0)
   $suivi = "@" .$prenom_decrypte;
 }
 $Friendid = encrypt($USERS_FRIENDS['userid'],$key);
+$nom_comple_friends = limiterChaine($nom_comple_friends,17);
 ?>
 <div class="carteFriends swiper-slide">
                         <div class="headerImage">
@@ -19,7 +20,7 @@ $Friendid = encrypt($USERS_FRIENDS['userid'],$key);
                         </div>
                         <div class="bottomFriendscarte">
                           <div class="namesUser">
-                            <h3><?php echo  limiterChaine($nom_comple_friends,17)?></h3>
+                            <h3><?php echo  $nom_comple_friends?></h3>
                             <span><?php echo $suivi?></span>
                           </div>
                           <div class="boutonsActions">

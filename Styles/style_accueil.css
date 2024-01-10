@@ -220,17 +220,7 @@ background: var(--color-blanche-1);
   background: var(--color-blanche-2);
   transition: all .3s ease;
 }
-.returnBtn{
-  background: var(--color-blanche-2);
-  border-radius: 5px;
-  padding: var(--padding_boutons);
-  cursor: pointer;
-  color: var(--color-text);
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: center;
-}
+
 .SearchMessage.creationGroupe.notification input{
   padding-left:15px;
 }
@@ -250,16 +240,7 @@ background: var(--color-blanche-1);
 .textCenteNotification i{
   font-size: 16px;
 }
-.textCenteNotification{
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  width:100%;
-  justify-content: space-between;
-  gap:10px;
-  margin:15px auto;
-  
-}
+
 .userowner{
   display: flex;
   gap:10px;
@@ -2445,7 +2426,6 @@ span.nombVuesHomepage{
   background:rgba(0,0,0,.3) !important;
 }
 .swiper-slide.profilePhoto.eplaza{
-  background-image: url('../images/Af-1\ \(2\).jpg') !important;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 100%;
@@ -2477,11 +2457,7 @@ span.nombVuesHomepage{
   border:1px solid var(--color-blanche-2);
   background:transparent;
 }
-.Faux-contacte,#dataSearcheContent{
-background: var(--color-linear-white);
-animation: skeletonAnimation 2s linear infinite;
-background-size: 200% 100%;
-}
+
 #dataSearcheContent .nomamis h3,
 .Faux-contacte .nomamis h3{
 width:200px;
@@ -2650,3 +2626,94 @@ main {
     position:relative;
     z-index:1000000;
   }
+  .mobileMenu,.bottomMenusIcons{
+    display:none;
+  }
+  .emotionIcons{
+box-shadow:none;
+}
+.photoProfileUser img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:50%;
+}
+    .cartecommentaire.notification{
+        padding:10px;
+      }
+      .returnBtn{
+  border-radius: 5px;
+  padding: 6px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor:pointer;
+}
+      .textCenteNotification .returnBtn i{
+        color:#212121 !important;
+      }
+      .textCenteNotification .returnBtn{
+        background:#FFF !important;
+        color:#212121 !important;
+      }
+      .textCenteNotification h3{
+        color:#FFF !important;
+      }
+      .textCenteNotification{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width:100%;
+  height:60px;
+  justify-content: space-between;
+  gap:10px;
+  margin:0px auto;
+  background:var(--color-primary);
+  border-radius:5px 5px 0 0 ;
+}
+      .cartecommentaire.notification .DetailArtcle h3{
+        font-weight:500;
+      }
+      .cartecommentaire.notification .photoEplaza{
+        border-radius:50%;
+        width:50px;
+        height:50px;
+      }
+      .dataNotificationAll,.dataConversationsAll{
+        width:100%;
+        max-height:64vh;
+        overflow:auto;
+        height:100%;
+      }
+      .tittreAlbum h2{
+        font-size:20px;
+        font-weight:500;
+        color:#BDBDBD;
+      }
+      .tittreAlbum{
+        display:flex;align-items:center;
+        justify-content:flex-start;
+        padding:10px;
+      }
+      #dataAlbum{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 5px;
+      width:100%;
+      padding:5px;
+      max-height: 78vh;
+      height: 100%;
+      overflow-y:auto;
+      width:100%;
+     
+    }
+    .conteneuramis.album {
+      background: var(--color-linear-white);
+      animation: skeletonAnimation 2s linear infinite;
+      background-size: 200% 100%;
+      border-radius:5px;
+      margin-bottom:2px;
+      height:200px;
+      border:1px solid var(--color-blanche-2);
+    }

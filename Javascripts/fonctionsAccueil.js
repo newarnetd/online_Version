@@ -21,48 +21,96 @@ function CouvertureEdite()
 {
     leftMererSlider.style.transform = "TranslateX(-400%)" ;
 }
-
-function CreatGroupe(event)
-{   let value = event.currentTarget.getAttribute('y');
-    leftMererSlider.style.transform = "TranslateX(-500%)";
-    Mesamis(value);
-}
-
-
-
-function OptionDroiteHeader(event) {
-    document.querySelectorAll(".menuOptionRight").forEach(item => {
-        item.classList.remove('active');
-    });
-    event.target.classList.toggle('active');
-
-    switch (event.target.id) {
-        case "amisDroite":
-            let id  = event.target.getAttribute('y');
-            afficherAmisDroite(id);
-            break;
-
-        case "groupeDroite":
-            afficherCreerGroupe();
-            break;
-
-        case "invitationDroite":
-            afficherFirndsCartes();
-            break;
-        default:
-            break;
+function GroupeNew(event)
+{
+  const element = event.currentTarget; 
+    element.innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Création en cours...</span><div class="loading interd"></div></div>`;
+    const page = "newgroupe.php";
+    let value = element.getAttribute('owner');
+    let form = document.querySelector('#CreationGroupeFormule');
+    function callback(data) {
+      element.innerHTML ="Terminé !";
     }
+    functionAjax(page, form, callback);
+}
+function creationGroupeVerification(event) {
+var checkbox = event.target;
+
+let mere = event.target.closest('.swiper-slide.groupesideCreation');
+let inputCheckboxes = mere.querySelectorAll("input[type='checkbox']");
+
+var selectedMembers = [];
+inputCheckboxes.forEach(input => {
+if (input.checked) {
+    selectedMembers.push(input.value);
+}
+});
+let shouldDisplay = selectedMembers.length > 0;
+if (shouldDisplay) {
+document.querySelector(".swiper-slide.groupesideCreation .leftnav.groupeCreation").style.display = 'flex';
+document.querySelector(".swiper-slide.groupesideCreation .suivantBoutonsGroupe").style.display = 'flex';
+} else {
+document.querySelector(".swiper-slide.groupesideCreation .leftnav.groupeCreation").style.display = 'none';
+document.querySelector(".swiper-slide.groupesideCreation .suivantBoutonsGroupe").style.display = 'none';
 }
 
+
+document.querySelectorAll("#CreationGroupeFormule input[type='hidden']").forEach(input => input.remove());
+
+selectedMembers.forEach(userId => {
+let input = document.createElement("input");
+input.type = "hidden";
+input.name = "membre[]";
+input.value = userId;
+document.querySelector("#CreationGroupeFormule").appendChild(input);
+});
+}
+function afficherCreerGroupe(id) 
+{
+document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(-200%)";
+document.querySelector("#MesGroupeofUser").innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
+ChargementGroupes(id);
+}
+function OptionDroiteHeader(event) {
+document.querySelectorAll(".menuOptionRight").forEach(item => {
+item.classList.remove('active');
+});
+event.target.classList.toggle('active');
+
+switch (event.target.id) {
+case "amisDroite":
+    let id  = event.target.getAttribute('y');
+    afficherAmisDroite(id);
+    break;
+
+case "groupeDroite":
+    let value = event.currentTarget.getAttribute('y');
+    afficherCreerGroupe(value);
+    break;
+
+case "invitationDroite":
+    afficherFirndsCartes();
+    break;
+default:
+    break;
+}
+}
+
+function ChargementGroupes(value)
+{
+let page = "lectureMesGroupes.php";
+function callback(data) 
+{
+document.querySelector("#MesGroupeofUser").innerHTML = data;
+}
+sendValueAjax(page, value, callback);    
+}
 function afficherAmisDroite(id) 
 {
     document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(-100%)";
     ChargementFriends(id);
 }
-function afficherCreerGroupe() {
-    document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(-200%)";
-}
- 
+
 function afficherFirndsCartes() {
     document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(0%)";
 }
@@ -79,13 +127,7 @@ function setDisplayStyle(className, displayValue) {
     document.querySelector(className).style.display = displayValue;
 }
 
-function NotificationSide() {
-    document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-200%)";
-}
 
-function MessageSide() {
-    document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-100%)";
-}
 function HommePrinciplae() {
     document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(0%)";
 }

@@ -24,5 +24,5 @@ if($suivi != 0)
         </small></p>
         
     </div>
-    <div class="iconeamis"><input type="checkbox" name="membre" id="" onchange="creationGroupeVerification(event)"></div>
+    <div class="iconeamis"><input type="checkbox" name="membre" id=""  value= "<?php echo $USERS_ROW['userid'] ?>" onchange="creationGroupeVerification(event)"></div>
 </div>

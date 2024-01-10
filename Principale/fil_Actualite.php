@@ -2,121 +2,157 @@
                       <!-- poste -->
                    <div class="PostesOnecoucher"></div>
                       <!-- Propostion_modification -->
-                    <div class="carterTargetFrinds">
-                            <div class="divText">
-                              <span>Suggestions pour vous</span>
-                              <span y="<?php global $my_id; echo encrypt($my_id,$key) ?>" onclick="MoreFriends(event)">Voir plus <i class="fa-solid fa-caret-down"></i></span>
-                            </div>
-                            <div class="contaneurPropositions">
-                                <div class="carterFriendsPropo">
-                                <div class="swiper mySwiper PropositionAmisdesAmias">
-                                    <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="photoProfileUser"></div>
-                                        <div class="namesFriendPropo">
-                                            <h3>Jean-luc</h3>
-                                            <span>3 amis en commun</span>
-                                        </div>
-                                        <div class="BoutonsRetoure user">Ajouter <i class="fa-solid fa-plus"></i></div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="photoProfileUser"></div>
-                                        <div class="namesFriendPropo">
-                                            <h3>Jean-luc</h3>
-                                            <span>3 amis en commun</span>
-                                        </div>
-                                        <div class="BoutonsRetoure user">Ajouter <i class="fa-solid fa-plus"></i></div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="photoProfileUser"></div>
-                                        <div class="namesFriendPropo">
-                                            <h3>Jean-luc</h3>
-                                            <span>3 amis en commun</span>
-                                        </div>
-                                        <div class="BoutonsRetoure user">Ajouter <i class="fa-solid fa-plus"></i></div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="photoProfileUser"></div>
-                                        <div class="namesFriendPropo">
-                                            <h3>Jean-luc</h3>
-                                            <span>3 amis en commun</span>
-                                        </div>
-                                        <div class="BoutonsRetoure user">Ajouter <i class="fa-solid fa-plus"></i></div>
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                    </div>
+                      <?php
+global $my_id;
+global $user;
+
+$result = $user->AmisRand($my_id, "amis", 20);
+$personneTrouvee = false;
+
+ob_start(); // Démarrer la mise en mémoire tampon pour capturer la sortie HTML
+
+if ($result) {
+    foreach ($result as $_ROW) {
+        $Suivis_friends = $user->Amis_DesAmis($_ROW['userid'], "amis", 3);
+        if ($Suivis_friends) {
+            foreach ($Suivis_friends as $dataAmis_Friends) {
+              if($dataAmis_Friends['userid'] !== $my_id )
+              {
+                $USERS_ROW = $user->get_user($dataAmis_Friends['userid']);
+                $myFriends = $user->Mesamis($my_id, "amis");
+                if ($myFriends && !in_array($dataAmis_Friends['userid'], array_column($myFriends, 'userid'))) {
+                    include("Int_amis_des_amis.php");
+                    $personneTrouvee = true;
+                }
+              }
+            }
+        }
+    }
+}
+
+$output = ob_get_clean(); // Capturer la sortie HTML depuis la mise en mémoire tampon
+
+if ($personneTrouvee) {
+    // Afficher le bloc seulement si au moins une personne est trouvée
+    echo "<div class='textEplaza'>Dans ton répertoire d'amis, l'un(e)  connaît ces personnes. Peux-tu les reconnaître par hasard ?</div>";
+    echo '<div class="carterTargetFrinds">';
+    echo '<div class="divText">';
+    echo '<span>Suggestions pour vous</span>';
+    echo '<span y="' . encrypt($my_id, $key) . '" onclick="MoreFriends(event)">Voir plus <i class="fa-solid fa-caret-down"></i></span>';
+    echo '</div>';
+    echo '<div class="contaneurPropositions">';
+    echo '<div class="carterFriendsPropo">';
+    echo '<div class="swiper mySwiper PropositionAmisdesAmias">';
+    echo '<div class="swiper-wrapper">';
+    
+    // Afficher la sortie HTML capturée
+    echo $output;
+
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+}
+?>
+
                     <!-- Propostion_modification -->
                     <?php
-                    
-                    ?>
-                    <div class="textEplaza">Bonjour Jean-Luc, David est également ami avec ces personnes. Connaissez-vous l'une d'entre elles ?</div>
-                    <div class="swiper mySwiper profilephotoSuggestion">
-                        <div class="swiper-wrapper">
-                          <div class="swiper-slide profilePhoto">
-                            <div class="headerSide">
-                              <div class="divText">
-                                <div class="identiteUse">
-                                    <div class="photoamis">
-                                          <img src="../images/1696508580709.jpg"/>
-                                        </div>
-                                        <div class="nomamis">
-                                          <h3>Jean-luc kashi...</h3>
-                                          <p><small>86 ami(e)s en commun </small></p>
-                                        </div>
-                                    </div>
-                                    <span>suivre</span>
-                                </div>
-                              </div>
-                            </div>
+global $my_id;
+global $user;
 
-                          </div>
-                        <div class="swiper-pagination"></div>
-                      </div>
+$result = $user->AmisRand($my_id, "amis", 20);
+$personneTrouvee = false;
+
+ob_start();
+if ($result && count($result) > 0) {
+    ?>
+    <div class="textEplaza">
+      <?php 
+      global $key;
+      $nom_comple = decrypt($detail_user['nom'], $key) . ' ' . decrypt($detail_user['prenom'], $key);
+      ?>
+      Salut <?php echo $nom_comple ?>, l'un de tes amis est également en contact avec ces personnes. Connais-tu l'une d'entre elles ?</div>
+    <div class="swiper mySwiper profilephotoSuggestion">
+        <div class="swiper-wrapper">
+            <?php
+            foreach ($result as $_ROW) {
+                $Suivis_friends = $user->suivi_DesAmis($_ROW['userid'], "suivre", 3);
+
+                if ($Suivis_friends) {
+                      shuffle($Suivis_friends);
+                    foreach ($Suivis_friends as $dataAmis_Friends) {
+                      if($dataAmis_Friends['userid'] !== $my_id )
+                      {
+                        $USERS_ROW = $user->get_user($dataAmis_Friends['userid']);
+                        $myFriends = $user->Mesamis($my_id, "amis");
+                        $myFriends = $user->Mes_suivi($my_id, "suivre");
+                        if ($myFriends && !in_array($dataAmis_Friends['userid'], array_column($myFriends, 'userid'))) {
+                            include("Proposition_Sivi_Frinds.php");
+                            $personneTrouvee = true;
+                        } 
+                      }
+                    }
+                }
+            }
+            ?>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <?php
+}
+
+$output = ob_get_clean(); // Capture HTML output from output buffer
+
+if ($personneTrouvee) {
+    // Display the captured HTML output
+    echo $output;
+}
+?>
+
                     <!-- suggestion PhotoUsers -->
                    <div class="swiper mySwiper other onlyScroll">
-                   <hr class="ligne">
                       <div class="divText"><span>Suggestions pour vous</span><span  y="<?php global $my_id; echo encrypt($my_id,$key) ?>" onclick="MoreFriends(event)">Voir plus <i class="fa-solid fa-caret-down"></i></span></div>
                      <div class="swiper-wrapper containerFriesProposition">
                          <!-- Friends -->
                          <?php
-                         global $my_id;
+                        global $my_id;
                         global $user;
-                        $USERS_ROWSFiends= $user->Mesamis($my_id,"amis");
-                        if($USERS_ROWSFiends)
-                        {
-                            foreach($USERS_ROWSFiends as  $DataFriends)
-                            {
-                              $FriendsIds =  $DataFriends['userid'];
+                        
+                        $USERS_ROWSFriends = $user->Mesamis($my_id, "amis");
+                        
+                        if ($USERS_ROWSFriends) {
+                            $FriendsIds = array();
+                        
+                            foreach ($USERS_ROWSFriends as $DataFriends) {
+                                $FriendsIds[] = $DataFriends['userid'];
                             }
+                        
                             $sql = "SELECT * FROM users
-                            WHERE userid != ? 
-                            AND userid != ? ORDER BY RAND()  LIMIT $limite";
-                            $USERS_ROWS = $DB->read($sql, [$my_id, $FriendsIds]);
-                          
-                            if($USERS_ROWS)
-                            {
-                              foreach($USERS_ROWS as $USERS_FRIENDS)
-                              {
-                                include("Int_Friends_1.php");
-                              }
+                                    WHERE userid != ? 
+                                    AND userid NOT IN (" . implode(',', array_fill(0, count($FriendsIds), '?')) . ")
+                                    ORDER BY RAND() LIMIT $limite";
+                        
+                            $params = array_merge([$my_id], $FriendsIds);
+                            $USERS_ROWS = $DB->read($sql, $params);
+                        
+                            if ($USERS_ROWS) {
+                                foreach ($USERS_ROWS as $USERS_FRIENDS) {
+                                    include("Int_Friends_1.php");
+                                }
                             }
-                        }else{
-                          $sql = "SELECT * FROM users
-                            WHERE userid != ? ORDER BY RAND()  LIMIT $limite";
+                        } else {
+                            $sql = "SELECT * FROM users
+                                    WHERE userid != ? ORDER BY RAND() LIMIT $limite";
                             $USERS_ROWS = $DB->read($sql, [$my_id]);
-                          
-                            if($USERS_ROWS)
-                            {
-                              foreach($USERS_ROWS as $USERS_FRIENDS)
-                              {
-                                include("Int_Friends_1.php");
-                              }
+                        
+                            if ($USERS_ROWS) {
+                                foreach ($USERS_ROWS as $USERS_FRIENDS) {
+                                    include("Int_Friends_1.php");
+                                }
                             }
-
                         }
+                        
                         ?>
                      </div>
                    </div>

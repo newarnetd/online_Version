@@ -251,21 +251,6 @@ function limiterChaine($chaine, $limite)
 
     return $chaine;
 }
-function AmisIncommun($id, $targetUser)
-{
-    global $DB;
-    global $user; 
-    $sql = "SELECT * FROM amis WHERE (ownerid = ? OR amisid = ?) AND (ownerid = ? OR amisid = ?)";
-    
-    $result = $DB->read($sql, [$id, $id, $targetUser, $targetUser]);
-    $commonFriends = [];
-    foreach ($result as $communFriend) {
-        $commonFriendDetails = $user->get_user($communFriend['ownerid']);
-        $commonFriends[] = $commonFriendDetails;
-    }
-
-    return $commonFriends;
-}
 function Mesinvitations($id)
 {
     global $DB;
@@ -329,27 +314,45 @@ function GetInvitations($ownerId)
 
 function PropositionAmis($id)
 {
-		$DB = new Database();
-		global $user;
-		global $limite;
-		$USERS_ROWSFiends= $user->Mesamis($id,"amis");
-        if($USERS_ROWSFiends)
-        {
-            foreach($USERS_ROWSFiends as  $DataFriends)
-                {
-                $FriendsIds =  $DataFriends['userid'];
-                }
-            $sql = "SELECT * FROM users
-            WHERE userid != ? 
-            AND userid != ? ORDER BY RAND()  LIMIT $limite";
-            $USERS_ROWS = $DB->read($sql, [$id, $FriendsIds]);
-            return $USERS_ROWS;   
-        }else{
-            $sql = "SELECT * FROM users
-            WHERE userid != ?  ORDER BY RAND()  LIMIT $limite";
-            $USERS_ROWS = $DB->read($sql, [$id]);
-            return $USERS_ROWS;
+    $DB = new Database();
+    global $user;
+    global $limite;
+    
+    $USERS_ROWSFriends = $user->Mesamis($id, "amis");
+
+    $FriendsIds = array();
+
+    if ($USERS_ROWSFriends) {
+        foreach ($USERS_ROWSFriends as $DataFriends) {
+            $FriendsIds[] = $DataFriends['userid'];
         }
+    }
+
+    if (!empty($FriendsIds)) {
+        $placeholders = implode(',', array_fill(0, count($FriendsIds), '?'));
+        $sql = "SELECT * FROM users
+            WHERE userid != ? 
+            AND userid NOT IN ($placeholders)
+            ORDER BY RAND() LIMIT $limite";
+
+        $params = array_merge([$id], $FriendsIds);
+        $USERS_ROWS = $DB->read($sql, $params);
+    } else {
+        $sql = "SELECT * FROM users
+            WHERE userid != ? ORDER BY RAND() LIMIT $limite";
+        $USERS_ROWS = $DB->read($sql, [$id]);
+    }
+
+    return $USERS_ROWS;
+}
+
+
+function getMesGrouepr()
+{
+    global $my_id,$DB;
+    $query = "SELECT * FROM mesgroupes WHERE (userid = ? OR owner = ?) GROUP BY nom";
+    $resultat = $DB->read($query, [$my_id, $my_id]);
+    return $resultat;
 }
 function processInvitation($sender, $receiver, $action) 
 {

@@ -2,6 +2,7 @@
 include("otherPrincipale.php");
 
 function followUser($DB, $my_id, $id_clicked) {
+    global $key;
     $id_clicked = decrypt($id_clicked, $key);
 
     $sql = "SELECT suivre FROM relations WHERE type='suivre' AND userid = ? LIMIT 1";
@@ -13,9 +14,7 @@ function followUser($DB, $my_id, $id_clicked) {
 
         if (!in_array($id_clicked, $user_ids)) {
             $arr["userid"] = $id_clicked;
-            $arr["date"] = date("Y-m-d H:i:s");
             $suivre[] = $arr;
-
             $suivre_string = json_encode($suivre);
             $sql = "UPDATE relations SET suivre = ? WHERE type = ? AND userid = ?";
             $DB->save($sql, [$suivre_string, 'suivre', $my_id]);
@@ -41,10 +40,7 @@ function followUser($DB, $my_id, $id_clicked) {
         }
     } else {
         $arr["userid"] = $id_clicked;
-        $arr["date"] = date("Y-m-d H:i:s");
-        $arr["proposition"] = "attente";
         $relations = json_encode([$arr]);
-
         $sql = "INSERT INTO relations (userid, suivre, type) VALUES (?, ?, 'suivre')";
         $DB->save($sql, [$my_id, $relations]);
 
