@@ -13,7 +13,10 @@
         <link rel="stylesheet" href="../Styles/newarnetphoto.css">
         <link rel="stylesheet" href="../Styles/index.css">
         <link rel="stylesheet" href="../Styles/Profile.css">
-        <link rel="shortcut icon"href="../image/Logo.png"type="image/jpeg"style="width: 300px; height: 300px"/>
+        <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+        <link rel="manifest" href="../favicon_io/site.webmanifest">
         <title>NewaRnet</title>
       </head>
 <body>

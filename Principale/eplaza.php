@@ -33,12 +33,13 @@ if(($detail_user['ver_profile'] == 0))
 .erreurMessageCreation{
     color:var(--color-red-2);
 }
+
     </style>
 </head>
 <body>
 <div class="barrScrolle"><div></div></div>
   <div class="contaneurImage">
-    <div class="photoImage"><img src="../images/Logo.png" alt=""></div>
+    <div class="photoImage"><img src="../images/Logo_ePlaza.PNG" alt=""></div>
     <span>Internet pour Tous</span>
   </div>
     <div class="referencePage">

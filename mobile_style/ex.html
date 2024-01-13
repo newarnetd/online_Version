@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Personnalisation d'Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Personnalisez Votre Image</h1>
+
+    <form id="imageForm">
+        <label for="backgroundImage">Choisissez un fond d'écran:</label>
+        <input type="file" id="backgroundImage" accept="image/*">
+
+        <label for="userInput">Ajoutez du texte:</label>
+        <input type="text" id="userInput" placeholder="Votre texte ici">
+
+        <button type="button" onclick="generateImage()">Télécharger l'image</button>
+    </form>
+
+    <canvas id="customCanvas" width="800" height="600"></canvas>
+
+    <script>
+        function generateImage() {
+            const backgroundImage = document.getElementById('backgroundImage').files[0];
+            const userInput = document.getElementById('userInput').value;
+            const customCanvas = document.getElementById('customCanvas');
+            const context = customCanvas.getContext('2d');
+
+            if (backgroundImage) {
+                const img = new Image();
+                img.onload = function() {
+                    context.clearRect(0, 0, customCanvas.width, customCanvas.height);
+                    context.drawImage(img, 0, 0, customCanvas.width, customCanvas.height);
+
+                    context.fillStyle = 'white';
+                    context.font = '30px Arial';
+                    context.fillText(userInput, customCanvas.width / 2, customCanvas.height / 2);
+                    
+                    // Téléchargement de l'image générée
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = customCanvas.toDataURL("image/png");
+                    downloadLink.download = 'customImage.png';
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+                };
+
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    img.src = e.target.result;
+                };
+
+                reader.readAsDataURL(backgroundImage);
+            } else {
+                alert("Veuillez sélectionner une image d'arrière-plan.");
+            }
+        }
+    </script>
+</body>
+</html>

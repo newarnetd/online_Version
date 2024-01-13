@@ -10,11 +10,12 @@ if(($detail_user['ver_profile'] == 0))
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script src="../detecteur/Desk_window.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Balises meta pour le partage sur les réseaux sociaux -->
-    <meta property="og:title" content="NewaRnet">
-    <meta property="og:description" content="NewaRnet for Africa, arborant fièrement la devise Internet pour Tous, incarne la simplicité à son apogée.">
-    <meta property="og:image" content="../images/Logo.png">
+    <meta property="og:site_name" content="NewaRnet">
+    <meta property="og:tittle" content="NewaRnet en tant que réseau social mégastucture axé sur Internet pour Tous avec la phrase clé It's time for Africa">
+    <meta property="og:description" content="Il est temps pour notre génération maintenant">
+    <meta property="og:image" content="../favicon_io/favicon-32x32.png" itemprop="image">
     <meta property="og:url" content="https://newarnet.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -24,7 +25,10 @@ if(($detail_user['ver_profile'] == 0))
     <link rel="stylesheet" href="../Styles/index.css">
     <link rel="stylesheet" href="../Styles/eplaza.css">
     <link rel="stylesheet" href="../Styles/style_accueil.css"/>
-    <link rel="shortcut icon"href="../images/Logo.png"type="image/jpeg"style="width: 300px; height: 300px"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="../favicon_io/site.webmanifest">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>NewaRnet</title>
   </head>
@@ -47,21 +51,6 @@ if(($detail_user['ver_profile'] == 0))
         </div>
           <div class="leftnav"> 
             </i><i class="fa-solid fa-magnifying-glass"></i><input type="search" name=""id=""placeholder="Rechercher un NewaRnaute..." oninput="RecherCherNewaRnaute(event)">
-        </div>
-        <div class="mobileMenu">
-          <div class="topMenuTitre">
-          <div class="leftMenuMobile"><h3 class="titre_animation accueil interd">NewaRnet</h3></div>
-          <div class="IconsMeuRight">
-            <!-- <i class="fa-solid fa-moon" onclick="sunFunction(event)" id="darkFonction"></i>
-            <i class="fa-solid fa-sun"onclick="sunFunction(event)" id="sunFonction"></i> -->
-            <i class="fa-solid fa-plus"></i>
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <i class="fa-solid fa-ellipsis-vertical"></i>
-          </div>
-          </div>
-          <div class="bottomMenuIcons">
-              <div class="PosteCarteInterface"><i class="fa-solid fa-image" onclick="PostWidthInage()"></i><input type="text" name=""id=""placeholder="Quand dites-vous, <?php echo $nom_comple ?>" oninput="PosteChamps(event)"></div>
-          </div>
         </div>
       </nav>
       <div class="MobileDataPrincipale">
@@ -466,7 +455,7 @@ if(($detail_user['ver_profile'] == 0))
       </main>
       <!-- fint_main -->
 </div>
-    <!-- <script src="../Javascripts/refusActions.js"></script> -->
+    <script src="../Javascripts/refusActions.js"></script>
     <script src="../JQuery/funtionsLoading.js"></script>
     <script src="../Javascripts/actionLoadingHome.js"></script>
     <script src="../Javascripts/loadingPage.js"></script>
