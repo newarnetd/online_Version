@@ -19,6 +19,7 @@ $date = calcTemps(decrypt($data_poste['date'],$key));
 if($data_poste['has_image'] !== 0)
 {
   $dawload = true;
+  $Image = decrypt($data_poste['image'],$key);
 }
 
 if($data_poste['userid'] === $my_id)
@@ -44,7 +45,7 @@ $likes_count = $data_poste['likes'];
                         </div>
                       </div>
                       <div class="corpPost">
-                        <?=  $dawload ? '<img src="../images/Af-1 (7).jpg" class="imagePost"/>' : ''?>
+                        <?=  $dawload ? "<img src='$Image' class='imagePost'/>" : ''?>
                         <div class="menuOptionPartager shareFiles">
                           <div class="menuchoix"onclick="partager('link', 'NewaRnet', 'okay')"><i class="fa-solid fa-share-nodes"></i><span>Partager sur d'autres réseaux sociaux</span></div>
                           <div class="menuchoix"><i class="fa-solid fa-share-from-square"></i> <span>Partager sur NewaRnet</span></div>

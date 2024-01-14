@@ -1,4 +1,4 @@
-.containeurMobileAll{
+  .containeurMobileAll{
     background: var(--color-blanche-1);
     width:100vw;
     height:100vh;
@@ -106,6 +106,9 @@
     width:100%;
     height:100%;
 }
+.swipper-slide.principale.chat{
+    background: var(--color-blanche-1);
+}
 .ContaineurMobileSestionPage{
     width: 100%;
     height: 100%;
@@ -158,6 +161,7 @@ z-index:var(--z-index-1) !important;
     width:100%;
     border-bottom: 1px solid    var(--color-blanche-2);
     padding:15px;
+    height: 60px;
     justify-content: space-between;
 }
 .RecherchSpace input{
@@ -213,6 +217,32 @@ z-index:var(--z-index-1) !important;
     width:70px;
     height:70px;
 }
+.gridElements{
+    width: 98%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 5px;
+    margin: 5px auto;
+    
+
+}
+.element{
+    background: var(--color-linear-white);
+    animation: skeletonAnimation 2s linear infinite;
+    background-size: 200% 100%;
+    height: 200px;
+    border-radius: 5px;
+    border: 1px solid var(--color-blanche-2);
+}
+  .conteneuramis.album {
+    background: var(--color-linear-white);
+    animation: skeletonAnimation 2s linear infinite;
+    background-size: 200% 100%;
+    border-radius:5px;
+    margin:2px auto;
+    height:200px;
+    border:1px solid var(--color-blanche-2);
+  }
 .swiper-slide.principale .CreatiomsuivantBoutonsGroupe{
     display: none;
 }
@@ -286,4 +316,215 @@ padding: 12px;
 }
 .contentThemeMobile .textEplaza{
     margin-top: 20px;
+}
+.containeurDec{
+    width: 100%;
+    align-items: center;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
+}
+.nameUser{
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+.seconnecter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border: 1px solid var(--color-blanche-2);
+    border-radius: 20px;
+    margin: 10px auto;
+    width:80%;
+}
+
+.titreLinge{
+    padding:10px;
+    font-size: 23px;
+}
+.contenu{
+    margin: 10px;
+    width: 100%;
+    color:#9e9e9e;
+}
+.btnCreation .seconnecter{
+    background: transparent;
+    border: 1px solid  var(--color-blanche-2);
+    color: var(--color-text);
+    padding: 15px;
+}
+.imageuserDec{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background:var(--color-blanche-2);
+    margin-bottom: 15px;
+}
+
+.seconnecter.newcompte{
+    background: var(--color-primary);
+    color: #FFF;
+    width: 95%;
+    border-radius: 5px;
+    padding: 15px;
+    border: none;
+}
+.btnCreation{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contenuDataPrincipe{
+    width: 100%;
+    max-height: calc(100vh - 60px);
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+.imageOwner{
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--color-blanche-2);
+}
+.textNotification{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    height: 100%;
+
+}
+.headerNotification{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-primary);
+    color: #FFF;
+    height: 50px;
+}
+.menuMobile.active{
+    max-height: 35%;
+    height: 100%;
+}
+.menuMobile{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: var(--color-blanche-2);
+    max-height: 0;
+    overflow: hidden;
+    height: 100%;
+    transition: all .2s ease;
+}
+
+.menuMobile .menuMobilepage:nth-child(3){
+    border: none;
+}
+.menuMobile .menuMobilepage{
+    border-bottom: 1px solid #FFF;
+}
+.iconNotification{
+    position: absolute;
+    right: 10px;
+    font-size: 20px;
+}
+.hraderNotification{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:10px
+}
+.contaieneurNotification{
+    width: 100%;
+    height: fit-content;
+    background: var(--color-blanche-1);
+    padding: 5px 8px;
+    margin-bottom: 1px;
+    border-bottom:  1px solid   var(--color-blanche-2);
+}
+.bottomCreationNianda{
+    position: fixed;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    
+}
+.bottomCreationNianda .fa-solid.fa-paper-plane{
+    display: none;
+    color:var(--color-primary);
+    
+}
+.bottomCreationNianda .RecherchSpace input{
+    margin-left: 15px;
+}
+.contentBtnName input{
+    width: 100%;
+    height: 100%;
+    padding-left: 15px;
+}
+.contentBtnName{
+    width: 98%;
+    margin: 5px auto;
+    border: 1px solid var(--color-blanche-2);
+    height: 50px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.MobilCreationGroupe{
+    width: 98%;
+    margin: 5px auto;
+    height: 60%;
+    background-color:var(--color-blanche-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+.InputDouble{
+    width: 98%;
+    margin: 5px auto;
+}
+.MobilCreationGroupe img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.InputDouble .contentBtnName:nth-child(2){
+background:var(--color-primary);
+color:#FFFF;
+border: none;
+border-radius: 5px;
+display: none;
+}
+.seconnecter.newGroupe i{
+    padding-right: 10px;
+    
+}
+.seconnecter.newGroupe{
+    background: transparent;
+    border: 1px solid var(--color-blanche-2);
+    color: var(--color-text);
+    width: 90%;
+    display: flex;
+    border-radius: 10px;
+}
+.carterUsermessage{
+    background: var(--color-blanche-2);
 }

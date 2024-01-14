@@ -31,6 +31,52 @@ if(($detail_user['ver_profile'] == 0))
     <link rel="manifest" href="../favicon_io/site.webmanifest">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>NewaRnet</title>
+    <style>
+      .containeurData,#dataSearcheContent{
+  width:100%;
+  margin:0 auto;
+  max-height:100vh;
+  overflow-y:auto;
+  height:100%;
+  background: var(--color-linear-white);
+  animation: skeletonAnimation 2s linear infinite;
+  background-size: 200% 100%;
+}
+.storiesFrindsData .photoamis.autre, .storiesFrindsData .nomamis.autre h3,.nomamis.autre p{
+  background:var(--color-blanche-1);
+}
+.storiesFrindsData .photoamis.autre{
+width:70px;
+height:70px;
+border-radius:50%;
+}
+.storiesFrindsData .nomamis.autre h3{
+width:200px;
+height:13px;
+background:var(--color-blanche-1);
+border-radius:10px;
+}
+.nomamis.autre  p{
+width:130px;
+height:10px;
+margin-top:8px;
+background:var(--color-blanche-1);
+border-radius:10px;
+}
+.conteneuramis.albumObly {
+      border-radius:5px;
+      margin-bottom:2px;
+      height:200px;
+      width:100%;
+      border:1px solid var(--color-blanche-2);
+      border:none;
+    }
+    .conteneuramis.albumObly img{
+  width:100%;
+  height:100%;
+  border-radius:5px;
+}
+    </style>
   </head>
   <body>
   <div class="barrScrolle"><div></div></div>
@@ -53,32 +99,6 @@ if(($detail_user['ver_profile'] == 0))
             </i><i class="fa-solid fa-magnifying-glass"></i><input type="search" name=""id=""placeholder="Rechercher un NewaRnaute..." oninput="RecherCherNewaRnaute(event)">
         </div>
       </nav>
-      <div class="MobileDataPrincipale">
-        
-      </div>
-      <div class="boutonOptionsMobile">
-        <div class="iconsBoutonMobilePlus"><i class="fa-solid fa-plus"></i></div>
-      </div>
-      <div class="bottomMenusIcons">
-        <div class="parentIconsMobile">
-          <div class="menuIconsPrincipale">
-            <i class="fa-solid fa-message"></i>
-            <span>Message</span>
-          </div>
-          <div class="menuIconsPrincipale">
-            <i class="fa-solid fa-bell"></i>
-            <span>Notifications</span>
-          </div>
-          <div class="menuIconsPrincipale">
-          <i class="fa-solid fa-user-group"></i>
-            <span>Groupes</span>
-          </div>
-          <div class="menuIconsPrincipale">
-            <i class="fa-solid fa-user"></i>
-            <span>Profile</span>
-          </div>
-        </div>
-      </div>
       <!-- Debut_main -->
       <main>
         
@@ -505,6 +525,7 @@ if(($detail_user['ver_profile'] == 0))
         dynamicBullets: true,
       },
     });
+    
   </script>
   </body>
 </html>

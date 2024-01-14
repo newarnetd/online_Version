@@ -175,6 +175,9 @@ if ($personneTrouvee) {
                               <!-- stoys_friends -->
                              <div class="leftnav status"> <i class="fa-solid fa-magnifying-glass"></i><input type="search" name=""id=""placeholder="Rechercher une Statut" oninput="RecherCherNewaRnaute(event)"></div>
                                  <!-- stories proipositions -->
+                                 <div class="storiesFrindsData">
+                                 <?php include("Faux-contenuAutre.php") ?>
+                                 </div>
                            </div>
                            <div class="swiper-slide">
                              <div class="carterPostSatut">

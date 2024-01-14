@@ -103,6 +103,48 @@ optgroup{
     display:flex;
     cursor:pointer;
   }
+  /* Stylisation de la barre de progression pour WebKit (Chrome, Safari) */
+::-webkit-progress-bar {
+  background-color: #BDBDBD;
+  border-radius: 4px; box-shadow:var(--boxshadow_section_blanche)
+}
+
+::-webkit-progress-value {
+  background-color: var(--color-primary);
+  border-radius: 4px; box-shadow:var(--boxshadow_section_blanche)
+}
+
+/* Stylisation de la barre de progression pour Gecko (Firefox) */
+::-moz-progress-bar {
+  background-color: #BDBDBD;
+  border-radius: 4px; box-shadow:var(--boxshadow_section_blanche)
+}
+
+/* Stylisation de la valeur de progression pour Gecko (Firefox) */
+::-moz-progress-value {
+  background-color: var(--color-primary);
+  border-radius: 4px; box-shadow:var(--boxshadow_section_blanche)
+}
+
+/* Stylisation de la barre de progression pour Microsoft Edge et Internet Explorer */
+::-ms-fill {
+  background-color: #BDBDBD;
+  border-radius: 4px;
+   box-shadow:var(--boxshadow_section_blanche)
+}
+
+::-ms-fill-lower {
+  background-color: var(--color-primary);
+  border-radius: 4px;
+   box-shadow:var(--boxshadow_section_blanche)
+}
+
+::-ms-fill-upper {
+  background-color: var(--color-primary);
+  border-radius: 4px; 
+  box-shadow:var(--boxshadow_section_blanche)
+}
+
   textarea {
     scrollbar-width: thin; /* Pour Firefox */
     scrollbar-color: transparent transparent; /* Pour Firefox */

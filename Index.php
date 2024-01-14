@@ -348,17 +348,6 @@ verificationSession();
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-var largeurFenetre = window.innerWidth;
-if (largeurFenetre < 576) {
-    window.location.href = 'mobile/';
-} else if (largeurFenetre >= 576 && largeurFenetre < 768) {
-    window.location.href = 'mobile/';
-} else if (largeurFenetre >= 768 && largeurFenetre < 992) {
-    alert("C'est un petit écran d'ordinateur.");
-} else {
-    alert("C'est un écran d'ordinateur de bureau.");
-}
-
 
 const MereContent = document.querySelector(".swiper-wrapper.Desk");
 const MereContentMobile = document.querySelector(".swiper-wrapper.Mobile");

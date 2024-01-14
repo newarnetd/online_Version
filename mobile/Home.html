@@ -89,7 +89,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="swiper mySwiper PrincipaleHome">
                     <div class="swiper-wrapper principale">
 <!-- fin de tout principale accuei -->
@@ -120,10 +119,10 @@
                         <i class="fa-solid fa-user-group"></i>
                         <span>Groupes</span>
                     </div>
-                    <div class="optionMobileIconsBottom"onclick="eplazaPageMobile()">
+                    <a  href="#" class="optionMobileIconsBottom">
                         <i class="fa-solid fa-bullhorn"></i>
                         <span>eplaza</span>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -138,7 +137,15 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="search" name="" id="" placeholder="Rechercher un Message....">
             </div>
-            Message
+            <div class="seconnecter newGroupe"onclick="NouvelleConversation()"> <i class="fa-solid fa-message"></i>Nouvelle Conversation</div>
+            <div class="conversationuser" onclick="Message()">
+                <div class="carterUsermessage"></div>
+                <div class="nameUserconversation">
+                    <h3>Jean-luc kashind</h3>
+                    <p>12 mais</p>
+                </div>
+                <div class="onlineTime">il y 2h</div>
+            </div>
         </div>
  <!-- session Notifications -->
         <div class="swiper-slide principale">
@@ -147,11 +154,36 @@
                 <span>Notifications</span>
                 <i class="fa-solid fa-bell"></i>
             </div>
-            <div class="RecherchSpace">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="search" name="" id="" placeholder="Rechercher un Message....">
+            <div class="contenuDataPrincipe">
+                
+                <div class="contaieneurNotification">
+                    <div class="hraderNotification">
+                        <div class="imageOwner"></div>
+                    <div class="textNotification">
+                        <h3>Jean-luc kashindi</h3> 
+                        <span>il y 2j</span>
+                    </div>
+                    <div class="iconNotification">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                    </div>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias recusandae perspiciatis maiores ex iste, placeat similique quaerat doloremque delectus veniam voluptatibus voluptatum amet optio quod fugit. Molestias est facilis commodi?
+                </div>
+
             </div>
-            Notificationj
+            <!-- menuMobil -->
+            <div class="menuMobile">
+                <div class="contentMenuMobile">
+                    <div class="headerNotification">Menu Notification</div>
+                </div>
+                <div class="menuMobilepage" onclick="MarquerVu()">
+                    <i class="fa-solid fa-eye"></i>Marquer comme vu
+                </div>
+                <div class="menuMobilepage" onclick="DeleteNofification()">
+                    <i class="fa-solid fa-trash"></i>Effacer la Notification
+                </div>
+            </div>
+            <!-- menuMobil -->
         </div>
 <!-- Profile user -->
         <div class="swiper-slide principale">
@@ -168,13 +200,31 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="search" name="" id="" placeholder="Rechercher une conversation....">
             </div>
-            Groupes
+            <div class="seconnecter newGroupe"onclick="NewGroupeMobile()"> <i class="fa-solid fa-user-group"></i>Créer un nouveau groupe</div>
+            <div class="conversationuser" onclick="Message()">
+                <div class="carterUsermessage"></div>
+                <div class="nameUserconversation">
+                    <h3>Jean-luc kashind</h3>
+                    <p>12 mais</p>
+                </div>
+                <div class="onlineTime">il y 2h</div>
+            </div>
         </div>
+<!-- albumPhoto -->
         <div class="swiper-slide principale">
             <div class="headerTittre" >
-                <span><i class="fa-solid fa-arrow-left"onclick="HomePageMobile()"></i></span>
+                <span><i class="fa-solid fa-arrow-left"onclick="MorePageMobile()"></i></span>
+                <span>Album Photo NewaRnet</span>
+                <i class="fa-solid fa-ellipsis-vertical" onclick="MorePageMobile()"></i>
             </div>
-            eplaza
+            <div class="contenuDataPrincipe">
+            <div class="gridElements">
+                <div class="element"></div>
+                <div class="element"></div>
+                <div class="element"></div>
+                <div class="element"></div>
+              </div>
+            </div>
         </div>
 <!-- Rechercher -->
         <div class="swiper-slide principale">
@@ -183,6 +233,7 @@
                 <span>Rechercher</span>
                 <i class="fa-solid fa-ellipsis-vertical" onclick="MorePageMobile()"></i>
             </div>
+            <div class="contenuDataPrincipe">
             <div class="RecherchSpace">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="search" name="" id="" placeholder="Rechercher avec un nom....">
@@ -196,6 +247,8 @@
                   <p><small>86 ami(e)s en commun </small></p>
                 </div>
             </a>
+
+        </div>
         </div>
 <!-- Parametre pages -->
         <div class="swiper-slide principale">
@@ -207,7 +260,11 @@
                         <span>Gestion du compte</span>
                         <i class="fa-solid fa-user-gear"></i>
                     </div>
+                    <div class="contenuDataPrincipe">
                     <div class="oprionMoreParametre">
+                        <div class="menuMobilepage" onclick="VoirAlbum()">
+                            <i class="fa-solid fa-image"></i>Album Photo
+                        </div>
                         <div class="menuMobilepage" onclick="NewGroupeMobile()">
                             <i class="fa-solid fa-user-group"></i> Créer un nouveau groupe
                         </div>
@@ -227,43 +284,92 @@
                             <i class="fa-solid fa-right-from-bracket"></i> se deconnecter
                         </div>
                     </div>
+                </div>
                   </div>
-
+                  <!-- parametre theme -->
                   <div class="swiper-slide principale">
                     <div class="headerTittre" >
                         <span><i class="fa-solid fa-arrow-left"onclick="SettinPageMobile()"></i></span>
                         <span>Paramètres de la page</span>
                         <i class="fa-solid fa-user-gear"></i>
                     </div>
-                    parametre page
+                    <div class="menuMobilepage" onclick="darkFunction()" id="sunFonction">
+                        <i class="fa-solid fa-sun"></i> Mode Claire
+                    </div>
+                    <div class="menuMobilepage" onclick="sunFunction()" id="darkFonction">
+                        <i class="fa-solid fa-moon"></i> Mode sombre
+                    </div>
+                    <p class="textEplaza">NewaRnet vous offre également la gestion des modes de votre page pour une meilleure expérience utilisateur</p>
                   </div>
+                  <!-- parametres modification profile -->
                   <div class="swiper-slide principale">
                     <div class="headerTittre" >
                         <span><i class="fa-solid fa-arrow-left"onclick="SettinPageMobile()"></i></span>
                         <span>Parametre du compte</span>
                         <i class="fa-solid fa-user-gear"></i>
                     </div>
-                    Parametre du compte
+                    <div class="menuMobilepage"onclick="EditeProfile()">
+                        <i class="fa-solid fa-pen-to-square"></i> Modifier Ma Photo de Profil
+                    </div>
+                    <div class="menuMobilepage"onclick="EditeCouverture()">
+                        <i class="fa-solid fa-image"></i> Modifier Ma Photo de Couverture
+                    </div>
+                    <div class="menuMobilepage"onclick="EditeInfos()">
+                        <i class="fa-solid fa-address-book"></i> Modifier Mes Informations de Compte
+                    </div>
                   </div>
+                  <!-- normes -->
                   <div class="swiper-slide principale">
                     <div class="headerTittre" >
                         <span><i class="fa-solid fa-arrow-left"onclick="SettinPageMobile()"></i></span>
                         <span>Documentation de NewaRnet</span>
                         <i class="fa-solid fa-user-gear"></i>
                     </div>
-                    Documentation de la plate form genre je t'enverai le contenu 
+                        <div class="contenuDataPrincipe">
+                        <h3 class="titreLinge">NewaRnet</h3>
+                        <div class="contenu">Bienvenue sur NewaRnet, la plateforme de réseau social conçue pour faciliter la connexion entre individus et la promotion en ligne. Afin de maintenir un environnement sain, respectueux et sécurisé pour tous les utilisateurs, nous avons établi des règlements stricts. En utilisant NewaRnet, vous acceptez de respecter les règles énoncées ci-dessous :</div>
+                        <h3 class="titreLinge">Respect Mutuel</h3>
+                        <div class="contenu">Les utilisateurs doivent traiter les autres avec respect, tolérance et compréhension Les discours haineux, discriminatoires ou offensants envers un individu ou un groupe seront strictement interdits,Le non-consentement à la diffusion d'informations personnelles d'autrui est impératif. Le respect de la vie privée des utilisateurs est une priorité</div>
+                        <h3 class="titreLinge">Interdiction de la Violence</h3>
+                        <div class="contenu">Tout contenu promouvant la violence physique, verbale ou psychologique est strictement interdit Les menaces, intimidations et incitations à la violence sont sévèrement sanctionnées.</div>
+                        <h3 class="titreLinge">Contenu Pornographique</h3>
+                        <div class="contenu">La publication, le partage ou la promotion de contenu pornographique est interdite. Respectez les normes de décence et de respect mutuel en matière de contenu visuel et textuel.</div>
+                        <h3 class="titreLinge">Tentatives de Piratage</h3>
+                        <div class="contenu">Toute tentative de piratage, d'intrusion ou de compromission de la sécurité de NewaRnet est strictement interdite. Protégez vos informations de connexion et signalez toute activité suspecte.</div>
+                        <h3 class="titreLinge">Sanctions</h3>
+                        <div class="contenu">Tout non-respect des règlements peut entraîner des sanctions, y compris la suspension ou la suppression du compte. Merci de contribuer à faire de NewaRnet une communauté en ligne positive et respectueuse. En respectant ces règles, vous participez à la création d'un espace sûr et agréable pour tous.</div>
+                        </div>
                   </div>
+                  <!-- ass Nianda -->
                   <div class="swiper-slide principale">
                     <div class="headerTittre" >
                         <span><i class="fa-solid fa-arrow-left"onclick="SettinPageMobile()"></i></span>
                         <span>Assistance avec Nianda</span>
                         <i class="fa-solid fa-user-gear"></i>
                     </div>
+                <div class="contenuDataPrincipe">
+                    <div class="bottomCreationNianda">
+                        <div class="RecherchSpace">
+                            <i class="fa-solid fa-robot"></i>
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <input type="text" name="" id="" placeholder="Une question sur NewaRnet..." oninput="AddQuestion(event)">
+                        </div>
+                    </div>
                 </div>
+                </div>
+                <!-- deconnexion -->
                   <div class="swiper-slide principale">
-                    deconnexion ici
-                    <!-- parametre Fins ici -->
+                    <div class="containeurDec">
+                        <div class="imageuserDec"></div>
+                        <div class="nameUser">Jean-luc kashindi</div>
+                        <div class="seconnecter"onclick="SettinPageMobile()">seconnecter</div>
+                        <div class="seconnecter newcompte">Se connecter à un autre compte</div>
+                    </div>
+                    <div class="btnCreation">
+                        <div class="seconnecter">Créer un nouveau compte</div>
+                    </div> 
                 </div>
+<!-- parametre deconnexion ici -->
               </div>
         </div>
 <!-- Fin des page Principale -->       
@@ -274,7 +380,7 @@
             <div class="swiper-wrapper CreationGrouepe">
               <div class="swiper-slide principale MobileStyle">
                 <div class="headerTittre" >
-                    <span><i class="fa-solid fa-arrow-left"onclick="HomePageMobile()"></i></span>
+                    <span><i class="fa-solid fa-arrow-left"onclick="MorePageMobile()"></i></span>
                     <span>creation d'un Groupe</span>
                     <i class="fa-solid fa-user-group"></i>
                 </div>
@@ -295,29 +401,32 @@
                         </div>
                         <div class="iconeamis"><input type="checkbox" name="membre" id=""  value= "<?php echo $USERS_ROW['userid'] ?>" onchange="creationGroupeVerification(event)"></div>
                     </div>
-              <div class="CreatiomsuivantBoutonsGroupe"onclick="SuivantGroupeCreationMobile()">
-                <div class="continuBtnMobile"><i class="fa-solid fa-arrow-right"></i></div>
-            </div>
+                <div class="CreatiomsuivantBoutonsGroupe"onclick="SuivantGroupeCreationMobile()">
+                    <div class="continuBtnMobile"><i class="fa-solid fa-arrow-right"></i></div>
+                </div>
                   <!-- Frinds-select -->
                   <div id="FrinedsGroupesAdd"></div>
               </div>
               <div class="swiper-slide principale MobileStyle">
                 <div class="headerTittre" >
-                    <span><i class="fa-solid fa-arrow-left"onclick="HomePageMobile()"></i></span>
+                    <span><i class="fa-solid fa-arrow-left"onclick="MorePageMobile()"></i></span>
                     <span>creation d'un Groupe</span>
                     <i class="fa-solid fa-user-group"></i>
                 </div>
-                    <input type="file" name="couvertureImage" id="imagecouvert" hidden accept="image/*" onchange="updateLabelAndDisplay(this,event,'imagecouverture')">
-                    <label for="imagecouvert" class="carterPostStory profile_cover other" id="imagecouverture">
-                        <img src="<?php echo  $couverture?>" alt="">
-                      <p><div class="selectIcon"><i class="fa-solid fa-cloud-arrow-up"></i></div></p>
-                    </label>
-                  <div class="BoutonsRetoure add modificationPhotociover">Modifier Ma couverture</div>
+                <div class="contenuDataPrincipe">
+                <div class="InputDouble"><div class="contentBtnName"><input type="text" name="" id="" placeholder="Nommez ce groupe"oninput="AddnameGroupe(event)"></div><div class="contentBtnName">Créer le Groupe</div></div>
+                <input type="file" name="image" id="imagestory" hidden accept="image/*" onchange="updateLabelAndDisplay(this,event,'imageStory')">
+                <label for="imagestory" class="MobilCreationGroupe" id="imageStory">
+                  <p>Clique ici pour sélectionner le profil.</p>
+                </label>
+                <p class="Text_Norme">Pour préserver l'image de NewaRnet, En tant qu'admin par défaut de ce groupe , veuillez signaler tout comportement inapproprié.</p>
+            </div>
               </div>
+              
             </div>
         </div>
     </div>
-<!-- creation newConveration -->
+<!-- creation new Converation -->
 <div class="swiper-slide principale">
     <div class="swiper mySwiper chatswipper">
         <div class="swiper-wrapper settingCompte">
@@ -328,30 +437,93 @@
                 <span>Gestion du compte</span>
                 <i class="fa-solid fa-user-gear"></i>
             </div>
-            Nouvelle Conversation
+            <div class="RecherchSpace Groupe Unes">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" name="" id="" placeholder="Trouve une personne à Ajouter....">
+            </div>
+            <div class="seconnecter newGroupe"onclick="NewGroupeMobile()"> <i class="fa-solid fa-user-group"></i>Créer un nouveau groupe</div>
+            <div class="conversationuser">
+                <div class="carterUsermessage"></div>
+                <div class="nameUserconversation">
+                    <h3>Jean-luc kashind</h3>
+                    <p>12 mais</p>
+                </div>
+                <div class="onlineTime">il y 2h</div>
+            </div>
         </div>
     </div>
 </div>
 </div>
-<!-- visualisation Utilisateur -->
+<!-- addStory -->
 <div class="swiper-slide principale">
     <div class="headerTittre" >
         <span><i class="fa-solid fa-arrow-left"onclick="HomePageMobile()"></i></span>
         <span>Nom utilisateur</span>
         <i class="fa-solid fa-user-gear"></i>
     </div>
-    Inter profile
+    addStory
 </div>
-<!-- Nouvelle Conversation -->
+<!-- editerProfile -->
 <div class="swiper-slide principale">
     <div class="headerTittre" >
-        <span><i class="fa-solid fa-arrow-left"onclick="HomePageMobile()"></i></span>
-        <span>Nom utilisateur</span>
+        <span><i class="fa-solid fa-arrow-left"onclick="MorePageMobile()"></i></span>
+        <span>Moification du Profil</span>
         <i class="fa-solid fa-user-gear"></i>
     </div>
-    Nouvelle Conversation
+    <div class="BoutonsRetoure add profilePhotoAdd" onclick="ChangerProfile(event)" id="Profile">Modifier mon Profile</div>
+                <input type="file" name="image" id="imagestory" hidden accept="image/*" onchange="updateLabelAndDisplay(this,event,'imageStory')">
+                <label for="imagestory" class="MobilCreationGroupe" id="imageStory">
+                  <p>Clique ici pour sélectionner le profil.</p>
+                </label>
+    <p class="Text_Norme">Cette photo offre aux NewaRnautes une première impression visuelle de votre personnalité sur votre profil.</p>
 </div>
-<!-- Nouvelle Conversation -->
+<!-- editerCover -->
+<div class="swiper-slide principale">
+    <div class="headerTittre" >
+        <span><i class="fa-solid fa-arrow-left"onclick="MorePageMobile()"></i></span>
+        <span>Moification du Profil</span>
+        <i class="fa-solid fa-user-gear"></i>
+    </div>
+    <div class="contenuDataPrincipe">
+    <div class="BoutonsRetoure add profilePhotoAdd" onclick="ChangerProfile(event)" id="Profile">Modifier mon Profile</div>
+    <input type="file" name="image" id="imagestory" hidden accept="image/*" onchange="updateLabelAndDisplay(this,event,'imageStory')">
+    <label for="imagestory" class="MobilCreationGroupe" id="imageStory">
+      <p>Clique ici pour sélectionner le profil.</p>
+    </label>
+<p class="Text_Norme">cette photo donne aux visiteurs une première impression visuelle de votre personnalité sur ton Profile</p>
+</div>
+</div>
+<!-- editerInfos -->
+<div class="swiper-slide principale">
+    <div class="headerTittre" >
+        <span><i class="fa-solid fa-arrow-left"onclick="MorePageMobile()"></i></span>
+        <span>Modification des Informations</span>
+        <i class="fa-solid fa-user-gear"></i>
+    </div>
+    <div class="contenuDataPrincipe">
+        informations
+    </div>
+</div>
+<div class="swiper-slide principale">
+    <div class="headerTittre" >
+        <span><i class="fa-solid fa-arrow-left"onclick="MorePageMobile()"></i></span>
+        <span>Modification des Informations</span>
+        <i class="fa-solid fa-user-gear"></i>
+    </div>
+    <div class="contenuDataPrincipe">
+        <div class="contenuDataPrincipe">
+            <div class="bottomCreationNianda">
+                <div class="RecherchSpace">
+                    <i class="fa-solid fa-robot"></i>
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <input type="text" name="" id="" placeholder="Une question sur NewaRnet..." oninput="AddQuestion(event)">
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
 <!---------------------------------------------------------- -->
 
 </div>
@@ -364,5 +536,6 @@
     <script src="../Javascripts/refusActions.js"></script>
     <script src="../Ajax_Functions/functionAjax.js"></script>
     <script src="../Ajax_Functions/FunctionsJs.js"></script>
+    <script src="../JavascriptMobile/NiandSessionMobile.js"></script>
 </body>
 </html>

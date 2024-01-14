@@ -69,31 +69,55 @@ function VerificationChecked(event) {
 
     }
  }
-function FilActualite(event)
-{
-    let value = event.currentTarget;
-    let OptionsBtn = document.querySelectorAll(".optionHome");
-    let MereSlides = document.querySelector(".swiper.mySwiper.other .swiper-wrapper.homeSessionPost");
-    OptionsBtn.forEach(option =>{
-        option.classList.remove('active');
-    })
-    value.classList.add('active');
-    if(value.id =="actualite")
+ function FilActualite(event)
+ {
+     let value = event.currentTarget;
+     let OptionsBtn = document.querySelectorAll(".optionHome");
+     let MereSlides = document.querySelector(".swiper.mySwiper.other .swiper-wrapper.homeSessionPost");
+     OptionsBtn.forEach(option =>{
+         option.classList.remove('active');
+     })
+     value.classList.add('active');
+     if(value.id =="actualite")
+     {
+         MereSlides.style.transform = 'translateX(0%)';
+     }else if(value.id =="videos")
+     {
+         MereSlides.style.transform = 'translateX(-100%)';
+ 
+     }else if(value.id =="Statut")
+     {
+         MereSlides.style.transform = 'translateX(-200%)';
+         readSoris();
+ 
+     }else if(value.id =="Livres")
+     {
+         MereSlides.style.transform = 'translateX(-300%)';
+     }
+ }
+ function CreatGroupe(event)
     {
-        MereSlides.style.transform = 'translateX(0%)';
-    }else if(value.id =="videos")
-    {
-        MereSlides.style.transform = 'translateX(-100%)';
-
-    }else if(value.id =="Statut")
-    {
-        MereSlides.style.transform = 'translateX(-200%)';
-
-    }else if(value.id =="Livres")
-    {
-        MereSlides.style.transform = 'translateX(-300%)';
+      document.querySelector('#FrinedsGroupesAdd').innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
+      leftMererSlider.style.transform = "TranslateX(-500%)" ;
+      let value = event.currentTarget.getAttribute('y');
+      let page = "AmisGroupesAdd.php";
+      function callback(data) {
+      document.querySelector('#FrinedsGroupesAdd').innerHTML = data;
+      }
+      sendValueAjax(page, value, callback);
     }
-}
+  
+    function readSoris()
+    {
+      let value = "";
+      let page = "readStatut.php";
+      function callback(data) {
+      setTimeout(() => {
+        document.querySelector('.storiesFrindsData').innerHTML = data;
+      }, 2000);
+      }
+      sendValueAjax(page, value, callback);
+    }
 function ShowStatut(event)
 {
     let MereSlides = document.querySelector(".swiper-wrapper.ScrollPart");

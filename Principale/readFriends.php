@@ -1,6 +1,7 @@
 <?php
 include("otherPrincipale.php");
-if ($_SERVER['REQUEST_METHOD'] === "POST") {
+if ($_SERVER['REQUEST_METHOD'] === "POST") 
+{
     global $my_id;
     global $user;
     $result= $user->Mesamis($my_id,"amis");

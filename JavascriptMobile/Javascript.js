@@ -10,6 +10,10 @@ function SuivantGroupeCreationMobile()
 {
    ParentCreationGroupe.style.transform = 'translateX(-100%)';
 }
+function RetourMessage()
+{
+   ParentPrincipale.style.transform = 'translateX(-100%)';
+}
 function SettinPageMobile()
 {
    ParentSetting.style.transform = 'translateX(0%)';
@@ -42,7 +46,7 @@ function MessagePageMobile()
  {
     ParentPrincipale.style.transform = 'translateX(-400%)';
  }
- function eplazaPageMobile()
+ function VoirAlbum()
  {
     ParentPrincipale.style.transform = 'translateX(-500%)';
  }
@@ -78,6 +82,18 @@ function StoryAdd()
 {
    ParentPrincipale.style.transform = 'translateX(-1000%)';
 }
+function EditeProfile()
+{
+   ParentPrincipale.style.transform = 'translateX(-1100%)';
+}
+function EditeCouverture()
+{
+   ParentPrincipale.style.transform = 'translateX(-1200%)';
+}
+ function EditeInfos()
+ {
+   ParentPrincipale.style.transform = 'translateX(-1300%)';
+ }
 function plusOption(event)
 {
    event.currentTarget.classList.toggle('active');
@@ -90,4 +106,18 @@ function ThemeMobile() {
       }
    });
 }
-
+function AddnameGroupe(event)
+{
+    let mere  = event.currentTarget.closest('.InputDouble');
+    let Btn= mere.querySelector('.InputDouble .contentBtnName:nth-child(2)');
+    if(event.target.value.trim() !== '')
+    {
+        Btn.style.display='flex';
+    }else{
+        Btn.style.display='none';
+    }
+}
+function Message()
+{
+   ParentPrincipale.style.transform = 'translateX(-1400%)';
+}
