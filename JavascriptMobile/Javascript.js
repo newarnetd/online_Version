@@ -42,6 +42,10 @@ function MessagePageMobile()
 {
     ParentPrincipale.style.transform = 'translateX(-100%)';
 }
+function Profile()
+{
+   ParentPrincipale.style.transform = 'translateX(-1500%)';
+}
  function GroupesPageMobile()
  {
     ParentPrincipale.style.transform = 'translateX(-400%)';
@@ -49,10 +53,6 @@ function MessagePageMobile()
  function VoirAlbum()
  {
     ParentPrincipale.style.transform = 'translateX(-500%)';
- }
- function ProfilPageMobile()
- {
-    ParentPrincipale.style.transform = 'translateX(-300%)';
  }
  function NotiPageMobile()
  {

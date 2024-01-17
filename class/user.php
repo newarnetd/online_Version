@@ -38,21 +38,29 @@ class User
 	
 
 	
-	public function Mesamis($id, $type)
+	public function MesAmis($id, $type)
 	{
 		global $my_id;
 		$DB = new Database();
 		$sql = "SELECT amis FROM relations WHERE type = ? AND userid = ? LIMIT 1";
 		$result = $DB->read($sql, [$type, $id]);
 	
-		if ($result && is_array($result)) {
-			$FriedsIds = json_decode($result[0]['amis'], true);
+		if ($result && is_array($result) && count($result) > 0) {
+			$friendsData = $result[0]['amis'];
+			if (is_array($friendsData)) {
+				return $friendsData;
+			}
+			$friendsIds = json_decode($friendsData, true);
 	
-			return $FriedsIds;
+			if (json_last_error() === JSON_ERROR_NONE) {
+				return $friendsIds;
+			}
 		}
 	
 		return array();
 	}
+	
+
 	
 public function Mes_suivi($id, $type)
 {
@@ -73,6 +81,10 @@ public function Mes_suivi($id, $type)
 
     return array();
 }
+
+
+
+
 public function AmisRand($id, $type, $limiter)
 {
     global $my_id;

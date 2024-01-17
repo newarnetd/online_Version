@@ -14,6 +14,7 @@ if (is_array($USERS_ROW) && isset($USERS_ROW['nom']) && isset($USERS_ROW['prenom
     }
 
     $Friendid = encrypt($USERS_ROW['userid'], $key);
+    $amisEncommun = nombreAmisCommuns($my_id, $USERS_ROW['userid']);
     ?>
     <div class="conteneuramis">
         <div class="photoamis">
@@ -21,7 +22,7 @@ if (is_array($USERS_ROW) && isset($USERS_ROW['nom']) && isset($USERS_ROW['prenom
         </div>
         <div class="nomamis">
             <h3><?php echo $nom_comple_friends ?></h3>
-            <p><small>86 ami(e)s en commun </small></p>
+            <p><small><?php echo $amisEncommun ?> ami(e)s en commun </small></p>
         </div>
         <div class="iconeamis"><i class="fa-solid fa-ellipsis" onclick="OptionUsers()"></i></div>
     </div>

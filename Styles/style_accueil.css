@@ -1899,7 +1899,6 @@ padding: 5px 10px;
   position: absolute;
   width: 20px;
   height: 20px;
-  background: red;
   border-radius: 10px;
 }
 .creation_du_groupe {
@@ -2392,23 +2391,7 @@ position: relative;
 margin:5px auto;
 background:var(--color-blanche-1);
 }
-.partiePropositionEplazacarte .mySwiper{
-  width:100%;height:100%;
-  margin:5px;
-}
-.partiePropositionEplazacarte{
-  width:100%;
-  height:250px;
-}
-.partiePropositionEplazacarte .swiper-slide{
-background:var(--color-blanche-2) !important;
-height:100% !important;
-width:200px !important;
-}
-.partiePropositionEplazacarte .swiper-wrapper{
-  width:100%;
-  height:100%;
-}
+
 span.nombVuesHomepage{
   color:#FFF !important;
 }
@@ -2437,10 +2420,7 @@ span.nombVuesHomepage{
   color:#FFF;
   border-radius:3px;
 }
-.swiper.mySwiper.partiePropositionEplazacarte{
-  width:100%;
-  padding:10px;
-}
+
 .conteneuramis.conversationHomepage:hover{
   background:transparent;
 }
@@ -2645,9 +2625,7 @@ border-radius:50%;
   justify-content: center;
   cursor:pointer;
 }
-      .textCenteNotification .returnBtn i{
-        color:#212121 !important;
-      }
+      
       .textCenteNotification .returnBtn{
         background:#FFF !important;
         color:#212121 !important;
@@ -2691,18 +2669,7 @@ border-radius:50%;
         justify-content:flex-start;
         padding:10px;
       }
-      #dataAlbum{
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); 
-      gap: 5px;
-      width:100%;
-      padding:5px;
-      max-height: 78vh;
-      height: 100%;
-      overflow-y:auto;
-      width:100%;
-     
-    }
+   
     .conteneuramis.album {
       background: var(--color-linear-white);
       animation: skeletonAnimation 2s linear infinite;
@@ -2712,3 +2679,242 @@ border-radius:50%;
       height:200px;
       border:1px solid var(--color-blanche-2);
     }
+    .partiePropositionEplazacarte .mySwiper{
+      width:100%;height:100%;
+      margin:5px;
+    }
+    .partiePropositionEplazacarte{
+      width:100px;
+      height:250px;
+      background:red;
+    }
+    
+    .partiePropositionEplazacarte .swiper-wrapper{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      cursor:pointer;
+      
+    }
+    .swiper.mySwiper.partiePropositionEplazacarte .swiper-wrapper .swipper-slide{
+      background:blue !important;
+      width:20px;
+      height:200px;
+    }
+    .swiper.mySwiper.partiePropositionEplazacarte{
+      width:100%;
+      padding:10px;
+    }
+    
+          .containeurData,#dataSearcheContent{
+      width:100%;
+      margin:0 auto;
+      max-height:100vh;
+      overflow-y:auto;
+      height:100%;
+      background: var(--color-linear-white);
+      animation: skeletonAnimation 2s linear infinite;
+      background-size: 200% 100%;
+    }
+    .storiesFrindsData .photoamis.autre, .storiesFrindsData .nomamis.autre h3,.nomamis.autre p{
+      background:var(--color-blanche-1);
+    }
+    .storiesFrindsData .photoamis.autre{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    }
+    .storiesFrindsData .nomamis.autre h3{
+    width:200px;
+    height:13px;
+    background:var(--color-blanche-1);
+    border-radius:10px;
+    }
+    .nomamis.autre  p{
+    width:130px;
+    height:10px;
+    margin-top:8px;
+    background:var(--color-blanche-1);
+    border-radius:10px;
+    }
+    .conteneuramis.albumObly {
+          border-radius:5px;
+          margin-bottom:2px;
+          height:200px;
+          width:100%;
+          border:1px solid var(--color-blanche-2);
+          border:none;
+        }
+        .conteneuramis.albumObly img{
+      width:100%;
+      height:100%;
+      border-radius:5px;
+    }
+    .textCenteNotification .returnBtn i{
+            color:#818181 !important;
+            padding-right: 10px;
+}
+      
+.eplazaPromotion{
+  width:100%;
+  height:250px;
+  background:red;
+}
+.textCenteNotification.groupe{
+  background:var(--color-blanche-1);
+}
+.textCenteNotification.groupe .returnBtn{
+  background:var(--color-blanche-2) !important;
+  color:var(--color-text) !important;
+  padding:12px;
+}
+.headerFriends{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+
+
+.photoOwnerConnected:before {
+position: absolute;
+bottom: 10px;
+content: '\f03e'; 
+font-family: 'Font Awesome 5 Free'; 
+color: #fff; 
+width: 35px;
+height: 35px;
+right: -5px;
+display:flex;align-items:center;
+justify-content:center;
+background:var(--color-primary);
+border-radius:10%;
+border:1px solid var(--color-blanche-1);
+}
+.photoOwnerConnected{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  cursor:pointer;
+  background:var(--color-blanche-2);
+  position:relative;
+  margin-top:20px;
+}
+.nameOwnerConnected span{
+  font-size:15px;
+  opacity:.5;
+}
+.nameOwnerConnected{
+  width:100%;
+  display:flex;align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+.nameOwnerConnected h3{
+  margin-top:10px;
+  font-weight:bold;
+  font-size:25px;
+  color:#BDBDBD;
+  
+}
+.menuOptionsProfile span i{
+  padding-right:10px;
+}
+.menuOptionsProfile span:nth-child(2) i{
+  color:#FFF;
+}
+.menuOptionsProfile span:nth-child(2)
+{
+  background:var(--color-primary);
+  color:#FFF;
+}
+.menuOptionsProfile span{
+  background:var(--color-blanche-2);
+  display:flex;align-items:center;
+  justify-content:center;
+  padding:10px;
+  border-radius:5px;
+  cursor:pointer;
+  width:100%;
+
+}
+.menuOptionsProfile{
+  width:90%;
+  gap:10px;
+  margin:0 auto;
+  display:flex;align-items:center;
+  justify-content:space-around;
+  margin-top:15px;
+}
+.otherDetailUser{
+  width:100%;
+  display:flex;
+  justify-content:flex-start;
+  align-items:start;
+  flex-direction:column;
+  padding:15px;
+}
+.otherDetailUser div i{
+  padding-right:15px;
+  font-size:25px;
+  
+}
+.otherDetailUser div{
+  width:100%;
+  display:flex;align-items:center;
+  padding:10px;
+}
+#dataAlbum,.eplazaMarketHomepage{
+display: grid;
+grid-template-columns: repeat(2, 1fr); 
+gap: 5px;
+width:100%;
+padding:5px;
+max-height: 78vh;
+height: 100%;
+overflow-y:auto;
+width:100%;
+
+}
+.containeurConversationNianda{
+width: 100%;
+height:100%;
+max-height:80%;
+height: 100%;
+overflow-y: auto;
+padding: 10px 5px;
+background: linear-gradient(180deg,transparent 80%, var(--color-blanche-2) 95%);
+}
+.contenuDataPrincipeNianda{
+width: 100%;
+max-height:100%;
+height: 100%;
+overflow-y: auto;
+overflow-x: hidden;
+position: relative;
+
+
+}
+.bottomCreationNianda{
+position: fixed;
+bottom: 15%;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+
+}
+.gridItemsProposition{
+width: 98%;
+display: grid;
+margin: 10px auto;
+margin-top: 0vh;
+grid-template-columns: repeat(2,1fr);
+grid: 5px;
+padding-top: 40vh;
+}
+.elemtentItems{
+font-size:13px;
+}
+

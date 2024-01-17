@@ -1,7 +1,30 @@
+function connextion(event)
+{
+    let mere = event.currentTarget.closest('.swiper-slide');
+    let erreurMessage = mere.querySelector('.erreurMessage');
+    let inscription = mere.querySelector('.connectionBtn.sign_up');
+    let Element = event.currentTarget;
+    Element.innerHTML = `<div class="mereAnimationclique"><span>En cours</span><div class="loading interd"></div></div>`;
+    let form = document.querySelector('.swiper-wrapper.Desk');
+    function callback(data)
+    {
+        if(data.trim() === 'true')
+        {
+            window.location.href ="Principale/Parametres.php";
+        }else{
+            erreurMessage.textContent = data;
+            inscription.style.display = 'none';
+            setTimeout(() => {
+                inscription.style.display = 'flex';
+                erreurMessage.textContent = "";
+                Element.innerHTML ="Se connecter";
+            }, 3000);
+        }
+    }
+    functionAjax('Principale/Connection.php', form, callback);
+}
 function EnregistrerInscription(event)
 {
-   
-    MereContentMobile.style.transform='translateX(-200%)';
     const MereContent = document.querySelector(".swiper-wrapper.Desk");
     let mere = event.currentTarget.closest('.swiper-slide');
     let erreurMessage = mere.querySelector('.erreurMessage');
@@ -30,29 +53,4 @@ function EnregistrerInscription(event)
         }
     }
     functionAjax('Principale/inscription.php', form, callback);
-}
-function connextion(event)
-{
-    let mere = event.currentTarget.closest('.swiper-slide');
-    let erreurMessage = mere.querySelector('.erreurMessage');
-    let inscription = mere.querySelector('.connectionBtn.sign_up');
-    let Element = event.currentTarget;
-    Element.innerHTML = `<div class="mereAnimationclique"><span>En cours</span><div class="loading interd"></div></div>`;
-    let form = document.querySelector('.swiper-wrapper.Desk');
-    function callback(data)
-    {
-        if(data.trim() === 'true')
-        {
-            window.location.href ="Principale/Parametres.php";
-        }else{
-            erreurMessage.textContent = data;
-            inscription.style.display = 'none';
-            setTimeout(() => {
-                inscription.style.display = 'flex';
-                erreurMessage.textContent = "";
-                Element.innerHTML ="Se connecter";
-            }, 3000);
-        }
-    }
-    functionAjax('Principale/Connection.php', form, callback);
 }

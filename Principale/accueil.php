@@ -24,6 +24,10 @@ if(($detail_user['ver_profile'] == 0))
     <link rel="stylesheet" href="../Styles/commentaire.css">
     <link rel="stylesheet" href="../Styles/index.css">
     <link rel="stylesheet" href="../Styles/eplaza.css">
+    <!-- added  links 17/Janvier/-->
+    <link rel="stylesheet" href="../mobile_style/accueil.css">
+    <link rel="stylesheet" href="../mobile_style/style_messagePage.css">
+    <!-- added  links 17/Janvier/-->
     <link rel="stylesheet" href="../Styles/style_accueil.css"/>
     <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
@@ -32,50 +36,7 @@ if(($detail_user['ver_profile'] == 0))
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>NewaRnet</title>
     <style>
-      .containeurData,#dataSearcheContent{
-  width:100%;
-  margin:0 auto;
-  max-height:100vh;
-  overflow-y:auto;
-  height:100%;
-  background: var(--color-linear-white);
-  animation: skeletonAnimation 2s linear infinite;
-  background-size: 200% 100%;
-}
-.storiesFrindsData .photoamis.autre, .storiesFrindsData .nomamis.autre h3,.nomamis.autre p{
-  background:var(--color-blanche-1);
-}
-.storiesFrindsData .photoamis.autre{
-width:70px;
-height:70px;
-border-radius:50%;
-}
-.storiesFrindsData .nomamis.autre h3{
-width:200px;
-height:13px;
-background:var(--color-blanche-1);
-border-radius:10px;
-}
-.nomamis.autre  p{
-width:130px;
-height:10px;
-margin-top:8px;
-background:var(--color-blanche-1);
-border-radius:10px;
-}
-.conteneuramis.albumObly {
-      border-radius:5px;
-      margin-bottom:2px;
-      height:200px;
-      width:100%;
-      border:1px solid var(--color-blanche-2);
-      border:none;
-    }
-    .conteneuramis.albumObly img{
-  width:100%;
-  height:100%;
-  border-radius:5px;
-}
+   
     </style>
   </head>
   <body>
@@ -115,20 +76,20 @@ border-radius:10px;
                         <div class="iconcontainerOption" onclick="MessageSide()">
                           <i class="fa-solid fa-message"><span class="notification_counteur"></span></i>Message
                         </div>
-                        <a href="Profile.php" class="iconcontainerOption">
-                          <i class="fa-solid fa-user"></i>Profil
-                        </a>
+                        <div class="iconcontainerOption" y="<?php echo encrypt($my_id,$key) ?>" onclick="ProfileHomepage(event)">
+                        <i class="fa-solid fa-user-shield"></i>Mon compte
+                        </div>
                         <a href="eplaza.php" class="iconcontainerOption">
                           <i class="fa-solid fa-store"><span class="notification_counteur"></span></i>ePlaza Market
                         </a>
-                        <div class="iconcontainerOption" onclick="Suivies(event)" y="<?php global $my_id; echo encrypt($my_id,$key) ?>">
-                          <i class="fa-solid fa-users"></i>Suivi(e)s
-                        </div>
-                        <div class="iconcontainerOption" y="<?php echo encrypt($my_id,$key) ?>" onclick="MoreFriends(event)">
-                          <i class="fa-solid fa-users"><span class="notification_counteur"></span></i>Demande D'Ami(e)
+                        <div href="Profile.php" class="iconcontainerOption">
+                        <i class="fa-solid fa-bag-shopping"></i>Articles Eplaza
                         </div>
                         <div class="iconcontainerOption" onclick="AlbumPhotoHomPage()">
-                        <i class="fa-regular fa-image"></i>album photo
+                            <i class="fas fa-images"></i> Galerie
+                      </div>
+                      <div class="iconcontainerOption" onclick="NiandaChat()">
+                        <i class="fa-solid fa-robot"></i>Assistante Nianda
                         </div>
                         <a href="logout.php" class="iconcontainerOption">
                           <i class="fa-solid fa-right-from-bracket"></i>Se déconnecter
@@ -159,7 +120,7 @@ border-radius:10px;
                             <option value="1">1 heures d'apparition</option>
                             <option value="6">6 heures d'apparition</option>
                             <option value="12">12 heures d'apparition</option>
-                            <option value="24">12 heures d'apparition</option>
+                            <option value="24">24 heures d'apparition</option>
                           </select>
                         </form>
                         <div class="erreurImagesStory Text_Norme"></div>
@@ -221,11 +182,11 @@ border-radius:10px;
             <div class="menuToogleMore">
               <div class="menuOptionBottom">
                 <div class="optionMenuHome" y="<?php echo  encrypt($my_id,$key)?>" onclick="NewConversation(event)"><i class="fa-solid fa-message"></i>Nouvelle Conversation</div>
-                <div class="optionMenuHome"onclick="PostStory()"> <i class="fa-solid fa-circle-half-stroke"></i> Ajouter une Story</div>
+                <div class="optionMenuHome"onclick="PostStory()"> <i class="fa-solid fa-circle-half-stroke"></i> Ajouter un statut</div>
                 <div class="optionMenuHome"onclick="ProfilEdite()"><i class="fa-solid fa-user-gear"></i>Modifier Ton Profile</div>
                 <div class="optionMenuHome"onclick="CouvertureEdite()"><i class="fa-solid fa-user-gear"></i>Modifier Ta Couverture</div>
                 <div class="optionMenuHome" y="<?php echo  encrypt($my_id,$key)?>"onclick="CreatGroupe(event)"><i class="fa-solid fa-user-group"></i>Creer Un Groupe</div>
-                <a class="optionMenuHome" href="#"><i class="fa-solid fa-user"></i>Afficher mon Profile </a>
+                <div class="optionMenuHome" onclick="Suivies(event)" y="<?php global $my_id; echo encrypt($my_id,$key) ?>"><i class="fa-solid fa-user"></i>Afficher Mes suivis </div>
               </div>
             </div>
           </div>
@@ -264,35 +225,10 @@ border-radius:10px;
           <div class="swiper-wrapper menuDroiteAll">
             <div class="swiper-slide droiteSession">
               <div class="headerSesionRight">
-              <div class="divText"><span>Besoin d'une Maison a vendre  ?</span><span>plus <i class="fa-solid fa-caret-down"></i></span></div>
-              <div class="swiper mySwiper partiePropositionEplazacarte">
-                <div class="swiper-wrapper">
-                          <div class="swiper-slide profilePhoto eplaza proposition">
-                            <div class="headerSide">
-                              <div class="divText PropositionEplaza">
-                                <span class="nombVuesHomepage">12 vues</span>
-                                    <span>Message</span>
-                                </div>
-                              </div>
-                            </div>
-                          <div class="swiper-slide profilePhoto eplaza proposition">
-                            <div class="headerSide">
-                              <div class="divText PropositionEplaza">
-                                <span class="nombVuesHomepage">12 vues</span>
-                                    <span>Message</span>
-                                </div>
-                              </div>
-                            </div>
-                          <div class="swiper-slide profilePhoto eplaza proposition">
-                            <div class="headerSide">
-                              <div class="divText PropositionEplaza">
-                                <span class="nombVuesHomepage">12 vues</span>
-                                    <span>Message</span>
-                                </div>
-                              </div>
-                            </div>
-                </div>
-              </div>
+              <div class="divText"><span>Besoin d'une Maison a vendre  ?</span><span onclick="MoreEplazaArticlesHomPage()">plus <i class="fa-solid fa-caret-down"></i></span></div>
+                  <div class="eplazaPromotion">
+                    
+                  </div>
                 <div class="menuRight">
                   <div class="Amis menuOptionRight active"onclick="OptionDroiteHeader(event)"id="invitationDroite">
                   <?php
@@ -395,9 +331,9 @@ border-radius:10px;
                       </div>
                       <!-- Groupes -->
                       <div class="swiper-slide">
-                        <div class="textCenteNotification">
+                        <div class="textCenteNotification groupe">
                           <div class="returnBtn"onclick="OptionDroiteHeader(event)"id="invitationDroite"><i class="fa-solid fa-arrow-left"></i> Retourner</div>
-                          <h3>Groupe<i class="fa-solid fa-users"></i></h3>
+                          <h3><i class="fa-solid fa-users"></i></h3>
                         </div>
                         <div class="SearchMessage creationGroupe notification">
                           <i class="fa-solid fa-magnifying-glass"></i><input type="search" name="" id="" placeholder="Rechercher..."oninput="searchUser(event, 'RechercherMesGroupe.php', 'MesGroupeofUser')">
@@ -456,8 +392,12 @@ border-radius:10px;
         </div>
           <!-- MoreFriends-->
             <div class="swiper-slide">
+            <div class="textCenteNotification">
+              <div class="returnBtn"onclick="HommePrinciplae()"><i class="fa-solid fa-arrow-left"></i> Retourner</div>
+              <h3><i class="fa-solid fa-users"></i></h3>
+            </div>
             <div class="leftnav searchNav"> 
-              </i><i class="fa-solid fa-magnifying-glass"></i><input type="search" name=""id=""placeholder="Rechercher un NewaRnaute..."oninput="searchUser(event, 'seachFriedsSpecificale.php', 'dataRechercheUserSecond')">
+              <i class="fa-solid fa-magnifying-glass"></i><input type="search" name=""id=""placeholder="Rechercher un NewaRnaute..."oninput="searchUser(event, 'seachFriedsSpecificale.php', 'dataRechercheUserSecond')">
             </div>
             <div id="dataRechercheUserSecond">
             <div id="dataSearcheContent">
@@ -467,10 +407,65 @@ border-radius:10px;
           </div>
            <!-- AlbumPhoto -->
            <div class="swiper-slide">
+            <div class="headerFriends">
+              <div class="photoOwnerConnected"></div>
+              <div class="nameOwnerConnected">
+                <h3>Jean-luc kashindi</h3>
+                <span>inetrese pas les Hommes</span>
+              </div>
+              <div class="menuOptionsProfile">
+                <span> <i class="fa-solid fa-users"></i>Amis</span>
+                <span><i class="fa-solid fa-message"></i>message</span>
+              </div>
+              <div class="otherDetailUser">
+                <div><span><i class="fa-solid fa-user-shield"></i></span> <span>Il (elle) NewaRnaute il a y 3j</span></div>
+                <div><span><i class="fa-solid fa-heart"></i></span> <span>En couple</span></div>
+                <div><span><i class="fa-solid fa-face-kiss-wink-heart"></i></span> <span> musique Afro Burundais</span></div>
+                <div><span><i class="fa-solid fa-phone"></i></span> <span>+257 94839830</span></div>
+                <div><span><i class="fa-solid fa-square-caret-down"></i></span> <span>Detail sur Jean-luc...</span></div>
+              </div>
+              <!-- <div class="settignsUser">
+              <div class="icons"></div>
+              <div class="details"></div>
+             </div> -->
+
+            </div>
+          </div>
+           <div class="swiper-slide">
            <div class="tittreAlbum"><h2>Album photo NewaRnet</h2> </div>
             <div id="dataAlbum"></div>
           </div>
            <!-- AlbumPhoto -->
+           <div class="swiper-slide">
+           <div class="tittreAlbum"><h2>Récente mise à jour d'Eplaza Market</h2> </div>
+            <div class="eplazaMarketHomepage"></div>
+          </div>
+          <!-- Nianda -->
+           <div class="swiper-slide">
+           <div class="headerTittre" >
+                        <span><i class="fa-solid fa-arrow-left"onclick="HommePrinciplae()"></i></span>
+                        <span>Service d'assistance avec Nianda.</span>
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div class="containeurConversationNianda">
+                        <div class="gridItemsProposition">
+                          <div class="elemtentItems">comment Marche ePlaza <i class="fa-solid fa-bullhorn"></i></div>
+                          <div class="elemtentItems">Pourquoi NewaRnet <i class="fa-solid fa-circle-question"></i></div>
+                          <div class="elemtentItems">Lhistoire de NewaRnet <i class="fa-solid fa-circle-question"></i></div>
+                          <div class="elemtentItems">Prochaines fontionalite <i class="fa-solid fa-crown"></i></div>
+                        </div>
+                    </div>
+                <div class="contenuDataPrincipeNianda">
+                    <div class="bottomCreationNianda">
+                        <div class="RecherchSpace">
+                            <i class="fa-solid fa-robot"></i>
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <input type="text" name="" id="" placeholder="Une question sur NewaRnet..." oninput="AddQuestion(event)">
+                        </div>
+                    </div>
+                </div>
+          </div>
+
         </div>
       </main>
       <!-- fint_main -->
@@ -525,7 +520,6 @@ border-radius:10px;
         dynamicBullets: true,
       },
     });
-    
   </script>
   </body>
 </html>

@@ -48,12 +48,26 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         if ($ver_profile > 0) {
             $query = "UPDATE users SET ver_profile = ?, profile = ? WHERE userid = ? LIMIT 1";
             $data = $DB->save($query, [$ver_profile, $myimage, $my_id]);
+
+            $has_image = 1;
+            $poste = encrypt("récemment mis à jour sa photo de profil",$key);
+            $postid = create_userid();
+            $integrite = encrypt(nettoyerDonnee("À tous les NewaRnautes"),$key);
+            $date = encrypt(date("Y-m-d H:i:s"),$key);
+            $query = "INSERT INTO posts (userid,postid,message_poste,image,integrite,date,has_image) value(?,?,?,?,?,?,?)";
+            $data = $DB->save($query,[$my_id,$postid,$poste,$myimage,$integrite,$date,$has_image]);
             echo "true";
         }
 
         if ($ver_couverture > 0) {
             $query = "UPDATE users SET ver_couverture = ?, couverture = ? WHERE userid = ? LIMIT 1";
             $data = $DB->save($query, [$ver_couverture, $myimage, $my_id]);
+            $has_image = 1;
+            $poste = encrypt("récemment mis à jour sa photo de profilcouverture");
+            $integrite = encrypt(nettoyerDonnee("À tous les NewaRnautes"),$key);
+            $date = encrypt(date("Y-m-d H:i:s"),$key);
+            $query = "INSERT INTO posts (userid,postid,message_poste,image,integrite,date,has_image) value(?,?,?,?,?,?,?)";
+            $data = $DB->save($query,[$my_id,$postid,$poste,$myimage,$integrite,$date,$has_image]);
             echo "true";
         }
     }

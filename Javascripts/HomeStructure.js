@@ -344,21 +344,7 @@ document.querySelector(".BoutonsRetoure.add.createAddBtn").style.display = 'flex
 document.querySelector(".BoutonsRetoure.add.modificationPhotociover").style.display = 'flex';
 document.querySelector(".BoutonsRetoure.add.profilePhotoAdd").style.display = 'flex';
 }
-function Mesamis(value)
-{
-document.querySelector("#FrinedsGroupesAdd").innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
-let page = "AmisGroupesAdd.php";
-function callback(data) {
-  document.querySelector("#FrinedsGroupesAdd").innerHTML = data;
-  }
-  sendValueAjax(page, value, callback);
-} 
-function Suivies(event) {
-  let id = event.currentTarget.getAttribute('y');
-  document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(-300%)"; 
-  Chargementsuivis(id);
-  
-}
+
 function Chargementsuivis(value)
 {
   document.querySelector(".ListeSuivi").innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
@@ -381,18 +367,7 @@ leftMererSlider.style.transform = "TranslateX(-100%)" ;
     sendValueAjax(page, value, callback);
   
 }
-function MoreFriends(event) {
-let value = event.target.getAttribute('y');
-document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-400%)";
-let contenteneur = document.getElementById('dataRechercheUserSecond');
-  let page = "moreFriends.php";
-  function callback(data) {
-    setTimeout(() => {
-      contenteneur.innerHTML = data;
-    }, 1500);
-    }
-    sendValueAjax(page, value, callback);
-}
+
 function searchUser(event, page, Cont) {
 let contenteneur = document.getElementById(Cont);
 if (event.target.value.trim() != '') {
@@ -514,14 +489,4 @@ function suivreRelation(event) {
         function MessageSide() {
             document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-100%)";
         }
-        function AlbumPhotoHomPage()
-        {
-          document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-500%)";
-          document.querySelector('#dataAlbum').innerHTML = `<div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div>`;
-          const page = "lectureAlbum.php";
-            let value = "";
-            function callback(data) {
-              document.querySelector('#dataAlbum').innerHTML = data;
-            }
-            sendValueAjax(page, value, callback);
-        }
+        

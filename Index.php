@@ -18,14 +18,19 @@ verificationSession();
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <title>NewaRnet</title>
     <style>
-     
+     .contaneurImage span{
+        position:fixed;
+        bottom:20px;
+        color:#414141;
+        opacity:.9;
+     }
     </style>
 </head>
 <body>
 <div class="barrScrolle"><div></div></div>
   <div class="contaneurImage">
     <div class="photoImage"><img src="images/0000000000000000.png" alt=""></div>
-    <span>Un instant, on fait de notre mieux.</span>
+    <span>Unir et rassembler le monde de manière extrême sous la couverture de NewaRnet.</span>
   </div>
     <div class="ReferencePage">
             <!-- Gauche_side -->
@@ -136,7 +141,7 @@ verificationSession();
                           </div>
                           <div class="swiper-slide">
                             <div  class="connexionForm">
-                                <div class="textDemonstrationInscription">En cliquant sur le bouton ci-dessous, vous continuez  votre inscription sur NewaRnet</div>
+                                <div class="textDemonstrationInscription">En engageant l'action via le bouton dénommé Suivant, vous entamez le cours de votre inscription sur la plateforme NewaRnet.</div>
                                 <div class="InputDouble">
                                     <div class="containeurInputStyle">
                                         <input type="text" name="nom" id="nom"  placeholder="Entrer ton Nom">
@@ -347,81 +352,23 @@ verificationSession();
     </div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="JQuery/loadingIndex.js"></script>
+<script src="Javascripts/indexStyle.js"></script>
+<script src="Javascripts/otherIndexPage.js"></script>
+<script src="Javascripts/stylepage.js"></script>
+<script src="JQuery/functions.js"></script>             
+<script src="Ajax_Functions/FunctionsJs.js"></script>
+<script src="Ajax_Functions/functionAjax.js"></script>
+<script src="Javascripts/refusActions.js"></script>
+<script src="Javascripts/conectionFunctions.js"></script>
+<script src="Ajax_Functions/connexion_inscription.js"></script>
+<script src="Javascripts/sesionNianda.js"></script>
 <script>
-
 const MereContent = document.querySelector(".swiper-wrapper.Desk");
-const MereContentMobile = document.querySelector(".swiper-wrapper.Mobile");
-function InscriptionFunctionDesk()
-{
-    MereContent.style.transform='translateX(-200%)';
-}
-function InscriptionFunctionMobile()
-{
-    MereContentMobile.style.transform='translateX(-300%)';
-}
-function connectionMobile()
-{
-    MereContentMobile.style.transform='translateX(-100%)';
-}
-function NiandaMobile()
-{
-    MereContentMobile.style.transform='translateX(-0%)';
+function InscriptionFunctionDesk() {
+    MereContent.style.transform = 'translateX(-200%)';
 }
 
-function SuivantMob_1(event)
-{
-    
-    let mere = event.currentTarget.closest('.swiper-slide');
-    let nom = mere.querySelector('input#Mobnom');
-    let prenom = mere.querySelector('input#Mobprenom');
-    let email = mere.querySelector('input#Mobemail');
-    let erreurMessage = mere.querySelector('.erreurMessage');
-
-    if (nom.value.trim() === '' || prenom.value.trim() === '' || email.value.trim() === '') {
-        erreurMessage.textContent = "Veuillez remplir tous les champs.";
-        return;
-    }
-    if (!isNaN(nom.value.trim()) || !isNaN(prenom.value.trim())) {
-        erreurMessage.textContent = "Le nom et le prénom ne doivent pas être des nombres.";
-        return;
-    }
-    let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(email.value.trim())) {
-    erreurMessage.textContent = "L'adresse e-mail est incorrecte ";
-    return;
-    }
-    MereContentMobile.style.transform='translateX(-400%)';
-}
-function SuivantMob_2(event)
-{
-    let mere = event.currentTarget.closest('.swiper-slide');
-    let password= mere.querySelector('input#passwordInputMob');
-    let numero = mere.querySelector('input#numeroMob');
-    let erreurMessage = mere.querySelector('.erreurMessage');
-    if (numero.value.trim() === '' || password.value.trim() === '') {
-        erreurMessage.textContent = "Veuillez remplir tous les champs.";
-        return;
-    }
-    MereContentMobile.style.transform='translateX(-500%)';
-}
-function SuivantMob_3(event)
-{
-
-    MereContentMobile.style.transform='translateX(100%)';
-}
-function SuivantMob_0(event)
-{
-    let mere = event.currentTarget.closest('.swiper-slide.fin');
-    let Homme = mere.querySelector('input#Homme');
-    let Femme = mere.querySelector('input#Femme');
-    let erreurMessage = mere.querySelector('.erreurMessage');
-
-    if (!Femme.checked && !Homme.checked) {
-        erreurMessage.textContent = "Sélectionnez votre Genre";
-        return;
-    }
-    MereContentMobile.style.transform='translateX(-200%)';
-}
 function Suivant_1(event) {
     let mere = event.currentTarget.closest('.swiper-slide');
     let nom = mere.querySelector('input#nom');
@@ -433,56 +380,42 @@ function Suivant_1(event) {
         erreurMessage.textContent = "Veuillez remplir tous les champs.";
         return;
     }
+
     if (!isNaN(nom.value.trim()) || !isNaN(prenom.value.trim())) {
         erreurMessage.textContent = "Le nom et le prénom ne doivent pas être des nombres.";
         return;
     }
+
     let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(email.value.trim())) {
-    erreurMessage.textContent = "L'adresse e-mail est incorrecte";
-    return;
+        erreurMessage.textContent = "L'adresse e-mail est incorrecte";
+        return;
     }
 
     MereContent.style.transform = 'translateX(-300%)';
 }
 
-
-function Suivant_2()
-{
+function Suivant_2(event) {
     let mere = event.currentTarget.closest('.swiper-slide');
-    let password= mere.querySelector('input#password');
+    let password = mere.querySelector('input#password');
     let numero = mere.querySelector('input#numero');
     let erreurMessage = mere.querySelector('.erreurMessage');
+
     if (numero.value.trim() === '' || password.value.trim() === '') {
         erreurMessage.textContent = "Veuillez remplir tous les champs.";
         return;
     }
 
-    MereContent.style.transform='translateX(-400%)';
+    MereContent.style.transform = 'translateX(-400%)';
 }
-function Suivant_3(event) {
-   
 
+function Suivant_3(event) {
     MereContent.style.transform = 'translateX(0%)';
 }
 
-function Suivant_0()
-{
-    MereContent.style.transform='translateX(-100%)';
+function Suivant_0() {
+    MereContent.style.transform = 'translateX(-100%)';
 }
-
 </script>
-
-<script src="JQuery/loadingIndex.js"></script>
-<script src="Javascripts/indexStyle.js"></script>
-<script src="Javascripts/otherIndexPage.js"></script>
-<script src="Javascripts/stylepage.js"></script>
-<script src="JQuery/functions.js"></script>             
-<script src="Ajax_Functions/FunctionsJs.js"></script>
-<script src="Ajax_Functions/functionAjax.js"></script>
-<script src="Javascripts/refusActions.js"></script>
-<script src="Javascripts/sesionNianda.js"></script>
-<script src="Javascripts/conectionFunctions.js"></script>
-<script src="Ajax_Functions/connexion_inscription.js"></script>
 </body>
 </html>

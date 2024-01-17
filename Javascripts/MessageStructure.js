@@ -40,30 +40,13 @@ function PosteFileMessagePage(event)
     }
 }
 
-function searchFunction(event)
-{
-    event.currentTarget.style.display = 'none';
-    leftIcon.style.display = 'flex';
-    leftIconSearch.style.display = 'none';
-    menuSwipper.style.transform = "TranslateX(-100%)";
-}
+
 function reutnBack(){
     menuSwipper.style.transform = "TranslateX(0%)";
     leftIcon.style.display = 'none';
     leftIconSearch.style.display = 'flex';
 }
-function GroupeFunction()
-{
-    menuSwipper.style.transform = "TranslateX(-200%)";
-    leftIcon.style.display = 'flex';
-    leftIconSearch.style.display = 'none';
-}
-function Conversation()
-{
-    menuSwipper.style.transform = "TranslateX(-300%)";
-    leftIcon.style.display = 'flex';
-    leftIconSearch.style.display = 'none';
-}
+
 function OptionMore()
 {
     menuSwipper.style.transform = "TranslateX(-400%)";
@@ -81,20 +64,4 @@ function BloquerUser()
 function ConditiondUsage()
 {
     menuSwipper.style.transform = "TranslateX(-700%)";
-}
-function ChampVerifiction(event)
-{
-    if(event.target.value.trim() !== '')
-    {
-        document.querySelector(".messagecontent .iconsDroite .sendsMessage").style.display= 'flex';
-        document.querySelector("p.EncoursAction").textContent = "Ecris...";
-        document.querySelector("p.EncoursAction").style.opacity = 1;
-        document.querySelector("p.EncoursAction").style.color ='var(--color-primary)';
-
-    }else{
-        document.querySelector(".messagecontent .iconsDroite .sendsMessage").style.display= 'none';
-        document.querySelector("p.EncoursAction").textContent = "En ligne";
-        document.querySelector("p.EncoursAction").style.opacity = .6;
-        document.querySelector("p.EncoursAction").style.color ='var(--color-text)';
-    }
 }

@@ -44,7 +44,7 @@
 .rightsideIconMobile{
     display:flex;align-items:center;
     justify-content: space-around;
-    width: 30%;
+    width: 50%;
 }
 .topMobileHeader{
     width:100%;
@@ -93,13 +93,6 @@
     opacity: .5;
 }
 
-.ContaineurMobileSestionPage .swiper-wrapper,.ContaineurMobileSestionPage .swiper.mySwiper .swiper.mySwiper .swiper-slide{
-    width: 100%;
-    height: 100%;
-    max-height: 100%;
-    background: var(--color-blanche-1);
-    position: relative;
-}
 .swiper.mySwiper.chatswipper,
 .swiper-wrapper.chatswipper
 {
@@ -109,11 +102,16 @@
 .swipper-slide.principale.chat{
     background: var(--color-blanche-1);
 }
-.ContaineurMobileSestionPage{
+.filActualites{
     width: 100%;
     height: 100%;
-    max-height: 75%;
-    overflow: auto;
+    max-height: 73vh;
+    overflow-y: auto;
+    padding-bottom: 30px;
+}
+.ContaineurMobileSestionPage{
+    width: 100%;
+    height :100%;
     background: var(--color-blanche-1);
     position: relative;
     margin-top:13vh;
@@ -186,7 +184,7 @@ z-index:var(--z-index-1) !important;
     width:95%;
     margin:5px auto;
     border-radius: 30px;
-    height: 50px;
+    height: 60px;
     padding:0 10px;
     background: var(--color-blanche-2);
     display:flex;
@@ -383,11 +381,11 @@ padding: 12px;
 }
 .contenuDataPrincipe{
     width: 100%;
-    max-height: calc(100vh - 60px);
-    height: 100%;
+    height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
+    
 }
 .imageOwner{
     width:50px;
@@ -472,6 +470,12 @@ padding: 12px;
 .bottomCreationNianda .RecherchSpace input{
     margin-left: 15px;
 }
+.bottomCreationNianda .RecherchSpace{
+    margin-left: 15px;
+    background: var(--color-blanche-1);
+    
+    border: 1px solid var(--color-blanche-2);
+}
 .contentBtnName input{
     width: 100%;
     height: 100%;
@@ -527,4 +531,98 @@ display: none;
 }
 .carterUsermessage{
     background: var(--color-blanche-2);
+}
+.bottomSideEplaza small{
+    font-size: 13px;
+    opacity: .8;
+}
+.bottomSideEplaza span{
+    font-weight: 500;
+}
+.bottomSideEplaza{
+    display: flex;
+    align-items: center;
+    height: 50%;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.eplazaPropositions{
+    margin: 5px auto;
+}
+.eplazaPropositions .swiper.mySwiper,
+.FridnsSlid .swiper.mySwiper,
+.FridnsSlid .swiper-wrapper,
+.eplazaPropositions .swiper-wrapper,
+.eplazaPropositions .swiper-slide{
+    width: 100%;
+    height: 100%;   
+}
+.eplazaPropositions .swiper-slide{
+    height: 230px !important;
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    flex-direction: column;
+    border: none;
+    overflow-y: hidden;
+    gap:5px;
+    padding: 3px;
+    padding-bottom: 5px;
+    background: var(--color-blanche-2) !important;
+    border-radius: 3px;
+}
+.bottomSideEplaza button{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--otherGreen);
+    color: #FFF;
+    border-radius: 5px;
+    padding: 10px 10px;
+}
+.topsideEplaza{
+    background: var(--color-blanche-1) !important;
+    width: 100%;
+    border-radius: 5px;
+    height: 60%;
+    
+}
+.FridnsSlid{
+    margin: 10px auto;
+}
+.FridnsSlid .swiper.mySwiper .swiper-wrapper .swiper-slide {
+    display: flex !important;
+    width: 100px !important;
+    align-items: center;
+    justify-content: center !important;
+    flex-direction: column !;
+    gap: 10px;
+    border:1px solid var(--color-blanche-1);
+    
+}
+.FridnsSlid .swiper-slide .nameDetailsMobile{
+    width: 100%;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.FridnsSlid .swiper-slide .topImageUser img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.FridnsSlid .swiper-slide .topImageUser{
+    width: 90px !important;
+    border-radius: 50%;
+    height: 90px !important;
+    background: var(--color-blanche-2) !important;
+    border: 2px solid var(--color-primary);
+}
+
+/*=======---------------------===============--------------=======----*/
+@media screen and (max-width: 360px) {
+}
+@media screen AND (min-width:700px) {
 }

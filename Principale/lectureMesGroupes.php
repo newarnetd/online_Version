@@ -9,7 +9,9 @@ if($_SERVER['REQUEST_METHOD'] === "POST")
     {
         foreach($resultat as $ROW)
         {
-            include("int_mes_groupes.php");
+            
+            $dataGroupe = detailGriupe($ROW['groupe']);
+             include("int_mes_groupes.php");
         }
     }else{
         echo "<div class='textCent'>Actuellement, vous n'avez aucun groupe. Cependant, vous pouvez toujours en créer autant que vous le souhaitez, uniquement pour vos propres intérêts.</div>";

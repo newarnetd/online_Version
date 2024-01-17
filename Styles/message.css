@@ -136,10 +136,7 @@ body{
     justify-content: center;
     border: none;
 }
-.onlineTime{
-    position: absolute;
-    right: 10px;
-}
+
 
 .droite{
     align-items: start;
@@ -169,16 +166,7 @@ body{
     box-shadow: none;
 
 }
-.imageUser::before{
-    content: '';
-    width:13px;
-    height: 13px;
-    position: absolute;
-    bottom: 5px;
-    right: 0px;
-    background:var(--color-online);
-    border-radius:50%
-}
+
 .imageUser img{
     width:100%;
     height: 100%;
@@ -190,16 +178,7 @@ body{
     font-size: 13px;
     opacity: .8;
 }
-.middleSesion{
-    margin-top: 80px;
-    max-height: 75vh;
-    overflow-y: auto;
-    width:100%;
-    padding: 12px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
+
 .iconsHeader.inputSearch input{
     width: 100%;
 }
@@ -657,9 +636,7 @@ span.ReadClass i{
     background: var(--color-blanche-2);
     color: var(--color-text);
 }
-.middleSesion.swiper-slide.Fil{
-    background: var(--color-blanche-2);
-}
+
 .iconsHeader.Returnback i{
     color: #FFF;
 }
@@ -673,6 +650,140 @@ span.ReadClass i{
 }
 .messagecontent .iconsDroite .sendsMessage{
     display: none;
+}
+.middleSesion.swiper-slide.Fil{
+    background: var(--color-blanche-2);
+}
+.voirgroupe:hover{
+  background: var(--color-blanche-2);
+}
+.iconeamis.group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: var(--color-red-1);
+  font-size: 13px;
+}
+.voirgroupe {
+  width: 100%;
+  display:flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--color-blanche-2);
+  padding: 8px 10px;
+  position: relative;
+}
+.middleSesion{
+    margin-top: 80px;
+    max-height: 75vh;
+    overflow-y: auto;
+    width:100%;
+    padding: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.swiper-wrapper.DroiteSide{
+  width:100%;
+  
+}
+.optionHome.active::before{
+content: '';
+width: 100%;
+height: 3px;
+border-radius: 40px;
+background: var(--color-icons_Theme_noire);
+position: absolute;
+bottom: -15px;
+transition: all .5s ease;
+}
+.menuHomeChoix{
+  width: 100%;
+  display: flex; 
+  align-items: center;
+  justify-content: space-around;
+  padding: var(--padding_boutons);
+  margin-bottom: 15px;
+}
+.optionHome{
+  position: relative;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 12px;
+}
+.photoUserOwner span{
+  font-size: 14px;
+  opacity: .7;
+  color: var(--color-icons_Theme_noire);
+  margin-top: 7px;
+}
+.conteneuramis {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 8px 10px;
+  position: relative;
+  margin: 10px auto;
+  border-bottom: 1px solid var(--color-blanche-2);
+}
+.menuSettigns i{
+  padding-right:15px;
+}
+.menuSettigns{
+  width:100%;
+  display:flex;
+  align-items:center;justify-content:flex-start;
+  padding:17px;
+  border-bottom:1px solid var(--color-blanche-2);
+  cursor:pointer;
+}
+.swiper-slide .conteneuramis .photoamis{
+    width: 60px;
+    height: 60px;
+    border-radius: var(--border-radius_cercle);
+    background: var(--color-blanche-2);
+  }
+  .leftnav input {
+  width: 90%;
+  height: 100%;
+}
+.leftnav {
+  gap:10px;
+  width: 90%;
+  background: var(--color-blanche-2);
+  border-radius: var(--color-border-radius-arond);
+  height: 100%;
+  display:flex;
+  height:50px;
+  align-items: center;
+  padding: 10px 15px;
+}
+.iconeamis {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+  align-items: center;
+  border-radius: var(--border-radius_cercle);
+}
+.iconsHeader.sendsMessage{
+  align-items:center;
+  justify-content:center;
+}
+.dataGroupes  .mereAnimationclique,
+.dataConversation .mereAnimationclique,
+.dataConversationMessage .mereAnimationclique{
+ margin-top:30px;
 }
 /* Petits écrans d'ordinateur portable */
 @media screen and (min-width: 1024px) and (max-width: 1279px) {

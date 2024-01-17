@@ -1,0 +1,122 @@
+.swiper-wrapper,.swiper.mySwiper{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.swiper-slide{
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--color-blanche-1);
+    position: relative;
+}
+.headerSessionPersonalisation{
+    width: 100%;
+    background: var(--color-primary);
+    height: 70px;
+    display: flex;   
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    position:fixed;
+    top: 0;
+}
+.textAjouterFriends{
+    font-size: 12px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+.RecherchSpace{
+    width: 90%;
+    margin: 10px auto;
+    height: 50px;
+    background: transparent;
+    border: 1px solid var(--color-blanche-2);
+}
+.userphoto.decc{
+    width: 180px;
+    height: 180px;
+    border-radius: var(--border-radius_cercle);
+    border: 1px var(--color-blanche-2);
+    overflow: hidden;
+    object-fit: cover;
+    background: var(--color-blanche-2);
+    margin-bottom: 15px;
+}
+.Terminer{
+    width: 70%;
+    margin: 5px auto;
+    background: var(--color-primary);
+    color: #FFF;
+    padding: 13px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.labelImage{
+    width: 90%;
+    margin: 5px auto;
+    background: var(--color-blanche-2);
+    height: 60vh;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carterImageAdd{
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.deconnexionbtn.ann{
+    border:none;
+    width: 90%;
+    margin: 30px auto;
+    color:var(--color-text);
+    background: var(--color-blanche-2);
+    color:var(--color-text);
+    border-radius: 5px;
+    
+}
+.headerSessionPersonalisation.add span i{
+    padding-left: 10px;
+}
+.headerSessionPersonalisation.add span{
+    border: 1px solid #FFF;
+    color: #FFF;
+    padding: 10px 30px;
+    border-radius: 5px;
+}
+.headerSessionPersonalisation.add{
+    justify-content: flex-end;
+    padding: 0 12px;
+    align-items: center;
+}
+.deconnexionbtn{
+    height: 60px !important;
+    border-radius: 40px;
+    background: var(--color-primary);
+}
+.containeurParametredateUsers{
+    width: 100%;
+    max-height: 100vh;
+    height: 100%;
+    margin-top: 15vh;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+.containeurParametredateUsers.first{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

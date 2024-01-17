@@ -604,116 +604,7 @@ select,option {
         align-items: center;
         padding-top: 20px;
     }
-    .contentItemsConnectio{
-        width:100%;
-        display: flex;
-        justify-content: center;
-        margin: 0 auto;
-        flex-direction: column;
-    }
-    .swiper-slide.connectionPage{
-       margin-top:30px;
-    }
-    .boutonOnlymobile.signup i{
-        color: #FFF;
-    }
-    .boutonOnlymobile.signup{
-        background:var(--color-primary);
-        color: #FFF;
-    }
-    .swiper-slide{
-        flex-direction: column;
-        width:100%;
-        display: flex;
-        position: relative;
-        align-items: start;
-        justify-content: flex-start;
-        overflow: hidden;
-        height: 100%;
-
-    }
-    .text_coventions {
-        width:100%;
-        font-size: 14px;
-        display: flex;
-        justify-content: center;
-        color:var(--color-text);
-        opacity: 1;
-        text-align: center;
-        margin: 5px auto;
-    }
-    .bottomLink{
-        position: absolute;
-        bottom: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-      }
-      .swiper-slide.fin{
-        padding: 10px;
-      }
-      .boutonOnlymobile.boutonsActions.share i{
-        color: #FFF;
-        padding-left: 10px;
-      }
-      .bottomLink .boutonOnlymobile.boutonsActions.share{
-        width: 90%;
-        margin: 10px auto;
-        background: var(--color-green_boutons);
-        color: #FFF;
-      }
-     
     
-    .containeBoutonsOnlyBoutons{
-        display: flex;
-        gap:10px;
-        justify-content: center;
-        width:100%;
-        margin: 0 auto;
-        margin-bottom:30px;
-    }
-    .boutonsActions{
-        background: var(--color-blanche-2);
-        color: var(--color-text);
-    }
-    .text_the_newaRnet{
-        position: absolute;
-        bottom: 20px;
-        color:#FFF
-        }
-        .image_newarnet{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        .image_newarnet img{
-            width:100%;
-        }
-       
-        .text_demos{
-            width:100%;
-            display: flex;
-            justify-content: center;
-            text-align: center;
-        }
-        select.containeurInputStyle{
-            border: 1px solid var(--color-blanche-2) !important;
-        }
-        .containeurInputStyle.genre, .containeurInputStyle{
-            width:100%;
-            display:flex;
-            align-items: center;
-            color: var(--color-text);
-            background: transparent !important;
-            height: 55px;
-            padding:var(--padding_boutons);
-            margin-bottom: 5px;
-            background: transparent;
-            border:  1px solid var(--color-blanche-2);
-            border-radius: 5px;
-        }
         .titre_animation{
             color: transparent;
             font-size: 40PX;
@@ -741,18 +632,8 @@ select,option {
             position:absolute;
             bottom: 30px;
         }
-        .boutonOnlymobile.seconncter{
-            width:100%;
-            background: var(--color-blanche-2);
-            color: var(--color-text);
-            margin: 15px auto;
-            cursor: pointer;
-        }
-        .connectionBtn.login{
-            background: var(--color-primary);
-            color: #FFF;
-        }
-            
+       
+        
     .Right_side,.leftside{
         display:none;
     }

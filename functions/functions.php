@@ -127,6 +127,50 @@ function authentification($id)
         header("Location:../");
     }
 }
+
+function TempsEcoule($difference, $timestamp)
+{
+    if ($difference < 60) {
+        return "en ligne";
+    } elseif ($difference < 3600) {
+        $minutes = floor($difference / 60);
+        return "Il y a " . $minutes . " min";
+    } else {
+        return "Il y a " . date("H:i", $timestamp);
+    }
+}
+
+function TempsEcouler($timestamp)
+{
+    $now = time();
+    $difference = $now - $timestamp;
+
+    // Convertir le timestamp en objet DateTime pour gérer les fuseaux horaires si nécessaire
+    $date = new DateTime();
+    $date->setTimestamp($timestamp);
+
+    // Utiliser le fuseau horaire par défaut du serveur
+    $timezone = new DateTimeZone(date_default_timezone_get());
+    $date->setTimezone($timezone);
+
+    // Comparer la date avec aujourd'hui et hier
+    $aujourdHui = new DateTime('now', $timezone);
+    $hier = new DateTime('yesterday', $timezone);
+
+    if ($date->format('Y-m-d') == $aujourdHui->format('Y-m-d')) {
+        // Aujourd'hui
+        return TempsEcoule($difference, $timestamp);
+    } elseif ($date->format('Y-m-d') == $hier->format('Y-m-d')) {
+        // Hier
+        return "Hier " . $date->format('H:i');
+    } else {
+        // Autre logique de temps écoulé
+        return "Il y a " . TempsEcoule($difference, $timestamp);
+    }
+}
+
+
+
 function set_online($id){
 	$online = time();
     $DB = new Database();
@@ -169,11 +213,11 @@ function calcTemps($pasttime)
         
         }else if ($answer > 2) {
              
-            return $answer . " d ";
+            return $answer . " j ";
             
         }else if ($answer == 2) {
         
-            return $answer . " d ";
+            return $answer . " j ";
             
          }else if ($answer == 1) {
             
@@ -235,8 +279,9 @@ function calcTemps($pasttime)
 
 
 function nettoyerDonnee($valeur)
-{
+{   
     $valeur = trim($valeur);
+    $valeur = filter_var($valeur, FILTER_SANITIZE_STRING);
     $valeur = htmlspecialchars($valeur, ENT_QUOTES, 'UTF-8');
     if (!is_numeric($valeur)) {
         $valeur = addslashes($valeur);
@@ -274,6 +319,46 @@ function AddDatahyperSync($userid, $ownerid, $type)
     $result = $DB->save($sql, [$ownerid, $userid, $type, $date, $score]);
     return $result;
 }
+function nombreAmisCommuns($my_id, $id) {
+    $mesAmis = RetourDesamis($my_id, "amis");
+    $sesAmis = RetourDesamis($id, "amis");
+    
+    if($sesAmis !== false && $mesAmis !== false) {
+        if (is_array($sesAmis) && is_array($mesAmis)) {
+            // Extraire les ID d'amis pour la comparaison
+            $mesAmisIds = array_column($mesAmis, 'userid');
+            $sesAmisIds = array_column($sesAmis, 'userid');
+
+            // Trouver les amis communs
+            $amisCommuns = array_intersect($mesAmisIds, $sesAmisIds);
+            return count($amisCommuns);
+        } else {
+            return 0;
+        }
+    } else {
+        return 0;
+    }
+}
+
+
+function RetourDesamis($id, $type) {
+    global $my_id;
+    $DB = new Database();
+    $sql = "SELECT amis FROM relations WHERE type = ? AND userid = ? LIMIT 1";
+    $result = $DB->read($sql, [$type, $id]);
+
+    if ($result && is_array($result) && count($result) > 0) {
+        $friendsData = $result[0]['amis'];
+        if (is_array($friendsData)) {
+            return $friendsData;
+        }
+        $friendsIds = json_decode($friendsData, true);
+        return $friendsIds;
+    } else {
+        return false;
+    }
+}
+
 function DeleteDatahyperSync($userid, $ownerid, $type)
 {
     global $DB;
@@ -311,13 +396,41 @@ function GetInvitations($ownerId)
         return 0;
     }
 }
+function verificationRelation($ownerId, $userId)
+{
+    $DB = new Database();
+    $sql = "SELECT suivre FROM relations WHERE type = ? AND userid = ? LIMIT 1";
+    $result = $DB->read($sql, ["suivre", $ownerId]);
 
+    if ($result && is_array($result)) {
+        $friendsIds = json_decode($result[0]['suivre'], true);
+
+        return in_array($userId, $friendsIds);
+    } else {
+        return false;
+    }
+}
+
+
+function verificationInvitation($ownerId,$userid)
+{
+    global $DB;
+    global $limit;
+    $sql = "SELECT * FROM invitations WHERE (owner = ? AND userid = ?) OR (userid = ? AND owner = ?)   LIMIT 1";
+    $result = $DB->read($sql, [$ownerId,$userid,$userid,$ownerId]);
+    if($result)
+    {
+        return true;
+    }else{
+        return false;
+    }
+}
 function PropositionAmis($id)
 {
     $DB = new Database();
     global $user;
     global $limite;
-    
+
     $USERS_ROWSFriends = $user->Mesamis($id, "amis");
 
     $FriendsIds = array();
@@ -334,7 +447,6 @@ function PropositionAmis($id)
             WHERE userid != ? 
             AND userid NOT IN ($placeholders)
             ORDER BY RAND() LIMIT $limite";
-
         $params = array_merge([$id], $FriendsIds);
         $USERS_ROWS = $DB->read($sql, $params);
     } else {
@@ -345,8 +457,20 @@ function PropositionAmis($id)
 
     return $USERS_ROWS;
 }
-
-
+function  detailGriupe($id)
+{
+    global $my_id,$DB;
+    $query = "SELECT * FROM groupes WHERE (groupid = ? )";
+    $resultat = $DB->read($query, [$id]);
+    if($resultat)
+    {
+        $resultat = $resultat[0];
+        return $resultat;
+    }else{
+        return false;
+    }
+     
+}
 function getMesGrouepr()
 {
     global $my_id,$DB;

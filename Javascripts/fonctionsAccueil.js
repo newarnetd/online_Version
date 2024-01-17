@@ -101,7 +101,7 @@ function ChargementGroupes(value)
 let page = "lectureMesGroupes.php";
 function callback(data) 
 {
-document.querySelector("#MesGroupeofUser").innerHTML = data;
+    document.querySelector("#MesGroupeofUser").innerHTML = data;
 }
 sendValueAjax(page, value, callback);    
 }
@@ -167,6 +167,58 @@ function appliquerImageDeFond(event) {
             reader.readAsDataURL(input.files[0]);
         }
     }
-  
+    function AlbumPhotoHomPage()
+    {
+      document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-600%)";
+      document.querySelector('#dataAlbum').innerHTML = `<div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div>`;
+      const page = "lectureAlbum.php";
+        let value = "";
+        function callback(data) {
+          document.querySelector('#dataAlbum').innerHTML = data;
+        }
+        sendValueAjax(page, value, callback);
+    }
+function MoreEplazaArticlesHomPage()
+    {
+      document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-700%)";
+      document.querySelector('.eplazaMarketHomepage').innerHTML = `<div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div>`;
+    }
+    function ProfileHomepage(event)
+    {
+      document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-500%)";
+    }
+    function MoreFriends(event) {
+let value = event.target.getAttribute('y');
+document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-400%)";
+let contenteneur = document.getElementById('dataRechercheUserSecond');
+let page = "moreFriends.php";
+function callback(data) {
+setTimeout(() => {
+  contenteneur.innerHTML = data;
+}, 1500);
+}
+sendValueAjax(page, value, callback);
+}
+function Mesamis(value)
+{
+HommePrinciplae();
+document.querySelector("#FrinedsGroupesAdd").innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
+let page = "AmisGroupesAdd.php";
+function callback(data) {
+document.querySelector("#FrinedsGroupesAdd").innerHTML = data;
+}
+sendValueAjax(page, value, callback);
+} 
+function Suivies(event) {
+HommePrinciplae();
+let id = event.currentTarget.getAttribute('y');
+document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(-300%)"; 
+Chargementsuivis(id);
+
+}
+function NiandaChat()
+{
+document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-800%)";
+}
       
      
