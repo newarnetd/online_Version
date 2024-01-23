@@ -11,8 +11,12 @@ global $my_id;
 $terme = verificationInvitation($my_id, $USERS_ROW['userid']);
 $suivre = verificationRelation($my_id, $USERS_ROW['userid']);
 $termeSuivre = ($suivre) ? "suivi(e)" : "suivre";
+$infosuser = base64_encode($USERS_ROW['userid']);
+$type = base64_encode("message");
+$link = "message.php?y=$type&x=$infosuser"; 
+$online = $USERS_ROW['enligne'];
 ?>
-<div class="carterUsersOnline swiper-slide">
+<a href="<?php echo $link ?>" class="carterUsersOnline swiper-slide">
                       <div class="imageUser"><img src="<?php echo $profile ?>"></div>
                       <div class="nameUseronine"><?php echo $nom_comple_friends?></div>
-                  </div>
+</a>

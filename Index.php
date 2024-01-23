@@ -17,14 +17,6 @@ verificationSession();
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <title>NewaRnet</title>
-    <style>
-     .contaneurImage span{
-        position:fixed;
-        bottom:20px;
-        color:#414141;
-        opacity:.9;
-     }
-    </style>
 </head>
 <body>
 <div class="barrScrolle"><div></div></div>
@@ -45,7 +37,7 @@ verificationSession();
                 <div class="text_the_newaRnet interd">NewaRnet, basé sur le principe d'Internet Pour Tous, vous encourage à inviter vos proches à nous rejoindre dès maintenant.</div>
                 <div class="block_boutons">
                     <div class="class_boutons_asisstence"onclick="Suivant_3(event)">Assistente Nianda ? <i class="fa-solid fa-clipboard-question"></i></div>
-                    <div class="class_boutons_asisstence invitationsUsers"onclick="invitation()">Invitez vos proches<i class="fa-solid fa-users"></i></div>
+                    <div class="class_boutons_asisstence invitationsUsers"onclick="invitation()">Invtation sur  WhatsApp<i class="fa-brands fa-whatsapp"></i></div>
                 </div>
             </article>
             <!-- Fin des Blocks -->
@@ -416,6 +408,22 @@ function Suivant_3(event) {
 function Suivant_0() {
     MereContent.style.transform = 'translateX(-100%)';
 }
+</script>
+<script>
+    function gestionRedirectionDesk() {
+    var largeurFenetre = $(window).width();
+    if (largeurFenetre < 576) {
+        window.location.href = 'mobile/';
+    } else if (largeurFenetre >= 576 && largeurFenetre < 768) {
+        window.location.href = 'mobile/';
+    }    
+}
+
+var largeurFenetre = window.innerWidth;
+$(window).resize(function () {
+    gestionRedirectionDesk();
+});
+gestionRedirectionDesk();
 </script>
 </body>
 </html>

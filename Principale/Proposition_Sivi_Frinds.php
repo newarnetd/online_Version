@@ -16,7 +16,7 @@ if($suivi != 0)
 $Friendid = encrypt($USERS_ROW['userid'],$key);
 $link = "Profile.php?&&y=". $Friendid;
 ?>
-<div class="swiper-slide profilePhoto" style="background-image: url('<?php echo $profile ?>') !important;">
+<div class="swiper-slide profilePhoto" style="background-image: url('<?php echo $profile ?>') !important;background-repeat: no-repeat;cursor:pointer;background-size: cover;background-position: 100%;">
                             <div class="headerSide">
                               <div class="divText">
                                 <div class="identiteUse">

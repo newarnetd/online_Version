@@ -16,8 +16,8 @@ $amisEncommun = nombreAmisCommuns($my_id, $USERS_FRIENDS['userid']);
 ?>
 
 <div class="carteFriends swiper-slide">
-    <div class="headerImage">
-        <img src="<?php echo $profile ?>"/>
+    <div class="headerImage"y="<?php echo encrypt($USERS_FRIENDS['userid'],$key) ?>" onclick="ProfileHomepage(event)" style="curso:pointer">
+        <img style="cursor:pointer" src="<?php echo $profile ?>"/>
     </div>
     <div class="bottomFriendscarte">
         <div class="namesUser">

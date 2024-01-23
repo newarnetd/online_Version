@@ -14,8 +14,8 @@ $Friendid = encrypt($USERS_ROW['userid'], $key);
 $link = "Profile.php?&&y=" . $Friendid;
 $amisEncommun = nombreAmisCommuns($my_id, $USERS_ROW['userid']);
 ?>
-<a href="<?php echo $link ?>" class="conteneuramis">
-    <div class="photoamis">
+<div class="conteneuramis"y="<?php echo encrypt($USERS_ROW['userid'],$key) ?>" onclick="ProfileHomepage(event)" style="curso:pointer">
+    <div class="photoamis" y="<?php echo encrypt($USERS_ROW['userid'],$key) ?>" onclick="ProfileHomepage(event)" style="curso:pointer">
         <img src="<?php echo $profile ?>"/>
     </div>
     <div class="nomamis">
@@ -28,4 +28,4 @@ $amisEncommun = nombreAmisCommuns($my_id, $USERS_ROW['userid']);
             <p><small><?php echo $suivi ?></small></p>
         <?php endif; ?>
     </div>
-</a>
+        </div>

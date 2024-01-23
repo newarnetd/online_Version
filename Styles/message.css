@@ -188,17 +188,7 @@ body{
     padding: 0 10px;
     border-radius: var(--border-boutons);
 }
-.topSesion{
-    width:100%;
-    position: fixed;
-    top:0;
-    height: 70px;
-    border-bottom:1px solid var(--color-blanche-1);
-    opacity: .9;
-    padding: 12px;
-    display: flex;
-    gap:12px;
-}
+
 
 .nameUserMessage p{
     font-size: 14px;
@@ -490,13 +480,7 @@ body{
     width: 0;
     height: 0;
 }
-.Message .messageContextText.image img,.Message .messageContextText.image img video,
-.FriendMessage  .messageContextText.image img, .FriendMessage  .messageContextText.image video{
-    border-radius: 5px;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+
 .Message  .messageContextText.image .image, 
 .FriendMessage  .messageContextText.image .image{
     width: 100%;
@@ -577,7 +561,7 @@ span.ReadClass i{
     
 }
 .FriendMessage .messageContextText{
-    background: var(--color-blue);
+    background: var(--color-verter_claire);
     padding:15px 20px;
     position: relative;
     border-radius: 10px;
@@ -589,7 +573,7 @@ span.ReadClass i{
     top: 0;
     height: 20px;
     position: absolute;
-    background:linear-gradient( 135deg,var(--color-blue) 0%,var(--color-blue) 50%,transparent 50%,transparent);
+    background:linear-gradient( 135deg,var(--color-verter_claire) 0%,var(--color-verter_claire) 50%,transparent 50%,transparent);
 }
 .Message .messageContextText::before{
     content: '';
@@ -651,9 +635,7 @@ span.ReadClass i{
 .messagecontent .iconsDroite .sendsMessage{
     display: none;
 }
-.middleSesion.swiper-slide.Fil{
-    background: var(--color-blanche-2);
-}
+
 .voirgroupe:hover{
   background: var(--color-blanche-2);
 }
@@ -676,16 +658,7 @@ span.ReadClass i{
   padding: 8px 10px;
   position: relative;
 }
-.middleSesion{
-    margin-top: 80px;
-    max-height: 75vh;
-    overflow-y: auto;
-    width:100%;
-    padding: 12px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
+
 .swiper-wrapper.DroiteSide{
   width:100%;
   
@@ -722,17 +695,7 @@ transition: all .5s ease;
   color: var(--color-icons_Theme_noire);
   margin-top: 7px;
 }
-.conteneuramis {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-  padding: 8px 10px;
-  position: relative;
-  margin: 10px auto;
-  border-bottom: 1px solid var(--color-blanche-2);
-}
+
 .menuSettigns i{
   padding-right:15px;
 }
@@ -744,12 +707,7 @@ transition: all .5s ease;
   border-bottom:1px solid var(--color-blanche-2);
   cursor:pointer;
 }
-.swiper-slide .conteneuramis .photoamis{
-    width: 60px;
-    height: 60px;
-    border-radius: var(--border-radius_cercle);
-    background: var(--color-blanche-2);
-  }
+
   .leftnav input {
   width: 90%;
   height: 100%;
@@ -784,6 +742,57 @@ transition: all .5s ease;
 .dataConversation .mereAnimationclique,
 .dataConversationMessage .mereAnimationclique{
  margin-top:30px;
+}
+.menuOptionBouton{
+    position:absolute;
+    right:20px;
+    font-size:20px;
+  }
+  .menuOptionBouton.first{
+    right:100px;
+  }
+.ReferencePage .topSesion{
+  position:relative;
+  display:flex;align-items:center;
+}
+.bottomMessageSide{
+  width:100%;
+    position: fixed;
+    bottom:0;
+    height: 13%; 
+    background: linear-gradient(180deg,transparent 10%, var(--color-blanche-1) 90%);
+}
+body{
+  overflow:hidden;
+}
+.topSesionSideMessage{
+    width:calc(100% - 7%);
+    position: fixed;
+    top:0;
+    height: 11%;
+    border-bottom:1px solid var(--color-blanche-1);
+    opacity: .9;
+    display: flex;
+    gap:12px; 
+    background:var(--color-blanche-1);   
+}
+.ContentTopSessionMessage{
+  display:flex;
+  width:70%;
+  align-items:center;
+  height:100%;
+  gap:10px;
+  position:relative;
+  padding:0 10px;
+}
+.chatsContent{
+  width:100%;margin-top:70px;
+  max-height:75%;
+  height:100%;
+  overflow-y:auto;
+  padding-bottom:20px;
+  padding:15px;
+
 }
 /* Petits écrans d'ordinateur portable */
 @media screen and (min-width: 1024px) and (max-width: 1279px) {

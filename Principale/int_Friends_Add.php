@@ -26,11 +26,11 @@ $termeHtml = ($terme) ?
 
 <div class="containerFriends">
     <div class="identiteUse">
-        <div class="userPhotoCarte">
-            <img onclick="VoirImageClicked(event)" src="<?php echo $profile ?>" class="userphoto" />
+        <div class="userPhotoCarte" y="<?php echo encrypt($USERS_ROW['userid'],$key) ?>" onclick="ProfileHomepage(event)" style="curso:pointer">
+            <img  src="<?php echo $profile ?>" class="userphoto" />
         </div>
         <div class="nameUser">
-            <a href="profile.php?&u=<?php echo $Friendid ?>"><h3><?php echo limiterChaine($nom_comple_friends, 20) ?></h3></a>
+            <h3><?php echo limiterChaine($nom_comple_friends, 20) ?></h3>
             <?php 
                 if ($amisEncommun > 0) {
                     echo "<span>{$amisEncommun} amis en commun</span>";

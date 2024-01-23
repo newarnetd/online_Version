@@ -79,8 +79,7 @@ event.target.classList.toggle('active');
 
 switch (event.target.id) {
 case "amisDroite":
-    let id  = event.target.getAttribute('y');
-    afficherAmisDroite(id);
+    afficherAmisDroite();
     break;
 
 case "groupeDroite":
@@ -105,10 +104,10 @@ function callback(data)
 }
 sendValueAjax(page, value, callback);    
 }
-function afficherAmisDroite(id) 
+function afficherAmisDroite() 
 {
     document.querySelector(".swiper.mySwiper.MenuHome .swiper-wrapper").style.transform="TranslateX(-100%)";
-    ChargementFriends(id);
+    ChargementFriends();
 }
 
 function afficherFirndsCartes() {
@@ -150,7 +149,6 @@ function appliquerImageDeFond(event) {
         var form = input.closest('.PostArticleForm');
 
         if (!form) {
-            alert("Impossible de trouver l'élément parent avec la classe '.PostArticleForm'");
             return;
         }
 
@@ -167,26 +165,13 @@ function appliquerImageDeFond(event) {
             reader.readAsDataURL(input.files[0]);
         }
     }
-    function AlbumPhotoHomPage()
-    {
-      document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-600%)";
-      document.querySelector('#dataAlbum').innerHTML = `<div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div>`;
-      const page = "lectureAlbum.php";
-        let value = "";
-        function callback(data) {
-          document.querySelector('#dataAlbum').innerHTML = data;
-        }
-        sendValueAjax(page, value, callback);
-    }
+   
 function MoreEplazaArticlesHomPage()
     {
       document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-700%)";
       document.querySelector('.eplazaMarketHomepage').innerHTML = `<div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div>`;
     }
-    function ProfileHomepage(event)
-    {
-      document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-500%)";
-    }
+   
     function MoreFriends(event) {
 let value = event.target.getAttribute('y');
 document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-400%)";
@@ -220,5 +205,5 @@ function NiandaChat()
 {
 document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-800%)";
 }
-      
+
      

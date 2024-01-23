@@ -16,7 +16,7 @@ $amisEncommun = nombreAmisCommuns($my_id, $USERS_ROW['userid']);
 $Friendid = encrypt($USERS_ROW['userid'],$key);
 ?>
 <div class="swiper-slide">
-    <div class="photoProfileUser"><img src="<?php echo $profile ?>"></div>
+    <div class="photoProfileUser" y="<?php echo encrypt($USERS_ROW['userid'],$key) ?>" onclick="ProfileHomepage(event)" style="curso:pointer"><img src="<?php echo $profile ?>"></div>
     <div class="namesFriendPropo">
         <h3><?php echo $nom_comple_friends ?></h3>
         <span><?php echo $amisEncommun ?> amis en commun</span>

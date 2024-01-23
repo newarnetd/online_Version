@@ -118,14 +118,30 @@ function VerificationChecked(event) {
       }
       sendValueAjax(page, value, callback);
     }
-function ShowStatut(event)
-{
-    let MereSlides = document.querySelector(".swiper-wrapper.ScrollPart");
-    MereSlides.style.transform = 'translateX(-100%)';
-}
+
 function LecturesPoste()
   {
     let page = "lecturePostes.php";
+    let value ="";
+    function callback(data)
+    {
+      document.querySelector('.PostesOnecoucher').innerHTML = data;
+    }
+    sendValueAjax(page, value, callback)
+  }
+function LecturesPosteCouche2()
+  {
+    let page = "lecturepostecouche2.php";
+    let value ="";
+    function callback(data)
+    {
+      document.querySelector('.PostesOnecoucher').innerHTML = data;
+    }
+    sendValueAjax(page, value, callback)
+  }
+function LecturesPosteCouche3()
+  {
+    let page = "lecturepostecouche3.php";
     let value ="";
     function callback(data)
     {
@@ -237,6 +253,8 @@ function poster(event)
         Element.innerHTML = `Publier <i class="fa-solid fa-paper-plane"></i>`;
         document.querySelector(".InputDouble .containeurInputStyle.poste.publication").style.display='none';
         LecturesPoste();
+        LecturesPosteCouche2();
+        LecturesPosteCouche3();
       }else{
         Element.innerHTML = `Publier <i class="fa-solid fa-paper-plane"></i>`;
         alert(data);
@@ -281,11 +299,11 @@ function poster(event)
         
   }  
   
-  function ChargementFriends(id)
+  function ChargementFriends()
   {
     document.querySelector(".mesAmisListe").innerHTML = `<div class="mereAnimationclique"><span style="color:#ffff">Encours...</span><div class="loading interd"></div></div>`;
     let page = "readFriends.php";
-    let value = id;
+    let value = "";
     function callback(data) {
       document.querySelector(".mesAmisListe").innerHTML = data;
       }
@@ -454,28 +472,7 @@ function suivreRelation(event) {
   
     sendValueAjax(page, value, callback);
   }
-  function Confirmer(event)
-      {
-        const element = event.currentTarget; 
-        element.innerHTML = `...`;
-        const page = "confirmation.php";
-        let value = element.getAttribute('owner');
-        function callback(data) {
-          element.innerHTML = `déjà ami(e)`;
-        }
-        sendValueAjax(page, value, callback);
-      }
-      function supprimerInvitation(event)
-      {
-        const element = event.currentTarget; 
-        element.innerHTML = `...`;
-        const page = "confirmation.php";
-        let value = element.getAttribute('owner');
-        function callback(data) {
-          element.innerHTML = 'supprimeé(e)';
-        }
-        sendValueAjax(page, value, callback);
-      }
+
       function NotificationSide() {
           document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-200%)";
           let page = "readNotification.php";
@@ -485,8 +482,179 @@ function suivreRelation(event) {
           }
           sendValueAjax(page, value, callback);
         }
-
-        function MessageSide() {
-            document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-100%)";
+        function ShowStatut(event) {
+          let MereSlides = document.querySelector(".swiper-wrapper.ScrollPart");
+          MereSlides.style.transform = 'translateX(-100%)';
+          let id = event.currentTarget.getAttribute('y');
+          let image = event.currentTarget.getAttribute('x');
+          let page = "lectureStory.php";
+        
+          function callback(data) {
+            const carterPostStatut = document.querySelector(".carterPostSatut");
+            carterPostStatut.innerHTML = data;
+            carterPostStatut.style.backgroundImage = `url(${image})`; 
+          }
+        
+          sendValueAjax(page, id, callback);
+        }
+        function ProfileHomepage(event)
+        {
+          document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-500%)";
+          let value = event.currentTarget.getAttribute('y');
+            let page = "userIfoHome.php";
+            function callback(data) {
+              document.querySelector('.dataInfosHomepage').innerHTML = data;
+            }
+            sendValueAjax(page, value, callback);
+        }
+        function CancelShw()
+        {
+          document.querySelector('.photoSeen').style.display='none';
+        }
+        function AlbumPhotoHomPage()
+            {
+              document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-600%)";
+              document.querySelector('#dataAlbum').innerHTML = `<div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div><div class="conteneuramis album"></div>`;
+              const page = "lectureAlbum.php";
+              let value = event.currentTarget.getAttribute('y');
+                function callback(data) {
+                  document.querySelector('#dataAlbum').innerHTML = data;
+                }
+                sendValueAjax(page, value, callback);
+        }
+        function VueImage(event) {
+          var dataImage = event.currentTarget.src;
+          document.querySelector('.photoSeen').style.display = 'flex';
+          document.querySelector('.imageSwo img').src = dataImage;
+        }
+        function Download() {
+          var imageElement = document.querySelector('.imageSwo img');
+          var imagePath = imageElement.src;
+          var downloadLink = document.createElement('a');
+          downloadLink.href = imagePath;
+          downloadLink.download = 'NewaRnet';
+          var clickEvent = new MouseEvent('click', {
+            view: window,
+            bubbles: false,
+            cancelable: true
+          });
+          downloadLink.dispatchEvent(clickEvent);
+        }
+        function loadChats()
+        {
+            const page = "loadChats.php";
+            let value = "";
+            function callback(data) {
+              document.querySelector(".dataConversationsAll").innerHTML = data;
+          }
+          sendValueAjax(page, value, callback);
         }
         
+        function MessageSide() {
+          document.querySelector(".swiper.mySwiper .swiper-wrapper.menuDroiteAll").style.transform="TranslateX(-100%)";
+          loadChats();
+        }
+        function abonnementBoutique(event) {
+          const element = event.currentTarget; 
+          element.innerHTML = `<div class="mereAnimationclique"><div style="border-top:2px solid #FFF" class="loading interd"></div></div>`;
+          const page = "abonnement.php";
+          const value = element.getAttribute('y');
+        
+          function callback(data) {
+            if (data.trim() === "true") {
+              element.innerHTML = 'abonné';
+              element.style.background = "var(--otherGreen)";
+              element.style.color = "var(--color-text)";
+            } else {
+              element.innerHTML = "S'abonner";
+              element.style.background = "var(--color-blue_primary)";
+              element.style.color = "#FFF";
+            }
+          }  
+          sendValueAjax(page, value, callback); 
+        }
+        function Confirmer(event)
+              {
+                const element = event.currentTarget; 
+                element.innerHTML = `...`;
+                const page = "confirmation.php";
+                let value = element.getAttribute('owner');
+                function callback(data) {
+                  element.innerHTML = `déjà ami(e)`;
+                  afficherAmisDroite(); 
+                }
+                sendValueAjax(page, value, callback);
+              }
+              function supprimerInvitation(event)
+              {
+                const element = event.currentTarget; 
+                element.innerHTML = `...`;
+                const page = "SupprimerInvitation.php";
+                let value = element.getAttribute('owner');
+                function callback(data) {
+                  element.innerHTML = 'supprimeé(e)';
+                }
+                sendValueAjax(page, value, callback);
+              }
+              function LecturesPosteCouche2()
+          {
+            let page = "lecturepostecouche2.php";
+            let value ="";
+            function callback(data)
+            {
+              document.querySelector('.PostesOnecoucherduex').innerHTML = data;
+            }
+            sendValueAjax(page, value, callback)
+          }
+        function LecturesPosteCouche3()
+          {
+            let page = "lecturepostecouche3.php";
+            let value ="";
+            function callback(data)
+            {
+              document.querySelector('.PostesOnecouchertrois').innerHTML = data;
+            }
+            sendValueAjax(page, value, callback)
+          }
+        function fermeturePost()
+        {
+          document.querySelector('.commentaireSession').style.display = 'none';
+        }
+        function commentPost(event)
+        {
+          let targetValue = event.currentTarget.getAttribute('y');
+          document.querySelector('.commentaireSession').style.display = 'flex';
+          document.querySelector("#postidValue").value = targetValue;
+          var chatsContent = document.querySelector(".carterPosteCoprCommentaire");
+          chatsContent.scrollTop = chatsContent.scrollHeight;
+          readCommentaires();
+        }
+        function CommenterPoster(event) {
+          if (event.target.value.trim() !== '') {
+              document.querySelector(".sessionInput .leftnav .iconeSendComm i").style.display = 'flex';
+          } else {
+              document.querySelector(".sessionInput .leftnav .iconeSendComm i").style.display = 'none';
+          }
+      }
+      function sendComment()
+      {
+              let page = "commentairePost.php";
+              let form = document.querySelector("#PostCommentHomepage");
+              function callback(data) {
+                document.querySelector("#commentaire").value = '';
+                var chatsContent = document.querySelector(".carterPosteCoprCommentaire");
+                chatsContent.scrollTop = chatsContent.scrollHeight;
+                readCommentaires();
+              }
+              functionAjax(page, form, callback);
+      }
+      function readCommentaires()
+      {
+        let value = document.querySelector("#postidValue").value; 
+          let page = "ReadcommentairePost.php";
+              let form = document.querySelector("#PostCommentHomepage");
+              function callback(data) {
+                  document.querySelector(".carterPosteCoprCommentaire").innerHTML = data;
+              }
+              sendValueAjax(page, value, callback)
+      } 

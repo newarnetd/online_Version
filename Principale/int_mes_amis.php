@@ -5,27 +5,21 @@ if (is_array($USERS_ROW) && isset($USERS_ROW['nom']) && isset($USERS_ROW['prenom
     $sexe = decrypt($USERS_ROW['sexe'], $key);
     $nom_comple_friends = $nom_decrypte . ' ' . $prenom_decrypte;
     $profile = ($USERS_ROW['ver_profile'] !== 0) ? decrypt($USERS_ROW['profile'], $key) : ($sexe === "Femme" ? '../images/femme.jpg' : '../images/homme.jpg');
-    $suivi = $USERS_ROW['suivi'];
-    
-    if ($suivi != 0) {
-        $suivi = $suivi . " " . "suivi(s)";
-    } else {
-        $suivi = "@" . $prenom_decrypte;
-    }
-
-    $Friendid = encrypt($USERS_ROW['userid'], $key);
-    $amisEncommun = nombreAmisCommuns($my_id, $USERS_ROW['userid']);
+    $timezoneServer = new DateTimeZone(date_default_timezone_get());
+    $online = $USERS_ROW['enligne'];
+    $infosuser = base64_encode($USERS_ROW['userid']);
+    $type = base64_encode("message");
+    $link = "message.php?y=$type&x=$infosuser"; 
     ?>
-    <div class="conteneuramis">
-        <div class="photoamis">
-            <img src="<?php echo $profile ?>"/>
+    <a href="<?php echo $link?>" class="conteneuramis"y="<?php echo encrypt($USERS_ROW['userid'],$key) ?>" onclick="ProfileHomepage(event)" style="curso:pointer">
+        <div class="photoamis"y="<?php echo encrypt($USERS_ROW['userid'],$key) ?>" onclick="ProfileHomepage(event)" style="curso:pointer">
+            <img src="<?php echo $profile ?>" style="border-radius:50%"/>
         </div>
         <div class="nomamis">
             <h3><?php echo $nom_comple_friends ?></h3>
-            <p><small><?php echo $amisEncommun ?> ami(e)s en commun </small></p>
+            <p><small><?php echo TempsEcouler($online) ?> </small></p>
         </div>
-        <div class="iconeamis"><i class="fa-solid fa-ellipsis" onclick="OptionUsers()"></i></div>
-    </div>
+</a>
 <?php
 } else {
     echo "Erreur : Données utilisateur invalides.";

@@ -18,7 +18,7 @@ if ($USERS_ROW['userid'] == $my_id) {
 ?>
 
 <div class="conteneuramis">
-    <div class="photoamis">
+    <div class="photoamis"y="<?php echo encrypt($USERS_ROW['userid'],$key) ?>" onclick="ProfileHomepage(event)" style="curso:pointer">
         <img src="<?php echo $profile ?>"/>
     </div>
     <div class="nomamis">

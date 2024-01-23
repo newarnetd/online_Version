@@ -9,9 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $query = "SELECT * FROM message WHERE owner = ? OR userid = ? ORDER BY date DESC";
     $data = $DB->read($query, [$my_id, $my_id]);
 
-    if ($data) {
+    if ($data) 
+    {
         $conversations = array();
-
         foreach ($data as $data_chat) {
             global $key;
             global $user;

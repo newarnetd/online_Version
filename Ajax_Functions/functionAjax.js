@@ -71,24 +71,29 @@ function partager(donnees, titre, texte) {
       .then(() => console.log('Partage réussi depuis NewaRnet'))
   }
 }
-function share()
-{
+function share() {
   let data = 'https://newarnet.com';
-  let tittre = "NewaRnet for Africa c'est le nouveau slogan qui circule sur la toile. L'heure est venue pour notre génération. Rendez-vous sur NewaRnet.";
-  let cont = `Découvrez le nouveau réseau social africain, NewaRnet, basé sur son slogan Internet pour Tous`;
-  partager(data,tittre,cont) ;
+  let titre = "NewaRnet for Africa - le nouveau slogan circule sur la toile. L'heure est venue pour notre génération. Rendez-vous sur NewaRnet.";
+  let ogDescription = "Il s'agit d'un système de chat basé sur l'interconnexion entre utilisateurs, un système aussi puissant créé par un étudiant.";
+  partager(data, titre, ogDescription);
 }
-function invitation() {
+
+function partager(data, titre, ogDescription) {
   if (navigator.share) {
-    navigator.share({
-      title: "NewaRnet for Africa c'est le nouveau slogan qui circule sur la toile. L'heure est venue pour notre génération. Rendez-vous sur NewaRnet.",
-      text: "Découvrez le nouveau réseau social africain, NewaRnet, basé sur son slogan Internet pour Tous",
-      url: "https://NewaRnet.com"
-    })
-      .then(() => console.log('Partage réussi depuis NewaRnet'))
-      .catch((error) => console.error('Erreur lors du partage :', error));
+    let partagerDetails = {
+      title: titre,
+      text: ogDescription,
+      url: data,
+      ogImage: "https://newarnet.com/images/Logo.png",
+      ogUrl: "https://newarnet.com"
+    };
+    navigator.share(partagerDetails)
+      .catch((erreur) => alert('Erreur lors du partage : ' + erreur));
+  } else {
+    alert("La fonction de partage n'est pas prise en charge dans ce navigateur.");
   }
 }
+
 function TextReg(conteneur, text) {
   duration = 50,
   conteneur.textContent = "";
@@ -100,6 +105,19 @@ function TextReg(conteneur, text) {
     });
     index++;
   } , duration);
+}
+function RecherMessages(event) {
+  var searchValue = event.target.value.toLowerCase();
+  var conteneursAmis = document.querySelectorAll('.voirgroupe');
+  conteneursAmis.forEach(function (conteneurAmi) {
+      var nomCompletAmi = conteneurAmi.querySelector('.nomamis h3').textContent.toLowerCase();
+      var message = conteneurAmi.querySelector('.nomamis p').textContent.toLowerCase();
+      if (nomCompletAmi.includes(searchValue) || message.includes(searchValue)) {
+          conteneurAmi.style.display = 'flex';
+      } else {
+          conteneurAmi.style.display = 'none';
+      }
+  });
 }
 
 

@@ -23,22 +23,23 @@ if ($_SERVER['REQUEST_METHOD'] === "POST")
         
     }
    if (isset($_FILES['document']['name']) && !empty($_FILES['document']['name'])) {
-       if ($_FILES['document']['size'] > MAX_DOC_SIZE) {
-           echo "La taille du document ne doit pas dépasser 10MB.<br>";
-       } else {
-        $folder = "../NewaRnautes/documents/" . decrypt($_SESSION['ownerConnected'],$key) . "/";
-        if(!file_exists($folder))
-        {
-            mkdir($folder,0777,true);
+    if ($_FILES['document']['size'] > MAX_DOC_SIZE) {
+        echo "La taille du document ne doit pas dépasser 50MB.<br>";
+    } else {
+        $folder = "../NewaRnautes/documents/" . decrypt($_SESSION['ownerConnected'], $key) . "/";
+        
+        if (!file_exists($folder)) {
+            mkdir($folder, 0777, true);
             file_put_contents($folder . "index.php", "");
         }
-        global $image_class;
-        $image_class = new Image();
-        $mydocument = $folder . $image_class->generate_filename(15) . ".PDF";
+        $originalFileName = $_FILES['document']['name'];
+        $fileExtension = pathinfo($originalFileName, PATHINFO_EXTENSION);
+        $uniqueFileName = uniqid('NewaRnet_document_', true); 
+        $mydocument = $folder . $uniqueFileName . "." . $fileExtension;
         move_uploaded_file($_FILES['document']['tmp_name'], $mydocument);
         $has_document = 1;
         $documentposted = true;
-       }
+    }
    }
 
    if (isset($_FILES['video']['name']) && !empty($_FILES['video']['name'])) {
@@ -92,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST")
         global $my_id;
         $postid = create_userid();
         $integrite = encrypt(nettoyerDonnee($_POST['integrite']),$key);
-        $date = encrypt(date("Y-m-d H:i:s"),$key);
+        $date = date("Y-m-d H:i:s");
         $query = "INSERT INTO posts (userid,postid,message_poste,image,integrite,date,has_image) value(?,?,?,?,?,?,?)";
         $data = $DB->save($query,[$my_id,$postid,$poste,$postimage,$integrite,$date,$has_image]);
         echo "true";
@@ -105,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST")
         global $my_id;
         $postid = create_userid();
         $integrite = encrypt(nettoyerDonnee($_POST['integrite']),$key);
-        $date = encrypt(date("Y-m-d H:i:s"),$key);
+        $date = date("Y-m-d H:i:s");
         $query = "INSERT INTO posts (userid,postid,message_poste,video,integrite,date,has_video) value(?,?,?,?,?,?,?)";
         $data = $DB->save($query,[$my_id,$postid,$poste,$postvideo,$integrite,$date,$has_video]);
         echo "true";
@@ -119,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST")
         global $my_id;
         $postid = create_userid();
         $integrite = encrypt(nettoyerDonnee($_POST['integrite']),$key);
-        $date = encrypt(date("Y-m-d H:i:s"),$key);
+        $date = date("Y-m-d H:i:s");
         $query = "INSERT INTO posts (userid,postid,message_poste,document,integrite,date,has_document) value(?,?,?,?,?,?,?)";
         $data = $DB->save($query,[$my_id,$postid,$poste,$postdocument,$integrite,$date,$has_document]);
         echo "true";
@@ -130,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST")
         global $my_id;
         $postid = create_userid();
         $integrite = encrypt(nettoyerDonnee($_POST['integrite']),$key);
-        $date = encrypt(date("Y-m-d H:i:s"),$key);
+        $date = date("Y-m-d H:i:s");
         $query = "INSERT INTO posts (userid,postid,message_poste,integrite,date) value(?,?,?,?,?)";
         $data = $DB->save($query,[$my_id,$postid,$poste,$integrite,$date]);
         echo "true";
@@ -143,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST")
         global $my_id;
         $postid = create_userid();
         $integrite = encrypt(nettoyerDonnee($_POST['integrite']),$key);
-        $date = encrypt(date("Y-m-d H:i:s"),$key);
+        $date = date("Y-m-d H:i:s");
         $query = "INSERT INTO posts (userid,postid,image,integrite,date,has_image) value(?,?,?,?,?,?,?)";
         $data = $DB->save($query,[$my_id,$postid,$postimage,$integrite,$date,$has_image]);
         echo "true";
@@ -156,22 +157,20 @@ if ($_SERVER['REQUEST_METHOD'] === "POST")
         global $my_id;
         $postid = create_userid();
         $integrite = encrypt(nettoyerDonnee($_POST['integrite']),$key);
-        $date = encrypt(date("Y-m-d H:i:s"),$key);
-        $query = "INSERT INTO posts (userid,postid,video,integrite,date,has_video) value(?,?,?,?,?,?,?)";
+        $date = date("Y-m-d H:i:s");
+        $query = "INSERT INTO posts (userid,postid,video,integrite,date,has_video) value(?,?,?,?,?,?)";
         $data = $DB->save($query,[$my_id,$postid,$postvideo,$integrite,$date,$has_video]);
         echo "true";
     }else if($documentposted)
     {
         $has_document = $has_document;
-        $poste = encrypt($postMessage,$key);
         $postdocument = encrypt($mydocument,$key);
-        $poste = encrypt($postMessage,$key);
         global $DB;
         global $my_id;
         $postid = create_userid();
         $integrite = encrypt(nettoyerDonnee($_POST['integrite']),$key);
-        $date = encrypt(date("Y-m-d H:i:s"),$key);
-        $query = "INSERT INTO posts (userid,postid,document,integrite,date,has_document) value(?,?,?,?,?,?,?)";
+        $date = date("Y-m-d H:i:s");
+        $query = "INSERT INTO posts (userid,postid,document,integrite,date,has_document) value(?,?,?,?,?,?)";
         $data = $DB->save($query,[$my_id,$postid,$postdocument,$integrite,$date,$has_document]);
         echo "true";
     }

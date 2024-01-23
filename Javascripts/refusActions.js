@@ -19,14 +19,8 @@ function gestionnaireRaccourcis(e) {
         alert("NewaRnet a ses normes et principes d'utilisation de sa plateforme. Vous n'avez pas le droit de faire ce qui vous vient à l'esprit. Veuillez consulter sa documentation officielle");
     }
 }
-
-function gestionnaireClicDroit(e) {
-    alert("NewaRnet a ses normes et principes d'utilisation de sa plateforme. Vous n'avez pas le droit de faire ce qui vous vient à l'esprit. Veuillez consulter sa documentation officielle");
-    e.preventDefault();
-}
 document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('keydown', gestionnaireRaccourcis);
-    document.addEventListener('contextmenu', gestionnaireClicDroit);
 });
 
 

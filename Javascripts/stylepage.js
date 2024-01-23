@@ -1,13 +1,12 @@
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function() {
     const colorBlanche1 = localStorage.getItem('--color-blanche-1') || '#ffffff';
     const colorBlanche2 = localStorage.getItem('--color-blanche-2') || '#e8e8e8';
     const colorText = localStorage.getItem('--color-text') || '#100f0f';
     let colorJauneText = localStorage.getItem('--color-jaune-text');
     let textTitre = localStorage.getItem('--color-titre') || '#0d876f';
-
     applyColors(colorBlanche1, colorBlanche2, colorText, colorJauneText, textTitre, textTitre);
-    suipperSlide();
-});
+  });
+  
 
 function sunFunction() {
     applyColors('#243639', '#08141a', '#FFFFFF', 'rgb(255, 210, 121)', '#BDBDBD');

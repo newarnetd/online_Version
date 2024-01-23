@@ -7,6 +7,7 @@ $link =base64_encode($ROW['groupe']);
 $type = base64_encode("groupe");
 $profile = decrypt($dataGroupe['profil'], $key);
 $link = "message.php?y=$type&x=$link"; 
+$messageSeen = countMessageGroupe($ROW['groupe']);
 ?>
 <a href="<?php echo $link ?>" class="voirgroupe">
   <div class="photoamis">
@@ -16,6 +17,4 @@ $link = "message.php?y=$type&x=$link";
     <h3><?php echo $nom ?></h3>
     <p><small><?php echo $NumberMembres ?> <?php echo ($NumberMembres === 1) ? 'Membre' : 'Membres'; ?></small></p>
   </div>
-  <div class="iconeamis"></div>
-  <!-- <div class="iconeamis group">12</div> -->
 </a>

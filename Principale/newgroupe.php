@@ -1,13 +1,12 @@
 <?php
 include("otherPrincipale.php");
 
-function createGroup($DB, $my_id, $userId, $key)
+function createGroup($DB, $my_id, $userId, $key, $groupe_id)
 {
     $name = nettoyerNomFichier($_POST['name_groupe']);
-    $groupe_id = create_userid();
     $date = encrypt(date("Y-m-d H:i:s"), $key);
-    $query = "INSERT INTO Mesgroupes (groupe,userid,owner,date,nom) VALUES (?,?,?,?,?)";
-    $DB->save($query, [$groupe_id, $userId, $my_id, $date,$name]);
+    $query = "INSERT INTO Mesgroupes (groupe, userid, owner, date, nom) VALUES (?, ?, ?, ?, ?)";
+    $DB->save($query, [$groupe_id, $userId, $my_id, $date, $name]);
     return $groupe_id;
 }
 
@@ -43,10 +42,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     global $my_id, $key;
     if (isset($_POST['membre']) && is_array($_POST['membre'])) {
         $selectedMembers = $_POST['membre'];
+        array_push($selectedMembers, $my_id);
         $members = [];
-
+        $groupe_id = create_userid();
         foreach ($selectedMembers as $userId) {
-            $groupe_id = createGroup($DB, $my_id, $userId, $key);
+            $groupe_id = createGroup($DB, $my_id, $userId, $key, $groupe_id);
             $members[] = ['userid' => $userId];
         }
 
@@ -55,7 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $date = encrypt(date("Y-m-d H:i:s"), $key);
         $postimage = encrypt($myimage, $key);
         $admins = ['userid' => $my_id];
-        $members[] = ['userid' => $my_id];
         $query = "INSERT INTO groupes (groupid, nom, membres, admins, profil, owner, date) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $result = $DB->save($query, [$groupe_id, $name, json_encode($members), json_encode($admins), $postimage, $my_id, $date]);
 

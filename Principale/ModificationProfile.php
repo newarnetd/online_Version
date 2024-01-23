@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $poste = encrypt("récemment mis à jour sa photo de profil",$key);
             $postid = create_userid();
             $integrite = encrypt(nettoyerDonnee("À tous les NewaRnautes"),$key);
-            $date = encrypt(date("Y-m-d H:i:s"),$key);
+            $date = date("Y-m-d H:i:s");
             $query = "INSERT INTO posts (userid,postid,message_poste,image,integrite,date,has_image) value(?,?,?,?,?,?,?)";
             $data = $DB->save($query,[$my_id,$postid,$poste,$myimage,$integrite,$date,$has_image]);
             echo "true";
@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $has_image = 1;
             $poste = encrypt("récemment mis à jour sa photo de profilcouverture");
             $integrite = encrypt(nettoyerDonnee("À tous les NewaRnautes"),$key);
-            $date = encrypt(date("Y-m-d H:i:s"),$key);
+            $date = date("Y-m-d H:i:s");
             $query = "INSERT INTO posts (userid,postid,message_poste,image,integrite,date,has_image) value(?,?,?,?,?,?,?)";
             $data = $DB->save($query,[$my_id,$postid,$poste,$myimage,$integrite,$date,$has_image]);
             echo "true";

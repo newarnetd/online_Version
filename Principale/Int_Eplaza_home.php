@@ -1,20 +1,20 @@
 <div class="Affiche swiper-slide">
                             <div class="topArtcle">
-                            <img src="../images/placeholder.jpg">
+                            <img src="<?php echo $image ?>">
                             </div>
                             <div class="OtherDetailsEplaza">
-                              <p>Maison a louer Trois chambresjs sksks ..</p>
+                              <p><?php echo $nomArticle ?></p>
                             <div class="Userimage">
                               <div class="imagePhoto">
-                                <div class="photoEplaza"></div>
+                                <div class="photoEplaza" style="border-radius:50%;"><img src="<?php echo $profile?>" style="width:100%;object-fit:cover;border-radius:50%;"></div>
                                 <div class="DetailArtcle">
-                                  <span>Bousness Shop</span>
-                                  <small>12 vues</small>
+                                  <span><?php echo $nom_owner ?></span>
+                                  <small><?php echo $vues ?> vues</small>
                                 </div>
                               </div>
-                              <div class="MenuIconElaza">
+                              <a href="eplaza.php" class="MenuIconElaza">
                                 voire <i class="fa-solid fa-eye"></i>
-                              </div>
+                              </a>
                             </div>
                             </div>
                           </div>

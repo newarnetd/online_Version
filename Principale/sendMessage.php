@@ -23,22 +23,23 @@ if ($_SERVER['REQUEST_METHOD'] === "POST")
         
     }
    if (isset($_FILES['document']['name']) && !empty($_FILES['document']['name'])) {
-       if ($_FILES['document']['size'] > MAX_DOC_SIZE) {
-           echo "La taille du document ne doit pas dépasser 10MB.<br>";
-       } else {
-        $folder = "../NewaRnautes/documents/" . decrypt($_SESSION['ownerConnected'],$key) . "/";
-        if(!file_exists($folder))
-        {
-            mkdir($folder,0777,true);
+    if ($_FILES['document']['size'] > MAX_DOC_SIZE) {
+        echo "La taille du document ne doit pas dépasser 50MB.<br>";
+    } else {
+        $folder = "../NewaRnautes/documents/" . decrypt($_SESSION['ownerConnected'], $key) . "/";
+        
+        if (!file_exists($folder)) {
+            mkdir($folder, 0777, true);
             file_put_contents($folder . "index.php", "");
         }
-        global $image_class;
-        $image_class = new Image();
-        $mydocument = $folder . $image_class->generate_filename(15) . ".PDF";
+        $originalFileName = $_FILES['document']['name'];
+        $fileExtension = pathinfo($originalFileName, PATHINFO_EXTENSION);
+        $uniqueFileName = uniqid('NewaRnet_document_', true); 
+        $mydocument = $folder . $uniqueFileName . "." . $fileExtension;
         move_uploaded_file($_FILES['document']['tmp_name'], $mydocument);
         $has_document = 1;
         $documentposted = true;
-       }
+    }
    }
 
    if (isset($_FILES['video']['name']) && !empty($_FILES['video']['name'])) {
@@ -90,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST")
         $postimage = encrypt($myimage,$key);
         global $DB;
         global $my_id;
-        $userid = nettoyerDonnee(decrypt($_POST['u'],$key));
+        $userid = decrypt(nettoyerDonnee($_POST['u']),$key);
         $query = "select * from message where (owner = ? AND userid = ?) || (userid = ? && owner = ?) limit 1";
 		$data = $DB->read($query,[$my_id,$userid,$my_id,$userid]);
         if(is_array($data)){
@@ -109,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST")
         $postvideo = encrypt($myvideo,$key);
         global $DB;
         global $my_id;
-        $userid = nettoyerDonnee(decrypt($_POST['u'],$key));
+        $userid = decrypt(nettoyerDonnee($_POST['u']),$key);
         $query = "select * from message where (owner = ? AND userid = ?) || (userid = ? && owner = ?) limit 1";
 		$data = $DB->read($query,[$my_id,$userid,$my_id,$userid]);
         if(is_array($data)){
@@ -128,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST")
         $postdocument = encrypt($mydocument,$key);
         $message = encrypt($postMessage,$key);
         global $DB;
-        global $my_id;$userid = nettoyerDonnee(decrypt($_POST['u'],$key));
+        global $my_id;$userid = decrypt(nettoyerDonnee($_POST['u']),$key);
         $query = "select * from message where (owner = ? AND userid = ?) || (userid = ? && owner = ?) limit 1";
 		$data = $DB->read($query,[$my_id,$userid,$my_id,$userid]);
         if(is_array($data)){
@@ -145,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST")
         $message = encrypt($postMessage,$key);
         global $DB;
         global $my_id;
-        $userid = nettoyerDonnee(decrypt($_POST['u'],$key));
+        $userid = decrypt(nettoyerDonnee($_POST['u']),$key);
         $query = "select * from message where (owner = ? AND userid = ?) OR (userid = ? AND owner = ?) limit 1";
 		$data = $DB->read($query,[$my_id,$userid,$my_id,$userid]);
         if(($data)){
@@ -163,7 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST")
         $has_image =  $has_image;
         $postimage = encrypt($myimage,$key);
         global $DB;
-        global $my_id;$userid = nettoyerDonnee(decrypt($_POST['u'],$key));
+        global $my_id;$userid = decrypt(nettoyerDonnee($_POST['u']),$key);
         $query = "select * from message where (owner = ? AND userid = ?) || (userid = ? && owner = ?) limit 1";
 		$data = $DB->read($query,[$my_id,$userid,$my_id,$userid]);
         if(is_array($data)){
@@ -181,7 +182,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST")
         $has_video = $has_video;
         $postvideo = encrypt($myvideo,$key);
         global $DB;
-        global $my_id;$userid = nettoyerDonnee(decrypt($_POST['u'],$key));
+        global $my_id;$userid = decrypt(nettoyerDonnee($_POST['u']),$key);
         $query = "select * from message where (owner = ? AND userid = ?) || (userid = ? && owner = ?) limit 1";
 		$data = $DB->read($query,[$my_id,$userid,$my_id,$userid]);
         if(is_array($data)){
@@ -201,7 +202,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST")
         $postdocument = encrypt($mydocument,$key);
         $message = encrypt($postMessage,$key);
         global $DB;
-        global $my_id;$userid = nettoyerDonnee(decrypt($_POST['u'],$key));
+        global $my_id;$userid = decrypt(nettoyerDonnee($_POST['u']),$key);
         $query = "select * from message where (owner = ? AND userid = ?) || (userid = ? && owner = ?) limit 1";
 		$data = $DB->read($query,[$my_id,$userid,$my_id,$userid]);
         if(is_array($data)){

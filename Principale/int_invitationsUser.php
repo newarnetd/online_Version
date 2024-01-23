@@ -7,7 +7,7 @@ $profile = ($USERS_ROW['ver_profile'] !== 0) ? decrypt($USERS_ROW['profile'],$ke
 ?>
 <div class="containerFriends">
   <div class="identiteUse">
-    <div class="userPhotoCarte">
+    <div class="userPhotoCarte"y="<?php echo encrypt($USERS_ROW['userid'],$key) ?>" onclick="ProfileHomepage(event)" style="curso:pointer">
       <img src="<?php echo $profile?>" class="userphoto" />
     </div>
     <div class="nameUser">

@@ -1,11 +1,12 @@
-<?php 
+<?php
 class Database
 {
     private $host = "localhost";
-	private $username = "root";
-	private $password = "";
-	private $db = "newarnet";
+    private $username = "root";
+    private $password = "";
+    private $db = "newarnet";
     private $conn;
+
     function __construct()
     {
         $this->conn = new mysqli($this->host, $this->username, $this->password, $this->db);
@@ -13,6 +14,7 @@ class Database
             die("Connection failed: " . $this->conn->connect_error);
         }
     }
+
     function read($query, $params = [])
     {
         $stmt = $this->conn->prepare($query);
@@ -34,6 +36,7 @@ class Database
         }
     }
 
+   
     function save($query, $params = [])
     {
         $stmt = $this->conn->prepare($query);
@@ -57,6 +60,7 @@ class Database
     function __destruct()
     {
         $this->conn->close();
-    }   
+    }
 }
+
 ?>

@@ -13,12 +13,13 @@
     --color-addRelation:#4b516b;
     --swiper-theme-color:var(--color-primary);
     --boxshadow_section_blanche: 0px 4px 10px rgba(0, 0, 0,.2);
-    --color-blue:#dcfce6;
+    --color-verter_claire:#dcfce6;
     --color-jaune-text:rgb(255, 210, 121);
     --color-janue:#EEB936;
+    --color-blue_primary:rgb(87, 102, 126);
     --color-greenNoire: rgb(41, 41, 41);
     --color-titre_newarnet: #0d876f;
-    --color-request:rgb(201, 245, 201);
+    --color-request:#b0f0bd;
     --color-green:var(--color-primary);
     --color-bordure-noire:rgba(0, 0, 0, 0.042);
     --color-red-1:rgb(246, 105, 105);
@@ -319,7 +320,12 @@ input,textarea,button{
   color: #605d5d;
   margin: 10px;
 }
-
+.onlineTime{
+position: absolute;
+right: 10px;
+font-size:13px;
+opacity:.6;
+}
 .onlineTime.messageColor{
   background: var(--color-red-1);
   color: #FFF;
@@ -339,12 +345,7 @@ input,textarea,button{
   font-size:13px;
 opacity:.6;
 }
-.onlineTime{
-position: absolute;
-right: 10px;
-font-size:13px;
-opacity:.6;
-}
+
 .mereAnimationclique span{
   font-size: 13px;
 }
@@ -431,6 +432,23 @@ opacity:.6;
     left:100%;
     right:-90%;
   }
+}
+.swiper-slide .conteneuramis .photoamis{
+  width: 60px;
+  height: 60px;
+  border-radius: var(--border-radius_cercle);
+  background: var(--color-blanche-2);
+}
+.conteneuramis {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 8px 10px;
+  position: relative;
+  margin: 10px auto;
+  border-bottom: 1px solid var(--color-blanche-2);
 }
 .barrScrolle {
   width: 100%;

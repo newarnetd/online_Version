@@ -1,10 +1,11 @@
 <?php
 include("otherPrincipale.php");
-authentification(decrypt($_SESSION['ownerConnected'],$key));
 if(($detail_user['ver_profile'] !== 0))
 {
   header("Location: ../Principale/accueil.php");
 }
+authentification(decrypt($_SESSION['ownerConnected'],$key));
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

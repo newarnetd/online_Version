@@ -581,7 +581,12 @@ select,option {
     
 }
 
-
+.contaneurImage span{
+    position:fixed;
+    bottom:20px;
+    color:#414141;
+    opacity:.9;
+ }
 /* Petits écrans d'ordinateur portable */
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
     /* Styles spécifiques pour les écrans de 1024 à 1279 pixels de large */
@@ -617,6 +622,7 @@ select,option {
         
         .barrScrolle {
             height: 8px;
+            
         }
         .textDemonstrationInscription{
             width:100%;

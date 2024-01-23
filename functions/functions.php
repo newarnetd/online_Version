@@ -51,7 +51,13 @@ function decrypt($encryptedData, $key) {
     $decryptedData = openssl_decrypt($encryptedData, 'aes-256-cbc', $key, OPENSSL_RAW_DATA, $paddedIV);
     return htmlspecialchars($decryptedData);
 }
-
+function eplazaMarket($id)
+{ global $limite,$DB;
+    $sql = "SELECT * FROM articles
+    WHERE owner != ? ORDER BY RAND() LIMIT $limite";
+    $data = $DB->read($sql, [$id]);
+    return $data;
+}
 function create_userid()
 {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -68,8 +74,7 @@ function create_userid()
 }
 function notification($recepteur,$Emmeuteur,$type,$contentId)
 {
-    global $DB;
-    global $key;
+    global $DB,$my_id,$key;
     $date = encrypt(date("Y-m-d H:i:s"),$key);
     $notifId = create_userid();
     if($type === "accepter")
@@ -78,15 +83,18 @@ function notification($recepteur,$Emmeuteur,$type,$contentId)
         $DB->save($sql, [$recepteur, $Emmeuteur, $date,$notifId,$type]);
     }
     if($type =="aimer" || $type =="commenter" || $type =="partager"){
+        if($recepteur !== $my_id)
+        {
+            $sql = "INSERT INTO notifications (userid,owner,date,notif_id,type,contentid) VALUES (?,?,?,?,?,?)";
+            $DB->save($sql, [$recepteur, $Emmeuteur, $date,$notifId,$type,$contentId]);
+        }
+    }
+    if($type == "abonnement")
+    {
         $sql = "INSERT INTO notifications (userid,owner,date,notif_id,type,contentid) VALUES (?,?,?,?,?,?)";
         $DB->save($sql, [$recepteur, $Emmeuteur, $date,$notifId,$type,$contentId]);
     }
-    if($type === "story")
-    {
-       
-        $sql = "INSERT INTO notifications (owner,date,notif_id,type) VALUES (?,?,?,?)";
-        $DB->save($sql, [$Emmeuteur, $date,$notifId,'story']);
-    }
+   
 }
 function verificationSession()
 {
@@ -128,46 +136,32 @@ function authentification($id)
     }
 }
 
-function TempsEcoule($difference, $timestamp)
-{
-    if ($difference < 60) {
-        return "en ligne";
-    } elseif ($difference < 3600) {
-        $minutes = floor($difference / 60);
-        return "Il y a " . $minutes . " min";
-    } else {
-        return "Il y a " . date("H:i", $timestamp);
-    }
-}
-
 function TempsEcouler($timestamp)
 {
     $now = time();
     $difference = $now - $timestamp;
-
-    // Convertir le timestamp en objet DateTime pour gérer les fuseaux horaires si nécessaire
     $date = new DateTime();
     $date->setTimestamp($timestamp);
-
-    // Utiliser le fuseau horaire par défaut du serveur
     $timezone = new DateTimeZone(date_default_timezone_get());
     $date->setTimezone($timezone);
-
-    // Comparer la date avec aujourd'hui et hier
     $aujourdHui = new DateTime('now', $timezone);
     $hier = new DateTime('yesterday', $timezone);
 
-    if ($date->format('Y-m-d') == $aujourdHui->format('Y-m-d')) {
-        // Aujourd'hui
-        return TempsEcoule($difference, $timestamp);
+    if ($difference < 60) {
+        return "en ligne";
+    } elseif ($difference < 3600) {
+        $minutes = floor($difference / 60);
+        return $minutes . " min";
+    } elseif ($date->format('Y-m-d') == $aujourdHui->format('Y-m-d')) {
+        return "Aujourd'hui à " . $date->format('H:i');
     } elseif ($date->format('Y-m-d') == $hier->format('Y-m-d')) {
-        // Hier
-        return "Hier " . $date->format('H:i');
+        return "Hier à " . $date->format('H:i');
     } else {
-        // Autre logique de temps écoulé
-        return "Il y a " . TempsEcoule($difference, $timestamp);
+        return $date->format('d/m/Y à H:i');
     }
 }
+
+
 
 
 
@@ -279,15 +273,13 @@ function calcTemps($pasttime)
 
 
 function nettoyerDonnee($valeur)
-{   
+{
     $valeur = trim($valeur);
-    $valeur = filter_var($valeur, FILTER_SANITIZE_STRING);
-    $valeur = htmlspecialchars($valeur, ENT_QUOTES, 'UTF-8');
-    if (!is_numeric($valeur)) {
-        $valeur = addslashes($valeur);
-    }
     return $valeur;
 }
+
+
+
 function limiterChaine($chaine, $limite) 
 {
     if (mb_strlen($chaine) > $limite) {
@@ -295,6 +287,18 @@ function limiterChaine($chaine, $limite)
     }
 
     return $chaine;
+}
+function PropositionBoutiques()
+{
+    global $my_id,$DB,$limite;
+    $query = "SELECT * FROM boutique where ownerid != ? ORDER BY RAND() limit $limite";
+    $resultat = $DB->read($query,[$my_id]);
+    if($resultat)
+    {
+        return $resultat;
+    }else{
+        return false;
+    }
 }
 function Mesinvitations($id)
 {
@@ -309,7 +313,7 @@ function AddDatahyperSync($userid, $ownerid, $type)
 {
     global $DB;
     global $limite;
-    $validTypes = ["ajouter", "like", "suivre", "partager", "commenter", "profile", "photo"];
+    $validTypes = ["ajouter", "like", "suivre", "partager", "commenter", "profile", "photo","abonnes"];
     if (!in_array($type, $validTypes)) {
         return false;
     }
@@ -396,6 +400,59 @@ function GetInvitations($ownerId)
         return 0;
     }
 }
+function countNotifications($ownerId)
+{
+    global $DB;
+    global $limit;
+    $sql = "SELECT * FROM notifications WHERE userid = ? AND seen = ?";
+    $result = $DB->read($sql, [$ownerId,0]);
+
+    if ($result !== false) {
+        $count = count($result);
+        return $count;
+    } else {
+        return 0;
+    }
+}
+function countMessageGroupe($groupeid)
+{
+    global $DB,$limit,$my_id;
+    $sql = "SELECT * FROM  groupeseen WHERE (userid = ? AND groupeId = ?) AND seen = ?";
+    $result = $DB->read($sql, [$my_id,$groupeid,0]);
+
+    if ($result !== false) {
+        $count = count($result);
+        return $count;
+    } else {
+        return 0;
+    }
+}
+function countMessageseenChat($messageId)
+{
+    global $DB,$limit,$my_id;
+    $sql = "SELECT * FROM message WHERE (userid = ?)  AND (messageid = ?) AND seen = ?";
+    $result = $DB->read($sql, [$my_id,$messageId,0]);
+
+    if ($result !== false) {
+        $count = count($result);
+        return $count;
+    } else {
+        return 0;
+    }
+}
+function countMessageseen($ownerId)
+{
+    global $DB,$limit,$my_id;
+    $sql = "SELECT * FROM message WHERE (userid = ?)  AND seen = ?";
+    $result = $DB->read($sql, [$my_id,0]);
+
+    if ($result !== false) {
+        $count = count($result);
+        return $count;
+    } else {
+        return 0;
+    }
+}
 function verificationRelation($ownerId, $userId)
 {
     $DB = new Database();
@@ -457,7 +514,21 @@ function PropositionAmis($id)
 
     return $USERS_ROWS;
 }
-function  detailGriupe($id)
+function  detailBoutiue($id)
+{
+    global $my_id,$DB;
+    $query = "SELECT * FROM boutique WHERE (ownerid = ? )";
+    $resultat = $DB->read($query, [$id]);
+    if($resultat)
+    {
+        $resultat = $resultat[0];
+        return $resultat;
+    }else{
+        return false;
+    }
+     
+}
+function  detailGroupe($id)
 {
     global $my_id,$DB;
     $query = "SELECT * FROM groupes WHERE (groupid = ? )";
@@ -471,7 +542,7 @@ function  detailGriupe($id)
     }
      
 }
-function getMesGrouepr()
+function getMesGroupes()
 {
     global $my_id,$DB;
     $query = "SELECT * FROM mesgroupes WHERE (userid = ? OR owner = ?) GROUP BY nom";
@@ -501,7 +572,6 @@ function processInvitation($sender, $receiver, $action)
                 $DB->save($sql, [$id_clicked]);
                 AddDatahyperSync($sender, $receiver, $action);
                 $type = $action;
-                notification($receiver, $sender, $type,"");
                 echo "true";
             }
         } else {
@@ -515,8 +585,25 @@ function processInvitation($sender, $receiver, $action)
             $DB->save($sql, [$id_clicked]);
             AddDatahyperSync($sender, $receiver, $action);
             $type = $action;
-            notification($receiver, $sender, $type,"");
             echo "true";
         }
 }
+
+function formatMessageTime($dateTime)
+{
+    $aujourdHui = new DateTime('now', $dateTime->getTimezone());
+    $hier = new DateTime('yesterday', $dateTime->getTimezone());
+    $avantHier = new DateTime('2 days ago', $dateTime->getTimezone());
+    $semaineAvant = new DateTime('-7 days', $dateTime->getTimezone());
+
+    if ($dateTime->format('Y-m-d') == $aujourdHui->format('Y-m-d')) {
+        return $dateTime->format('H:i');
+    } elseif ($dateTime->format('Y-m-d') == $hier->format('Y-m-d')) {
+        return 'Hier, ' . $dateTime->format('H:i');
+    }else{
+        return $dateTime->format('d/m/Y');
+    }
+}
+
+
 ?>

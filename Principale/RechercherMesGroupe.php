@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST")
         {
             foreach($resultat as $ROW)
             {
-                $dataGroupe = detailGriupe($ROW['groupe']);
+                $dataGroupe = detailGroupe($ROW['groupe']);
                 include("int_mes_groupes.php");
             }
         }else{

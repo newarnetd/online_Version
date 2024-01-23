@@ -1,40 +1,41 @@
-
 <?php
-$nom_decrypte = decrypt($USERS_ROW['nom'], $key);
-$prenom_decrypte = decrypt($USERS_ROW['prenom'], $key);
+$nomDecrypte = decrypt($USERS_ROW['nom'], $key);
+$prenomDecrypte = decrypt($USERS_ROW['prenom'], $key);
 $sexe = decrypt($USERS_ROW['sexe'], $key);
-$nom_comple_friends = $nom_decrypte . ' ' . $prenom_decrypte;
+$nomCompletFriends = limiterChaine($nomDecrypte . ' ' . $prenomDecrypte, 20);
 $profile = ($USERS_ROW['ver_profile'] !== 0) ? decrypt($USERS_ROW['profile'], $key) : ($sexe === "Femme" ? '../images/femme.jpg' : '../images/homme.jpg');
 $suivi = $USERS_ROW['suivi'];
-$nom_comple_friends = limiterChaine($nom_comple_friends, 13);
-$dernierMsg = decrypt($conversation['messages'][0]['message'],$key);
+$dernierMsg = decrypt($conversation['messages'][0]['message'], $key);
 $timezoneServer = new DateTimeZone(date_default_timezone_get());
 $date = $conversation['messages'][0]['date'];
 $dateTime = new DateTime($date, $timezoneServer);
-$formattedTime = $dateTime->format('H:i');
-$aujourdHui = new DateTime('now', $timezoneServer);
-$hier = new DateTime('yesterday', $timezoneServer);
-
-if ($dateTime->format('Y-m-d') == $aujourdHui->format('Y-m-d')) {
-    $formattedTime = $dateTime->format('H:i');
-} elseif ($dateTime->format('Y-m-d') == $hier->format('Y-m-d')) {
-    $formattedTime = 'Hier , ' . $dateTime->format('H:i');
-} elseif ($dateTime->format('Y-m-d') == $avantHier->format('Y-m-d')) {
-    $formattedTime = 'Avant-hier ' . $dateTime->format('H:i');
-} elseif ($dateTime >= $semaineAvant) {
-    $formattedTime = 'Il y a ' . $dateTime->diff($aujourdHui)->format('%a jours') . ' ' . $dateTime->format('H:i');
-} else {
-}
-
+$formattedTime = formatMessageTime($dateTime);
+$infosUser = base64_encode($USERS_ROW['userid']);
+$type = base64_encode("message");
+$link = "message.php?y=$type&x=$infosUser";
+$online = $USERS_ROW['enligne'];
+$seen = countMessageseenChat($conversation['messages'][0]['messageid']);
 ?>
-        <div class="conteneuramis">
-                        <div class="photoamis">
-                        <img class="userphoto" src="<?php echo $profile?>" alt="">
-                        </div>
-                        <div class="nomamis">
-                        <h3><?php echo $nom_comple_friends ?></h3>
-                        <p><?php echo $dernierMsg?></p>
-                        </div>
-                        <div class="onlineTime"><?php echo $formattedTime ?></div>
-                      </div>
-                      
+<a href="<?= $link ?>" class="voirgroupe">
+   <div class="photoamis">
+      <img class="userphoto" src="<?= $profile ?>"style="width:100%;height:100%;border-radius:50%">
+   </div>
+   <div class="nomamis">
+      <h3 style="font-weight:500;font-size:17px;"><?= $nomCompletFriends ?></h3>
+      <p style="font-size:15px;opacity:.6;">
+         <?php
+         $message = ($conversation['messages'][0]['owner'] == $my_id)
+            ? limiterChaine("vous : " . $dernierMsg, 37)
+            : limiterChaine($dernierMsg, 37);
+         echo $message;
+         ?>
+      </p>
+   </div>
+   <?php
+   if ($seen != 0) {
+      echo '<div class="onlineTime messageColor">' . $seen . '</div>';
+   } else {
+      echo '<div class="onlineTime">' . $formattedTime . '</div>';
+   }
+   ?>
+</a>

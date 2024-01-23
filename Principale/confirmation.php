@@ -11,5 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $recepteur = $my_id;
     processInvitation($Emmeuteur, $recepteur, "accepter");
     processInvitation($recepteur, $Emmeuteur, "accepter");
+    notification($Emmeuteur,$recepteur"accepter","");
 }
 ?>

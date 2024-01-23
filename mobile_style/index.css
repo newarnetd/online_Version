@@ -32,10 +32,7 @@
 width: 95%;
 margin: 0 auto;
 }
-.text_coventions{
-    width: 95%;
-    color: #BDBDBD;
-}
+
 .InputDouble.boutons .btoun{
 background: var(--color-blanche-2);
 color:var(--color-text);
@@ -48,7 +45,8 @@ border-radius: 35px;
 width: 70%;
 }
 .btounInscription{
-    
+    position: absolute;
+    bottom: 20px;
     width: 90%;
     display: flex;
     align-items:center;
@@ -68,6 +66,7 @@ width: 70%;
         display: flex;
         align-items: center;
         margin: 0px auto;
+        
         
     }
     .logosNewarnet img{
@@ -109,14 +108,15 @@ width: 70%;
 
   }
   .text_coventions {
-      width:98%;
-      font-size: 14px;
+      width:100%;
+      font-size: 15px;
       display: flex;
       justify-content: center;
-      color:var(--color-text);
+      color:#BDBDBD;
       opacity: 1;
       text-align: center;
       margin: 5px auto;
+      text-align: center;
   }
   .bottomLink{
       position: absolute;
@@ -285,6 +285,7 @@ width: 70%;
     background-size: contain;
     background-position: 0 0;
 }
+
 .gridItemsProposition{
   width: 98%;
   display: grid;

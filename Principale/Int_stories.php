@@ -3,41 +3,58 @@ $nom_decrypte = decrypt($USERS_ROW['nom'], $key);
 $prenom_decrypte = decrypt($USERS_ROW['prenom'], $key);
 $sexe = decrypt($USERS_ROW['sexe'], $key);
 $nom_comple_friends = $nom_decrypte . ' ' . $prenom_decrypte;
-$profile = ($USERS_ROW['ver_profile'] !== 0) ? decrypt($USERS_ROW['profile'],$key) : ($sexe === "Femme" ? '../images/femme.jpg' : '../images/homme.jpg');
+$profile = ($USERS_ROW['ver_profile'] !== 0) ? decrypt($USERS_ROW['profile'], $key) : ($sexe === "Femme" ? '../images/femme.jpg' : '../images/homme.jpg');
 $suivi = $USERS_ROW['suivi'];
-$nom_comple_friends = limiterChaine($nom_comple_friends,17);
-if($suivi != 0)
-{
-  $suivi = $suivi ." "."suivi(s)";
-}else{
-  $suivi = "@" .$prenom_decrypte;
+$nom_comple_friends = limiterChaine($nom_comple_friends, 17);
+
+if ($suivi != 0) {
+    $suivi = $suivi . " " . "suivi(s)";
+} else {
+    $suivi = "@" . $prenom_decrypte;
 }
-$Friendid = encrypt($USERS_ROW['userid'],$key);
+$Friendid = encrypt($USERS_ROW['userid'], $key);
 $friendsResult = $user->Mesamis($USERS_ROW['userid'], "amis");
 $NumbFriens = count($friendsResult);
-$Amis_currentUser = $user->Mesamis($my_id, "amis");
+$amisEncommun = nombreAmisCommuns($my_id, $USERS_ROW['userid']);
 
-if ($Amis_currentUser) {
-    $amis_communs_array = array();
+$temps_defini = decrypt($_ROW['temps_defini'], $key);
+$date = decrypt($_ROW['date'], $key);
+$date_timestamp = strtotime($date);
+$temps_ecoule = time() - $date_timestamp;
+$temps_ecoule_en_minutes = $temps_ecoule / 60;
 
-    foreach ($result as $_ROW) {
-        $USERS_ROW = $user->get_user($_ROW['userid']);
-        $Amis_de_l_utilisateur_actuel = $user->Mesamis($USERS_ROW['userid'], "amis");
-        $amis_communs = array_intersect($Amis_currentUser, $Amis_de_l_utilisateur_actuel);
-        if (!empty($amis_communs)) {
-            count($amis_communs_array[$USERS_ROW['userid']]) = $amis_communs;
-        }
+if ($_ROW['status'] != 1) {
+    switch ($temps_defini) {
+        case 30:
+            $temps_defini_en_minutes = $temps_defini;
+            break;
+        case 60:
+        case 360:
+        case 720:
+        case 1440:
+            $temps_defini_en_minutes = $temps_defini * 60;
+            break;
+        default:
+            break;
+    }
+    if ($temps_ecoule_en_minutes >= $temps_defini_en_minutes) {
+        $query = "UPDATE story SET status = 1 WHERE postid = ?";
+        $DB->save($query, [$_ROW['postid']]);
     }
 }
-
 ?>
-<div class="conversationuser" onclick="ShowStatut(event)">
-                                <div class="carterUsermessage">
-                                  <img class="userphoto" src="<?php echo $profile?>" >
-                                </div>
-                                <div class="nameUserconversation">
-                                <h3><?php if ($USERS_ROW['userid'] == $my_id) {echo "Vous";} else {echo $nom_comple_friends;}?></h3>
-                                    <p><?php echo $amis_communs ?> amis en communs</p>
-                                </div>
-                                <div class="onlineTime">Aujourdiu, 13:45</div>
-                            </div>
+
+<div class="conversationuser" onclick="ShowStatut(event)" y="<?php echo encrypt($_ROW['postid'], $key) ?>" x="<?php echo decrypt($_ROW['image'], $key) ?>">
+    <div class="carterUsermessage">
+        <img class="userphoto" src="<?php echo $profile ?>">
+    </div>
+    <div class="nameUserconversation">
+        <h3><?php if ($_ROW['userid'] == $my_id) {
+                echo "Vous";
+            } else {
+                echo $nom_comple_friends;
+            } ?></h3>
+        <p><?php echo calcTemps($date) ?></p>
+    </div>
+    <div class="onlineTime"><?php echo date("H:i", $date_timestamp); ?></div>
+</div>

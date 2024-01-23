@@ -35,15 +35,45 @@ if(($detail_user['ver_profile'] == 0))
     <link rel="manifest" href="../favicon_io/site.webmanifest">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>NewaRnet</title>
-    <style>
-   
-    </style>
   </head>
   <body>
+  <div class="commentaireSession">
+    <div class="carterCommentaireHomepage">
+      <div class="EntetePoste">
+        <div class="leftSideComment"onclick="fermeturePost()">
+          <i class="fa-solid fa-arrow-left"></i>
+        </div>
+          <div class="rightSideOption">
+          </div>
+
+      </div>
+        <div class="carterPosteCoprCommentaire">
+          <div class="mereAnimationclique" style="margin:10px"><div class="loading interd" style="border: 3px solid var(--color-blanche-2);border-top:3px solid var(--color-primary);width: 40px;height:40px"></div></div>
+        </div>
+      <div class="bottomPoste">
+          <form method = "POST" id="PostCommentHomepage" class="sessionInput">
+          <div class="leftnav"> 
+          <div class="iconeSendComm" onclick="sendComment()"><i class="fa-solid fa-arrow-up"></i></div>
+          <input type="text" name="postid" id="postidValue" hidden>
+          <input type="text" name="commentaire" id="commentaire" placeholder="Ecrivez votre commentaire ..."oninput="CommenterPoster(event)">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
   <div class="barrScrolle"><div></div></div>
   <div class="contaneurImage">
     <div class="photoImage"><img src="../images/0000000000000000.png" class=""></div>
     <span>Internet pour Tous</span>
+  </div>
+  <div class="photoSeen">
+    <div class="cartetImageSeen">
+      <div class="headerCartetSeenImage">
+      <i class="fa-solid fa-download" onclick="Download()"></i>
+      <i class="fa-solid fa-xmark" onclick="CancelShw()"></i>
+      </div>
+      <div class="imageSwo"><img src="../images/Af-1 (8).jpg" alt=""></div>
+    </div>
   </div>
   <div class="ConteneurToutepage">
       <!-- nav_session -->
@@ -62,7 +92,6 @@ if(($detail_user['ver_profile'] == 0))
       </nav>
       <!-- Debut_main -->
       <main>
-        
         <!-- cote_gauche_des_icons -->
         <div class="leftmain swiper mySwiper">
           <div class="swiper-wrapper leftOption">
@@ -70,22 +99,51 @@ if(($detail_user['ver_profile'] == 0))
                         <div class="iconcontainerOption" onclick="HommePrinciplae()">
                           <i class="fa-solid fa-home"></i>Accueil
                         </div>
+                                            <?php
+                        $notificationCount = countNotifications($my_id);
+                    ?>
+                    <?php if ($notificationCount > 0): ?>
                         <div class="iconcontainerOption" onclick="NotificationSide()">
-                          <i class="fa-solid fa-bell"><span class="notification_counteur"></span></i>Notifications
+                            <i class="fa-solid fa-bell">
+                                <span class="notification_counteur active">
+                                    <?php echo $notificationCount; ?>
+                                </span>
+                            </i>
+                            Notifications
                         </div>
-                        <div class="iconcontainerOption" onclick="MessageSide()">
-                          <i class="fa-solid fa-message"><span class="notification_counteur"></span></i>Message
+                    <?php else: ?>
+                        <div class="iconcontainerOption" onclick="NotificationSide()">
+                            <i class="fa-solid fa-bell"></i>
+                            Notifications
                         </div>
+                    <?php endif; ?>
+                    <?php
+                        $MessageCount = countMessageseen($my_id);
+                    ?>
+                    <?php if ($MessageCount > 0): ?>
+                      <div class="iconcontainerOption" onclick="MessageSide()">
+                      <i class="fa-solid fa-message">
+                                <span class="notification_counteur active">
+                                    <?php echo $MessageCount; ?>
+                                </span>
+                            </i>
+                            Message
+                        </div>
+                    <?php else: ?>
+                      <div class="iconcontainerOption" onclick="MessageSide()">
+                        <i class="fa-solid fa-message"><span class="notification_counteur"></span></i>Message
+                      </div>
+                    <?php endif; ?>
                         <div class="iconcontainerOption" y="<?php echo encrypt($my_id,$key) ?>" onclick="ProfileHomepage(event)">
                         <i class="fa-solid fa-user-shield"></i>Mon compte
                         </div>
                         <a href="eplaza.php" class="iconcontainerOption">
                           <i class="fa-solid fa-store"><span class="notification_counteur"></span></i>ePlaza Market
                         </a>
-                        <div href="Profile.php" class="iconcontainerOption">
-                        <i class="fa-solid fa-bag-shopping"></i>Articles Eplaza
+                        <div href="Profile.php" class="iconcontainerOption"onclick="MoreEplazaArticlesHomPage()">
+                        <i class="fa-solid fa-bag-shopping"></i>Articles eplaza
                         </div>
-                        <div class="iconcontainerOption" onclick="AlbumPhotoHomPage()">
+                        <div class="iconcontainerOption" y="<?php echo encrypt($my_id,$key) ?>" onclick="AlbumPhotoHomPage(event)">
                             <i class="fas fa-images"></i> Galerie
                       </div>
                       <div class="iconcontainerOption" onclick="NiandaChat()">
@@ -183,9 +241,9 @@ if(($detail_user['ver_profile'] == 0))
               <div class="menuOptionBottom">
                 <div class="optionMenuHome" y="<?php echo  encrypt($my_id,$key)?>" onclick="NewConversation(event)"><i class="fa-solid fa-message"></i>Nouvelle Conversation</div>
                 <div class="optionMenuHome"onclick="PostStory()"> <i class="fa-solid fa-circle-half-stroke"></i> Ajouter un statut</div>
-                <div class="optionMenuHome"onclick="ProfilEdite()"><i class="fa-solid fa-user-gear"></i>Modifier Ton Profile</div>
-                <div class="optionMenuHome"onclick="CouvertureEdite()"><i class="fa-solid fa-user-gear"></i>Modifier Ta Couverture</div>
-                <div class="optionMenuHome" y="<?php echo  encrypt($my_id,$key)?>"onclick="CreatGroupe(event)"><i class="fa-solid fa-user-group"></i>Creer Un Groupe</div>
+                <div class="optionMenuHome"onclick="ProfilEdite()"><i class="fa-solid fa-user-gear"></i>Editer photo de Profile</div>
+                <div class="optionMenuHome"onclick="CouvertureEdite()"><i class="fa-solid fa-user-gear"></i>Editer photo de Couverture</div>
+                <div class="optionMenuHome" y="<?php echo  encrypt($my_id,$key)?>"onclick="CreatGroupe(event)"><i class="fa-solid fa-user-group"></i>Créer un groupe</div>
                 <div class="optionMenuHome" onclick="Suivies(event)" y="<?php global $my_id; echo encrypt($my_id,$key) ?>"><i class="fa-solid fa-user"></i>Afficher Mes suivis </div>
               </div>
             </div>
@@ -225,9 +283,32 @@ if(($detail_user['ver_profile'] == 0))
           <div class="swiper-wrapper menuDroiteAll">
             <div class="swiper-slide droiteSession">
               <div class="headerSesionRight">
-              <div class="divText"><span>Besoin d'une Maison a vendre  ?</span><span onclick="MoreEplazaArticlesHomPage()">plus <i class="fa-solid fa-caret-down"></i></span></div>
+              <div class="divText"><span>suggestion pour vous</span><span onclick="MoreEplazaArticlesHomPage()">voir Articles <i class="fa-solid fa-caret-down"></i></span></div>
                   <div class="eplazaPromotion">
-                    
+                  <div class="swiper mySwiper eplazaProposition">
+                      <div class="swiper-wrapper">
+                        <?php
+                          $PropositionBoutique = PropositionBoutiques();
+                          if($PropositionBoutique)
+                          {
+                            foreach($PropositionBoutique as $dataBoutique)
+                            {
+                                include("PromotionEplaza.php");
+                            }
+                          }else{
+
+                            echo '<div class="swiper-slide">
+                          <div class="headerTopEplazaMarket"></div>
+                          <div class="bottomePlazaMarket promotioEplaza">
+                            <button>Sabonner</button>
+                          </div>
+                        </div>';
+                          }
+                        ?>
+
+                      </div>
+                      <div class="swiper-pagination"></div>
+                    </div>
                   </div>
                 <div class="menuRight">
                   <div class="Amis menuOptionRight active"onclick="OptionDroiteHeader(event)"id="invitationDroite">
@@ -358,25 +439,22 @@ if(($detail_user['ver_profile'] == 0))
             <h3>Messages<i class="fa-solid fa-message"></i></h3>
           </div>
           <div class="SearchMessage creationGroupe notification">
-            <i class="fa-solid fa-magnifying-glass"></i><input type="search" name="" id="" placeholder="Rechercher...">
+            <i class="fa-solid fa-magnifying-glass"></i><input type="search" name="" id="" placeholder="Rechercher..." oninput="RecherMessages(event)">
           </div>
                 <!-- conversation here -->
                 <div class="dataConversationsAll">
-              <div class="mereAnimationclique"><span style="color:var(--color-text)">Encours...</span><div class="loading interd" style="border: 3px solid var(--color-blanche-2);border-top:3px solid var(--color-primary)"></div></div>
+                <div class="mereAnimationclique"><div class="loading interd" style="border: 3px solid var(--color-blanche-2);border-top:3px solid var(--color-primary);width: 40px;height:40px"></div></div>
               </div>
         </div>
         <!-- Notification -->
         <div class="swiper-slide">
           <div class="swiper-slide notif">
-            <div class="textCenteNotification">
+            <div class="textCenteNotification groupe">
               <div class="returnBtn"onclick="HommePrinciplae()"><i class="fa-solid fa-arrow-left"></i> Retourner</div>
               <h3>Notifications <i class="fa-solid fa-bell"></i></h3>
             </div>
-            <div class="SearchMessage creationGroupe notification">
-              <i class="fa-solid fa-magnifying-glass"></i><input type="search" name="" id="" placeholder="Rechercher...">
-            </div>
               <!-- Notifications here -->
-              <div class="dataNotificationAll">
+              <div class="dataNotificationAll NotificationSide">
               <div class="mereAnimationclique"><span style="color:var(--color-text)">Encours...</span><div class="loading interd" style="border: 3px solid var(--color-blanche-2);border-top:3px solid var(--color-primary)"></div></div>
               </div>
           </div>
@@ -407,29 +485,11 @@ if(($detail_user['ver_profile'] == 0))
           </div>
            <!-- AlbumPhoto -->
            <div class="swiper-slide">
-            <div class="headerFriends">
-              <div class="photoOwnerConnected"></div>
-              <div class="nameOwnerConnected">
-                <h3>Jean-luc kashindi</h3>
-                <span>inetrese pas les Hommes</span>
+              <div class="dataInfosHomepage">
+                <?php
+                include('userInfoFaux.php');
+                  ?>
               </div>
-              <div class="menuOptionsProfile">
-                <span> <i class="fa-solid fa-users"></i>Amis</span>
-                <span><i class="fa-solid fa-message"></i>message</span>
-              </div>
-              <div class="otherDetailUser">
-                <div><span><i class="fa-solid fa-user-shield"></i></span> <span>Il (elle) NewaRnaute il a y 3j</span></div>
-                <div><span><i class="fa-solid fa-heart"></i></span> <span>En couple</span></div>
-                <div><span><i class="fa-solid fa-face-kiss-wink-heart"></i></span> <span> musique Afro Burundais</span></div>
-                <div><span><i class="fa-solid fa-phone"></i></span> <span>+257 94839830</span></div>
-                <div><span><i class="fa-solid fa-square-caret-down"></i></span> <span>Detail sur Jean-luc...</span></div>
-              </div>
-              <!-- <div class="settignsUser">
-              <div class="icons"></div>
-              <div class="details"></div>
-             </div> -->
-
-            </div>
           </div>
            <div class="swiper-slide">
            <div class="tittreAlbum"><h2>Album photo NewaRnet</h2> </div>
@@ -470,9 +530,9 @@ if(($detail_user['ver_profile'] == 0))
       </main>
       <!-- fint_main -->
 </div>
+  <script src="../Javascripts/actionLoadingHome.js"></script>
     <script src="../Javascripts/refusActions.js"></script>
     <script src="../JQuery/funtionsLoading.js"></script>
-    <script src="../Javascripts/actionLoadingHome.js"></script>
     <script src="../Javascripts/loadingPage.js"></script>
     <script src="../Javascripts/stylepage.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -480,6 +540,7 @@ if(($detail_user['ver_profile'] == 0))
     <script src="../Javascripts/fonctionsAccueil.js"></script>
     <script src="../Javascripts/HomeStructure.js"></script>
     <script src="../Ajax_Functions/functionAjax.js"></script>
+    <script src="../JqueryChargement/accueil.js"></script>
     <script>
      var swiper = new Swiper(".swiper.mySwiper.MenuHome", {
         allowSlideNext: false,
@@ -502,8 +563,8 @@ if(($detail_user['ver_profile'] == 0))
      
     });
     
-    var swiper = new Swiper(".partiePropositionEplazacarte.mySwiper", {
-      slidesPerView: 1,
+    var swiper = new Swiper(".eplazaProposition.mySwiper", {
+      slidesPerView: 3,
       spaceBetween: 5,
       freeMode: true,
       pagination: {
@@ -520,6 +581,7 @@ if(($detail_user['ver_profile'] == 0))
         dynamicBullets: true,
       },
     });
+
   </script>
   </body>
 </html>

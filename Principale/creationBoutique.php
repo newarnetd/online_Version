@@ -25,24 +25,24 @@ if ($_SERVER['REQUEST_METHOD'] === "POST")
              move_uploaded_file($_FILES['image']['tmp_name'], $myimage);
              $image_class->resize_image($myimage,$myimage,512,512);
              $imageposted = true;
-         }
-     }else{
-         echo"Sélectionner une image";
-     }
-     if($imageposted){
-        global $my_id;
-        $image = encrypt($myimage,$key);
-        $boutiqueId = encrypt(create_userid(),$key);
-        $nom = encrypt(nettoyerDonnee(ucfirst($_POST['nomBoutique'])),$key);
-        $type = encrypt(nettoyerDonnee($_POST['type']),$key);
-        $date = encrypt(date("Y-m-d H:i:s"),$key);
-        $query = "INSERT INTO boutique (boutiqueId,ownerid,nom,type,date,profile) value(?,?,?,?,?,?)";
-        $data = $DB->save($query,[$boutiqueId,$my_id,$nom,$type,$date,$image]);
-        if($data)
-        {
-            echo "true";
+            }
+        }else{
+            echo"Sélectionner une image";
         }
-     }
+        if($imageposted){
+            global $my_id;
+            $image = encrypt($myimage,$key);
+            $boutiqueId = encrypt(create_userid(),$key);
+            $nom = encrypt(nettoyerDonnee(ucfirst($_POST['nomBoutique'])),$key);
+            $type = encrypt(nettoyerDonnee($_POST['type']),$key);
+            $date = encrypt(date("Y-m-d H:i:s"),$key);
+            $query = "INSERT INTO boutique (boutiqueId,ownerid,nom,type,date,profile) value(?,?,?,?,?,?)";
+            $data = $DB->save($query,[$boutiqueId,$my_id,$nom,$type,$date,$image]);
+            if($data)
+            {
+                echo "true";
+            }
+        }
 
     }else{
         echo"vous etes autorise a avoir uniqument une seule boutique pour l'instant pas plusier";

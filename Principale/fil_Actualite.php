@@ -1,6 +1,8 @@
                 <div class="swiper-slide">
                       <!-- poste -->
-                   <div class="PostesOnecoucher"></div>
+                   <div class="PostesOnecoucher">
+                   <div class="mereAnimationclique" style="margin:10px"><div class="loading interd" style="border: 3px solid var(--color-blanche-1);border-top:3px solid var(--color-primary);width: 40px;height:40px"></div></div>
+                   </div>
                       <!-- Propostion_modification -->
                       <?php
 global $my_id;
@@ -67,6 +69,8 @@ $personneTrouvee = false;
 ob_start();
 if ($result && count($result) > 0) {
     ?>
+
+  
     <div class="textEplaza">
       <?php 
       global $key;
@@ -109,7 +113,11 @@ if ($personneTrouvee) {
     echo $output;
 }
 ?>
-
+ <!-- poste -->
+ <div class="PostesOnecoucherduex">
+      <div class="mereAnimationclique" style="margin:10px"><div class="loading interd" style="border: 3px solid var(--color-blanche-1);border-top:3px solid var(--color-primary);width: 40px;height:40px"></div></div>
+</div>
+<!-- Propostion_modification -->
                     <!-- suggestion PhotoUsers -->
                    <div class="swiper mySwiper other onlyScroll">
                       <div class="divText"><span>Suggestions pour vous</span><span  y="<?php global $my_id; echo encrypt($my_id,$key) ?>" onclick="MoreFriends(event)">Voir plus <i class="fa-solid fa-caret-down"></i></span></div>
@@ -156,12 +164,41 @@ if ($personneTrouvee) {
                         ?>
                      </div>
                    </div>
+ <!-- poste -->
+ <div class="PostesOnecouchertrois">
+      <div class="mereAnimationclique" style="margin:10px"><div class="loading interd" style="border: 3px solid var(--color-blanche-1);border-top:3px solid var(--color-primary);width: 40px;height:40px"></div></div>
+</div>
+<!-- Propostion_modification -->
                    <div class="textEplaza">ePlaza est un lieu virtuel de promotion des produits avec une large diffusion dans l'écosystème NewaRnet</div>
                    <div class="swiper mySwiper other onlyScroll cartePage propositions">
                      <div class="swiper-wrapper">
-                         <!-- Eplaza here -->
+                     <?php
+                     global $my_id;
+                      $dataEplza =  eplazaMarket($my_id);
+                      if($dataEplza)
+                      {
+                        foreach($dataEplza as $ROW)
+                        {
+                            $USERS_ROW = $user->get_user($ROW['owner']);
+                            $nom_decrypte = decrypt($USERS_ROW['nom'], $key);
+                            $prenom_decrypte = decrypt($USERS_ROW['prenom'], $key);
+                            $vues = $ROW['vues'];
+                            $profile = ($USERS_ROW['ver_profile'] !== 0) ? decrypt($USERS_ROW['profile'],$key) : ($sexe === "Femme" ? '../images/femme.jpg' : '../images/homme.jpg');
+                            $image = $ROW['image'];
+                            $vues = $ROW['vues'];
+                            $nomArticle = ucfirst($ROW['nom']);
+                            $nom_owner = decrypt($USERS_ROW['nom'],$key);
+                          include("Int_Eplaza_home.php");
+                        }
+                      }
+                      ?>
                    </div>
                    </div>
+                    <!-- poste -->
+ <div class="PostesOnecoucherquatrieme">
+      <div class="mereAnimationclique" style="margin:10px"><div class="loading interd" style="border: 3px solid var(--color-blanche-1);border-top:3px solid var(--color-primary);width: 40px;height:40px"></div></div>
+</div>
+<!-- Propostion_modification -->
                  </div>
                  <!-- videosHome -->
                  <div class="swiper-slide">
@@ -181,15 +218,14 @@ if ($personneTrouvee) {
                            </div>
                            <div class="swiper-slide">
                              <div class="carterPostSatut">
-                               <div class="headerSatatus">
-                                 <div class="" onclick="BackSatutus()"><i class="fa-solid fa-arrow-left"></i></div>
-                                 <div class="carterUsermessage">
-                                   <img class="userphoto statut" src="../images/785054-ecommerce-istock-020119-removebg-preview.png" alt=""></div>
-                                 <div class="nameUserconversation">
-                                     <h3>Jean-luc kashindihj</h3>
-                                     <p>12 vues</p>
-                                 </div>
-                               </div>
+                             <div class="headerSatatus">
+                                <div class="carterUsermessage"></div>
+                                <div class="nameUserconversation">
+                                  <h3 style="background:var(--color-blanche-1);width:200px;border-radius:10px;height:12px;margin-bottom:5px"></h3>
+                                  <h3 style="background:var(--color-blanche-1);width:120px;border-radius:10px;height:12px"></h3>
+                                </div>
+                             </div>
+                             <div class="mereAnimationclique" style="margin-top:30px"><div class="loading interd" style="border: 3px solid var(--color-blanche-2);border-top:3px solid var(--color-primary);width: 40px;height:40px"></div></div>
                              </div>
                            </div>
                          </div>
@@ -237,7 +273,7 @@ if ($personneTrouvee) {
                                <div class="swiper-slide">
                                <label for="documents" id="documentDisplay" class="carterPostStory poste">
                                  <i class="fa-solid fa-file-pdf"></i>
-                                 <p>Cliquez pour sélectionner une Document</p>
+                                 <p>Cliquez pour sélectionner un Document</p>
                                </label>
                              </div>
                            </div>

@@ -1,3 +1,5 @@
-document.addEventListener('DOMContentLoaded',() => {
+$(document).ready(function() {
   LecturesPoste();
+  LecturesPosteCouche2();
+  LecturesPosteCouche3();
 });

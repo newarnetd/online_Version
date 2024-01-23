@@ -17,6 +17,8 @@ if(($detail_user['ver_profile'] == 0))
     <link rel="stylesheet" href="../Styles/message.css">
     <link rel="stylesheet" href="../Styles/eplaza.css">
     <link rel="stylesheet" href="../Styles/Profile.css">
+    <link rel="stylesheet" href="../mobile_style/accueil.css">
+    <link rel="stylesheet" href="../mobile_style/style_messagePage.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="../Styles/message.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
@@ -24,20 +26,122 @@ if(($detail_user['ver_profile'] == 0))
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
     <link rel="manifest" href="../favicon_io/site.webmanifest">
     <title>NewaRnet</title>
-  <style>
-  .menuOptionBouton{
-    position:absolute;
-    right:20px;
-    font-size:20px;
-  }
-  .menuOptionBouton.first{
-    right:100px;
-  }
-.ReferencePage .topSesion{
-  position:relative;
-  display:flex;align-items:center;
+    <style>
+        .Message .messageContextText.image img,.Message .messageContextText.image  video,
+.FriendMessage  .messageContextText.image img, .FriendMessage  .messageContextText.image video{
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-  </style>
+        .textDefautMessage{
+            width:100%;display:flex;
+            align-items:center;
+            justify-content:center;margin-top:100px;
+        }
+        .ChoixAttachement{
+            position:fixed;
+            top:10%;
+            width:65%;
+            background:rgba(255,255,255,.2);
+            height:75%;
+            z-index:100000;
+            display:none;
+        }
+        
+        
+        .contentAttachement{
+            width:50%;
+            margin:10px auto;
+            height:85%;
+            border-radius:5px;
+            background:#BDBDBD;
+            
+            
+        }
+        .swiper-wrapper.Filles .swiper-slide{
+            background:#BDBDBD;
+            cursor:pointer;
+            width:100%;
+            height:100%;
+            display:flex;align-items:center;
+            justify-content:center;
+            border-radius:5px;
+            color:#414141;
+        }
+        label i{
+            font-size:120px;
+            color:#414141;
+        }
+        label div,label span,label p{
+            color:#414141;
+        }
+        .swiper.mySwiper.Filles label img, .swiper.mySwiper.Filles label video{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+        label{
+            color:#414141;
+            display:flex;
+            flex-direction:column;
+            gap:10px;
+            width:100%;height:100%;
+            justify-content:center;
+            align-items:center;
+        }
+        .swiper.mySwiper.Filles,
+.swiper-wrapper.Filles {
+    width: 100%;
+    background:#BDBDBD;
+    border-radius: 5px;
+    height: 100%;
+
+}
+
+
+
+        .menuHomeChoix .optionHome, .menuHomeChoix i{
+            color:#FFF;
+        }
+        .menuHomeChoix{
+            background :var(--color-primary);
+            color:#FFF;
+            height:70px !important;
+            border-radius:5px 5px 0 0;
+            margin:0;
+
+        }
+        .NiandaSession{
+            position:fixed;
+            top:10%;right:0%;
+            width:30%;
+            background:var(--color-blanche-1);
+            height:75%;
+            display:none;
+        }
+        .swiper.mySwiper.OptionMenus .swiper-slide{
+            flex-direction:column;
+            display:flex;
+        }
+        .ContentOptioption,.swiper.mySwiper.OptionMenus, .swiper.mySwiper.OptionMenus .swiper-wrapper,.swiper.mySwiper.OptionMenus .swiper-slide{
+            width:100%;
+            height:100%;
+            position:relative;
+        }
+        .menuOptionBouton .fa-solid.fa-xmark{
+            display:none;
+        }
+        .bottomCreationNianda{
+position: fixed;
+bottom: 0%;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+
+}
+    </style>
 </head>
 <body>
     <div class="ReferencePage">
@@ -50,6 +154,12 @@ if(($detail_user['ver_profile'] == 0))
                     <i class="fa-solid fa-arrow-left"></i>
                 </div>
                 <div class="rightIcons">
+                    <a href="accueil.php" class="iconsHeader">
+                            <i class="fa-solid fa-home"></i>
+                    </a>
+                    <div class="iconsHeader"onclick="GroupeFunction()">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
                     <div class="iconsHeader"onclick="GroupeFunction()">
                         <i class="fa-solid fa-users"></i>
                     </div>
@@ -86,7 +196,7 @@ if(($detail_user['ver_profile'] == 0))
                    <!-- rechercher -->
                    <div class="swiper-slide">
                     <div class="leftnav"> 
-                        <i class="fa-solid fa-magnifying-glass"></i><input type="search" name=""id=""placeholder="Rechercher un NewaRnaute..." oninput="RecherCherNewaRnaute(event)">
+                        <i class="fa-solid fa-magnifying-glass"></i><input type="search" name=""id=""placeholder="Rechercher un dernier Message ou un par Nom..." oninput="RecherMessages(event)">
                     </div>
                       <div class="dataSerChMessageAnUsers"></div>
                    </div>
@@ -108,139 +218,236 @@ if(($detail_user['ver_profile'] == 0))
             </div>
         </div>
         <div class="droite">
-            <div class="topSesion">
-            <?php
-if (isset($_GET['x'], $_GET['y'])) {
-    global $key, $user;
+           <div class="topSesionSideMessage">
+                <div class="ContentTopSessionMessage">
+                <?php
+    if (isset($_GET['x'], $_GET['y'])) {
+        global $key, $user;
 
-    $type = nettoyerDonnee(base64_decode($_GET['y']));
-
-    if ($type == "message") {
-        $data = nettoyerDonnee(base64_decode($_GET['x']));
-        $verifi = $user->get_user($data);
-
-        if ($verifi) {
-            $nom_comple_recever = decrypt($verifi['nom'], $key) . ' ' . decrypt($verifi['prenom'], $key);
-            $my_sexe_recever = decrypt($verifi['sexe'], $key);
-            $profile_recever = ($verifi['ver_profile'] !== 0) ? decrypt($verifi['profile'], $key) : ($my_sexe === "Femme" ? "../images/femme.jpg" : "images/homme.jpg");
-            $online = $verifi['enligne'];
+        $type = nettoyerDonnee(base64_decode($_GET['y']));
+        if ($type == "message") {
+            $data = nettoyerDonnee(base64_decode($_GET['x']));
+            $verifi = $user->get_user($data);
+            $query = "UPDATE message set seen = ? WHERE (owner = ?  AND userid = ?) OR (owner = ?  AND userid = ?) ";
+            $data = $DB->save($query, [1, $data, $my_id,$my_id,$data]); 
+            if ($verifi) {
+                $nom_comple_recever = decrypt($verifi['nom'], $key) . ' ' . decrypt($verifi['prenom'], $key);
+                $my_sexe_recever = decrypt($verifi['sexe'], $key);
+                $profile_recever = ($verifi['ver_profile'] !== 0) ? decrypt($verifi['profile'], $key) : ($my_sexe === "Femme" ? "../images/femme.jpg" : "images/homme.jpg");
+                $online = $verifi['enligne'];
+            }
+        } elseif ($type == "groupe") {
+            $data = nettoyerDonnee(base64_decode($_GET['x']));
+            $verifi = detailGroupe($data);
+            $query = "UPDATE groupeseen set seen = ? WHERE (groupeId = ? AND userid = ?) ";
+            $data = $DB->save($query, [1, $data, $my_id]); 
+            if ($verifi) {
+                $nom = decrypt($verifi['nom'], $key);
+                $nom_comple_recever = ucfirst($nom);
+                $membres = json_decode($verifi['membres'], true);
+                $NumberMembres = count($membres);
+                $profile_recever = decrypt($verifi['profil'], $key);
+            }
+        }else {
+            exit;
         }
-    } elseif ($type == "groupe") {
-        $data = nettoyerDonnee(base64_decode($_GET['x']));
-        $verifi = detailGriupe($data);
-
-        if ($verifi) {
-            $nom = decrypt($verifi['nom'], $key);
-            $nom_comple_recever = ucfirst($nom);
-            $membres = json_decode($verifi['membres'], true);
-            $NumberMembres = count($membres);
-            $profile_recever = decrypt($verifi['profil'], $key);
-        }
-    }else {
-        exit;
     }
+    ?>
+
+
+        <div class="carterUsermessage"><img class="userphoto" src="<?php echo $profile_recever ?>" alt=""></div>
+        <div class="nameUserMessage">
+          <h3 style="font-weight:500"><?php echo ($type == "message") ? $nom_comple_recever : $nom_comple_recever; ?></h3>
+          <p class="EncoursAction"><?php echo ($type == "message") ? TempsEcouler($online) : "Vous et " . $NumberMembres . " personnes"; ?></p>
+        </div> 
+        <div class="menuOptionBouton">
+            <i class="fa-solid fa-bars"onclick="MenuMessage(event)"></i>
+            <i class="fa-solid fa-xmark"onclick="MenuMessageCancel(event)"></i>
+        </div>
+            </div>
+           </div>
+           <div class="chatsContent">
+                <div class="textDefautMessage">En cours de chargement...</div>
+           </div>
+           <div class="NiandaSession">
+                    <div class="ContentOptioption">
+                    <div class="swiper mySwiper OptionMenus">
+                        <div class="swiper-wrapper menuOptionMessage">
+                        <div class="swiper-slide">
+                            <div class="optionUserMenu">
+                            <div class="menuSettigns" onclick="SessionChatNianda()">
+                                <i class="fa-solid fa-robot"></i>Assistence avec Nianda
+                            </div>
+                            <div class="menuSettigns" onclick="GestionMembresDuGroupe()">
+                                <i class="fa-solid fa-users"></i>Membres du Groupe
+                            </div>
+                            <div class="menuSettigns" onclick="ModifierProfilGroupe()">
+                                <i class="fa-solid fa-cog"></i>parametre du Groupe
+                            </div>
+                            <div class="menuSettigns" onclick="AjouterNouvelUtilisateur()">
+                                <i class="fa-solid fa-user-plus"></i>Ajouter un Nouvel Utilisateur
+                            </div>
+
+                            <div class="menuSettigns" onclick="RetireMembre()">
+                            <i class="fa-solid fa-user-minus"></i> Retirer un Membre
+                            </div>
+                            <div class="menuSettigns" onclick="QuitterLeGroupe()">
+                                <i class="fa-solid fa-sign-out"></i>Quitter le Groupe
+                            </div>
+
+                            <div class="menuSettigns" onclick="SupprimerLeGroupe()">
+                                <i class="fa-solid fa-trash"></i>Supprimer le Groupe
+                            </div>
+
+                            </div>      
+                        </div>
+                        <!-- nianda -->
+                        <div class="swiper-slide">
+                            <div class="headerTittre" >
+                                <span><i class="fa-solid fa-arrow-left"onclick="HommePrinciplae()"></i></span>
+                                <span>Service d'assistance avec Nianda.</span>
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <div class="contentText"></div>
+                            <div class="contenuDataPrincipeNianda">
+                                    <div class="bottomCreationNianda" >
+                                        <div class="RecherchSpace">
+                                            <i class="fa-solid fa-robot"></i>
+                                            <i class="fa-solid fa-paper-plane"></i>
+                                            <input type="text" name="" id="" placeholder="Une question sur NewaRnet..." oninput="AddQuestion(event)">
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        <!-- paremtre Groupe -->
+                        <div class="swiper-slide">
+                            <div class="optionsUtilisateur">
+                            <div class="menuSettigns" onclick="gererMembresGroupe()">
+                                    <i class="fas fa-users"></i> Modifier le Nom du Groupe
+                                </div>
+                                <div class="menuSettigns" onclick="GestionAdminsDuGroupe()">
+                                    <i class="fa-solid fa-users-cog"></i>Gestion des Admins
+                                </div>
+                                <div class="menuSettigns" onclick="modifierProfilGroupe()">
+                                    <i class="fas fa-user-edit"></i> Modifier la Photo de Profil du Groupe
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                                    <label for="imagePost" id="imageDisplay">
+                                        <p><i class="fa-regular fa-image"></i></p>
+                                    </label>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="leftnav"> 
+                                <i class="fa-solid fa-magnifying-glass"></i><input type="search" name=""id=""placeholder="Rechercher un dernier Message ou un par Nom..." oninput="RecherMessages(event)">
+                            </div>
+                            <div class="conteneuramis">
+                            <div class="photoamis">
+                            <img src="../images/jobIcon.jpg"width="100%"height="100%"/>
+                            </div>
+                            <div class="nomamis">
+                            <h3>arsene cirhuza</h3>
+                            <p><small>86 Membres </small></p>
+                            </div>
+                            <div class="iconeamis"><input type="checkbox" name="" id="" onchange="ActionUser(event)"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            membres
+                        </div>
+                        <div class="swiper-slide">Slide 7</div>
+                        <div class="swiper-slide">Slide 8</div>
+                        <div class="swiper-slide">Slide 9</div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <!-- attachement --> 
+                <div class="ChoixAttachement">
+                        <div class="contentAttachement">
+                            <div class="menuHomeChoix">
+                                <div class="optionHome" onclick="slideTo(0)" id="actualite">photo<i class="fa-solid fa-image"></i></div>
+                                <div class="optionHome"onclick="slideTo(1)"id="videos">videos <i class="fa-solid fa-clapperboard"></i></div>
+                                <div class="optionHome"onclick="slideTo(2)" id="Statut">document<i class="fa-solid fa-file-pdf"></i></div>
+                            </div>
+                            <div class="swiper mySwiper Filles">
+                                <div class="swiper-wrapper Filles">
+                                <div class="swiper-slide">
+                                    <label for="imagePost" id="imageDisplay">
+                                        <p><i class="fa-regular fa-image"></i></p>
+                                    </label>
+                                </div>
+                                <div class="swiper-slide">
+                                    <label for="videomessage" id="videoDisplay">
+                                    <i class="fa-solid fa-clapperboard"></i>
+                                    </label>
+                                </div>
+                                <div class="swiper-slide">
+                                    <label for="documents" id="documentDisplay">
+                                        <i class="fa-solid fa-file-pdf"></i>
+                                    </label>
+                                </div>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                </div>
+                <!-- attachement -->
+           <div class="bottomMessageSide">
+           <form class="bottomSession" method="POST" id="MessageSend">
+    <input type="file" name="image" id="imagePost" hidden accept="image/*" onchange="updateLabelAndDisplayMessage(this,event, 'imageDisplay')">
+    <input type="file" name="video" id="videomessage" hidden accept="video/*" onchange="updateLabelAndDisplayMessage(this,event, 'videoDisplay')">
+    <input type="file" name="document" id="documents" hidden accept=".pdf, .doc, .docx, .xls, .xlsx, .csv, .txt, .rtf," onchange="updateLabelAndDisplayMessage(this, event, 'documentDisplay')">
+<?php
+$type = nettoyerDonnee(base64_decode($_GET['y']));
+if (isset($_GET['x'])) {
+    global $key, $user;
+    if ($type == "message") {
+      $data = nettoyerDonnee(base64_decode($_GET['x']));
+    if ($user->get_user($data)) {
+      $id = nettoyerDonnee(base64_decode($_GET['x']));
+      $id = encrypt($id,$key);
+        echo "<input type='text' id='recepteur' name='u' value='$id' hidden>";
+    }
+  } elseif ($type == "groupe") {
+    $data = decrypt($_GET['x'], $key);
+    $data = nettoyerDonnee(base64_decode($_GET['x']));
+    $verifi = detailGroupe($data);
+    $id = nettoyerDonnee(base64_decode($_GET['x']));
+    $id = encrypt($id,$key);
+    echo "<input type='text' id='recepteur' name='u' value='$id' hidden>";
+  }else {
+    exit;
+}
 }
 ?>
 
 
-                <div class="carterUsermessage"><img class="userphoto" src="<?php echo $profile_recever ?>" alt=""></div>
-                <div class="nameUserMessage">
-                <h3 style="font-weight:500"><?php echo ($type == "message") ? $nom_comple_recever : $nom_comple_recever; ?></h3>
-                <p class="EncoursAction"><?php echo ($type == "message") ? TempsEcouler($online) : "Vous et " . $NumberMembres . " personnes"; ?></p>
-                </div> 
-              <div class="menuOptionBouton first"><i class="fa-solid fa-users"></i></div>
-              <div class="menuOptionBouton"><i class="fa-solid fa-bars"></i></div>
-            </div>
-            <!-- Debut messages -->
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper DroiteSide">
-                <div class="middleSesion swiper-slide">
-                    <!-- messages_conversations -->
-                    <div class="chatConversationUsers"></div>
-                </div>
-                <div class="middleSesion swiper-slide Fil" >
-                  <div class="menuHomeChoix">
-                    <div class="optionHome active" onclick="PosteFileMessagePage(event)" id="image">Photo<i class="fa-solid fa-image"></i></div>
-                    <div class="optionHome"onclick="PosteFileMessagePage(event)"id="videos">videos <i class="fa-solid fa-clapperboard"></i></div>
-                    <div class="optionHome"onclick="PosteFileMessagePage(event)" id="document">Document<i class="fa-solid fa-file-pdf"></i></div>
-                  </div>
-                  <div class="swiper mySwiper">
-                    <div class="swiper-wrapper menuFil">
-                        <div class="swiper-slide">
-                        <label for="imagePost" id="imageDisplay" class="carterPostStory poste">
-                            <i class="fa-solid fa-image"></i>
-                            <p>Cliquez pour sélectionner une image</p>
-                          </label>
-                        </div>
-                          <div class="swiper-slide">
-                          <label for="videomessage" id="videoDisplay" class="carterPostStory poste">
-                            <i class="fa-solid fa-clapperboard"></i>
-                            <p>Cliquez pour sélectionner une video</p>
-                          </label>
-                        </div>
-                          <div class="swiper-slide">
-                          <label for="documents" id="documentDisplay" class="carterPostStory poste">
-                            <i class="fa-solid fa-file-pdf"></i>
-                            <p>Cliquez pour sélectionner une Document</p>
-                          </label>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            </div>
+    <div class="messagecontent">
+      <div class="chempsDesaisi">
+          <div id="InputFile" class="inputLeft" onclick="hideInputFile()"><i class="fa-solid fa-paperclip"></i></div>
+          <div class="inputLeft back" onclick="showInputFile()"><i class="fa-solid fa-arrow-left"></i></div>
+          <input type="text" name="message"id="messageInpt"placeholder="Message..." oninput="ChampVerifiction(event)">
+      </div>
+      <div class="iconsDroite">
+         <?php
+          $type = nettoyerDonnee(base64_decode($_GET['y']));
+
+          echo ($type === "groupe")
+              ? "<div class='iconsHeader sendsMessage' onclick='GrouepSend(event)'><i class='fa-solid fa-arrow-up'></i></div>"
+              : (($type === "message")
+                  ? "<div class='iconsHeader sendsMessage' onclick='MessageSend(event)'><i class='fa-solid fa-arrow-up'></i></div>"
+                  : exit);
+                                 
+         ?>
+          <div class="iconsHeader chatBot"onclick="SessionChatNianda()">
+              <i class="fa-solid fa-robot"></i>
+          </div>
+      </div>
+</form>
+           </div>
             <!-- Fin messages -->
-            <form class="bottomSession" method="POST" id="MessageSend">
-                  <input type="file" name="image" id="imagePost" hidden accept="image/*" onchange="updateLabelAndDisplayMessage(this,event, 'imageDisplay')">
-                  <input type="file" name="video" id="videomessage" hidden accept="video/*" onchange="updateLabelAndDisplayMessage(this,event, 'videoDisplay')">
-                  <input type="file" name="document" id="documents" hidden accept=".pdf, .doc, .docx, .xls, .xlsx, .csv, .txt, .rtf," onchange="updateLabelAndDisplayMessage(this, event, 'documentDisplay')">
-              <?php
-              if (isset($_GET['x'])) {
-                  global $key, $user;
-                  if ($type == "message") {
-                  $data = decrypt($_GET['x'], $key);
-                  if ($user->get_user($data)) {
-                    $id = decrypt($_GET['x'],$key);
-                      echo "<input type='text' id='recepteur' name='u' value='$id' hidden>";
-                  }
-                } elseif ($type == "groupe") {
-                  $data = decrypt($_GET['x'], $key);
-                  $data = nettoyerDonnee(base64_decode($_GET['x']));
-                  $verifi = detailGriupe($data);
-                  if ($user->get_user($data)) {
-                    $id = decrypt($_GET['x'],$key);
-                      echo "<input type='text' id='recepteur' name='u' value='$id' hidden>";
-                  }
-                }else {
-                  exit;
-              }
-              }
-              ?>
-
-
-                  <div class="messagecontent">
-                    <div class="chempsDesaisi">
-                        <div id="InputFile" class="inputLeft" onclick="hideInputFile()"><i class="fa-solid fa-paperclip"></i></div>
-                        <div class="inputLeft back" onclick="showInputFile()"><i class="fa-solid fa-arrow-left"></i></div>
-                        <input type="text" name="message"id=""placeholder="Message..." oninput="ChampVerifiction(event)">
-                    </div>
-                    <div class="iconsDroite">
-                       <?php
-                        $type = nettoyerDonnee(base64_decode($_GET['y']));
-
-                        echo ($type === "groupe")
-                            ? "<div class='iconsHeader sendsMessage' onclick='GrouepSend(event)'><i class='fa-arrow-up'></i></div>"
-                            : (($type === "message")
-                                ? "<div class='iconsHeader sendsMessage' onclick='MessageSend(event)'><i class='fa-solid fa-arrow-up'></i></div>"
-                                : exit);
-                                               
-                       ?>
-                        <div class="iconsHeader chatBot">
-                            <i class="fa-solid fa-robot"></i>
-                        </div>
-                    </div>
-            </form>
-            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -256,13 +463,14 @@ if (isset($_GET['x'], $_GET['y'])) {
     <script src="../Javascripts/HomeStructure.js"></script>
     <script src="../Ajax_Functions/functionAjax.js"></script>
     <script>
+         
         var swiper = new Swiper(".swiper.mySwiper.MenuHome", {
       allowSlideNext: false,
       allowSlidePrev: false,
       allowTouchMove: false,
     });
             var swiper = new Swiper(".mySwiper.other", {
-          slidesPerView: 4,
+          slidesPerView: 6,
           spaceBetween: 2,
           freeMode: true,
           pagination: {
@@ -270,102 +478,97 @@ if (isset($_GET['x'], $_GET['y'])) {
             clickable: true,
           },
         });
-        function ChampVerifiction(event)
-{
-    if(event.target.value.trim() !== '')
-    {
-        document.querySelector(".messagecontent .iconsDroite .sendsMessage").style.display= 'flex';
+let MereMenuSession = document.querySelector(".menuOptionMessage");
+function SessionChatNianda() {
+    MereMenuSession.style.transform = 'translateX(-100%)';
+}
 
-    }else{
-        document.querySelector(".messagecontent .iconsDroite .sendsMessage").style.display= 'none';
+
+function GestionMembresDuGroupe()
+{
+    MereMenuSession.style.transform = 'translateX(0%)';
+}
+function ModifierProfilGroupe()
+{
+    MereMenuSession.style.transform = 'translateX(-200%)';
+}
+function AjouterNouvelUtilisateur()
+{
+    MereMenuSession.style.transform = 'translateX(-400%)';
+}
+function RetireMembre()
+{
+    MereMenuSession.style.transform = 'translateX(-400%)';
+}
+function QuitterLeGroupe()
+{
+    MereMenuSession.style.transform = 'translateX(0%)';
+}
+function SupprimerLeGroupe()
+{
+    
+    MereMenuSession.style.transform = 'translateX(0%)';
+}
+    function MenuMessage(event) {
+    let mere = event.currentTarget;
+    let menuBare = document.querySelector(".fa-bars");
+    let menuCancel = document.querySelector(".fa-xmark");
+    document.querySelector(".NiandaSession").style.display = 'flex';
+    menuBare.style.display = 'none';
+    menuCancel.style.display = 'flex';
+}
+function MenuMessageCancel(event) {
+    let MereMenuSession = document.querySelector(".menuOptionMessage");
+    MereMenuSession.style.transform = 'translateX(0%)';
+    let mere = event.currentTarget;
+    let menuBare = document.querySelector(".fa-bars");
+    let menuCancel = document.querySelector(".fa-xmark");
+    document.querySelector(".NiandaSession").style.display = 'none';
+    menuBare.style.display = 'flex';
+    menuCancel.style.display = 'none';
+}
+
+function GrouepSend(event) {
+    let page = "sendMessageGroupe.php";
+    let form = document.querySelector("#MessageSend");
+    function callback(data) {
+        document.querySelector("#messageInpt").value = "";
+        document.querySelectorAll(".iconsHeader.sendsMessage").forEach(item => {
+            item.style.display = 'none';
+        });
+        document.querySelector(".ChoixAttachement").style.display = 'none';
+        let inputFileleft = document.querySelector(".inputLeft.back");
+        inputFileleft.style.display = 'none';
+        loadChatsGroupes();
+        loadConversationGroupes();
     }
+    functionAjax(page, form, callback);
 }
 function MessageSend(event)
 {
-  event.target.innerHTML = `<div class="mereAnimationclique"><div class="loading interd"></div></div>`;
   let page = "sendMessage.php";
   let form = document.querySelector("#MessageSend");
   function callback(data) 
   {
+    document.querySelector("#messageInpt").value = "";
+        document.querySelectorAll(".iconsHeader.sendsMessage").forEach(item => {
+            item.style.display = 'none';
+        });
+        document.querySelector(".ChoixAttachement").style.display = 'none';
+        let inputFileleft = document.querySelector(".inputLeft.back");
+        inputFileleft.style.display = 'none';
     loadChats();
+    loadConversation();
   }
   functionAjax(page, form, callback);
 }
-function updateLabelAndDisplayMessage(input, event, displayId) {
-  var fileInput = input;
-  var displayElement = document.getElementById(displayId);
-  displayElement.innerHTML = `<div class="mereAnimationclique"><span>Chargement..</span><div class="loading interd"></div></div>`;
-
-  if (fileInput.files && fileInput.files[0]) {
-    var reader = new FileReader();
-
-    reader.onload = function (e) {
-      if (displayId === 'videoDisplay') {
-        displayElement.innerHTML = '<video controls autoplay muted><source autoplay src="' + e.target.result + '" type="video/mp4"></video>';
-        document.querySelector(".messagecontent .iconsDroite .sendsMessage").style.display= 'flex';
-      } else if (displayId === 'documentDisplay') {
-        var file = fileInput.files[0];
-        var fileName = file.name;
-        var documentTitle = fileName.substr(0, fileName.lastIndexOf('.')) || fileName;
-        var fileSize = (file.size / 1024).toFixed(2);
-        var fileType = file.type || 'Non disponible';
-        displayElement.innerHTML = '<div class="document-title"> Nom du Fichier :' + documentTitle + '</div>' +
-          '<div class="document-info">Taille: ' + fileSize + ' KB</div>' +
-          '<div class="document-info">Type: ' + fileType + '</div>';
-          document.querySelector(".messagecontent .iconsDroite .sendsMessage").style.display= 'flex';
-      } else {
-        displayElement.innerHTML = '<img src="' + e.target.result + '">';
-        document.querySelector(".messagecontent .iconsDroite .sendsMessage").style.display= 'flex';
-        cliquedImage();
-      }
-      var boutonSend = document.querySelector('.InputDouble .containeurInputStyle.poste.publication');
-      if (boutonSend) {
-        boutonSend.style.display = 'flex';
-      }
-    };
-
-    reader.readAsDataURL(fileInput.files[0]);
-  }
-}
-
-function GroupeFunction()
-{
-    menuSwipper.style.transform = "TranslateX(-200%)";
-    leftIcon.style.display = 'flex';
-    leftIconSearch.style.display = 'none';
-    let value = ""
-    let page = "lectureMesGroupes.php";
-    function callback(data) 
-    {
-      document.querySelector(".dataGroupes").innerHTML = data;
-    }
-    sendValueAjax(page, value, callback);    
-}
-function searchFunction(event)
-{
-    event.currentTarget.style.display = 'none';
-    leftIcon.style.display = 'flex';
-    leftIconSearch.style.display = 'none';
-    menuSwipper.style.transform = "TranslateX(-100%)";
-    document.querySelector(".dataSerChMessageAnUsers").innerHTML = `<div class="mereAnimationclique"><div class="loading interd" style="border: 3px solid var(--color-blanche-2);border-top:3px solid var(--color-primary);width: 40px;height:40px"></div></div>`;
-    const page = "loadChats.php";
-    let value = "";
-    function callback(data) {
-      document.querySelector(".dataSerChMessageAnUsers").innerHTML = data;
-  }
-  sendValueAjax(page, value, callback);
-}
-function Conversation()
-{
-    menuSwipper.style.transform = "TranslateX(-300%)";
-    leftIcon.style.display = 'flex';
-    leftIconSearch.style.display = 'none';
-    const page = "readFriends.php";
-    let value = event.target.value;
-    function callback(data) {
-      document.querySelector(".dataConversationMessage").innerHTML = data;
-  }
-  sendValueAjax(page, value, callback);
+function verification(callback) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const value = urlParams.get('y');  
+    const page = "verificationGet.php";
+    sendValueAjax(page, value, function(data) {
+        callback(data);
+    });  
 }
 function loadChats()
 {
@@ -377,22 +580,101 @@ function loadChats()
   }
   sendValueAjax(page, value, callback);
 }
-function lectureMessagesChat() {
-  document.querySelector(".dataConversation").innerHTML = `<div class="mereAnimationclique"><div class="loading interd" style="border: 3px solid var(--color-blanche-2);border-top:3px solid var(--color-primary);width: 40px;height:40px"></div></div>`;
-  const page = "loadMessagesConversation.php";
+function loadChatsGroupes() {
+    const page = "loadChatsGroupes.php";
+            let value = document.querySelector("#recepteur").value;
+            sendValueAjax(page, value, function(data) {
+                document.querySelector(".dataConversation").innerHTML = data;
+            });
+}
+function loadConversationGroupes()
+{
+    const page = "loadMessagesConversationGroupe.php";
   let value = document.querySelector('input#recepteur').value; 
   function callback(data) {
-    document.querySelector(".middleSesion.swiper-slide .chatConversationUsers").innerHTML = data;
+    var chatsContent = document.querySelector(".chatsContent");
+    chatsContent.innerHTML = data;
+    chatsContent.scrollTop = chatsContent.scrollHeight;
+    var chatsContent = document.querySelector(".chatsContent");
+    chatsContent.innerHTML = data;
   }
 
   sendValueAjax(page, value, callback);
 }
+function loadConversation()
+{
+  const page = "loadMessagesConversation.php";
+  let value = document.querySelector('input#recepteur').value; 
+  function callback(data) {
+    var chatsContent = document.querySelector(".chatsContent");
+    chatsContent.innerHTML = data;
+    chatsContent.scrollTop = chatsContent.scrollHeight;
+    var chatsContent = document.querySelector(".chatsContent");
+    chatsContent.innerHTML = data;
+  }
 
+  sendValueAjax(page, value, callback);
+}
 $(document).ready(function(){
-        loadChats();
-        //lectureMessagesChat();
+    verification(function(verificationResult) {
+if(verificationResult == "groupe")
+{
+    loadChatsGroupes();
+    loadConversationGroupes();
+}else{
+    loadChats();
+    loadConversation();
+}
 });
-        </script>
-      </body>
-    </html>
+});
+var mySwiperMenu = new Swiper(".mySwiper.Filles", {
+    pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+    },
+});
+function slideTo(index) {
+    mySwiperMenu.slideTo(index);
+}
+var mySwiper= new Swiper(".mySwiper.OptionMenus", {
+    pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+    },
+});
+
+
+
+function hideInputFile() {
+    const inputFile = document.querySelector("#InputFile");
+    let inputFileleft = document.querySelector(".inputLeft.back");
+    inputFile.style.display = 'none';
+    inputFileleft.style.display = 'flex';
+    document.querySelector(".ChoixAttachement").style.display = 'flex';
+}
+
+function showInputFile() {
+    const inputFile = document.querySelector("#InputFile");
+    let inputFileleft = document.querySelector(".inputLeft.back");
+    inputFile.style.display = 'flex';
+    inputFileleft.style.display = 'none';
+    document.querySelector(".ChoixAttachement").style.display = 'none';
+}
+function AddQuestion(event) {
+    let container = event.currentTarget.closest('.bottomCreationNianda');
+    let iconSend = container.querySelector('.fa-solid.fa-paper-plane');
+    let robot = container.querySelector('.fa-solid.fa-robot');
+
+    if (event.target.value.trim() !== '') {
+        iconSend.style.display = 'flex';
+        robot.style.display = 'none';
+    } else {
+        iconSend.style.display = 'none';
+        robot.style.display = 'flex';
+    }
+}
+
+      </script>
+    </body>
+</html>
     

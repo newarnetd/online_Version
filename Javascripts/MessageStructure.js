@@ -2,20 +2,7 @@ const menuSwipper = document.querySelector(".swiper-wrapper.LeftSide");
 const menuSwipperDroit = document.querySelector(".swiper-wrapper.DroiteSide");
 const leftIcon = document.querySelector(".iconsHeader.Returnback");
 const leftIconSearch = document.querySelector(".iconsHeader.search");
-const inputFile = document.querySelector("#InputFile");
 const inputLeftBack = document.querySelector(".inputLeft.back");
-
-function hideInputFile() {
-    inputFile.style.display = 'none';
-    inputLeftBack.style.display = 'flex';
-    menuSwipperDroit.style.transform = "translateX(-100%)"; 
-}
-
-function showInputFile() {
-    inputFile.style.display = 'flex';
-    inputLeftBack.style.display = 'none';
-    menuSwipperDroit.style.transform = "translateX(0%)"; 
-}
 
 function PosteFileMessagePage(event)
 {
